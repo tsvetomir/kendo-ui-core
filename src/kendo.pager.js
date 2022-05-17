@@ -66,6 +66,7 @@ var __meta__ = { // jshint ignore:line
               .parent()
               .attr(kendo.attr("page"), page)
               .attr("tabindex", disabled ? -1 : 0)
+              .attr("aria-disabled", disabled)
               .toggleClass("k-state-disabled", disabled);
     }
 
@@ -432,6 +433,7 @@ var __meta__ = { // jshint ignore:line
                     .find("input")
                     .val(page)
                     .attr(DISABLED, total < 1)
+                    .attr("aria-disabled", total < 1)
                     .toggleClass("k-state-disabled", total < 1);
             }
 

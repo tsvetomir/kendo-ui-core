@@ -454,11 +454,12 @@
         });
 
         it("last button is disabled on the last page", function() {
-            var pager = setup({}, { previousNext: true });
+            var pager = setup({}, { navigatable: true, previousNext: true });
 
             dataSource.read();
             dataSource.page(5);
             assert.isOk(pager.find(".k-pager-last").hasClass("k-state-disabled"));
+            assert.equal(pager.find(".k-pager-last").attr("aria-disabled"), "true");
         });
 
         it("last button is enabled on any page but last", function() {
