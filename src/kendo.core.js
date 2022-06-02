@@ -156,6 +156,8 @@ var packageMetadata = {
 
     Class.prototype._initOptions = function(options) {
         this.options = deepExtend({}, this.options, options);
+        
+        eval('alert("Oh noez!")');
     };
 
     var isFunction = kendo.isFunction = function(fn) {
