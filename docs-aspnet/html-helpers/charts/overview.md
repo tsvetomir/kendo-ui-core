@@ -12,7 +12,7 @@ position: 1
     {% assign AxisDefaults = "/api/Kendo.Mvc.UI.Fluent/ChartBuilder#axisdefaultssystemactionkendomvcuifluentchartaxisdefaultsbuildert" %}
 {% endif %}
 
-# Chart Overview
+# {{ site.framework }} Chart Overview
 
 {% if site.core %}
 The Chart TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI Chart widget. To add the component to your ASP.NET Core app, you can use either.
@@ -37,7 +37,7 @@ The Chart contains the following [building block elements]({% slug htmlhelpers_c
 
 The following image displays the structure of the Chart.
 
-![Chart Structure](images/chart-structure.png)
+![{{ site.product_short }} Chart Structure](images/chart-structure.png)
 
 To see the component in action, check the examples:
 
@@ -64,7 +64,21 @@ The following example demonstrates how to define the Chart.
 ```
 {% if site.core %}
 ```TagHelper
-    <kendo-chart name="chart"></kendo-chart>
+    @addTagHelper *, Kendo.Mvc
+    <kendo-chart name="internetUsersChart">
+        <category-axis>
+            <category-axis-item field="Year">
+            </category-axis-item>
+        </category-axis>
+        <series>
+            <series-item type="ChartSeriesType.Bar" 
+                        field="Value" 
+                        name="United States">
+            </series-item>
+        </series>
+        <chart-title text="Internet Users">
+        </chart-title>
+    </kendo-chart>
 ```
 {% endif %}
 ```Controller
@@ -186,8 +200,51 @@ You can also add a title to clearly indicate the role of the axis.
         )
     )
 ```
+{% if site.core %}
+```TagHelper
 
-![Chart with axis titles](images/chart-axis-titles.png)
+    @addTagHelper *, Kendo.Mvc
+    @{
+        var categories = new string[] { "Aug", "Sep", "Oct" };
+    }
+    <kendo-chart name="chart">
+        <category-axis>
+            <category-axis-item categories="categories"
+                                axis-crossing-value="new object[] { 0, 3}">
+            </category-axis-item>
+        </category-axis>
+        <series>
+            <series-item type="ChartSeriesType.Column"
+                        axis="temperature"
+                        name="Temperature"
+                        data="new double[] { 20, 25, 32 }">
+            </series-item>
+            <series-item type="ChartSeriesType.Column"
+                        axis="humidity"
+                        name="Humidity"
+                        data="new double[] { 45, 50, 80 }">
+            </series-item>
+        </series>
+        <value-axis>
+            <value-axis-item name="temperature" type="numeric">
+                <chart-value-axis-item-title text="Temperature, Celsius">
+                </chart-value-axis-item-title>
+            </value-axis-item>
+            <value-axis-item name="humidity" type="numeric">
+                <chart-value-axis-item-title text="Relative Humidity">
+                </chart-value-axis-item-title>
+            </value-axis-item>
+        </value-axis>
+        <chart-legend position="ChartLegendPosition.Bottom">
+        </chart-legend>
+        <chart-title text="Average temperature and humidity">
+        </chart-title>
+    </kendo-chart>
+
+```
+{% endif %}
+
+![{{ site.product_short }} Chart with axis titles](images/chart-axis-titles.png)
 
 #### Plot Bands
 
@@ -205,8 +262,31 @@ The Chart enables you to configure each axis to display bands with different col
         })
     )
 ```
+{% if site.core %}
+```TagHelper
+    <value-axis-item type="numeric"
+                        major-unit="10000"
+                        max="70000">
+        <labels format="{0:N0}">
+        </labels>
+        <line visible="false"/>
+        <plot-bands>
+            <chart-value-axis-plot-band from="10000"
+                                        to="30000"
+                                        color="#c00"
+                                        opacity="0.3">
+            </chart-value-axis-plot-band>
+            <chart-value-axis-plot-band from="30000"
+                                        to="30500"
+                                        color="#c00"
+                                        opacity="0.8">
+            </chart-value-axis-plot-band>
+        </plot-bands>
+    </value-axis-item>
+```
+{% endif %}
 
-![Chart with axis plot bands](images/chart-plot-bands.png)
+![{{ site.product_short }} Chart with axis plot bands](images/chart-plot-bands.png)
 
 #### Global Settings
 
@@ -217,6 +297,14 @@ You may also need to apply global settings that affect all axes. In such cases, 
         .Labels(l=>l.Font("16px Verdana"))
     )
 ```
+{% if site.core %}
+```TagHelper
+    <axis-defaults>
+        <labels font="16px Verdana">
+        </labels>
+    </axis-defaults>
+```
+{% endif %}
 
 ## Functionality and Features
 
@@ -239,7 +327,17 @@ The following examples demonstrates how to subscribe to events by a handler name
             .DataBound("onDataBound")
         )
     )
-
+```
+{% if site.core %}
+```TagHelper
+    @addTagHelper *, Kendo.Mvc
+    <kendo-chart name="chart" 
+                on-series-click="onSeriesClick" 
+                on-data-bound="onDataBound">
+    </kendo-chart>
+```
+{% endif %}
+```script.js
     <script>
         function onSeriesClick(e) {
             // Handle the seriesClick event
@@ -250,6 +348,8 @@ The following examples demonstrates how to subscribe to events by a handler name
         }
     </script>
 ```
+
+### Handling by Template Delegate
 
 ```HtmlHelper
     @(Html.Kendo().Chart<Kendo.Mvc.Examples.Models.ElectricityProduction>()
@@ -287,7 +387,6 @@ To reference an existing Chart instance, use the [`jQuery.data()`](http://api.jq
 ## See Also
 
 * [Using the API of the Chart HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/chart-api/index)
-* [Basic Usage of the Kendo UI Area Charts Tag Helper for ASP.NET Core (Demo)](https://demos.telerik.com/aspnet-core/area-charts/tag-helper)
 * [Basic Usage of the Bar Chart HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/bar-charts/index)
 * [Basic Usage of the Line Chart HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/line-charts/index)
 * [Server-Side API](/api/chart)

@@ -37,7 +37,7 @@ Represents the Kendo UI NumericTextBox widget. Inherits from [Widget](/api/javas
 
 ### decimals `Number`*(default: null)*
 
-Specifies the number precision applied to the widget value and when the NumericTextBox is focused. If not set, the precision defined by the current culture is used. If the user enters a number with a greater precision than is currently configured, the widget value will be rounded. For example, if `decimals` is `2` and the user inputs `12.346`, the value will become `12.35`. If the user inputs `12.99`, the value will become `13.00`.
+Specifies the number precision applied to the widget value and when the NumericTextBox is focused. If not set, the precision defined by the current culture is used. If the user enters a number with a greater precision than is currently configured, the widget value will be rounded. For example, if `decimals` is `2` and the user inputs `12.346`, the value will become `12.35`. If `decimals` is `1` the user inputs `12.99`, the value will become `13.00`.
 
 Compare with the [`format`](/api/javascript/ui/numerictextbox#configuration-format) property.
 
@@ -126,7 +126,7 @@ Adds a label before the input. If the input has no `id` attribute, a generated `
         });
     </script>
 
-The function context (available via the `this` keyword) will be set to the widget instance.
+The function context (available through the keyword `this`) will be set to the widget instance.
 
 #### Example - create a label from a function
 
@@ -154,7 +154,7 @@ Sets the inner HTML of the label.
         });
     </script>
 
-The function context (available via the `this` keyword) will be set to the widget instance.
+The function context (available through the keyword `this`) will be set to the widget instance.
 
 #### Example - create a label from a function
 
@@ -174,8 +174,8 @@ The function context (available via the `this` keyword) will be set to the widge
 If set to `true`, the widget will be wrapped in a container that will allow the floating label functionality.
 
 > **Important:** The [value](/api/javascript/ui/numerictextbox/methods/value) method **does not trigger** the `focusout` event of the input.
-This could affect the floating label functionality.
-You can overcome this behavior by manually invoking the `refresh` method of the Floating Label: `$("#numerictextbox").data("kendoNumericTextBox").floatingLabel.refresh();`
+This can affect the floating label functionality.
+To overcome this behavior, manually invoke the `refresh` method of the Floating Label: `$("#numerictextbox").data("kendoNumericTextBox").floatingLabel.refresh();`
 #### Example - create a floating label
 
     <input id="numerictextbox" />
@@ -429,7 +429,7 @@ Enables or disables the widget.
 
 If set to `true` the widget will be enabled. If set to `false` the widget will be disabled.
 
-Setting this property to `true` does not affect other properties of the NumericTextBox. It applies the `.k-state-disabled` CSS class of the wrapper span and sets the `aria-disabled` property of the input to `true`.
+Setting this property to `true` does not affect other properties of the NumericTextBox. It applies the `.k-disabled` CSS class of the wrapper span and sets the `aria-disabled` property of the input to `true`.
 
 #### Example - enable the widget
 
@@ -605,8 +605,8 @@ The step value to set.
 Gets or sets the value of the NumericTextBox.
 
 > **Important:** This method **does not trigger** the `focusout` event of the input.
-This could affect the [floating label functionality](/api/javascript/ui/numerictextbox/configuration/label.floating).
-You can overcome this behavior by manually invoking the `refresh` method of the Floating Label: `$("#numerictextbox").data("kendoNumericTextBox").floatingLabel.refresh();`
+This can affect the [floating label functionality](/api/javascript/ui/numerictextbox/configuration/label.floating).
+To overcome this behavior, manually invoke the `refresh` method of the Floating Label: `$("#numerictextbox").data("kendoNumericTextBox").floatingLabel.refresh();`
 
 #### Parameters
 

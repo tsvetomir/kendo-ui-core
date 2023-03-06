@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: jQuery Gantt Documentation | Data Binding
+page_title: jQuery Gantt Documentation - Data Binding
 description: "Get started with the jQuery Gantt by Kendo UI and bind the widget to local data arrays or remote data services."
 slug: databinding_kendoui_gantt
 position: 3
@@ -98,7 +98,7 @@ The following example demonstrates how to bind the widget to a remote service. N
                   type: "number"
                 },
                 orderId: { from: "OrderID", type: "number", validation: { required: true } },
-                parentId: { from: "ParentID", type: "number", nullable: true, validation: { required: true } },
+                parentId: { from: "ParentID", type: "number", nullable: true },
                 start: { from: "Start", type: "date" },
                 end: { from: "End", type: "date" },
                 title: { from: "Title", defaultValue: "", type: "string" },

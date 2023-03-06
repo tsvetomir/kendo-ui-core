@@ -1,8 +1,8 @@
 ---
 title: Grid with dynamic aggregates column menu
-description: An example on how to create an aggregates menu in a dynamic Kendo UI Grid, calculate user selected values and update the footers
+description: Learn how to create an aggregates menu in a dynamic Kendo UI Grid, calculate user selected values and update the footers
 type: how-to
-page_title: Dynamically Calculate Aggregates in the Grid | Kendo UI Grid for jQuery
+page_title: Dynamically Calculate Aggregates in the Grid - Kendo UI for jQuery Data Grid
 slug: grid-dynamic-aggregates
 tags: grid, dynamically, column, header, dynamic, aggregate, menu, footer, update, refresh, calculate
 res_type: kb
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Created with version</td>
@@ -41,7 +41,7 @@ There a different options to choose from when it comes to the UI of the aggregat
         display: flex;
       }
 
-      .aggregate-selector > .k-grid-filter {
+      .aggregate-selector > .k-grid-filter-menu {
         right: 30px;
       }
     </style>

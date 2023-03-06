@@ -1,5 +1,5 @@
 ---
-title: Skip disabled Step in the Wizard | Kendo UI for jQuery
+title: Skip disabled Step in the Wizard 
 description: Configure the click event of the 'Next Step' button to pass over the following Step of the Wizard that is disabled.  
 type: how-to
 page_title: Ignore disabled Step in the Wizard
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Wizard for jQuery</td>
+  <td>Progress® Kendo UI® Wizard for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>

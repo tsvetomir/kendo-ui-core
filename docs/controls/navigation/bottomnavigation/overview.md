@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery BottomNavigation Documentation | BottomNavigation Overview
+page_title: jQuery BottomNavigation Documentation - BottomNavigation Overview
 description: "Get started with the jQuery BottomNavigation by Kendo UI and learn how to initialize the widget."
 slug: overview_kendoui_bottomnavigation_widget
 position: 1
 ---
 
-# BottomNavigation Overview
+# {{ site.product }} BottomNavigation Overview
 
 The Kendo UI BottomNavigation bar allows movement between primary destinations in an application. The main purpose of the component is to offer a navigation element whose options are represented by an icon and text.
 
@@ -20,13 +20,13 @@ The following example demonstrates how to initialize the BottomNavigation from a
 
 ```dojo
     <nav id="bottomnavigation"></nav>
-    
+
     <script>
         $("#bottomnavigation").kendoBottomNavigation({
             items: [
                 { text: "Home", icon: "home" },
-                { text: "Info", icon: "info" },
-                { text: "Contact", icon: "email" }
+                { text: "Info", icon: "info-circle" },
+                { text: "Contact", icon: "envelop" }
             ]
         });
     </script>

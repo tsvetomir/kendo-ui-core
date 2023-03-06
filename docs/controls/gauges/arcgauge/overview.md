@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ArcGauge Documentation | ArcGauge Overview
+page_title: jQuery ArcGauge Documentation - ArcGauge Overview
 description: "Get started with the jQuery ArcGauge by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_arcgaugewidget
 position: 1
 ---
 
-# ArcGauge Overview
+# {{ site.product }} ArcGauge Overview
 
 The ArcGauge represents a value on a circular arc.
 

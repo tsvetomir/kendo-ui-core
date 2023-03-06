@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery CircularProgressBar Documentation | CircularProgressBar Overview
+page_title: jQuery CircularProgressBar Documentation - CircularProgressBar Overview
 description: "Get started with the jQuery CircularProgressBar by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_circularprogressbar_widget
 position: 1
 ---
 
-# CirularProgressbar Overview
+# {{ site.product }} CirularProgressbar Overview
 
 The CircularProgressBar delivers functionality for displaying and tracking the progress of a task.
 

@@ -1,6 +1,6 @@
 ---
 title: Dragging and Dropping
-page_title: jQuery Upload Documentation | Dragging and Dropping
+page_title: jQuery Upload Documentation - Dragging and Dropping
 description: "Get started with the jQuery Upload by Kendo UI and learn how to implement the uploading of files by dragging and dropping them."
 slug: dragandrop_upload_widget
 position: 2
@@ -18,15 +18,15 @@ To use the Kendo UI Upload as a drop zone:
 
 1. Drag a file over the browser window for the drop zone to appear.
 
-    ![Drag files to make the drop zone appear](upload-dd1.png)
+    ![Kendo UI for jQuery Upload Drag files to make the drop zone appear](upload-drag-drop-1.png)
 
 2. Highlight the drop zone by passing the mouse over it.
 
-    ![Pass the mouse to highlight the drop zone](upload-dd2.png)
+    ![Kendo UI for jQuery Upload Pass the mouse to highlight the drop zone](upload-drag-drop-2.png)
 
 3. Release the file over the drop zone to add it to the upload queue.
 
-    ![Release the file to the upload queue](upload-dd3.png)
+    ![Kendo UI for jQuery Upload Release the file to the upload queue](upload-drag-drop-3.png)
 
 ## Implementing Custom Drop Zones
 
@@ -37,7 +37,7 @@ To customize the appearance of the drop zone during the process of dragging and 
 * When the user drags the file over the browser window, the custom drop zone element receives the `"k-dropzone-active"` class.
 * When the user drags the file over the drop zone itself, the element receives an additional `"k-dropzone-hovered"` class and the drop zone is highlighted.
 
-    ![The file is dragged over the drop zone itself](upload-dd4.png)
+    ![Kendo UI for jQuery Upload The file is dragged over the drop zone itself](upload-drag-drop-4.png)
 
 * Once the file is released over the drop zone, the file is added to the upload queue.
 

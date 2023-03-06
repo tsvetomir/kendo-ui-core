@@ -29,8 +29,11 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the DropDownTree:
+
+```HtmlHelper
 
     @(Html.Kendo().DropDownTree()
         .Name("dropdowntree-single")
@@ -61,6 +64,45 @@ The following example demonstrates how to set `Size` in the declaration of the D
                 });
         })
     )
+```
+{% if site.core %}
+```TagHelper
+
+    <kendo-dropdowntree datavaluefield="id" size="ComponentSize.Large" height="auto" placeholder="Select Product" name="dropdowntree-single" style="width: 100%">
+        <items>
+            <dropdowntree-item expanded="true" text="Furniture" id="1">
+                <items>
+                    <dropdowntree-item expanded="false" text="Tables & Chairs" id="2">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Sofas" id="3">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Occasional Furniture" id="4">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Childerns Furniture" id="5">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Beds" id="6">
+                    </dropdowntree-item>
+                </items>
+            </dropdowntree-item>
+            <dropdowntree-item expanded="false" text="Decor" id="7">
+                <items>
+                    <dropdowntree-item expanded="false" text="Bed Linen" id="8">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Throws" id="9">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Curtains & Blinds" id="10">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Rugs" id="11">
+                    </dropdowntree-item>
+                    <dropdowntree-item expanded="false" text="Carpets" id="12">
+                    </dropdowntree-item>
+                </items>
+            </dropdowntree-item>
+        </items>
+    </kendo-dropdowntree>
+
+```
+{% endif %}
 
 The default size value is `Medium` and it is applied to the `span` wrapping element through the `k-input-md` class.
 
@@ -88,10 +130,13 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest (ellipse-like) border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The default value is `Full`. It applies the `k-rounded-full` class to the `span.k-dropdowntree` wrapping element that contains the HTML of the component.
 
 The following example demonstrates how to set `Rounded` in the declaration of the DropDownTree:
+
+```HtmlHelper
 
     @(Html.Kendo().DropDownTree()
         .Name("dropdowntree-single")
@@ -122,6 +167,45 @@ The following example demonstrates how to set `Rounded` in the declaration of th
                 });
         })
     )
+```
+{% if site.core %}
+```TagHelper
+
+     <kendo-dropdowntree datavaluefield="id" height="auto" rounded="Rounded.Medium" placeholder="Select Product" name="dropdowntree-single" style="width: 100%">
+                <items>
+                    <dropdowntree-item expanded="true" text="Furniture" id="1">
+                        <items>
+                            <dropdowntree-item  text="Tables & Chairs" id="2">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Sofas" id="3">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Occasional Furniture" id="4">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Childerns Furniture" id="5">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Beds" id="6">
+                            </dropdowntree-item>
+                        </items>
+                    </dropdowntree-item>
+                    <dropdowntree-item  text="Decor" id="7">
+                        <items>
+                            <dropdowntree-item  text="Bed Linen" id="8">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Throws" id="9">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Curtains & Blinds" id="10">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Rugs" id="11">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Carpets" id="12">
+                            </dropdowntree-item>
+                        </items>
+                    </dropdowntree-item>
+                </items>
+            </kendo-dropdowntree>
+
+```
+{% endif %}
 
 When single selection is used, the changes are applied to the `span.k-dropdowntree` wrapping element:
 
@@ -146,10 +230,13 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The default value is `Solid` and it is applied to the `span.k-dropdowntree` wrapping element through the `k-picker-solid` class.
 
 The following example demonstrates how to set `FillMode` in the declaration of the DropDownTree:
+
+```HtmlHelper
 
     @(Html.Kendo().DropDownTree()
         .Name("dropdowntree-single")
@@ -180,6 +267,46 @@ The following example demonstrates how to set `FillMode` in the declaration of t
                 });
         })
     )
+```
+{% if site.core %}
+```TagHelper
+
+     <kendo-dropdowntree datavaluefield="id" height="auto" fill-mode="FillMode.Outline" placeholder="Select Product" name="dropdowntree-single" style="width: 100%">
+                <items>
+                    <dropdowntree-item expanded="true" text="Furniture" id="1">
+                        <items>
+                            <dropdowntree-item  text="Tables & Chairs" id="2">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Sofas" id="3">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Occasional Furniture" id="4">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Childerns Furniture" id="5">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Beds" id="6">
+                            </dropdowntree-item>
+                        </items>
+                    </dropdowntree-item>
+                    <dropdowntree-item  text="Decor" id="7">
+                        <items>
+                            <dropdowntree-item  text="Bed Linen" id="8">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Throws" id="9">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Curtains & Blinds" id="10">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Rugs" id="11">
+                            </dropdowntree-item>
+                            <dropdowntree-item  text="Carpets" id="12">
+                            </dropdowntree-item>
+                        </items>
+                    </dropdowntree-item>
+                </items>
+            </kendo-dropdowntree>
+            
+```
+{% endif %}
+
 
 
 The `FillMode.Outline` value is reflected through the respective classes applied to the `span.k-dropdowntree` wrapping element:
@@ -285,6 +412,63 @@ New Multiple Selection rendering:
 In order to achieve the same look and feel as the old rendering, make sure to use the classes available in the new rendering. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Appearance Overview]({% slug components_rendering_overview %}) article for additional information.
 
 > If you use a LESS theme, the new rendering will support only the [default options](#options).
+
+The following example showcases how to change the background colors of the input elements of the **DropDownTree** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work BEFORE R1 2022 */ 
+      .k-input-inner{ /* customize the style input */
+        background: lightyellow;
+      }
+      .k-treeview-item{ /* customize the style of the items in the popup */
+        background: pink;
+      }
+      .k-treeview-leaf{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD;
+        border: 1px solid purple;
+      }  
+      .k-treeview-leaf-text{
+        color: purple;
+      }
+      .k-selected{ /* customize the styles of the selected items in the popup */
+        background-color: purple !important;
+      }  
+      .k-selected .k-treeview-leaf-text{ /* customize the text of the selected item in the popup */
+        color: white;
+      }
+      /*customize nodataTemplate */
+      .k-no-data{
+        color: fuchsia !important;
+        font-weight: bold;
+      }
+
+      /* Doesn't work AFTER R1 2022 */ 
+      /* .k-item{ background: red; }  k-item will style the items in the DropDownTree with the old as well as with the new rendering */
+      .k-input{
+        background-color: salmon !important;
+      }
+      .k-textbox{
+        background-color: #FED8B1;
+      }
+      .k-item .k-in{ /* customize the style of the items in the popup */
+        color: orange;
+        background-color: lightyellow;
+      }
+      .k-state-selected{ /* customize the styles of the selected items in the popup */
+        background-color: #FED8B1 !important;
+        border: 2px solid orange !important;
+        color: brown !important;
+      }
+      .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+        background-color: orange !important;
+        color: white !important;
+      }       
+      /*customize nodataTemplate */
+      .k-nodata{        
+        color: red;
+      }
+    </style>
 
 ## See Also
 

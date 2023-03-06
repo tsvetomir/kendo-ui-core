@@ -1,7 +1,7 @@
 ---
 title: Bypass Boundary Detection in the ComboBox
 page_title: Bypass Boundary Detection in the ComboBox
-description: "Learn how to auto-size the popup height in a Kendo UI ComboBox."
+description: "Learn how to auto-size the popup height in a Kendo UI for jQuery ComboBox component."
 previous_url: /controls/editors/combobox/how-to/bypass-boundary-detection, /controls/editors/combobox/how-to/customize/bypass-boundary-detection
 slug: howto_bypass_boudary_detection_combobox
 tags: telerik, kendo, jquery, combobox, bypass, boudary, detection
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI ComboBox for jQuery</td>
+  <td>Progress® Kendo UI® ComboBox for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -163,10 +163,10 @@ The following example demonstrates how to achieve the desired scenario.
 ## See Also
 
 * [ComboBox JavaScript API Reference](/api/javascript/ui/combobox)
-* [How to Bypass Boundary Detection]({% slug howto_bypass_boudary_detection_combobox %})
-* [How to Configure Deferred Value Binding]({% slug howto_configure_deffered_value_binding_combobox %})
-* [How to Implement Cascading with Local Data]({% slug howto_implement_cascading_local_data_combobox %})
-* [How to Make Visible Input Readonly]({% slug howto_make_visible_inputs_readonly_combobox %})
-* [How to Open ComboBox When onFocus is Triggered]({% slug howto_open_onfocus_combobox %})
-* [How to Prevent Adding Custom Values]({% slug howto_prevent_adding_custom_values_combobox %})
-* [How to Underline Matched Search]({% slug howto_underline_matched_search_combobox %})
+* [Bypass Boundary Detection]({% slug howto_bypass_boudary_detection_combobox %})
+* [Configure Deferred Value Binding]({% slug howto_configure_deffered_value_binding_combobox %})
+* [Implement Cascading with Local Data]({% slug howto_implement_cascading_local_data_combobox %})
+* [Make Visible Input Readonly]({% slug howto_make_visible_inputs_readonly_combobox %})
+* [Open ComboBox When onFocus is Triggered]({% slug howto_open_onfocus_combobox %})
+* [Prevent Adding Custom Values]({% slug howto_prevent_adding_custom_values_combobox %})
+* [Underline Matched Search]({% slug howto_underline_matched_search_combobox %})

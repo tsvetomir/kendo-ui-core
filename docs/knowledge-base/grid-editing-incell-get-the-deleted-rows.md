@@ -1,8 +1,8 @@
 ---
 title: Retrieve deleted rows on click
-description: An example on how to get the pending deleted items in incell editable Grid.
+description: Learn how to get the pending deleted items in incell editable Grid.
 type: how-to
-page_title: Get the deleted rows | Kendo UI Grid for jQuery
+page_title: Get the deleted rows - Kendo UI for jQuery Data Grid
 slug: grid-editing-incell-get-the-deleted-rows
 tags: grid, editable, get, obtain, deleted, destroyed, rows, items, pending, changes, incell, editing
 ticketid: 1343481
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Grid for Progress® Kendo UI®</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>

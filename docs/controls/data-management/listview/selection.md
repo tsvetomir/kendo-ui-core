@@ -1,6 +1,6 @@
 ---
 title: Selection
-page_title: jQuery ListView Documentation | Selection
+page_title: jQuery ListView Documentation - Selection
 description: "Get started with the jQuery ListView by Kendo UI and learn how to implement its selection functionality."
 slug: selection_kendoui_listview
 position: 4
@@ -39,13 +39,13 @@ The following example demonstrates the full implementation of the suggested appr
 
 ```dojo
 <div id="listView" style="max-height:400px;overflow:auto;"></div>
-<div class="k-pager-wrap">
+<div class="k-pager">
     <div id="pager"></div>
 </div>
 
 <script type="text/x-kendo-tmpl" id="template">
     <div class="product">
-        <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+        <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="Kendo UI for jQuery ListView #: ProductName # " />
         <h3>#:ProductName#</h3>
         <p>#:kendo.toString(UnitPrice, "c")#</p>
     </div>

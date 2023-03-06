@@ -1,8 +1,8 @@
 ---
 title: Add Multi-Check Filter to Grid in Row Mode
-description: An example on how to enable the multi-check filter in a Kendo UI Grid
+description: Learn how to enable the multi-check filter in a Kendo UI Grid
 type: how-to
-page_title: Implement Multi-Checkbox Filter in Row-Filterable Grid | Kendo UI Grid for jQuery
+page_title: Implement Multi-Checkbox Filter in Row-Filterable Grid - Kendo UI for jQuery Data Grid
 slug: filter-multi-check-row-filter
 tags: checkbox, filter, row, multi, kendo, grid
 ticketid: 1123045
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 
@@ -60,7 +60,7 @@ The following example demonstrates the complete implementation of the suggested 
 
 ```dojo
     <style>
-      .nameFilter > .k-grid-filter {
+      .nameFilter > .k-grid-filter-menu {
         padding: 0;
         left: 0;
         bottom: 0;

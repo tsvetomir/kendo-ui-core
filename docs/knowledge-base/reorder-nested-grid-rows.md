@@ -1,7 +1,7 @@
 ---
 title: Reorder Rows in Nested Grids by Using the Sortable
 page_title: Reorder Rows in Nested Grid by Using the Sortable
-description: "Learn how to reorder rows in a child Grid using the Kendo UI Sortable widget."
+description: "Learn how to reorder rows in a child Grid using the Kendo UI Sortable component."
 previous_url: /controls/interactivity/sortable/how-to/reorder-child-grid-rows, /controls/interactivity/sortable/how-to/reorder-nested-grid-rows
 slug: howto_reorderrowsinnestedgrid_sortable
 tags: telerik, kendo, jquery, sortable, reorder, rows, in, nested, grids
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Sortable for jQuery</td>
+  <td>Progress® Kendo UI® Sortable for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -107,7 +107,7 @@ The following example demonstrates how to achieve the desired scenario.
             },
 
             placeholder: function(element) { // Customize the placeholder.
-              return element.clone().addClass("k-state-hover").css("opacity", 0.65);
+              return element.clone().addClass("k-hover").css("opacity", 0.65);
             },
             end: function(e) {
               detail = e.draggableEvent.currentTarget.next();
@@ -164,7 +164,7 @@ The following example demonstrates how to achieve the desired scenario.
             },
 
             placeholder: function(element) { //customize the placeholder
-              return element.clone().addClass("k-state-hover").css("opacity", 0.65);
+              return element.clone().addClass("k-hover").css("opacity", 0.65);
             }
           });
 

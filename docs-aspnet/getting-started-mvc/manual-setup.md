@@ -36,7 +36,7 @@ To create the application:
 
 @[template](/_contentTemplates/mvc/add-client-side-resources.md#including-client-side-resources)
 
-## Downloading and Referencing the `Kendo.Mvc.dll` Assembly
+## Downloading and Referencing the Kendo.Mvc.dll Assembly
 
 The `Kendo.Mvc.dll` assembly contains the UI for ASP.NET MVC Html helpers. Follow the steps below to download it and reference it in the project:
 
@@ -128,13 +128,13 @@ Perform the steps below to add a Grid to the project:
 
 Press `CTRL+F5` to build and run the application. As a result, the following sample page is created.
 
-![Sample page](../getting-started-mvc/images/sample-page.png)
+![{{ site.product_short }} Sample page](../getting-started-mvc/images/sample-page.png)
 
 ## Next Steps
 
 * [Explore the Telerik UI for ASP.NET MVC fundamentals]({% slug fundamentals_aspnetmvc %})
 * [Grid Overview]({% slug htmlhelpers_grid_aspnetcore_overview %})
-* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetmvc %})
+* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetcore %})
 
 ## See Also
 

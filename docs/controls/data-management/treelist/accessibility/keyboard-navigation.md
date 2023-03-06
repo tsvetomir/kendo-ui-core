@@ -1,6 +1,6 @@
 ---
 title: Keyboard Navigation
-page_title: jQuery TreeList Documentation | Keyboard Navigation
+page_title: jQuery TreeList Documentation - Keyboard Navigation
 description: "Get started with the jQuery TreeList by Kendo UI and learn about the accessibility support it provides through its keyboard navigation functionality."
 slug: keynav_kendoui_treelist_widget
 position: 2
@@ -36,7 +36,7 @@ The Pager wrapper can be focused via the `Tab` key. But if the TreeList contains
     $(document.body).keydown(function (e) {
         // ALT KEY + S will focus the pager wrapper.
         if (e.altKey && e.keyCode == 83) {
-            $("#treelist .k-pager-wrap").focus();
+            $("#treelist .k-pager").focus();
         }
     });
 

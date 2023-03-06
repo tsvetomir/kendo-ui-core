@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: jQuery PanelBar Documentation | Data Binding
+page_title: jQuery PanelBar Documentation - Data Binding
 description: "Get started with the jQuery PanelBar by Kendo UI and bind the widget to local data arrays or remote data services."
 slug: databinding_kendoui_panelbar
 position: 2
@@ -72,7 +72,7 @@ The following example demonstrates how to create a PanelBar and bind it to a rem
 
 As of the Kendo UI R1 2017 release, the PanelBar provides a built-in functionality of attempting a retry. If the initial data binding fails and regardless of the reason for the failure, you are now prompted with a `Request failed.` message. To initiate a new data binding, use the **Retry** button.
 
-![The Retry button of the PanelBar prompting you to re-initiate the data binding](retry-request-failed.png)
+![Kendo UI for jQuery PanelBar Retry Button](retry-request-failed.png)
 
 ## See Also
 

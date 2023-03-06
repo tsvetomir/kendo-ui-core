@@ -1,8 +1,8 @@
 ---
 title: Use ContextMenu on Grid Cell
-description: An example on how to use the Kendo UI ContextMenu over a Kendo UI Grid row.
+description: Learn how to use the Kendo UI ContextMenu over a Kendo UI Grid row.
 type: how-to
-page_title: Use ContextMenu over Grid Row | Kendo UI Grid for jQuery
+page_title: Use ContextMenu over Grid Row - Kendo UI for jQuery Data Grid
 previous_url: /knowledge-base/how-to-use-context-menu-over-grid-row
 slug: use-context-menu-over-grid-row
 ticketid: 1114321
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
  
@@ -33,7 +33,7 @@ How can I append a Kendo UI ContextMenu to each cell or part of the cells in a K
 
 ## Solution
 
-1. Initialize the ContextMenu over the Grid rows.
+1. Initialize the ContextMenu over the Grid rows. By default, the ContextMenu opens on right click on the mouse. This could be adjusted with the [`showOn`](api/javascript/ui/contextmenu/configuration/showon) property.
 1. On the `select` event of the ContextMenu, retrieve the row information by using the `dataItem` method of the Grid.
 
 The following example demonstrates how to achieve the desired scenario.

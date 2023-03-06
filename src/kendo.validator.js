@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "validator",
     name: "Validator",
     category: "web",
@@ -10,7 +8,7 @@ var __meta__ = { // jshint ignore:line
     depends: [ "core" ]
 };
 
-/* jshint eqnull: true */
+
 (function($, undefined) {
     var kendo = window.kendo,
         Widget = kendo.ui.Widget,
@@ -133,11 +131,15 @@ var __meta__ = { // jshint ignore:line
         return true;
     }
 
-    var SUMMARYTEMPLATE = '<ul>' +
-        '#for(var i = 0; i < errors.length; i += 1){#' +
-            '<li><a data-field="#=errors[i].field#" href="\\#">#= errors[i].message #</a></li>' +
-        '# } #' +
-    '</ul>';
+    var SUMMARYTEMPLATE = ({ errors }) => {
+        let result = '<ul>';
+        for (var i = 0; i < errors.length; i += 1) {
+            result += `<li><a data-field="${errors[i].field}" href="#">${errors[i].message}</a></li>`;
+        }
+
+        result += '</ul>';
+        return result;
+    };
 
     var Validator = Widget.extend({
         init: function(element, options) {
@@ -175,7 +177,7 @@ var __meta__ = { // jshint ignore:line
 
         options: {
             name: "Validator",
-            errorTemplate: '<span class="k-form-error">#= message #</span>',
+            errorTemplate: ({ message }) => `<span class="k-form-error">${message}</span>`,
             messages: {
                 required: "{0} is required",
                 pattern: "{0} is not valid",
@@ -432,6 +434,10 @@ var __meta__ = { // jshint ignore:line
 
             input.removeAttr(ARIAINVALID);
 
+            if (input.hasClass("k-hidden")) {
+                widgetInstance = kendo.widgetInstance(input.closest(".k-signature"));
+            }
+
             if (!valid && !input.data("captcha_validating")) {
                 that._errors[fieldName] = messageText;
                 var lblId = lbl.attr('id');
@@ -446,7 +452,7 @@ var __meta__ = { // jshint ignore:line
                 if (lbl.length !== 0) {
                     lbl.replaceWith(messageLabel);
                 } else {
-                    widgetInstance = kendo.widgetInstance(input);
+                    widgetInstance = widgetInstance || kendo.widgetInstance(input);
                     var parentElement = input.parent().get(0);
                     var nextElement = input.next().get(0);
                     var prevElement = input.prev().get(0);
@@ -461,7 +467,7 @@ var __meta__ = { // jshint ignore:line
                         widgetInstance = kendo.widgetInstance(input.closest(".k-checkbox-list"));
                     }
 
-                    if (widgetInstance && widgetInstance.wrapper) {
+                    if (widgetInstance && widgetInstance.wrapper && (widgetInstance.element !== widgetInstance.wrapper || widgetInstance.options.name == "Signature")) {
                         messageLabel.insertAfter(widgetInstance.wrapper);
                     } else if (parentElement && parentElement.nodeName === "LABEL") {
                         // Input inside label
@@ -491,16 +497,15 @@ var __meta__ = { // jshint ignore:line
                 this.trigger(VALIDATE_INPUT, { valid: valid, input: input, error: messageText, field: fieldName });
             }
 
-            widgetInstance = kendo.widgetInstance(input);
+            widgetInstance = (widgetInstance && widgetInstance.options.name == "Signature") ? widgetInstance : kendo.widgetInstance(input);
             if (!widgetInstance || !(widgetInstance._inputWrapper || widgetInstance.wrapper)) {
                 input.toggleClass(INVALIDINPUT, !valid);
                 input.toggleClass(VALIDINPUT, valid);
             }
 
             if (widgetInstance) {
-                var widget = kendo.widgetInstance(input);
-                var inputWrap = widget._inputWrapper || widget.wrapper;
-                var inputLabel = widget._inputLabel;
+                var inputWrap = widgetInstance._inputWrapper || widgetInstance.wrapper;
+                var inputLabel = widgetInstance._inputLabel;
 
                 if (inputWrap) {
                     inputWrap.toggleClass(INVALIDINPUT, !valid);
@@ -787,6 +792,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(Validator);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

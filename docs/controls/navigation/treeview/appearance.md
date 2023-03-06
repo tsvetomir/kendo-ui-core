@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery TreeView Documentation | Appearance
+page_title: jQuery TreeView Documentation - Appearance
 description: "Learn how to apply different styling options to the TreeView widget."
 slug: appearance_kendoui_treeview_widget
 position: 5 
@@ -12,7 +12,7 @@ position: 5
 
 In this article, you will find information about the rendering of the Kendo UI TreeView.
 
-For additional information regarding the decision behind these changes, visit the [Styling Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the TreeView](https://demos.telerik.com/kendo-ui/treeview/appearance).
 
@@ -68,11 +68,11 @@ Old Rendering:
                     aria-selected="false" aria-disabled="true" aria-expanded="true" data-expanded="true"
                     aria-busy="false">
                     <div class="k-bot"><span class="k-icon k-i-collapse"></span><span
-                            class="k-in k-state-disabled">bar</span></div>
+                            class="k-in k-disabled">bar</span></div>
                     <ul class="k-group" role="group" style="display: block;">
                         <li role="treeitem" class="k-item k-last" data-uid="dc2ec9eb-56d2-4178-9201-81180e31c929"
                             aria-selected="true" aria-expanded="false" data-expanded="false">
-                            <div class="k-bot"><span class="k-in k-state-selected">baz</span></div>
+                            <div class="k-bot"><span class="k-in k-selected">baz</span></div>
                         </li>
                     </ul>
                 </li>
@@ -130,7 +130,7 @@ Old Rendering with Checkboxes:
                <div class="k-bot"><span class="k-icon k-i-collapse"></span><span class="k-checkbox-wrapper" role="presentation"><input aria-hidden="true" type="checkbox" tabindex="-1" id="_f0a5ce33-57f1-45ba-ae1d-2e652d0a4705" class="k-checkbox"><span class="k-checkbox-label checkbox-span"></span></span><span class="k-in">bar</span></div>
                <ul class="k-group" role="group" style="display: block; overflow: visible; height: auto;">
                   <li role="treeitem" class="k-item k-last" data-uid="b0f0e249-5c64-47eb-8a6f-d0bd383c46ed" aria-checked="false" aria-selected="false" aria-expanded="false" data-expanded="false" id="treeview-left_tv_active">
-                     <div class="k-bot"><span class="k-checkbox-wrapper" role="presentation"><input aria-hidden="true" type="checkbox" tabindex="-1" id="_b0f0e249-5c64-47eb-8a6f-d0bd383c46ed" class="k-checkbox"><span class="k-checkbox-label checkbox-span"></span></span><span class="k-in k-state-selected" aria-selected="true">baz</span></div>
+                     <div class="k-bot"><span class="k-checkbox-wrapper" role="presentation"><input aria-hidden="true" type="checkbox" tabindex="-1" id="_b0f0e249-5c64-47eb-8a6f-d0bd383c46ed" class="k-checkbox"><span class="k-checkbox-label checkbox-span"></span></span><span class="k-in k-selected" aria-selected="true">baz</span></div>
                   </li>
                </ul>
             </li>
@@ -189,9 +189,90 @@ New Rendering with Checkboxes:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
+
+The following example showcases how to customize the styles of the **ТTreeView** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="treeview"></div>
+    <script>
+        var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+        homogeneous = new kendo.data.HierarchicalDataSource({
+          transport: {
+            read: {
+              url: serviceRoot + "/Employees",
+              dataType: "jsonp"
+            }
+          },
+          schema: {
+            model: {
+              id: "EmployeeId",
+              hasChildren: "HasEmployees"
+            }
+          }
+        });
+
+        $("#treeview").kendoTreeView({
+          dataSource: homogeneous,
+          dataTextField: "FullName"
+        });
+    </script>
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later*/ 
+
+
+      .k-treeview .k-treeview-item{ /* customize the style of the items in the popup */
+        background: pink;
+      }
+
+      .k-treeview .k-treeview-leaf{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD;
+        border: 1px solid purple;
+      }  
+
+      .k-treeview .k-treeview-leaf-text{
+        color: purple;
+      }
+
+      .k-treeview .k-selected{ /* customize the styles of the selected items in the popup */
+        background-color: purple !important;
+      }  
+
+      .k-treeview .k-selected .k-treeview-leaf-text{ /* customize the text of the selected item in the popup */
+        color: white;
+      }
+
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */ 
+
+      /* .k-item{ background: red; }  k-item will style the items in the DropDownTree with the old as well as with the new rendering */       
+
+      .k-treeview .k-textbox{
+        background-color: #FED8B1;
+      }
+
+      .k-treeview .k-item .k-in{ /* customize the style of the items in the popup */
+        color: orange;
+        background-color: lightyellow;
+      }
+
+      .k-treeview .k-state-selected{ /* customize the styles of the selected items in the popup */
+        background-color: #FED8B1 !important;
+        border: 2px solid orange !important;
+        color: brown !important;
+      }
+
+      .k-treeview .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+        background-color: orange !important;
+        color: white !important;
+      }  
+    </style>
+```
 
 ## See Also
 

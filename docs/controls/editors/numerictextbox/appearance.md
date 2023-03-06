@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery NumericTextBox Documentation | NumericTextBox Appearance
+page_title: jQuery NumericTextBox Documentation - NumericTextBox Appearance
 description: "Learn how to apply different styling options to the NumericTextBox widget."
 slug: appearance_kendoui_numerictextbox_widget
 position: 2
@@ -12,7 +12,7 @@ position: 2
 
 In this article, you will find information about the new rendering of the Kendo UI NumericTextBox.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the NumericTextBox](https://demos.telerik.com/kendo-ui/numerictextbox/appearance).
 
@@ -122,10 +122,10 @@ $("#numerictextbox").kendoNumericTextBox({
 
 > The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
 
-Previously, you had to obtain a reference to the numerictextbox element through the `k-numerictextbox` class
+Previously, you had to obtain a reference to the numerictextbox element through the `k-input` class
 
 ```javascript
-$(".k-numerictextbox") // Returns a reference to the NumericTextBox element in the old rendering.
+$(".k-input") // Returns a reference to the NumericTextBox element in the old rendering.
 ```
 
 With the new rendering, you must target the numerictextbox element by using the `k-input-inner` class.
@@ -134,8 +134,33 @@ With the new rendering, you must target the numerictextbox element by using the 
 $(".k-input-inner") // Returns a reference to the NumericTextBox element in the new rendering.
 ```
 
+The following example showcases how to apply a background color to the **NumericTextBox** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="parent">
+      <input id="numerictextbox" />
+    </div>
+
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      #parent .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+
+      /* Doesn't work BEFORE R1 2022 */
+      #parent .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
+
+    <script>
+      $("#numerictextbox").kendoNumericTextBox();
+    </script>
+```
+
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the NumericTextBox](https://demos.telerik.com/kendo-ui/numerictextbox/appearance)
 * [JavaScript API Reference of the NumericTextBox](/api/javascript/ui/numerictextbox)

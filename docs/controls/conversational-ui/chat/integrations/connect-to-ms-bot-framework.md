@@ -1,6 +1,6 @@
 ---
 title: Microsoft Bot Framework
-page_title: jQuery Chat Documentation | Microsoft Bot Framework
+page_title: jQuery Chat Documentation - Microsoft Bot Framework
 description: "Get started with the jQuery Chat by Kendo UI and configure and connect the Kendo UI Chat widget to the Microsoft Bot Framework."
 previous_url: /controls/conversational-ui/chat/connect-to-ms-bot-framework
 slug: connect_to_ms_bot_framework
@@ -16,7 +16,10 @@ In this case, the establishment of a connection to the service and the binding o
 <div id="chat"></div>
 
 <!-- Load Bot Framework Client API -->
-<script src="https://unpkg.com/botframework-directlinejs/directLine.js"></script>
+<script src="https://unpkg.com/botframework-directlinejs@0.11.5/dist/directline.js"></script>
+
+    <!-- Load Adaptive Cards Client API -->
+<script src="https://unpkg.com/adaptivecards@2.10.0/dist/adaptivecards.min.js"></script>
 
 <script>
   $(document).ready(function () {

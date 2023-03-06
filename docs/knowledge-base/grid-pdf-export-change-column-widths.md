@@ -1,8 +1,8 @@
 ---
 title: Change Column Widths during PDF Export
-description: An example on how to override the column widths of the Kendo UI Grid for PDF Export.
+description: Learn how to override the column widths of the Kendo UI Grid for PDF Export.
 type: how-to
-page_title: Change Grid Columns Width | Kendo UI Grid for jQuery
+page_title: Change Grid Columns Width - Kendo UI for jQuery Data Grid
 slug: grid-pdf-export-change-column-widths
 tags: grid, column, width, pdf, export
 res_type: kb
@@ -14,10 +14,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with the 2017.3.1026 version</td>
  </tr>
 </table>
@@ -90,7 +90,7 @@ You can also target specific columns by using the `:nth-child()` selector.
       .k-pdf-export td {
         white-space: nowrap;
       }
-      .k-pdf-export .k-header-column-menu{
+      .k-pdf-export .k-grid-column-menu{
         display: none;
       }
     </style>

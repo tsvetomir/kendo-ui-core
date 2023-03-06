@@ -26,8 +26,20 @@ The following example demonstrates how to use the `.Selection()` configuration.
                     t.Add().Text("Year");
             }))
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-buttongroup name="select-period"
+                    selection="multiple">
+        <buttongroup-items>
+            <item text="Month"></item>
+            <item text="Quarter"></item>
+            <item text="Year"></item>
+        </buttongroup-items>
+    </kendo-buttongroup>
+```
+{% endif %}
 
 ## See Also
 
 * [Selection by the Telerik UI ButtonGroup HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/buttongroup/selection)
-* [Server-Side API](/api/buttongroup)
+* [Server-Side API of the ButtonGroup for {{ site.framework }}](/api/buttongroup)

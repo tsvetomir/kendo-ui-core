@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ListBox Documentation | ListBox Overview
+page_title: jQuery ListBox Documentation - ListBox Overview
 description: "Get started with the jQuery ListBox by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_listbox_widget
 position: 1
 ---
 
-# ListBox Overview
+# {{ site.product }} ListBox Overview
 
 The ListBox provides suggestions depending on the typed text and allows multiple value entries.
 

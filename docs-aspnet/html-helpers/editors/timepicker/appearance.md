@@ -42,6 +42,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The default size value is `Medium`.
 
@@ -73,6 +74,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest (ellipse-like) border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The default value is `Medium`.
 
@@ -103,6 +105,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The default value is `Solid` and it is applied to the `span.k-timepicker` wrapping element through the `k-input-solid` class.
 
@@ -168,6 +171,28 @@ With the new rendering, you must target the TimePicker element by using the `k-i
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the TimePicker element in the new rendering.
+```
+
+The following example showcases how to change the background colors of the input and button elements of the **TimePicker** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work BEFORE R1 2022 */
+      .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+      .k-input-button {
+        background-color: yellow; /* Applies yellow color to the date button element AFTER R1 2022 */
+      }
+
+      /* Doesn't work AFTER R1 2022 */
+      .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      .k-select {
+        background-color: red; /* Applies red color to the date button element BEFORE R1 2022 */
+      }
+    </style>
 ```
 
 ## See Also

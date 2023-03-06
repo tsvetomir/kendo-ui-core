@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ColorGradient Documentation | ColorGradient Overview
+page_title: jQuery ColorGradient Documentation - ColorGradient Overview
 description: "Get started with the jQuery ColorGradient by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_colorgradient_widget
 position: 1
 ---
 
-# ColorGradient Overview
+# {{ site.product }} ColorGradient Overview
 
 The Kendo UI for jQuery ColorGradient renders a gradient (a hue and an alpha slider) and inputs to manually enter a desired color. You can directly add the widget to the page instead of rendering it in a popup.
 
@@ -23,6 +23,48 @@ To initialize the ColorGradient, use a `div` element. The following example show
         $(document).ready(function(){
             $("#colorgradient").kendoColorGradient();
         });
+    </script>
+```
+
+As of Kendo UI R3 2022, you can initialize the ColorGradient from an `input` element and use it for value submission. The widget is also supported as an editor in the Kendo Form.
+
+```dojo
+    <form id="myForm"></form>
+
+    <script>
+      $("#myForm").kendoForm({
+        formData: {
+          ID: 1,
+          Name: "John Doe",
+          Address: 3,
+          Color: "red"
+        },
+        items: [
+          {
+            field: "Name",
+            validation: { required: true }
+          },
+          {
+            field: "Address",
+            editor:"DropDownList",
+            editorOptions:{
+              dataTextField:"text",
+              dataValueField:"id",
+              dataSource: {
+                data: [
+                  {text:"Sofia", id:1},
+                  {text:"London", id:2},
+                  {text:"New York", id:3}
+                ]
+              }
+            }
+          },
+          {
+            field: "Color",
+            editor:"ColorGradient"
+          }
+        ]
+      });
     </script>
 ```
 

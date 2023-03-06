@@ -74,7 +74,7 @@ Adds a label before the textarea. If the textarea has no `id` attribute, a gener
     </script>
 
 
-The function context (available via the `this` keyword) will be set to the widget instance.
+The function context (available through the keyword `this`) will be set to the widget instance.
 
 #### Example - create a label from a function
 
@@ -103,7 +103,7 @@ Sets the inner HTML of the label.
         })
     </script>
 
-The function context (available via the `this` keyword) will be set to the widget instance.
+The function context (available through the keyword `this`) will be set to the widget instance.
 
 #### Example - create a label from a function
 
@@ -123,8 +123,8 @@ The function context (available via the `this` keyword) will be set to the widge
 If set to `true`, the widget will be wrapped in a container that will allow the floating label functionality.
 
 > **Important:** The [value](/api/javascript/ui/textarea/methods/value) method **does not trigger** the `focusout` event of the textarea.
-This could affect the floating label functionality.
-You can overcome this behavior by manually invoking the `refresh` method of the Floating Label: `$("#description").data("kendoTextArea").floatingLabel.refresh();`
+This can affect the floating label functionality.
+To overcome this behavior, manually invoke the `refresh` method of the Floating Label: `$("#description").data("kendoTextArea").floatingLabel.refresh();`
 
 #### Example - create a floating label
 
@@ -213,26 +213,6 @@ Sets a value controlling how the resize is applied. Can also be set to the follo
     $("#description").kendoTextArea({
         resize: "both"
     });
-    </script>
-
-### resizable `String` *(default: "none")*
-
-Defines if (and how) the widget is resizable by the user.
-
-Can also be set to the following string values:
-
-- "none" - default value. The user cannot resize the widget.
-- "both" - the user can resize both the height and width of the widget.
-- "horizontal" - the user can resize the width of the widget.
-- "vertical" - the user can resize the height of the widget.
-
-#### Example - make both height and width resizable
-
-    <textarea id="description"></textarea>
-    <script>
-        $("#description").kendoTextArea({
-                resizable: "both"
-        })
     </script>
 
 ### rows `Number` *(default: 1)*
@@ -392,12 +372,12 @@ If set to `true`, the widget will not allow user input. If set to `false`, the w
 Gets or sets the value of the widget.
 
 > **Important:** This method **does not trigger** the [change](/api/javascript/ui/textarea/events/change) event.
-This could affect [MVVM value binding](/framework/mvvm/bindings/value). The model bound to the widget will not be updated.
+This can affect [MVVM value binding](/framework/mvvm/bindings/value). The model bound to the widget will not be updated.
 You can overcome this behavior triggering the `change` event manually using [trigger("change")](/api/javascript/observable/methods/trigger) method.
 
 > **Important:** This method **does not trigger** the `focusout` event of the textarea.
-This could affect the [floating label functionality](/api/javascript/ui/textarea/configuration/label.floating).
-You can overcome this behavior by manually invoking the `refresh` method of the Floating Label: `$("#textarea").data("kendoTextArea").floatingLabel.refresh();`
+This can affect the [floating label functionality](/api/javascript/ui/textarea/configuration/label.floating).
+To overcome this behavior, manually invoke the `refresh` method of the Floating Label: `$("#textarea").data("kendoTextArea").floatingLabel.refresh();`
 
 #### Parameters
 
@@ -442,7 +422,7 @@ The value to set.
 
 Fired when the value of the widget is changed by the user.
 
-The event handler function context (available via the `this` keyword) will be set to the widget instance.
+The event handler function context (available through the keyword `this`) will be set to the widget instance.
 
 > **Important:** The event is not fired when the value of the widget is changed from code.
 

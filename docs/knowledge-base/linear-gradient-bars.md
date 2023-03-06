@@ -1,6 +1,6 @@
 ---
 title: Use Linear Gradient As Background in Bars
-page_title: Use Linear Gradient As Background in Bars | Kendo UI Charts
+page_title: Use Linear Gradient As Background in Bars - Kendo UI Charts
 description: "Learn how to use linear gradients as background in bars when working with the Kendo UI Charts."
 previous_url: /controls/charts/how-to/linear-gradient-bars
 slug: howto_uselineargradient_inbars_charts
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Chart for jQuery</td>
+  <td>Progress® Kendo UI® Chart for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -135,6 +135,6 @@ The following example demonstrates how to use the Linear Gradient as such when w
 
 * [Chart JavaScript API Reference](/api/javascript/dataviz/ui/chart)
 * [Drawing API]({% slug overview_kendoui_drawingapi %})
-* [How to Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
-* [How to Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
-* [How to Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})
+* [Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
+* [Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
+* [Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})

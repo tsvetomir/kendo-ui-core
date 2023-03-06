@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Splitter Documentation | Splitter Overview
+page_title: jQuery Splitter Documentation - Splitter Overview
 description: "Get started with the jQuery Splitter by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_splitter_widget
 position: 1
 ---
 
-# Splitter Overview
+# {{ site.product }} Splitter Overview
 
 The Splitter provides a dynamic layout of resizable and collapsible panes.
 

@@ -1,7 +1,7 @@
 ---
 title: Load Markers for Visible Map Areas
 page_title: Load Markers for Visible Map Areas
-description: "Learn how to load markers only for the visible area of a Kendo UI Map widget."
+description: "Learn how to load markers only for the visible area of a Kendo UI Map component."
 slug: howto_loadmarkers_map
 previous_url: /controls/diagrams-and-maps/map/how-to/load-markers-for-area
 tags: kendo, jquery, map, load, markers, for, visible, areas
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Map for jQuery</td>
+  <td>Progress® Kendo UI® Map for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

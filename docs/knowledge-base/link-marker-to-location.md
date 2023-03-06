@@ -1,7 +1,7 @@
 ---
 title: Link Map Markers to Locations
 page_title: Link Map Markers to Locations
-description: "Learn how to link markers to locations in a Kendo UI Map widget."
+description: "Learn how to link markers to locations in a Kendo UI Map component."
 slug: howto_linkmarkertolocation_map
 previous_url: /controls/diagrams-and-maps/map/how-to/link-marker-to-location
 tags: kendo, jquery, map, link, markers, to, locations
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Map for jQuery</td>
+  <td>Progress® Kendo UI® Map for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -36,6 +36,13 @@ res_type: kb
 How can I draw a straight line between a marker and a location on a Kendo UI for jQuery Map?
 
 ## Solution
+
+1. Add shape and marker [`layers`](/api/javascript/dataviz/ui/map/configuration/layers) to the Map configuration.
+1. Attach a handler to the [`reset`](/api/javascript/dataviz/ui/map/events/reset) event of the map.
+1. Create a method that will draw a line between a marker and a specified position.
+1. Inside the method, retrieve the **from** and **to** coordinates for the line by using the [`locationToView`](/api/javascript/dataviz/ui/map/methods/locationtoview) method.
+1. Get a reference to the shape layer so you can draw on its surface.
+1. Draw the line by using the [`kendo.drawing.Path`](/api/javascript/drawing/path) element.
 
 The following example demonstrates how to draw a straight line between a marker and a location on a Kendo UI Map.
 

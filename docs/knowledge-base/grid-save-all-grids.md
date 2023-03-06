@@ -2,7 +2,7 @@
 title: Save Changes in All Grids 
 description: How to Save Grids in All Hierarchy Levels
 type: how-to
-page_title: How to Save Grids in All Hierarchy Levels | Kendo UI Grid for jQuery
+page_title: How to Save Grids in All Hierarchy Levels - Kendo UI for jQuery Data Grid
 slug: grid-save-all-grids
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>

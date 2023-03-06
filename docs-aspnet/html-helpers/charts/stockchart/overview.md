@@ -7,12 +7,12 @@ slug: overview_stockcharthelper_aspnetcore
 position: 1
 ---
 
-# StockChart Overview
+# {{ site.framework }} StockChart Overview
 
 {% if site.core %}
-The Telerik UI StockChart TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI StockChart widget.
+The Telerik UI StockChart TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI StockChart component.
 {% else %}
-The Telerik UI StockChart HtmlHelper for {{ site.framework }} is a server-side wrapper for the Kendo UI StockChart widget.
+The Telerik UI StockChart HtmlHelper for {{ site.framework }} is a server-side wrapper for the Kendo UI StockChart component.
 {% endif %}
 
 The StockChart is a specialized control visualizing the price movement of any financial instrument over a certain period of time. StockCharts include extensive touch support and a navigator pane for easy browsing of extended time periods. Generally, StockCharts extend the Telerik UI Chart and share most of its features.
@@ -218,4 +218,4 @@ To reference an existing Kendo UI StockChart instance, use the [`jQuery.data()`]
 ## See Also
 
 * [Basic Usage of the StockChart HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/financial/index)
-* [Server-Side API](/api/stockchart)
+* [Server-Side API of the StockChart for {{ site.framework }}](/api/stockchart)

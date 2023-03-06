@@ -2,7 +2,7 @@
 title: Restore filters applied through the Grid's UI when the Search input is cleared
 description: An example demonstrating how to restore the filters applied through the Grid's UI when the search panel's value is cleared.
 type: how-to
-page_title: Grid restore filters when search input is cleared | Kendo UI Grid for jQuery
+page_title: Grid restore filters when search input is cleared - Kendo UI for jQuery Data Grid
 slug: grid-clear-search-restores-previously-applied-filters
 tags: grid, search, input, panel, filters, clear, persist, restore
 res_type: kb
@@ -13,7 +13,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Grid for Progress® Kendo UI®</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>

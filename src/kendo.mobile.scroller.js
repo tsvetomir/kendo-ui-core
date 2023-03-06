@@ -1,8 +1,7 @@
-(function(f, define) {
-    define([ "./kendo.fx", "./kendo.draganddrop" ], f);
-})(function() {
+import "./kendo.fx.js";
+import "./kendo.draganddrop.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.scroller",
     name: "Scroller",
     category: "mobile",
@@ -703,6 +702,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(Scroller);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

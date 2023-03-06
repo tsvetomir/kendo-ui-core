@@ -1,8 +1,8 @@
 ---
 title: Clear All Filters
-description: An example on how to programmatically clear all applied filters in a Kendo UI Grid.
+description: Learn how to programmatically clear all applied filters in a Kendo UI Grid.
 type: how-to
-page_title: Remove DataSource Filters | Kendo UI Grid for jQuery
+page_title: Remove DataSource Filters - Kendo UI for jQuery Data Grid
 slug: grid-datasource-filter-clear-all
 tags: grid, datasource, filter, clear, all
 ticketid: 1167921
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Grid for Progress® Kendo UI®</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>

@@ -1,7 +1,7 @@
 ---
 title: Add a Close Button to TabStrip Tabs
-page_title: Add a Close Button to TabStrip Tabs
-description: "Learn how to add Close buttons in the Kendo UI for jQuery TabStrip tabs."
+page_title: Add a Close Button to a Specific Tab - jQuery TabStrip
+description: "Learn how to add a Close button to the tabs of the Kendo UI for jQuery TabStrip."
 slug: howto_addclosebuttontotabs_tabstrip
 previous_url: /controls/navigation/tabstrip/how-to/add-close-button-to-tabs
 tags: telerik, kendo, jquery, tabstrip, add, close, buttons, to, tabs
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TabStrip for jQuery</td>
+  <td>Progress® Kendo UI® TabStrip for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -37,7 +37,7 @@ How can I add a **Close** button to a Kendo UI for jQuery TabStrip tab?
 
 ## Solution
 
-You can programmatically remove the TabStrip tabs with JavaScript. 
+You can programmatically remove the TabStrip tabs with JavaScript.
 
 The following example shows how to add buttons inside the tabs to do this. The milestones of the approach are:
 
@@ -66,7 +66,7 @@ The following example shows how to add buttons inside the tabs to do this. The m
 
 <div id="tabstrip">
   <ul>
-    <li class="k-state-active">Item 1</li>
+    <li class="k-active">Item 1</li>
     <li><span>Item 2 <button data-type="remove" class="k-button k-button-icon"><span class="k-icon k-i-close"></span></button></span></li>
   </ul>
   <div>
@@ -80,10 +80,10 @@ The following example shows how to add buttons inside the tabs to do this. The m
 
 <script>
   $(function(){
-    // initialize the TabStrip. Server wrappers will generate the below line automatically
+    // Initialize the TabStrip. Server wrappers will generate the below line automatically.
     $("#tabstrip").kendoTabStrip();
 
-    // get the widget reference
+    // Get the reference of the component.
     var tabstrip = $("#tabstrip").data("kendoTabStrip");
 
     tabstrip.tabGroup.on("click", "[data-type='remove']", function(e) {
@@ -111,8 +111,6 @@ The following example shows how to add buttons inside the tabs to do this. The m
 
 ## See Also
 
-* [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
-* [How to Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
-* [How to Scroll TabStrip with Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})
-
-
+* [JavaScript API Reference of the Kendo UI for jQuery TabStrip](/api/javascript/ui/tabstrip)
+* [Initialize the Data Grid in the TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
+* [Scroll the TabStrip with the Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})

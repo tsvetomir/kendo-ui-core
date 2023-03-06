@@ -7,11 +7,35 @@ slug: overview_localization_core
 position: 3
 ---
 
-# Localization
+# {{ site.product }} Localization
 
 [Localization](https://en.wikipedia.org/wiki/Internationalization_and_localization) is the process of adapting software to meet the requirements of local markets and different languages.
 
 You can change the messages that are displayed in the {{ site.product }} helpers by including an additional script file in the document.
+
+## Localization Files
+
+Officially, the {{ site.product }} components support only the English language. The community contributes to translating the messages to other languages by adding new `messages` JavaScript files and updating the existing ones in the [Kendo UI Core repository](https://github.com/telerik/kendo-ui-core/tree/master/src/messages). 
+
+To display messages in different languages, {{ site.product }} uses localization (resource) files, for example, `Messages.es-ES.resx`. The localization files are generated from the `messages` JavaScript files.
+
+You can find the resource files in the Telerik UI source zip bundle:
+
+{% if site.core %}
+1. Log in to your [Telerik account](https://www.telerik.com/login/v2/telerik).
+
+1. Go to the [Telerik UI for ASP.NET Core download page](https://www.telerik.com/account/downloads/product-download?product=UIASPCORE) and download the `telerik.ui.for.aspnet.core.{{ site.mvcCoreVersion }}.commercial-source.zip` file.
+
+1. Extract the archive and navigate to the `\src\AspNet.Core\Kendo.Mvc\Resources\` folder that contains the resource files.
+{% else %}
+1. Log in to your [Telerik account](https://www.telerik.com/login/v2/telerik).
+
+1. Go to the [Telerik UI for ASP.NET MVC download page](https://www.telerik.com/account/downloads/product-download?product=KENDOUIMVC) and download the `telerik.ui.for.aspnetmvc.{{ site.mvcCoreVersion }}.commercial-source.zip` file.
+
+1. Extract the archive and navigate to the `\src\Kendo.Mvc\Kendo.Mvc\Resources\` folder that contains the resource files.
+{% endif %}
+
+> Changes made to the `messages` files through community contribution will be reflected in the {{ site.product }} release that follows that contribution. Refer to the [section on contributing](#contribution).
 
 ## Setting the Current Language
 
@@ -59,34 +83,6 @@ The following example demonstrates how to create a new localization file. The `k
 {% else %}
 The culture that is used for the localization messages in Telerik UI for ASP.NET MVC is determined by the `CurrentUICulture`, not by the `CurrentCulture` property. By default, if `CurrentUICulture` is not supported, the Telerik UI for ASP.NET MVC helpers will display their messages in American English (en-US). If `CurrentUICulture` is set from code or from the `web.config` file, Telerik UI for ASP.NET MVC will use localized user interface messages.
 
-The following table lists the localized messages for the cultures which are supported by Telerik UI for ASP.NET MVC.
-
-| Culture   | Language  | Country
-|:---       |:---       |:---
-|`ar-AE`    |Arabic     |U.A.E.
-|`bg-BG`    |Bulgarian  |Bulgaria
-|`cs-CZ`    |Czech      |Czech Republic
-|`da-DK`    |Danish     |Denmark
-|`de-DE`    |German     |Germany
-|`el-GR`    |Greek      |Greece
-|`en-US`    |English    |United States of America
-|`es-ES`    |Spanish    |Spain
-|`fr-CA`    |French     |Canada
-|`fr-FR`    |French     |France
-|`he-IL`    |Hebrew     |Israel
-|`it-IT`    |Italian    |Italy
-|`nl-NL`    |Dutch      |The Netherlands
-|`pl-PL`    |Polish     |Poland
-|`pt-BR`    |Portuguese |Brazil
-|`pt-PT`    |Portuguese |Portugal
-|`ro-RO`    |Romanian   |Romania
-|`ru-RU`    |Russian    |Russia
-|`sk-SK`    |Slovak     |Slovakia
-|`sv-SE`    |Swedish    |Sweden
-|`tr-TR`    |Turkish    |Turkish
-|`uk-UA`    |Ukrainian  |Ukraine
-|`zh-CN`    |Chinese    |People's Republic of China
-
 ## Customizing the Localized Messages
 
 Telerik UI for ASP.NET MVC uses [satellite assemblies](https://docs.microsoft.com/en-us/dotnet/framework/resources/creating-satellite-assemblies-for-desktop-apps) to support localization (user interface messages localized for a set of cultures). To change the provided localization messages, you have to build a custom `Kendo.Mvc.dll` version because `Kendo.Mvc.dll` is a strongly named assembly and its private key is not shipped as part of the distribution.
@@ -96,7 +92,7 @@ To update the provided localization messages in Telerik UI for ASP.NET MVC:
 1. Open the `\src\Kendo.Mvc\Kendo.Mvc.csproj` Visual Studio project. The `\src` directory is available only with the commercial version of Telerik UI for ASP.NET MVC.
 1. Locate the `Resources` directory in the solution explorer. It contains the resource files for the supported cultures.
 
-    ![Resources](../images/resources-mvc.png)
+    ![{{ site.product_short }} Resources](../images/resources-mvc.png)
 
 1. Open the resource file which corresponds to the target culture, for example, `Messages.es-ES.resx`.
 1. Edit the resource file and save it.
@@ -127,7 +123,7 @@ To add new localization files in Telerik UI for ASP.NET MVC:
 1. Open the `\src\Kendo.Mvc\Kendo.Mvc.csproj` Visual Studio project. The `\src` directory is available only with the commercial version of Telerik UI for ASP.NET MVC.
 1. Locate the `Resources` directory in the solution explorer. It contains the resource files for the supported cultures.
 
-    ![Resources](../images/resources-mvc.png)
+    ![{{ site.product_short }} Resources](../images/resources-mvc.png)
 
 1. Copy `Messages.resx` and paste it. Rename the copy to `Messages.culture-code.resx`, for example, `Messages.es-MX.resx`.
 1. Open the newly created resource file.

@@ -71,6 +71,25 @@ The crosshair configuration options.
 
 > The crosshair is displayed when the [axisDefaults.crosshair.visible](/api/javascript/dataviz/ui/chart#configuration-axisDefaults.crosshair.visible) option is set to `true`.
 
+#### Example - set the default crosshair configuration options
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      axisDefaults: {
+        crosshair: {
+          color: "green",
+          width: 2,
+          zIndex:1,
+          visible: true
+        }
+      },
+      series: [
+        { type: "column", data: [[1, 2], [3, 4], [4, 5]] }
+      ]
+    });
+</script>
+
 ### axisDefaults.crosshair.color `String`
 
 The color of the crosshair. Accepts a valid CSS color string, including hex and rgb.
@@ -10642,7 +10661,7 @@ The text color of the title. Accepts a valid CSS color string, including hex and
     });
     </script>
 
-### panes.title.font `String` *(default: "16px Arial,Helvetica,sans-serif")*
+### panes.title.font `String` *(default: "700 18px Arial,Helvetica,sans-serif")*
 
 The font style of the title.
 
@@ -13725,8 +13744,6 @@ The data item field which contains the series mean value.
 
 #### Example - set the chart series mean field
 
-    <div id="chart"></div>
-    <script>
     $("#chart").kendoChart({
       dataSource: {
         data: [{
@@ -13750,7 +13767,6 @@ The data item field which contains the series mean value.
          outliersField: "outliers"
       }]
     });
-    </script>
 
 ### series.outliersField `String` *(default: "outliers")*
 
@@ -13758,8 +13774,6 @@ The data item field which contains the series outliers value.
 
 #### Example - set the chart series outliers field
 
-    <div id="chart"></div>
-    <script>
     $("#chart").kendoChart({
       dataSource: {
         data: [{
@@ -13783,7 +13797,6 @@ The data item field which contains the series outliers value.
          outliersField: "outliers"
       }]
     });
-    </script>
 
 ### series.gap `Number` *(default: 1.5)*
 
@@ -14521,6 +14534,34 @@ The font style of the labels. Accepts a valid CSS font string, for example "20px
 ### series.labels.format `String|Function` *(default: "{0}")*
 
 The format of the labels. Uses [kendo.format](/api/javascript/kendo/methods/format).
+
+Format placeholders:
+
+* Area, bar, column, line, pie, radarArea, radarColumn and radarLine
+    *   {0} - value
+* Bubble
+    *   {0} - x value
+    *   {1} - y value
+    *   {2} - size value
+    *   {3} - category name
+* Bullet
+    *   {0} - value
+    *   {1} - target value
+* Scatter, scatterLine
+    *   {0} - x value
+    *   {1} - y value
+* PolarArea, polarLine and polarScatter
+    *   {0} - x value (degrees)
+    *   {1} - y value
+* Candlestick and OHLC
+    *   {0} - open value
+    *   {1} - high value
+    *   {2} - low value
+    *   {3} - close value
+    *   {4} - category name
+* RangeArea, rangeBar, rangeColumn
+    *   {0} - from value
+    *   {1} - to value
 
 #### Example - set the chart series label format
 
@@ -17021,6 +17062,9 @@ Format placeholders:
     *   {1} - y value
     *   {2} - size value
     *   {3} - category name
+* Bullet
+    *   {0} - value
+    *   {1} - target value
 * Scatter, scatterLine
     *   {0} - x value
     *   {1} - y value
@@ -19896,6 +19940,9 @@ Format placeholders:
     *   {1} - y value
     *   {2} - size value
     *   {3} - category name
+* Bullet
+    *   {0} - value
+    *   {1} - target value
 * Scatter and scatterLine
     *   {0} - x value
     *   {1} - y value
@@ -20950,6 +20997,553 @@ A function that can be used to create a custom visual for the notes. The availab
       });
     </script>
 
+### subtitle `Object|String`
+
+The chart subtitle configuration options or text.
+
+#### Example - set the chart title and subtitle as a string
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: "Title",
+      subtitle: "Subtitle",
+      series: [
+        { data: [1, 2] }
+      ]
+    });
+    </script>
+
+#### Example - configure the chart title and subtitle
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title",
+        align: "left"
+      },
+      subtitle: {
+        text: "Subtitle",
+        align: "left"
+      },
+      series: [
+        { data: [1, 2] }
+      ]
+    });
+    </script>
+
+### subtitle.align `String`
+
+The alignment of the subtitle.
+
+* "center" - the text is aligned to the middle.
+* "left" - the text is aligned to the left.
+* "right" - the text is aligned to the right.
+
+By default, the subtitle has the same alignment as the title.
+
+#### Example - configure the chart title and subtitle alignment
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title",
+        align: "left"
+      },
+      subtitle: {
+        text: "Subtitle",
+        align: "left"
+      },
+      series: [
+        { data: [1, 2] }
+      ]
+    });
+    </script>
+
+### subtitle.background `String` *(default: "white")*
+
+The background color of the subtitle. Accepts a valid CSS color string, including hex and rgb.
+
+#### Example - configure the chart subtitle alignment
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        background: "green"
+      },
+      series: [
+        { data: [1, 2] }
+      ]
+    });
+    </script>
+
+### subtitle.border `Object`
+
+The border of the subtitle.
+
+#### Example - set the chart subtitle border
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        border: {
+          color: "green",
+          width: 2
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.border.color `String` *(default: "black")*
+
+The color of the border. Accepts a valid CSS color string, including hex and rgb.
+
+#### Example - set the chart subtitle border color
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        border: {
+          color: "green",
+          width: 2
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.border.dashType `String` *(default: "solid")*
+
+The dash type of the chart subtitle border.
+
+The following dash types are supported:
+
+* "dash" - a line consisting of dashes
+* "dashDot" - a line consisting of a repeating pattern of dash-dot
+* "dot" - a line consisting of dots
+* "longDash" - a line consisting of a repeating pattern of long-dash
+* "longDashDot" - a line consisting of a repeating pattern of long-dash-dot
+* "longDashDotDot" - a line consisting of a repeating pattern of long-dash-dot-dot
+* "solid" - a solid line
+
+#### Example - set the chart subtitle border dash type
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        border: {
+          dashType: "dashDot",
+          width: 2
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.border.width `Number` *(default: 0)*
+
+The width of the border in pixels. By default the border width is set to zero which means that the border will not appear.
+
+#### Example - set the chart subtitle border width
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        border: {
+          width: 2
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.color `String`
+
+The text color of the subtitle. Accepts a valid CSS color string, including hex and rgb.
+
+#### Example - set the subtitle color as a hex string
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Chart Title"
+      },
+      subtitle: {
+        text: "Chart Subtitle",
+        color: "#aa00bb"
+      },
+      series: [{
+         data: [1, 2, 3]
+      }]
+    });
+    </script>
+
+### subtitle.font `String` *(default: "12px Arial,Helvetica,sans-serif")*
+
+The font of the title.
+
+#### Example - set the chart title and subtitle font
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Title",
+        font: "20px sans-serif"
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.margin `Number|Object` *(default: 5)*
+
+The margin of the subtitle. A numeric value will set all margins.
+
+#### Example - set the chart subtitle margin as a number
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        margin: 10
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.margin.bottom `Number` *(default: 0)*
+
+The bottom margin of the subtitle.
+
+#### Example - set the chart subtitle bottom margin
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        margin: {
+          bottom: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.margin.left `Number` *(default: 0)*
+
+The left margin of the subtitle.
+
+#### Example - set the chart subtitle left margin
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title",
+        margin: {
+          left: 10
+        }
+      },
+      subtitle: {
+        text: "Subtitle"
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.margin.right `Number` *(default: 0)*
+
+The right margin of the subtitle.
+
+#### Example - set the chart series subtitle right margin
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Title",
+        margin: {
+          right: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.margin.top `Number` *(default: 0)*
+
+The top margin of the subtitle.
+
+#### Example - set the chart subtitle top margin
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        margin: {
+          top: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.padding `Number|Object` *(default: 5)*
+
+The padding of the subtitle. A numeric value will set all margins.
+
+#### Example - set the chart subtitle padding as a number
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        padding: 10
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.padding.bottom `Number` *(default: 0)*
+
+The bottom padding of the subtitle.
+
+#### Example - set the chart subtitle bottom padding
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Title",
+        padding: {
+          bottom: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.padding.left `Number` *(default: 0)*
+
+The left padding of the subtitle.
+
+#### Example - set the chart subtitle left padding
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        padding: {
+          left: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.padding.right `Number` *(default: 0)*
+
+The right padding of the subtitle.
+
+#### Example - set the chart subtitle right padding
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Title",
+        padding: {
+          right: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.padding.top `Number` *(default: 0)*
+
+The top padding of the subtitle.
+
+#### Example - set the chart subtitle top padding
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        padding: {
+          top: 10
+        }
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.position `String` *(default: "top")*
+
+The position of the subtitle.
+
+* "bottom" - the title is positioned on the bottom.
+* "top" - the title is positioned on the top.
+
+By default, the subtitle is placed in the same position as the title.
+
+#### Example - set the chart subtitle position
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title",
+        position: "bottom"
+      },
+      subtitle: {
+        text: "Subtitle",
+        position: "bottom"
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.text `String`
+
+The text of the chart subtitle. You can also set the text directly for a title with default options.
+
+> The text can be split into multiple lines by using line feed characters ("\n").
+
+#### Example - set the chart subtitle text
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title"
+      },
+      subtitle: {
+        text: "Subtitle",
+        position: "bottom"
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
+### subtitle.visible `Boolean` *(default: true)*
+
+If set to `true` the chart will display the subtitle. By default the subtitle will be displayed.
+
+#### Example - hide the subtitle
+
+    <div id="chart"></div>
+    <script>
+    $("#chart").kendoChart({
+      title: {
+        text: "Title",
+        visible: false
+      },
+      subtitle: {
+        text: "Subtitle",
+        visible: false
+      },
+      series: [
+        { data: [1, 2, 3] }
+      ]
+    });
+    </script>
+
 ### theme `String`
 
 The chart theme. This can be either a built-in theme or "sass".
@@ -21012,7 +21606,7 @@ The alignment of the title.
 * "left" - the text is aligned to the left.
 * "right" - the text is aligned to the right.
 
-#### Example - configure the chart alignment
+#### Example - configure the chart title alignment
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
@@ -21030,7 +21624,7 @@ The alignment of the title.
 
 The background color of the title. Accepts a valid CSS color string, including hex and rgb.
 
-#### Example - configure the chart alignment
+#### Example - configure the chart title alignment
     <div id="chart"></div>
     <script>
     $("#chart").kendoChart({
@@ -21164,7 +21758,7 @@ The text color of the title. Accepts a valid CSS color string, including hex and
 
 The font of the title.
 
-#### Example - set the chart title border font
+#### Example - set the chart title font
 
     <div id="chart"></div>
     <script>
@@ -21183,7 +21777,7 @@ The font of the title.
 
 The margin of the title. A numeric value will set all margins.
 
-#### Example - set the chart series label margin as a number
+#### Example - set the chart title margin as a number
 
     <div id="chart"></div>
     <script>
@@ -21202,7 +21796,7 @@ The margin of the title. A numeric value will set all margins.
 
 The bottom margin of the title.
 
-#### Example - set the chart series label bottom margin
+#### Example - set the chart title bottom margin
 
     <div id="chart"></div>
     <script>
@@ -21223,7 +21817,7 @@ The bottom margin of the title.
 
 The left margin of the title.
 
-#### Example - set the chart series label left margin
+#### Example - set the chart title left margin
 
     <div id="chart"></div>
     <script>
@@ -21244,7 +21838,7 @@ The left margin of the title.
 
 The right margin of the title.
 
-#### Example - set the chart series label right margin
+#### Example - set the chart title right margin
 
     <div id="chart"></div>
     <script>
@@ -21265,7 +21859,7 @@ The right margin of the title.
 
 The top margin of the title.
 
-#### Example - set the chart series label top margin
+#### Example - set the chart title top margin
 
     <div id="chart"></div>
     <script>
@@ -21286,7 +21880,7 @@ The top margin of the title.
 
 The padding of the title. A numeric value will set all margins.
 
-#### Example - set the chart series label padding as a number
+#### Example - set the chart title padding as a number
 
     <div id="chart"></div>
     <script>
@@ -21305,7 +21899,7 @@ The padding of the title. A numeric value will set all margins.
 
 The bottom padding of the title.
 
-#### Example - set the chart series label bottom padding
+#### Example - set the chart title bottom padding
 
     <div id="chart"></div>
     <script>
@@ -21326,7 +21920,7 @@ The bottom padding of the title.
 
 The left padding of the title.
 
-#### Example - set the chart series label left padding
+#### Example - set the chart title left padding
 
     <div id="chart"></div>
     <script>
@@ -21347,7 +21941,7 @@ The left padding of the title.
 
 The right padding of the title.
 
-#### Example - set the chart series label right padding
+#### Example - set the chart title right padding
 
     <div id="chart"></div>
     <script>
@@ -21368,7 +21962,7 @@ The right padding of the title.
 
 The top padding of the title.
 
-#### Example - set the chart series label top padding
+#### Example - set the chart title top padding
 
     <div id="chart"></div>
     <script>
@@ -21619,6 +22213,9 @@ Format placeholders:
     *   {1} - y value
     *   {2} - size value
     *   {3} - category name
+* Bullet
+    *   {0} - value
+    *   {1} - target value
 * Scatter and scatterLine
     *   {0} - x value
     *   {1} - y value
@@ -39180,7 +39777,7 @@ The data point value.
       ]
     });
 
-    functino chart_seriesClick(e) {
+    function chart_seriesClick(e) {
 	/* The result can be observed in the DevTools(F12) console of the browser. */
       console.log(e.value);
     }
@@ -39274,12 +39871,12 @@ The data point value.
         { data: [1, 2] }
       ]
     });
-    
+
     function chart_seriesHover(e) {
     /* The result can be observed in the DevTools(F12) console of the browser. */
       console.log(e.value);
     }
-    
+
     var chart = $("#chart").data("kendoChart");
     chart.bind("seriesHover", chart_seriesHover);
     </script>

@@ -1,6 +1,6 @@
 ---
-title: MultiColumnComboBox Appearance
-page_title: jQuery MultiColumnComboBox Documentation | MultiColumnComboBox Appearance
+title: Appearance
+page_title: jQuery MultiColumnComboBox Documentation - MultiColumnComboBox Appearance
 description: "Learn how to apply different styling options to the MultiColumnComboBox widget."
 slug: appearance_kendoui_multicolumncombobox_widget
 position: 9
@@ -12,7 +12,7 @@ position: 9
 
 In this article, you will find information about the rendering of the Kendo UI MultiColumnComboBox.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the MultiColumnComboBox](https://demos.telerik.com/kendo-ui/multicolumncombobox/appearance).
 
@@ -192,7 +192,7 @@ Old Popup Rendering without virtualization:
   <div class="k-group-header" style="display:none"></div>
   <div class="k-list-scroller" unselectable="on" style="height: auto;">
     <ul unselectable="on" class="k-reset k-grid-list" tabindex="-1" aria-hidden="true" id="multicolumncombobox_listbox" aria-live="off" data-role="staticlist" role="listbox">
-      <li tabindex="-1" role="option" unselectable="on" class="k-item k-state-focused" aria-selected="false" data-offset-index="0" id="a2ccd9ae-e206-49af-b205-86619abac6c3">
+      <li tabindex="-1" role="option" unselectable="on" class="k-item k-focus" aria-selected="false" data-offset-index="0" id="a2ccd9ae-e206-49af-b205-86619abac6c3">
         <span class="k-cell"></span>
         <span class="k-cell"></span>
       </li>
@@ -383,9 +383,171 @@ New Popup Rendering with virtualization:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
+
+The following example showcases how to customize the styles of the **MultiColumnComboBox** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <select id="customers" style="width: 100%"></select>
+    <script>     
+      $("#customers").kendoMultiColumnComboBox({
+        dataTextField: "ContactName",
+        dataValueField: "CustomerID",
+        height: 400,
+        columns: [
+          {
+            field: "ContactName", title: "Contact Name"},
+          { field: "ContactTitle", title: "Contact Title" },         
+          { field: "Country", title: "Country"}
+        ],        
+        filter: "contains",
+        filterFields: ["ContactName", "ContactTitle", "CompanyName", "Country"],
+        value: 'ANTON',       
+        dataSource: {
+          type: "odata",
+          transport: {
+            read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+          }
+        }
+      });
+
+    </script>
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later*/ 
+
+      .k-combobox .k-input-inner{ /* customize the style input */
+        background: lightgreen;
+      }
+
+      .k-dropdowngrid-popup .k-table-row{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD !important;
+      }    
+
+      .k-dropdowngrid-popup .k-selected{ /* customize the styles of the selected items in the popup */
+        background-color: #FBBBB9 !important;
+        border: 2px solid #E56E94 !important;
+      }   
+
+      .k-dropdowngrid-popup .k-table-th{ /* customize the styles of the table header */
+        background-color: violet !important;
+      }
+
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */ 
+
+
+      #customers-list .k-item{ /* customize the styles of the items in the popup */
+        background-color: #FFE5B4 !important;
+      }
+
+      #customers-list .k-state-selected{ /* customize the styles of the selected items in the popup */
+        background-color: #FED8B1 !important;
+        border: 2px solid orange !important;
+        color: brown !important;
+      }
+
+      #customers-list .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+        background-color: orange !important;
+        color: white !important;
+      }
+
+      #customers-list .k-header{ /* customize the styles of the table header */
+        background-color: salmon !important;
+      }
+    </style>
+```
+
+With the new rendering different classes should be used in order to customize the [MultiColumnComboBox templates](/controls/editors/multicolumncombobox/templates).
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="customers" style="width: 100%;" />
+    <script>
+      $(document).ready(function() {
+        $("#customers").kendoMultiColumnComboBox({
+          dataTextField: "ContactName",
+          dataValueField: "CustomerID",
+          columns: [
+            { field: "ContactName", title: "Contact Name"},
+            { field: "ContactTitle", title: "Contact Title" },         
+            { field: "Country", title: "Country"}
+          ],
+          groupTemplate: "Group template: #: data #",
+          fixedGroupTemplate: "Fixed header: #: data #",
+          footerTemplate: 'Total <strong>#: instance.dataSource.total() #</strong> items found',
+          noDataTemplate: 'No Data!',           
+          height: 400,
+          filter: "contains",
+          dataSource: {
+            type: "odata",
+            transport: {
+              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+            },
+            group: { field: "Country" }
+          }
+        });
+      });
+    </script>
+    <style>
+
+      /*  NEW RENDERING */
+      /*  The styles below will work with versions R1 2022 or later*/ 
+
+      /*customize groupTemplate */
+      #customers-list .k-table-group-td span{
+        background: blue !important;
+        color: yellow !important;
+        font-size: 18px;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-table-group-row{
+        background: turquoise !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-table-footer{
+        background: darkCyan !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-no-data{
+        color: green !important;
+        font-weight: bold;
+      }
+
+      /*  OLD RENDERING */
+      /*  The styles below will work with versions prior to R1 2022 */ 
+
+      /*customize groupTemplate */
+      #customers-list .k-item>.k-group-cell span{
+        background: red !important;
+        color: white !important;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-group-header{
+        background: salmon !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-footer{
+        background: tomato !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-nodata{        
+        color: red;
+      }
+    </style>
+```
 
 ## See Also
 

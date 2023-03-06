@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Diagram for jQuery</td>
+  <td>Progress® Kendo UI® Diagram for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -115,7 +115,7 @@ The following example demonstrates how to enable the dropping only of new shapes
       <div id="left-pane">
         <div class="pane-content">
           <ul id="shapesPanelBar">
-            <li class="k-state-active">
+            <li class="k-active">
               Basic Shapes
               <ul>
                 <li>
@@ -133,7 +133,7 @@ The following example demonstrates how to enable the dropping only of new shapes
                 </li>
               </ul>
             </li>
-            <li class="k-state-active">
+            <li class="k-active">
               Polygons
               <ul>
                 <li>
@@ -151,7 +151,7 @@ The following example demonstrates how to enable the dropping only of new shapes
                 </li>
               </ul>
             </li>
-            <li class="k-state-active">
+            <li class="k-active">
               Arrows
               <ul>
                 <li>
@@ -178,8 +178,8 @@ The following example demonstrates how to enable the dropping only of new shapes
       {
         height: 100%;
       }
-      #shapesPanelBar .k-panel .k-state-hover,
-      #shapesPanelBar .k-panel .k-state-selected
+      #shapesPanelBar .k-panel .k-hover,
+      #shapesPanelBar .k-panel .k-selected
       {
         color: inherit;
         background: #fff;
@@ -215,6 +215,6 @@ The following example demonstrates how to enable the dropping only of new shapes
 
 * [Basic Usage of the Diagram (Demo)](https://demos.telerik.com/kendo-ui/diagram/index)
 * [JavaScript API Reference of the Diagram](/api/javascript/dataviz/ui/diagram)
-* [How to Show Shapes Tooltip]({% slug howto_shapestooltip_diagram %})
-* [How to Use Scrollbars]({% slug howto_usescrollbar_diagram %})
-* [How to Wrap Text]({% slug howto_wraptext_diagram %})
+* [Show Shapes Tooltip]({% slug howto_shapestooltip_diagram %})
+* [Use Scrollbars]({% slug howto_usescrollbar_diagram %})
+* [Wrap Text]({% slug howto_wraptext_diagram %})

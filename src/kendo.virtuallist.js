@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.data" ], f);
-})(function() {
+import "./kendo.data.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "virtuallist",
     name: "VirtualList",
     category: "framework",
@@ -13,6 +11,7 @@ var __meta__ = { // jshint ignore:line
 (function($, undefined) {
     var kendo = window.kendo,
         ui = kendo.ui,
+        encode = kendo.htmlEncode,
         Widget = ui.Widget,
         DataBoundWidget = ui.DataBoundWidget,
         percentageUnitsRegex = /^\d+(\.\d+)?%$/i,
@@ -354,10 +353,10 @@ var __meta__ = { // jshint ignore:line
             selectable: false,
             value: [],
             dataValueField: null,
-            template: "#:data#",
-            placeholderTemplate: "loading...",
-            groupTemplate: "#:data#",
-            fixedGroupTemplate: "#:data#",
+            template: (data) => encode(data),
+            placeholderTemplate: () => "loading...",
+            groupTemplate: (data) => encode(data),
+            fixedGroupTemplate: (data) => encode(data),
             mapValueTo: "index",
             valueMapper: null,
             ariaLabel: null,
@@ -968,7 +967,7 @@ var __meta__ = { // jshint ignore:line
             added = added || [];
 
             if (removed.length || added.length) {
-                this.trigger(CHANGE, {
+                 this.trigger(CHANGE, {
                     removed: removed,
                     added: added
                 });
@@ -1171,12 +1170,12 @@ var __meta__ = { // jshint ignore:line
             };
 
             if (options.columns) {
-                for (var i = 0; i < options.columns.length; i++) {
-                    var currentColumn = options.columns[i];
-                    var templateText = currentColumn.field ? currentColumn.field.toString() : "text";
+                options.columns.forEach((column, i) => {
+                    var templateText = column.field ? column.field.toString() : "text";
+                    var templateFunc = data => encode(kendo.getter(templateText)(data));
 
-                    templates["column" + i] = currentColumn.template || "#: " + templateText + "#";
-                }
+                    templates["column" + i] = column.template || templateFunc;
+                });
             }
 
             for (var key in templates) {
@@ -1841,6 +1840,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

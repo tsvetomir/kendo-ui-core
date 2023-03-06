@@ -1,8 +1,8 @@
 ---
 title: Large Excel Files Fail to Post to Proxy
-description: An example on how to increase the limit for file uploads so larger Excel files can be posted to a server proxy.
+description: Learn how to increase the limit for file uploads so larger Excel files can be posted to a server proxy.
 type: how-to
-page_title: Post a large Excel file to Proxy | Kendo UI Grid for jQuery
+page_title: Post a large Excel file to Proxy - Kendo UI for jQuery Data Grid
 slug: grid-excel-export-cannot-post-to-proxy
 tags: excel, export, grid, proxy, issue, cannot, post, limitation, server, webconfig, iis
 ticketid: 1349739
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 

@@ -1,13 +1,13 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.label.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "dateinput",
     name: "DateInput",
     category: "web",
     description: "The DateInput widget allows to edit date by typing.",
-    depends: [ "core" ]
+    depends: [ "core", "label" ]
 };
 
 (function($, undefined) {
@@ -19,6 +19,7 @@ var __meta__ = { // jshint ignore:line
     var keys = kendo.keys;
     var ns = ".kendoDateInput";
     var objectToString = {}.toString;
+    var isPlainObject = $.isPlainObject;
 
     var INPUT_EVENT_NAME = (kendo.support.propertyChangeEvent ? "propertychange.kendoDateInput input" : "input") + ns;
 
@@ -45,25 +46,26 @@ var __meta__ = { // jshint ignore:line
             options.max = kendo.parseDate(element.attr("max")) || kendo.parseDate(options.max);
 
             var wrapperClass = (element.parent().attr("class") || "");
-            var skipWrapping = wrapperClass.indexOf("picker") >= 0 && wrapperClass.indexOf("rangepicker") < 0;
+            var skipStyling = wrapperClass.indexOf("picker") >= 0 && wrapperClass.indexOf("rangepicker") < 0;
 
-            if (skipWrapping) {
-                that.wrapper = element.parent();
+            that.wrapper = element.wrap("<span class='k-dateinput k-input'></span>").parent();
+            if (skipStyling) {
+                that.wrapper = that.wrapper.parent();
             } else {
-                that.wrapper = element.wrap("<span class='k-dateinput k-input'></span>").parent();
                 that.wrapper.addClass(element[0].className).removeClass('input-validation-error');
-                that.wrapper[0].style.cssText = element[0].style.cssText;
-                element.css({
-                    height: element[0].style.height
-                });
             }
+            that.wrapper[0].style.cssText = element[0].style.cssText;
+            element.css({
+                height: element[0].style.height
+            });
 
-            that._validationIcon = $("<span class='k-input-validation-icon k-icon k-i-warning k-hidden'></span>").insertAfter(element);
+
+            that._validationIcon = $(kendo.ui.icon({ icon: "exclamation-circle", iconClass: "k-input-validation-icon k-hidden" })).insertAfter(element);
 
             that._form();
 
             that.element
-                .addClass(skipWrapping ? " " : "k-input-inner")
+                .addClass("k-input-inner")
                 .attr("autocomplete", "off")
                 .on("focus" + ns, function() {
                     that.wrapper.addClass(FOCUSED);
@@ -86,9 +88,14 @@ var __meta__ = { // jshint ignore:line
             } else {
                 that.readonly(element.is("[readonly]"));
             }
-
             that.value(that.options.value || element.val());
-            that._applyCssClasses();
+            if (!skipStyling) {
+                that._applyCssClasses();
+            }
+
+            if (options.label) {
+                that._label();
+            }
 
             kendo.notify(that);
         },
@@ -112,7 +119,8 @@ var __meta__ = { // jshint ignore:line
             },
             size: "medium",
             fillMode: "solid",
-            rounded: "medium"
+            rounded: "medium",
+            label: null
         },
 
         events: [
@@ -141,6 +149,16 @@ var __meta__ = { // jshint ignore:line
             this._unbindInput();
             this._bindInput();
             this._updateElementValue();
+
+            if (options.label && that._inputLabel) {
+                that.label.setOptions(options.label);
+            } else if (options.label === false) {
+                that.label._unwrapFloating();
+                that._inputLabel.remove();
+                delete that._inputLabel;
+            } else if (options.label) {
+                that._label();
+            }
         },
 
         destroy: function() {
@@ -149,6 +167,10 @@ var __meta__ = { // jshint ignore:line
 
             if (that._formElement) {
                 that._formElement.off("reset", that._resetHandler);
+            }
+
+            if (that.label) {
+                that.label.destroy();
             }
 
             Widget.fn.destroy.call(that);
@@ -175,13 +197,35 @@ var __meta__ = { // jshint ignore:line
 
             this._updateElementValue();
             this._oldValue = value;
+
+            if (this.label && this.label.floatingLabel) {
+                this.label.floatingLabel.refresh();
+            }
         },
 
         _updateElementValue: function() {
-            var stringAndFromat = this._dateTime.toPair(this.options.format, this.options.culture, this.options.messages);
-            this.element.val(stringAndFromat[0]);
-            this._oldText = stringAndFromat[0];
-            this._format = stringAndFromat[1];
+            var stringAndFormat = this._dateTime.toPair(this.options.format, this.options.culture, this.options.messages);
+            this.element.val(stringAndFormat[0]);
+            this._oldText = stringAndFormat[0];
+            this._format = stringAndFormat[1];
+        },
+
+        _toggleDateMask: function(toShow) {
+            var that = this;
+
+            if (toShow) {
+                that._updateElementValue();
+            } else {
+                this.element.val("");
+            }
+        },
+
+        _hasDateInput: function() {
+            var emptyInput = (new customDateTime(null, this.options.format, this.options.culture, this.options.messages))
+                                .toPair(this.options.format, this.options.culture, this.options.messages)[0];
+            var currentInput = this._dateTime.toPair(this.options.format, this.options.culture, this.options.messages)[0];
+
+            return emptyInput !== currentInput;
         },
 
         readonly: function(readonly) {
@@ -189,6 +233,10 @@ var __meta__ = { // jshint ignore:line
                 readonly: readonly === undefined ? true : readonly,
                 disable: false
             });
+
+            if (this.label && this.label.floatingLabel) {
+                this.label.floatingLabel.readonly(readonly === undefined ? true : readonly);
+            }
         },
 
         enable: function(enable) {
@@ -196,6 +244,34 @@ var __meta__ = { // jshint ignore:line
                 readonly: false,
                 disable: !(enable = enable === undefined ? true : enable)
             });
+
+            if (this.label && this.label.floatingLabel) {
+                this.label.floatingLabel.enable(enable = enable === undefined ? true : enable);
+            }
+        },
+
+        _label: function() {
+            var that = this;
+            var options = that.options;
+            var labelOptions = isPlainObject(options.label) ? options.label : {
+                content: options.label
+            };
+
+            that.label = new kendo.ui.Label(null, $.extend({}, labelOptions, {
+                widget: that,
+                floatCheck: () => {
+                    that._toggleDateMask(true);
+
+                    if (!that.value() && !that._hasDateInput() && document.activeElement !== that.element[0]) {
+                        that._toggleDateMask(false);
+                        return true;
+                    }
+
+                    return false;
+                }
+            }));
+
+            that._inputLabel = that.label.element;
         },
 
         _bindInput: function() {
@@ -855,6 +931,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

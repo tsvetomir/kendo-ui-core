@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Timeline Documentation | Timeline Overview
+page_title: jQuery Timeline Documentation - Timeline Overview
 description: "Get started with the jQuery Timeline by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_timeline_widget
 position: 1
 ---
 
-# Timeline Overview
+# {{ site.product }} Timeline Overview
 
 The Kendo UI Timeline widget displays a collection of events and their data in a chronological succession for each year.
 
@@ -16,7 +16,7 @@ You can scroll through the events and collapse/expand them. The events order can
 
 The following image demonstrates a Timeline widget.
 
-![A Kendo UI Timeline widget](images/timeline-overview.png)
+![Kendo UI for jQuery Timeline Overview](images/timeline-overview.png)
 
 ## Initializing the Timeline
 

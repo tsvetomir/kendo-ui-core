@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery MultiViewCalendar Documentation | MultiViewCalendar Overview
+page_title: jQuery MultiViewCalendar Documentation - MultiViewCalendar Overview
 description: "Get started with the jQuery MultiViewCalendar by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_multiviewcalendar_widget
 position: 1
 ---
 
-# MultiViewCalendar Overview
+# {{ site.product }} MultiViewCalendar Overview
 
 The MultiViewCalendar renders a graphical Gregorian calendar with multiple horizontal views.
 

@@ -7,7 +7,7 @@ slug: htmlhelpers_gantt_aspnetcore
 position: 1
 ---
 
-# Gantt Overview
+# {{ site.framework }} Gantt Overview
 
 {% if site.core %}
 The Telerik UI Gantt TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI Gantt widget.
@@ -21,6 +21,8 @@ The Gantt displays a set of tasks and dependencies which are used to visualize p
 {% if site.core %}
 * [Demo page for the Gantt TagHelper](https://demos.telerik.com/aspnet-core/gantt/tag-helper)
 {% endif %}
+
+> As of the 2022 R3 release, the `Selectable` mechanism is altered. The [`Change`](https://docs.telerik.com/{{ site.platform }}/api/Kendo.Mvc.UI.Fluent/GanttEventBuilder#changesystemstring) event will now be fired only when Selection/Deselection is performed.
 
 ## Initializing the Gantt
 

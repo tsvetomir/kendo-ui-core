@@ -1,7 +1,7 @@
 ---
 title: Add Scheduler Events Programmatically
-page_title: Add Scheduler Events Programmatically
-description: "Learn how to programmatically add an event to the Kendo UI for jQuery Scheduler widget."
+page_title: Add Scheduler Events Programmatically - jQuery Scheduler
+description: "Learn how to programmatically add an event to the Kendo UI for jQuery Scheduler control."
 previous_url: /aspnetmvc/controls/scheduling/scheduler/how-to/add-event-programatically, /controls/scheduling/scheduler/how-to/add-event-programatically, /controls/scheduling/scheduler/how-to/editing/add-event-programatically
 slug: howto_add_events_programatically_scheduler
 tags: telerik, kendo, jquery, scheduler, add, events, programmatically
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -49,8 +49,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             "day",

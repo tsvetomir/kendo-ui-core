@@ -1,6 +1,6 @@
 ---
 title: Implement Color-Coded Ranges in Chart Bars
-page_title: Implement Color-Coded Ranges in Chart Bars | Kendo UI Charts for jQuery
+page_title: Implement Color-Coded Ranges in Chart Bars - Kendo UI Charts for jQuery
 description: "Learn how to implement color-coded ranges in bars when working with the Kendo UI Charts."
 previous_url: /controls/charts/how-to/color-coded-bars, /controls/charts/how-to/appearance/color-coded-bars
 slug: howto_implementcolorcodedranges_inbars_charts
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Charts for jQuery</td>
+  <td>Progress® Kendo UI® Chart for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -41,7 +41,7 @@ You can use color ranges for conveying additional information, for example, valu
 
 To achieve this behavior, you can normally use the stacked bar series. However, if you need to convey more flexibility, consider the following Chart.
 
-![Color ranges in a Kendo UI Chart](../images/color-coded-bars.png)
+![Kendo UI for jQuery Color ranges in a Kendo UI Chart](../knowledge-base/images/color-coded-bars.png)
 
 To implement the functionality as shown in the image, define a [`series.visual`](/api/javascript/dataviz/ui/chart/configuration/series.visual) that draws the ranges dynamically. Note that the visual remains in use until the next [`render` event](/api/javascript/dataviz/ui/chart/events/render). This allows you to update it asynchronously or in real-time.
 
@@ -97,6 +97,6 @@ The following example demonstrates how to implement color-coded ranges (stripes)
 
 * [Chart JavaScript API Reference](/api/javascript/dataviz/ui/chart)
 * [Drawing API]({% slug overview_kendoui_drawingapi %})
-* [How to Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
-* [How to Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
-* [How to Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})
+* [Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
+* [Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
+* [Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})

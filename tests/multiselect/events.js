@@ -115,7 +115,7 @@
             value: ["1", "2"]
         });
 
-        multiselect.tagList.find(".k-i-x-circle").first().click();
+        multiselect.tagList.find(".k-i-x-circle,.k-svg-i-x-circle").first().click();
     });
 
     it("MultiSelect raises select event", function() {
@@ -171,7 +171,7 @@
             value: ["0", "1"]
         });
 
-        multiselect.tagList.find(".k-i-close").first().click();
+        multiselect.tagList.find(".k-i-x").first().click();
     });
 
     it("MultiSelect triggers deselect on item deselect", function() {
@@ -195,7 +195,7 @@
             value: ["0", "1"]
         });
 
-        multiselect.tagList.find(".k-i-close").first().click();
+        multiselect.tagList.find(".k-i-x").first().click();
 
         assert.equal(multiselect.value().length, 2);
     });

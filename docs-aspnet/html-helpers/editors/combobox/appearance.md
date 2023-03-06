@@ -29,6 +29,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the ComboBox:
 
@@ -102,6 +103,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the ComboBox:
 
@@ -173,6 +175,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The following example demonstrates how to set `FillMode` in the declaration of the ComboBox:
 
@@ -445,6 +448,34 @@ Popup rendering with virtualization:
 In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
 
 > The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+
+The following example showcases how to change the background colors of the input and button elements of the **ComboBox** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work BEFORE R1 2022 */
+        .k-input-inner{ /* change the input field style */
+            background-color:red;
+        }
+        .k-input-button{ /* changes the button style */
+            background-color:orange;
+        }
+        .k-list-item{ /* change the style of the items */
+            background-color:red;
+        }
+
+      /* Doesn't work AFTER R1 2022 */
+        .k-input{ /* change the input field style */
+            background-color:red;
+        }
+        .k-select{ /* changes the button style */
+            background-color:orange;
+        }
+        .k-item{ /* change the style of the items */
+            background-color:red;
+        }
+    </style>
+```
 
 ## See Also
 

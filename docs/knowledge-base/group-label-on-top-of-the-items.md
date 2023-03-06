@@ -1,7 +1,7 @@
 ---
 title: Move Group Labels on Top of DropDownList Items
 page_title: Move Group Labels on Top of DropDownList Items
-description: "Learn how to move the group label on top of the items in a Kendo UI DropDownList widget."
+description: "Learn how to move the group label on top of the items in a Kendo UI DropDownList component."
 previous_url: /controls/editors/dropdownlist/how-to/group-label-on-top-of-the-items, /controls/editors/dropdownlist/how-to/appearance/group-label-on-top-of-the-items
 slug: howto_move_group_label_ontopof_items_dropdownlist
 tags: telerik, kendo, jquery, dropdownlist, move, group, labels, on, top, of, items
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI DropDownList for jQuery</td>
+  <td>Progress® Kendo UI® DropDownList for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -66,7 +66,7 @@ The following example demonstrates how to move the group label on top of the gro
         padding-top: 2em;
       }
 
-      .k-list > .k-state-hover.k-first {
+      .k-list > .k-hover.k-first {
         padding-top: calc(2em - 1px);
       }
 
@@ -75,7 +75,7 @@ The following example demonstrates how to move the group label on top of the gro
         left: 0;
       }
 
-      .k-list > .k-state-hover.k-first > .k-group {
+      .k-list > .k-hover.k-first > .k-group {
         top: -1px;
         left: -1px;
       }
@@ -85,10 +85,10 @@ The following example demonstrates how to move the group label on top of the gro
 ## See Also
 
 * [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)
-* [How to Automatically Adjust the Width of a DropDownList]({% slug howto_automatically_adjust_width_dropdownlist %})
-* [How to Create DropDownLists with Long Items]({% slug howto_create_listswith_long_items_dropdownlist %})
-* [How to Detect Wrapper Focus Events]({% slug howto_detect_wrapper_focus_events_dropdownlist %})
-* [How to Prevent Popup Closure on Scroll]({% slug howto_prevent_popup_closure_onscroll_dropdownlist %})
-* [How to Remove Items]({% slug howto_remove_items_dropdownlist %})
-* [How to Set DataSource Dynamically]({% slug howto_set_datasource_dynamically_dropdownlist %})
-* [How to Update MVVM Bound Models on Load]({% slug howto_update_mvvm_model_onload_dropdownlist %})
+* [Automatically Adjust the Width of a DropDownList]({% slug howto_automatically_adjust_width_dropdownlist %})
+* [Create DropDownLists with Long Items]({% slug howto_create_listswith_long_items_dropdownlist %})
+* [Detect Wrapper Focus Events]({% slug howto_detect_wrapper_focus_events_dropdownlist %})
+* [Prevent Popup Closure on Scroll]({% slug howto_prevent_popup_closure_onscroll_dropdownlist %})
+* [Remove Items]({% slug howto_remove_items_dropdownlist %})
+* [Set DataSource Dynamically]({% slug howto_set_datasource_dynamically_dropdownlist %})
+* [Update MVVM Bound Models on Load]({% slug howto_update_mvvm_model_onload_dropdownlist %})

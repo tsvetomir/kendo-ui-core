@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Editor for jQuery</td>
+  <td>Progress® Kendo UI® Editor for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -39,7 +39,7 @@ How can I create a markdown Kendo UI for jQuery Editor?
 
 You can transform the Kendo UI Editor widget into a Markdown editor by using third-party JS libraries.
 
-![Markdown video](markdown_video.gif)
+![Kendo UI for jQuery Markdown video](markdown_video.gif)
 
 The following example relies on the [`deserialization`](/api/javascript/ui/editor/configuration/deserialization) and [`serialization`](/api/javascript/ui/editor/configuration/serialization) options provided by the Kendo UI Editor. These are configured by applying custom options to call the methods that are necessary for the conversion from HTML to Markdown.
 

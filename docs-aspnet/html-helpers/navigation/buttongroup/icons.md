@@ -23,6 +23,17 @@ You can configure the icons by using the `.Icon()` method of the ButtonGroup.
             t.Add().Icon("stop");
     }))
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-buttongroup name="player">
+        <buttongroup-items>
+            <item icon="play" text="Play"></item>
+            <item icon="pause" text="Pause"></item>
+            <item icon="stop" text="Stop"></item>
+        </buttongroup-items>
+    </kendo-buttongroup>
+```
+{% endif %}
 
 This ButtonGroup configuration is expected to produce the following HTML output:
 
@@ -41,4 +52,4 @@ This ButtonGroup configuration is expected to produce the following HTML output:
 ## See Also
 
 * [Adding Images to the ButtonGroup HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/buttongroup/icons)
-* [Server-Side API](/api/buttongroup)
+* [Server-Side API of the ButtonGroup for {{ site.framework }}](/api/buttongroup)

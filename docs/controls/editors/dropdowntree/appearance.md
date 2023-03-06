@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery DropDownTree Documentation | Appearance
+page_title: jQuery DropDownTree Documentation - Appearance
 description: "Get started with the jQuery DropDownTree by Kendo UI and set the width of the list and popup of the widget."
 slug: appearance_kendoui_dropdowntree
 position: 7
@@ -11,7 +11,7 @@ position: 7
 > As of Kendo UI R1 2022, the jQuery DropDownTree widget has new rendering and styling options.
 
 In this article, you will find information about the rendering of the Kendo UI DropDownTree.
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the DropDownTree](https://demos.telerik.com/kendo-ui/dropdowntree/appearance).
 
@@ -176,7 +176,7 @@ Old Single Selection Rendering:
     tabindex="0" aria-disabled="false" aria-haspopup="tree" aria-expanded="true"
     aria-owns="d5464a25-e452-4eee-bd7a-8aebcb918a00" role="listbox"
     aria-activedescendant="a18f7c00-9e73-4db1-ac81-b41bf193b1dc">
-    <span unselectable="on" class="k-dropdown-wrap k-state-default k-state-active k-state-border-down">
+    <span unselectable="on" class="k-dropdown-wrap k-state-default k-active k-state-border-down">
         <span unselectable="on" class="k-input k-readonly" role="option" aria-selected="true"
             id="a18f7c00-9e73-4db1-ac81-b41bf193b1dc">Select ...</span>
         <span unselectable="on" class="k-clear-value k-hidden" title="clear" role="button" tabindex="-1">
@@ -250,11 +250,99 @@ New Multiple Selection rendering:
 ```
 
 With the previous versions, when the filtering was enabled, the search icon in the DropDownTree popup was rendered on the right side. With the new rendering, the search icon is rendered on the left side.
+
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
+
+The following example showcases how to customize the styles of the **DropDownTree** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="dropdowntree" style="width: 100%;" />
+    <script>
+      var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+      homogeneous = new kendo.data.HierarchicalDataSource({
+        transport: {
+          read: {
+            url: serviceRoot + "/Employees",
+            dataType: "jsonp"
+          }
+        },
+        schema: {
+          model: {
+            id: "EmployeeId",
+            hasChildren: "HasEmployees"
+          }
+        }
+      });
+     $("#dropdowntree").kendoDropDownTree({
+        placeholder: "Select ...",
+        dataSource: homogeneous,   
+        filter: "contains",            
+        noDataTemplate: 'No Data!',
+        height: "auto",
+        dataTextField: "FullName"
+      });
+    </script>
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later*/ 
+     .k-dropdowntree .k-input-inner, .k-popup-dropdowntree .k-input-inner{ /* customize the style input */
+        background: lightyellow;
+      }
+     .k-treeview .k-treeview-item{ /* customize the style of the items in the popup */
+        background: pink;
+      }
+     .k-treeview .k-treeview-leaf{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD;
+        border: 1px solid purple;
+      }  
+     .k-treeview .k-treeview-leaf-text{
+        color: purple;
+      }
+     .k-treeview .k-selected{ /* customize the styles of the selected items in the popup */
+        background-color: purple !important;
+      }  
+     .k-treeview .k-selected .k-treeview-leaf-text{ /* customize the text of the selected item in the popup */
+        color: white;
+      }
+     /*customize nodataTemplate */
+      .k-popup-dropdowntree .k-no-data{
+        color: fuchsia !important;
+        font-weight: bold;
+      }
+     /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */ 
+     /* .k-item{ background: red; }  k-item will style the items in the DropDownTree with the old as well as with the new rendering */
+     .k-dropdowntree .k-input, .k-popup-dropdowntree .k-input{
+        background-color: salmon !important;
+      }
+     .k-popup-dropdowntree .k-textbox{
+        background-color: #FED8B1;
+      }
+     .k-treeview .k-item .k-in{ /* customize the style of the items in the popup */
+        color: orange;
+        background-color: lightyellow;
+      }
+     .k-treeview .k-state-selected{ /* customize the styles of the selected items in the popup */
+        background-color: #FED8B1 !important;
+        border: 2px solid orange !important;
+        color: brown !important;
+      }
+     .k-treeview .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+        background-color: orange !important;
+        color: white !important;
+      }       
+     /*customize nodataTemplate */
+      .k-popup-dropdowntree .k-nodata{        
+        color: red;
+      }
+    </style>
+    </div>
+```
 
 The DropDownTree provides options for setting the widths of its [list](#setting-the-list-width) and [popup](#setting-the-popup-width).
 

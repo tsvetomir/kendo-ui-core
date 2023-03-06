@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Sortable for jQuery</td>
+  <td>Progress® Kendo UI® Sortable for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -234,7 +234,7 @@ The main milestones of the approach are the following:
          hint: hintElement,
          cursor: "move",
          placeholder: function(element) {
-           return element.clone().addClass("k-state-hover").css("opacity", 0.65);
+           return element.clone().addClass("k-hover").css("opacity", 0.65);
          },
          container: "#grid tbody",
          filter: ">tbody >tr",

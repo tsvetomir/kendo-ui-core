@@ -1,8 +1,7 @@
-(function(f, define) {
-    define(["./kendo.core", "./kendo.floatinglabel"], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.floatinglabel.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "textarea",
     name: "TextArea",
     category: "web",
@@ -109,11 +108,11 @@ var __meta__ = { // jshint ignore:line
                 resize = "k-resize-none";
             }
 
-            action = action || "addClass";
-
-            if (options.overflow === "auto") {
-                overflow = "!k-overflow-y-auto";
+            if (overflow) {
+                overflow = "!" + overflow;
             }
+
+            action = action || "addClass";
 
             that.wrapper[action](resize);
             that.element[action](overflow);
@@ -303,6 +302,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(TextArea);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

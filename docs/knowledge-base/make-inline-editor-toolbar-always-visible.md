@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Editor for jQuery</td>
+  <td>Progress® Kendo UI® Editor for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -60,7 +60,7 @@ The following example demonstrates how to override this behavior and force the t
         // Show the toolbar.
         editor.toolbar.show();
         // Detach the handler which hides the toolbar.
-        $(editor.body).addClass("k-state-active").off("focusout.kendoEditor");
+        $(editor.body).addClass("k-active").off("focusout.kendoEditor");
     });
 
     </script>

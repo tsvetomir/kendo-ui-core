@@ -1,8 +1,9 @@
-(function(f, define) {
-    define([ "./kendo.data", "./kendo.editable", "./kendo.selectable", "./kendo.pager" ], f);
-})(function() {
+import "./kendo.data.js";
+import "./kendo.editable.js";
+import "./kendo.selectable.js";
+import "./kendo.pager.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "listview",
     name: "ListView",
     category: "web",
@@ -36,12 +37,13 @@ var __meta__ = { // jshint ignore:line
         Widget = kendo.ui.Widget,
         keys = kendo.keys,
         EMPTY_STRING = "",
+        EMPTY_STRING_TEMPLATE = () => EMPTY_STRING,
         DOT = ".",
         FOCUSSELECTOR = "> *:not(.k-loading-mask)",
         PROGRESS = "progress",
         ERROR = "error",
-        FOCUSED = "k-state-focused",
-        SELECTED = "k-state-selected",
+        FOCUSED = "k-focus",
+        SELECTED = "k-selected",
         KEDITITEM = "k-edit-item",
         PAGER_CLASS = "k-listview-pager",
         ITEM_CLASS = "k-listview-item",
@@ -120,15 +122,16 @@ var __meta__ = { // jshint ignore:line
 
         options: {
             name: "ListView",
+            ariaLabel: null,
             autoBind: true,
             selectable: false,
             navigatable: false,
             pageable: false,
             height: null,
-            template: EMPTY_STRING,
-            altTemplate: EMPTY_STRING,
-            editTemplate: EMPTY_STRING,
-            contentTemplate: "<div data-content='true' />",
+            template: EMPTY_STRING_TEMPLATE,
+            altTemplate: null,
+            editTemplate: null,
+            contentTemplate: () => "<div data-content='true' />",
             contentElement: "div",
             bordered: true,
             borders: "",
@@ -159,9 +162,9 @@ var __meta__ = { // jshint ignore:line
         _templates: function() {
             var options = this.options;
 
-            this.template = kendo.template(options.template || EMPTY_STRING);
-            this.altTemplate = kendo.template(options.altTemplate || options.template);
-            this.editTemplate = kendo.template(options.editTemplate || EMPTY_STRING);
+            this.template = kendo.template(options.template || EMPTY_STRING_TEMPLATE);
+            this.altTemplate = kendo.template(options.altTemplate || options.template || EMPTY_STRING_TEMPLATE);
+            this.editTemplate = kendo.template(options.editTemplate || EMPTY_STRING_TEMPLATE);
         },
 
         _item: function(action) {
@@ -224,7 +227,10 @@ var __meta__ = { // jshint ignore:line
         },
 
         _progress: function(toggle) {
-            var element = this.content;
+            var element = this.wrapper;
+            if (toggle && this.content.height()) {
+                element = this.content;
+            }
             progress(element, toggle, { opacity: true });
         },
 
@@ -236,7 +242,7 @@ var __meta__ = { // jshint ignore:line
             var options = this.options;
             var height = options.height;
 
-            this.element.addClass("k-widget k-listview");
+            this.element.addClass("k-listview");
 
 
             if (options.contentElement) {
@@ -256,7 +262,7 @@ var __meta__ = { // jshint ignore:line
             var flex = options.flex;
             var grid = options.grid;
             var element = that.element;
-            var elementClassNames = ["k-widget", "k-listview"];
+            var elementClassNames = ["k-listview"];
             var content = that.content;
             var contentClassNames = ["k-listview-content"];
 
@@ -344,7 +350,7 @@ var __meta__ = { // jshint ignore:line
                 template = that.template,
                 altTemplate = that.altTemplate,
                 options = that.options,
-                role = (options.selectable || options.navigatable) ? "option" : "listitem",
+                role = options.selectable ? "option" : "listitem",
                 active = activeElement(),
                 endlessAppend = that._endlessFetchInProgress,
                 index = endlessAppend ? that._skipRerenderItemsCount : 0,
@@ -453,27 +459,29 @@ var __meta__ = { // jshint ignore:line
         },
 
         _ariaAttributes: function(length) {
-            var el = this.element,
+            var content = this.content,
                 options = this.options,
                 selectable = options.selectable;
 
-            if (length === 0) {
-                el.removeAttr(ARIA_ROLE);
-                el.removeAttr(ARIA_MULTISELECTABLE);
+            this._ariaLabelValue = this._ariaLabelValue || this.options.ariaLabel;
 
-                if (el.attr(ARIA_LABEL)) {
-                    this._ariaLabelValue = el.attr(ARIA_LABEL);
-                    el.removeAttr(ARIA_LABEL);
+            if (length === 0) {
+                content.removeAttr(ARIA_ROLE);
+                content.removeAttr(ARIA_MULTISELECTABLE);
+
+                if (content.attr(ARIA_LABEL)) {
+                    this._ariaLabelValue = content.attr(ARIA_LABEL);
+                    content.removeAttr(ARIA_LABEL);
                 }
             } else {
-                el.attr(ARIA_ROLE, (selectable || options.navigatable) ? "listbox" : "list");
+                content.attr(ARIA_ROLE, selectable ? "listbox" : "list");
 
                 if (selectable && kendo.ui.Selectable.parseOptions(selectable).multiple) {
-                    el.attr(ARIA_MULTISELECTABLE, true);
+                    content.attr(ARIA_MULTISELECTABLE, true);
                 }
 
                 if (this._ariaLabelValue) {
-                    el.attr(ARIA_LABEL, this._ariaLabelValue);
+                    content.attr(ARIA_LABEL, this._ariaLabelValue);
                 }
             }
         },
@@ -568,6 +576,7 @@ var __meta__ = { // jshint ignore:line
                             }
 
                             that.selectable.value(current);
+                            that.trigger(CHANGE);
                         }
                     });
                 }
@@ -681,7 +690,7 @@ var __meta__ = { // jshint ignore:line
                 content = that.content,
                 clickCallback = function(e) {
                     that.current($(e.currentTarget));
-                    if (!$(e.target).is(":button, a, :input, a > .k-icon, textarea")) {
+                    if (!$(e.target).is(":button, a, :input, a > .k-icon, a > k-svg-icon, textarea")) {
                         kendo.focusElement(element);
                     }
                 };
@@ -791,7 +800,7 @@ var __meta__ = { // jshint ignore:line
                                 };
 
                                 that.one("dataBound", focusAgain);
-                            } else if (that.options.editTemplate !== "") {
+                            } else if (that.options.editTemplate) {
                                 that.edit(current);
                             }
                         }
@@ -817,7 +826,6 @@ var __meta__ = { // jshint ignore:line
         clearSelection: function() {
             var that = this;
             that.selectable.clear();
-            that.trigger(CHANGE);
         },
 
         select: function(items) {
@@ -856,7 +864,7 @@ var __meta__ = { // jshint ignore:line
             var that = this,
                 editable = that.editable,
                 options = that.options,
-                role = (options.selectable || options.navigatable) ? "option" : "listitem",
+                role = options.selectable ? "option" : "listitem",
                 data,
                 item,
                 index,
@@ -1042,6 +1050,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(ListView);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

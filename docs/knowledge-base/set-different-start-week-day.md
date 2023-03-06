@@ -1,7 +1,7 @@
 ---
 title: Set a Different Start Weekday in the Scheduler
 page_title: Set a Different Start Weekday in the Scheduler
-description: "Learn how to set a different start weekday in the Kendo UI for jQuery Scheduler widget."
+description: "Learn how to set a different start weekday in the Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/set-differnt-start-week-day, /controls/scheduling/scheduler/how-to/various/set-differnt-start-week-day
 slug: howto_setdifferent_startweekday_scheduler
 tags: telerik, kendo, jquery, scheduler, set, a, different, start, weekday 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -51,8 +51,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             "day",

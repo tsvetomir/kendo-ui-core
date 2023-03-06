@@ -2,7 +2,7 @@
 title: Edit a TimeSpan Field in InCell Mode
 description: How to Edit a TimeSpan Field in Batch Editing Mode
 type: how-to
-page_title: How to Edit a TimeSpan Field in InCell Editing Mode | Kendo UI Grid for jQuery
+page_title: How to Edit a TimeSpan Field in InCell Editing Mode - Kendo UI for jQuery Data Grid
 slug: grid-edit-timespan-field
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>

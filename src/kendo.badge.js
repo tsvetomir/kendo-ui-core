@@ -1,13 +1,12 @@
-(function(f, define) {
-    define(["./kendo.core"], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "badge",
     name: "Badge",
     category: "web", // suite
     description: "The Badge decorates avatars, navigation menus, or other components in the application when visual notification is needed",
-    depends: ["core"] // dependencies
+    depends: ["core", "icons"] // dependencies
 };
 
 (function($, undefined) {
@@ -16,8 +15,8 @@ var __meta__ = { // jshint ignore:line
     var ui = kendo.ui;
     var HIDDEN = 'k-hidden';
 
-    var iconTemplate = '<span class=\'k-badge-icon k-icon k-i-#= icon #\'></span>';
-    var svgIconTemplate = '<span class=\'k-badge-icon k-svg-icon\'>#= icon #</span>';
+    var iconTemplate = ({ icon }) => kendo.ui.icon($(`<span class='k-badge-icon'></span>`), { icon: icon });
+    var svgIconTemplate = ({ icon }) => `<span class='k-badge-icon k-svg-icon'>${icon}</span>`;
 
     var Badge = Widget.extend({
         init: function(element, options) {
@@ -42,18 +41,24 @@ var __meta__ = { // jshint ignore:line
             name: 'Badge',
             cutoutBorder: false,
             data: {},
-            fill: 'solid',
+            fillMode: 'solid',
             icon: '',
             max: Infinity,
             position: 'inline',
             align: '',
+            rounded: 'medium',
+            roundings: {
+                'small': 'sm',
+                'medium': 'md',
+                'large': 'lg',
+                'full': 'full'
+            },
             sizes: {
                 'small': 'sm',
                 'medium': 'md',
                 'large': 'lg'
             },
             size: 'medium',
-            shape: 'rounded',
             template: null,
             text: '',
             themeColor: 'secondary',
@@ -103,7 +108,9 @@ var __meta__ = { // jshint ignore:line
             that._shape = that.options.shape;
             that._sizes = that.options.sizes;
             that._size = that.options.size;
-            that._fill = that.options.fill;
+            that._fillMode = that.options.fillMode;
+            that._rounded = that.options.rounded;
+            that._roundings = that.options.roundings;
             that._cutoutBorder = that.options.cutoutBorder;
             that._align = that.options.align;
             that._position = that.options.position;
@@ -121,7 +128,10 @@ var __meta__ = { // jshint ignore:line
             var sizes = that._sizes;
             var size = that._size;
             var sizeAbbr = sizes[size] === undefined ? size : sizes[size];
-            var fill = that._fill;
+            var fillMode = that._fillMode;
+            var rounded = that._rounded;
+            var roundings = that._roundings;
+            var roundedAbbr = roundings[rounded] === undefined ? rounded : roundings[rounded];
             var cutoutBorder = that._cutoutBorder;
             var align = that._align;
             var position = that._position;
@@ -135,18 +145,23 @@ var __meta__ = { // jshint ignore:line
             });
 
             // Fill
-            if (typeof fill === 'string' && fill !== '') {
-                classNames.push('k-badge-' + fill);
+            if (typeof fillMode === 'string' && fillMode !== '') {
+                classNames.push('k-badge-' + fillMode);
             }
 
             // Color
             if (typeof themeColor === 'string' && themeColor !== '') {
-                classNames.push('k-badge-' + themeColor);
+                classNames.push('k-badge-' + fillMode + '-' + themeColor);
             }
 
             // Size
             if (typeof size === 'string' && size !== '') {
                 classNames.push('k-badge-' + sizeAbbr);
+            }
+
+            // Rounded
+            if (typeof rounded === 'string' && rounded !== '') {
+                classNames.push('k-rounded-' + roundedAbbr);
             }
 
             // Shape
@@ -275,15 +290,15 @@ var __meta__ = { // jshint ignore:line
             that._updateClassNames();
         },
 
-        shape: function(shape) {
+        rounded: function(rounded) {
             var that = this;
 
             // handle badge.shape()
-            if (arguments.length === 0 || shape === undefined) {
-                return that._shape;
+            if (arguments.length === 0 || rounded === undefined) {
+                return that._rounded;
             }
 
-            that._shape = shape;
+            that._rounded = rounded;
             that._updateClassNames();
         },
 
@@ -306,8 +321,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) {
-    (a3 || a2)();
-});

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Common Issues in the Charts
 page_title: Troubleshoot Common Issues in the Charts
-description: "Learn how to deal with issues you may encounter while using the Kendo UI Chart widget."
+description: "Learn how to deal with issues you may encounter while using the Kendo UI Chart component."
 previous_url: /dataviz/troubleshooting, /controls/charts/troubleshoot/common-issues
 slug: troubleshooting_chart_widget
 type: troubleshooting
@@ -15,7 +15,7 @@ component: chart
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Charts</td>
+  <td>Progress® Kendo UI® Chart for jQuery</td>
  </tr>
  <tr>
   <td>Kendo Version</td>
@@ -129,7 +129,7 @@ The following Dojo example demonstrates how to handle the issue by using `kendo-
 
 ## Chart graphics do not render in Internet Explorer
 
-![A Chart in the Internet Explorer with its graphics failing to render](../../../styles-and-layout/chart-ie.png)
+![Kendo UI for jQuery A Chart in the Internet Explorer with its graphics failing to render](../styles-and-layout/chart-ie.png)
 
 > A security message which prompts you to enable the Intranet settings might appear. If you do so, skip the following steps.
 
@@ -137,7 +137,7 @@ The following Dojo example demonstrates how to handle the issue by using `kendo-
 
 Select **Internet Options** > **Security** > **Internet** (or **Local intranet**) > **Custom Level**  and enable **Binary and script behaviors** by ticking the **Enable** radio button.
 
-![Options and settings to apply to render the chart graphics](../../../styles-and-layout/chart-ie-script-behaviors.png)
+![Kendo UI for jQuery Options and settings to apply to render the chart graphics](../styles-and-layout/chart-ie-script-behaviors.png)
 
 ### The Chart does not render when JavaScript is disabled
 
@@ -227,7 +227,6 @@ The following example demonstrates how to embed fonts in exported PDF.
 ## See Also
 
 * [Themes and Appearance of the Kendo UI Widgets]({% slug themesandappearnce_kendoui_desktopwidgets %})
-* [Rendering Modes for Data Visualization]({% slug renderingmodesfor_datavisualization_kendouistyling %})
 * [Performance Issues in Kendo UI Widgets for Data Visualization]({% slug tipsandtricks_kendouistyling %})
 * [Common Issues in Kendo UI]({% slug troubleshooting_common_issues_kendoui %})
 * [Kendo UI JavaScript Errors]({% slug troubleshooting_javascript_errors_kendoui %})

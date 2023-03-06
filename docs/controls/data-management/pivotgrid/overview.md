@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery PivotGrid Documentation | PivotGrid Overview
+page_title: jQuery PivotGrid Documentation - PivotGrid Overview
 description: "Get started with the jQuery PivotGrid by Kendo UI and learn how to create and configure the widget."
 slug: overview_kendoui_pivotgrid_widget
 position: 1
 ---
 
-# PivotGrid Overview
+# {{ site.product }} PivotGrid Overview
 
 The Kendo UI PivotGrid represents multidimensional data in a cross-tabular format.
 
@@ -55,7 +55,7 @@ The Kendo UI PivotGrid represents multidimensional data in a cross-tabular forma
 
 The previous example outputs the following result.
 
-![A sample Kendo UI PivotGrid](../../../images/pivotgrid.png)
+![Kendo UI for jQuery PivotGrid Overview](../../../images/pivotgrid-overview.png)
 
 ## Functionality and Features
 

@@ -1,18 +1,18 @@
 ---
-title: MultiSelect Appearance
-page_title: jQuery MultiSelect Documentation | MultiSelect Appearance
-description: "Learn how to apply different styling options to the MultiSelect widget."
+title: Appearance
+page_title: jQuery MultiSelect Documentation - MultiSelect Appearance
+description: "Learn how to apply different styling options to the MultiSelect component."
 slug: appearance_kendoui_multiselect_widget
-position: 9
+position: 10
 ---
 
 # Appearance
 
-> As of Kendo UI R1 2022, the jQuery MultiSelect widget has new rendering and styling options. 
+> As of Kendo UI R1 2022, the jQuery MultiSelect component has new rendering and styling options. 
 
 In this article, you will find information about the rendering of the Kendo UI MultiSelect.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the MultiSelect](https://demos.telerik.com/kendo-ui/multiselect/appearance).
 
@@ -62,7 +62,7 @@ Below is the HTML that is affected from the configuration. The changes are appli
 
 ### Rounded
 
-The `rounded` option controls how much border radius is applied to the tags for the selected items in the widget. The structure of the class is `k-rounded-{size}`.
+The `rounded` option controls how much border radius is applied to the tags for the selected items in the component. The structure of the class is `k-rounded-{size}`.
 
 The following values are available for the [`rounded`](/api/javascript/ui/multiselect/configuration/rounded) option:
 
@@ -199,12 +199,156 @@ New Rendering:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must the update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
+
+The following example showcases how to customize the styles of the **MultiSelect** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <select id="multiselect" multiple="multiple"></select>
+      <script>
+        var dataSource = new kendo.data.DataSource({
+          transport: {
+            read: {
+              url: "https://demos.telerik.com/kendo-ui/service/products",
+              dataType: "jsonp"
+            }
+          }
+        });
+        $("#multiselect").kendoMultiSelect({
+          dataSource: dataSource,
+          dataTextField: "ProductName",
+          dataValueField: "ProductID",         
+          value: [5]
+        });
+      </script>
+      <style>
+        /*  NEW RENDERING */
+        /*  The style below will works with versions R1 2022 and later*/ 
+        
+        .k-multiselect .k-chip{ /* customize the styles of the selected items in the input */
+          background: lightgreen
+        }
+
+        #multiselect-list .k-list-item{ /* customize the styles of the items in the popup */
+          background-color: #FFDFDD !important;
+        }    
+
+        #multiselect-list .k-selected{ /* customize the styles of the selected items in the popup */
+          background-color: #FBBBB9 !important;
+          border: 2px solid #E56E94 !important;
+        }   
+
+        /*  OLD RENDERING */
+        /*  The style below will works with versions prior to R1 2022 */ 
+
+        #multiselect-list .k-item{ /* customize the styles of the items in the popup */
+          background-color: #FFE5B4 !important;
+        }
+
+        #multiselect-list .k-state-selected{ /* customize the styles of the selected items in the popup */
+          background-color: #FED8B1 !important;
+          border: 2px solid orange !important;
+          color: brown !important;
+        }
+        
+        #multiselect-list .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+          background-color: orange !important;
+          color: white !important;
+        }
+
+        #multiselect_taglist li{ /* customize the styles of the selected items in the input */
+          background-color: orange !important;
+        }
+      </style>
+```
+
+With the new rendering different classes should be used in order to customize the [MultiSelect templates](/controls/editors/multiselect/templates). 
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <select id="customers" style="width: 400px;"></select>
+    <script>
+      $(document).ready(function() {
+        $("#customers").kendoMultiSelect({          
+          dataTextField: "ContactName",
+          dataValueField: "CustomerID",
+          groupTemplate: "Group template: #: data #",
+          fixedGroupTemplate: "Fixed header: #: data #",
+          footerTemplate: 'Total <strong>#: instance.dataSource.total() #</strong> items found',
+          noDataTemplate: 'No Data!',
+          filter: 'contains',
+          height: 400,
+          dataSource: {
+            type: "odata",
+            transport: {
+              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+            },
+            group: { field: "Country" }
+          }
+        });
+      });
+    </script>
+    <style>
+
+      /*  NEW RENDERING */
+      /*  The styles below will work with versions R1 2022 or later*/ 
+
+      /*customize groupTemplate */
+      #customers-list .k-list-item-group-label{
+        background: blue !important;
+        color: yellow !important;
+        font-size: 18px;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-list-group-sticky-header{
+        background: turquoise !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-list-footer{
+        background: darkCyan !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-no-data{
+        color: green !important;
+        font-weight: bold;
+      }
+
+      /*  OLD RENDERING */
+      /*  The styles below will work with versions prior to R1 2022 */ 
+
+      /*customize groupTemplate */
+      #customers-list .k-item>.k-group{
+        background: red !important;
+        color: white !important;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-group-header{
+        background: salmon !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-footer{
+        background: tomato !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-nodata{        
+        color: red;
+      }
+    </style>
+```
 
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Styling Demo of the MultiSelect](https://demos.telerik.com/kendo-ui/multiselect/styling)
 * [JavaScript API Reference of the MultiSelect](/api/javascript/ui/multiselect)

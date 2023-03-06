@@ -1,5 +1,5 @@
 ---
-title: Components Rendering Overview
+title: Overview
 page_title: Components Rendering Overview
 description: "Learn about the rendering of the {{ site.product }} components and their appearance options."
 slug: components_rendering_overview
@@ -7,6 +7,8 @@ position: 0
 ---
 
 # Components Rendering Overview
+
+> R1 2023 is the last official release of Telerik UI for {{ site.framework }}, where LESS Themes are supported and shipped with the product.
 
 The R1 2022 release introduces new rendering for several components. In the long run, we will make similar rendering improvements to most of the UI components in the suite. These are breaking changes that affect both the SASS and the LESS-based themes.
 
@@ -58,7 +60,7 @@ The following example shows how a Button with `Solid` fill mode and `Base` theme
 
 The following image demonstrates the result of applying the different `ThemeColor` values to a button:
 
-![Theme Color Option Image](images/theme-color-option.png)
+![{{ site.product_short }} Button Theme Color Option](images/theme-color-option.png)
 
 For more information about the available `ThemeColor` values, visit the [Appearance documentation](#updated-components) of the respective component.
 
@@ -84,7 +86,7 @@ The following example shows the rendering of a Button with large size (`lg`):
 
 The following image demonstrates the appearance of a Button, with different `Size` values applied:
 
-![Size Option Image](images/size-option.png)
+![{{ site.product_short }} Button Size Option](images/size-option.png)
 
 For more information about the available `Size` values, visit the [Appearance documentation](#updated-components) of the respective component.
 
@@ -122,7 +124,7 @@ The following example shows the rendering of a Button with large border radius (
 
 The following image demonstrates the appearance of a Button, with different `Rounded` values applied:
 
-![Rounded Option Image](images/rounded-option.png)
+![{{ site.product_short }} Button Rounded Option](images/rounded-option.png)
 
 For more information about the available `Rounded` option values, visit the [Appearance documentation](#updated-components) of the respective component.
 
@@ -140,7 +142,7 @@ The following example shows a Button with a `Solid` fill mode:
 
 The following image demonstrates the appearance of a Button, with different `FillMode` values applied:
 
-![Fill Mode Option Image](images/fill-mode-option.png)
+![{{ site.product_short }} Button Fill Mode Option](images/fill-mode-option.png)
 
 For more information about the available `FillMode` option values, visit the [Appearance documentation](#updated-components) of the respective component.
 
@@ -201,7 +203,7 @@ The following table shows the old and the updated versions of the state classes:
 
 ## LESS Themes Migration
 
-> The LESS themes will be deprecated with the R1 2023 release.
+> R1 2023 is the last official release of Telerik UI for {{ site.framework }}, where LESS Themes are supported and shipped with the product.
 
 This section concerns developers who use the original LESS-based themes and have not migrated to the SASS-based themes yet.
 

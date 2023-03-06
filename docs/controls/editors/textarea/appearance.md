@@ -1,7 +1,8 @@
 ---
 title: Appearance
-page_title: jQuery TextArea Documentation | TextArea Appearance
+page_title: jQuery TextArea Documentation - TextArea Appearance
 description: "Learn how to apply different styling options to the TextArea widget."
+previous_url: /styles-and-layout/styling-components/textarea-styling
 slug: textarea_appearance
 position: 3
 ---
@@ -12,7 +13,7 @@ position: 3
 
 In this article you will find information about the new rendering of the Kendo UI TextArea.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the TextArea](https://demos.telerik.com/kendo-ui/textarea/appearance).
 
@@ -223,24 +224,49 @@ The full rendering of the component has the following HTML structure:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
-Previously, a reference to the textarea element was obtainable through the `k-textbox` class.
+Previously, a reference to the textarea element was obtainable through the `k-input` class.
 
 ```javascript
-$(".k-textbox") // Returns a reference to the textarea element in the old rendering.
+$(".k-input") // Returns a reference to the textarea element in the old rendering.
 ```
 
-With the new rendering, the textarea element must be targeted by using the `k-input-inner` class.
+With the new rendering, you must target the textarea element by using the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the textarea element in the new rendering.
 ```
 
+The following example showcases how to apply a background color to the **TextArea** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="parent">
+      <textarea id="textarea"></textarea>
+    </div>
+
+    <style>
+      /* Works BEFORE R1 2022 */
+      #parent .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+
+      /* Works AFTER R1 2022 */
+      #parent .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
+
+    <script>
+      $("#textarea").kendoTextArea();
+    </script>
+```
+
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the TextArea](https://demos.telerik.com/kendo-ui/textarea/appearance)
 * [JavaScript API Reference of the TextArea](/api/javascript/ui/textarea)

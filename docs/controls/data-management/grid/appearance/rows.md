@@ -1,6 +1,6 @@
 ---
 title: Rows
-page_title: jQuery Grid Documentation | Rows
+page_title: jQuery Grid Documentation - Rows
 description: "Get started with the jQuery Grid by Kendo UI and learn how to handle the most common scenarios when configuring the behavior of its rows."
 slug: rows_kendoui_grid_widget
 position: 3
@@ -56,12 +56,12 @@ However, if your project requires you to avoid the `hover` state, use either of 
 
 
     ```
-    .k-grid tr:not(.k-state-selected):hover {
+    .k-grid tr:not(.k-selected):hover {
         background: none;
         color: inherit;
     }
 
-    .k-grid tr.k-alt:not(.k-state-selected):hover {
+    .k-grid tr.k-alt:not(.k-selected):hover {
         background: #f1f1f1; /* the color varies depending on the theme */
     }
     ```

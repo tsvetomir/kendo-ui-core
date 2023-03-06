@@ -1,13 +1,12 @@
-(function(f, define) {
-    define([ "./kendo.data" ], f);
-})(function() {
+import "./kendo.data.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "tabstrip",
     name: "TabStrip",
     category: "web",
     description: "The TabStrip widget displays a collection of tabs with associated tab content.",
-    depends: [ "data" ],
+    depends: [ "data", "icons" ],
     features: [ {
         id: "tabstrip-fx",
         name: "Animation",
@@ -50,33 +49,36 @@ var __meta__ = { // jshint ignore:line
         MOUSEENTER = "mouseenter",
         MOUSELEAVE = "mouseleave",
         CONTENTLOAD = "contentLoad",
-        DISABLEDSTATE = "k-state-disabled",
-        ACTIVESTATE = "k-state-active",
-        FOCUSEDSTATE = "k-state-focused",
-        HOVERSTATE = "k-state-hover",
+        DISABLEDSTATE = "k-disabled",
+        ACTIVESTATE = "k-active",
+        FOCUSEDSTATE = "k-focus",
+        HOVERSTATE = "k-hover",
         TABONTOP = "k-tab-on-top",
         NAVIGATABLEITEMS = ".k-item:not(." + DISABLEDSTATE + ")",
         KEYBOARDNAVIGATABLEITEMS = ".k-item",
         HOVERABLEITEMS = ".k-tabstrip-items > " + NAVIGATABLEITEMS + ":not(." + ACTIVESTATE + ")",
         DEFAULTDISTANCE = 200,
+        ARIA_HIDDEN = "aria-hidden",
+        ARIA_CONTROLS = "aria-controls",
+        ARIA_DISABLED = "aria-disabled",
+        ARIA_SELECTED = "aria-selected",
+        ARIA_ORIENTATION = "aria-orientation",
+        ARIA_LABELLEDBY = "aria-labelledby",
 
         templates = {
-            content: template(
-                "<div class='k-tabstrip-content k-content' #= contentAttributes(data) # tabindex='0'>#= content(item) #</div>"
-            ),
-            itemWrapper: template(
-                "<#= tag(item) # class='k-link' #= contentUrl(item) # #= textAttributes(item) #>" +
-                    "#= image(item) ##= sprite(item) ##= text(item) #" +
-                "</#= tag(item) #>"
-            ),
-            item: template(
-                "<li class='#= wrapperCssClass(group, item) #' role='tab' #=item.active ? \"aria-selected='true'\" : ''#>" +
-                    "#= itemWrapper(data) #" +
-                "</li>"
-            ),
-            image: template("<img class='k-image' alt='' src='#= imageUrl #' />"),
-            sprite: template("<span class='k-sprite #= spriteCssClass #'></span>"),
-            empty: template("")
+            content: (data) =>
+                `<div class='k-tabstrip-content k-content' ${data.contentAttributes(data)} tabindex='0'>${data.content(data.item)}</div>`,
+            itemWrapper: ({ tag, item , contentUrl, textAttributes, image, sprite, text }) =>
+                `<${tag(item)} class='k-link' ${contentUrl(item)} ${textAttributes(item)}>` +
+                    `${image(item)}${sprite(item)}${text(item)}` +
+                `</${tag(item)}>`,
+            item: (data) =>
+                `<li class='${data.wrapperCssClass(data.group, data.item)}' role='tab' ${data.item.active ? "aria-selected='true'" : ''}>` +
+                    `${data.itemWrapper(data)}` +
+                "</li>",
+            image: ({ imageUrl }) => `<img class='k-image' alt='' src='${imageUrl}' />`,
+            sprite: ({ spriteCssClass }) => `<span class='k-sprite ${spriteCssClass}'></span>`,
+            empty: () => ""
         },
 
         rendering = {
@@ -85,7 +87,7 @@ var __meta__ = { // jshint ignore:line
                     index = item.index;
 
                 if (item.enabled === false) {
-                    result.push("k-state-disabled");
+                    result.push("k-disabled");
                 }
 
                 if (index === 0) {
@@ -108,7 +110,7 @@ var __meta__ = { // jshint ignore:line
                 return item.url ? "a" : "span";
             },
             contentAttributes: function(content) {
-                return content.active !== true ? " style='display:none' aria-hidden='true' aria-expanded='false'" : "";
+                return content.active !== true ? " style='display:none' aria-hidden='true'" : "";
             },
             content: function(item) {
                 return item.content ? item.content : item.contentUrl ? "" : "&nbsp;";
@@ -129,7 +131,7 @@ var __meta__ = { // jshint ignore:line
 
         tabs.filter("li[disabled]")
             .addClass(DISABLEDSTATE)
-            .attr("aria-disabled", "true")
+            .attr(ARIA_DISABLED, "true")
             .prop("disabled", false);
 
         tabs.filter(":not([class*=k-state])")
@@ -140,7 +142,7 @@ var __meta__ = { // jshint ignore:line
 
         tabs.attr("role", "tab");
         tabs.filter("." + ACTIVESTATE)
-            .attr("aria-selected", true);
+            .attr(ARIA_SELECTED, true);
 
 
         tabs.each(function() {
@@ -166,7 +168,7 @@ var __meta__ = { // jshint ignore:line
     }
 
     function scrollButtonHtml(buttonClass, iconClass) {
-        return "<span class='k-button k-button-md k-rounded-md k-button-flat k-button-flat-base k-icon-button k-tabstrip-" + buttonClass + "' unselectable='on'><span class='k-button-icon k-icon " + iconClass + "'></span></span>";
+        return `<span aria-hidden='true' class='k-button k-button-md k-rounded-md k-button-flat k-button-flat-base k-icon-button k-tabstrip-${buttonClass}' unselectable='on'>${kendo.ui.icon({ icon: iconClass, iconClass: "k-button-icon" })}</span>`;
     }
 
     var TabStrip = Widget.extend({
@@ -189,8 +191,7 @@ var __meta__ = { // jshint ignore:line
             that._updateClasses();
             that._dataSource();
 
-            that.tabGroup.attr("role", "none");
-            that.wrapper.attr("role", "tablist");
+            that.tabGroup.attr("role", "tablist");
 
             if (options.dataSource) {
                 that.dataSource.fetch();
@@ -338,7 +339,7 @@ var __meta__ = { // jshint ignore:line
             if (contentHolder.length === 0) {
                 visibleContents
                     .removeClass( ACTIVESTATE )
-                    .attr("aria-hidden", true)
+                    .attr(ARIA_HIDDEN, true)
                     .kendoStop(true, true)
                     .kendoAnimate( close );
                 return false;
@@ -348,16 +349,15 @@ var __meta__ = { // jshint ignore:line
 
             var isAjaxContent = (item.children("." + LINK).data(CONTENTURL) || that._contentUrls[itemIndex] || false) && contentHolder.is(EMPTY),
                 showContentElement = function() {
-                    oldTab.removeAttr("aria-selected");
-                    item.attr("aria-selected", true);
+                    oldTab.removeAttr(ARIA_SELECTED);
+                    item.attr(ARIA_SELECTED, true);
 
                     that._current(item);
 
                     contentElement
                         .addClass(ACTIVESTATE)
-                        .removeAttr("aria-hidden")
+                        .removeAttr(ARIA_HIDDEN)
                         .kendoStop(true, true)
-                        .attr("aria-expanded", true)
                         .kendoAnimate( extend({ init: function() {
                             that.trigger(SHOW, { item: item[0], contentElement: contentHolder[0] });
                             kendo.resize(contentHolder);
@@ -417,8 +417,7 @@ var __meta__ = { // jshint ignore:line
                 item.addClass(ACTIVESTATE);
             }
 
-            visibleContents.attr("aria-hidden", true);
-            visibleContents.attr("aria-expanded", false);
+            visibleContents.attr(ARIA_HIDDEN, true);
 
             if (visibleContents.length) {
                 visibleContents
@@ -605,7 +604,7 @@ var __meta__ = { // jshint ignore:line
             }
 
             var contentElements = this.contentElements && this.contentElements[0] && !kendo.kineticScrollNeeded ? this.contentElements : this.contentAnimators;
-            var id = $(this.tabGroup.children()[itemIndex]).attr("aria-controls");
+            var id = $(this.tabGroup.children()[itemIndex]).attr(ARIA_CONTROLS);
 
             if (contentElements) {
                 for (var i = 0, len = contentElements.length; i < len; i++) {
@@ -641,14 +640,14 @@ var __meta__ = { // jshint ignore:line
                 item.removeClass(ACTIVESTATE);
             }
 
-            item.removeAttr("aria-selected");
+            item.removeAttr(ARIA_SELECTED);
 
             that.contentAnimators
                     .filter("." + ACTIVESTATE)
                     .kendoStop(true, true)
                     .kendoAnimate( close )
                     .removeClass(ACTIVESTATE)
-                    .attr("aria-hidden", true);
+                    .attr(ARIA_HIDDEN, true);
         },
 
         destroy: function() {
@@ -692,7 +691,7 @@ var __meta__ = { // jshint ignore:line
 
             var that = this,
                 inserted = that._create(tab),
-                referenceContent = that.element.find("[id='" + referenceTab.attr("aria-controls") + "']");
+                referenceContent = that.element.find("[id='" + referenceTab.attr(ARIA_CONTROLS) + "']");
 
             each(inserted.tabs, function(idx) {
                 var contents = inserted.contents[idx];
@@ -721,7 +720,7 @@ var __meta__ = { // jshint ignore:line
 
             var that = this,
                 inserted = that._create(tab),
-                referenceContent = that.element.find("[id='" + referenceTab.attr("aria-controls") + "']");
+                referenceContent = that.element.find("[id='" + referenceTab.attr(ARIA_CONTROLS) + "']");
 
             each(inserted.tabs, function(idx) {
                 var contents = inserted.contents[idx];
@@ -952,7 +951,7 @@ var __meta__ = { // jshint ignore:line
             }
 
             that.tabGroup
-                .on(CLICK + NS, ".k-state-disabled .k-link", false)
+                .on(CLICK + NS, ".k-disabled .k-link", false)
                 .on(CLICK + NS, " > " + NAVIGATABLEITEMS, that._itemClick.bind(that));
         },
 
@@ -1049,7 +1048,7 @@ var __meta__ = { // jshint ignore:line
                 contents = $();
                 tabs.each(function() {
                     if (/k-tabstrip-items/.test(this.parentNode.className)) {
-                        var element = that.element.find("[id='" + this.getAttribute("aria-controls") + "']");
+                        var element = that.element.find("[id='" + this.getAttribute(ARIA_CONTROLS) + "']");
                         content = element;
                     } else {
                         content = $("<div class='" + CONTENT + "'/>");
@@ -1079,10 +1078,6 @@ var __meta__ = { // jshint ignore:line
             if (candidate) {
                 if (!candidate.hasClass(ACTIVESTATE)) {
                     candidate.addClass(FOCUSEDSTATE);
-                }
-
-                if (candidate[0].id) {
-                    that.element.attr("aria-activedescendant", candidate[0].id);
                 }
             }
 
@@ -1280,8 +1275,8 @@ var __meta__ = { // jshint ignore:line
                     var browser = kendo.support.browser;
                     var isRtlScrollDirection = that._isRtl && !browser.msie && !browser.edge;
 
-                    that.tabWrapper.prepend(scrollButtonHtml("prev", "k-i-arrow-60-left"));
-                    that.tabWrapper.append(scrollButtonHtml("next", "k-i-arrow-60-right"));
+                    that.tabWrapper.prepend(scrollButtonHtml("prev", "caret-alt-left"));
+                    that.tabWrapper.append(scrollButtonHtml("next", "caret-alt-right"));
 
                     scrollPrevButton = that._scrollPrevButton = that.tabWrapper.children(".k-tabstrip-prev");
                     scrollNextButton = that._scrollNextButton = that.tabWrapper.children(".k-tabstrip-next");
@@ -1384,14 +1379,14 @@ var __meta__ = { // jshint ignore:line
             var that = this,
                 tabPosition = that.options.tabPosition;
 
-            that.wrapper.addClass("k-floatwrap k-tabstrip-" + tabPosition);
+            that.wrapper.addClass("k-tabstrip-" + tabPosition);
 
             if (tabPosition == "bottom") {
                 that.tabWrapper.appendTo(that.wrapper);
             }
 
             if (tabPosition === "left" || tabPosition === "right") {
-                that.wrapper.attr("aria-orientation", "vertical");
+                that.tabGroup.attr(ARIA_ORIENTATION, "vertical");
             }
 
             that.resize(true);
@@ -1406,7 +1401,7 @@ var __meta__ = { // jshint ignore:line
             element.each(function() {
                 $(this)
                     .toggleClass(DISABLEDSTATE, !enable)
-                    .attr("aria-disabled", !enable);
+                    .attr(ARIA_DISABLED, !enable);
             });
         },
 
@@ -1495,9 +1490,9 @@ var __meta__ = { // jshint ignore:line
 
                     if (item) {
                         // set the tab aria-controls attribute to the content ID
-                        item.setAttribute("aria-controls", contentId);
+                        item.setAttribute(ARIA_CONTROLS, contentId);
                         tabId = item.id = _elementId($(item), idx, true);
-                        this.setAttribute("aria-labelledby", tabId);
+                        this.setAttribute(ARIA_LABELLEDBY, tabId);
                     }
 
                     // set the get (possibly existing) ID on the content element
@@ -1510,7 +1505,7 @@ var __meta__ = { // jshint ignore:line
                         tabId;
 
                     // set the tab aria-controls attribute to the content ID
-                    this.setAttribute("aria-controls", contentId);
+                    this.setAttribute(ARIA_CONTROLS, contentId);
 
                     tabId = this.id = _elementId($(this), idx, true);
 
@@ -1528,9 +1523,8 @@ var __meta__ = { // jshint ignore:line
 
                     currentContent.attr("role", "tabpanel");
                     currentContent.attr("tabindex", "0");
-                    currentContent.attr("aria-labelledby", tabId);
-                    currentContent.filter(":not(." + ACTIVESTATE + ")").attr("aria-hidden", true).attr("aria-expanded", false);
-                    currentContent.filter("." + ACTIVESTATE).attr("aria-expanded", true);
+                    currentContent.attr(ARIA_LABELLEDBY, tabId);
+                    currentContent.filter(":not(." + ACTIVESTATE + ")").attr(ARIA_HIDDEN, true);
                 });
             }
 
@@ -1581,6 +1575,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

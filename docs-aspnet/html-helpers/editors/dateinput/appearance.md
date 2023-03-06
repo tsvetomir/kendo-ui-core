@@ -29,13 +29,22 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The default size value is `Medium`.
 
-```html
-<span class="k-dateinput k-input k-input-md">
-</span>
-``` 
+```HtmlHelper
+    @(Html.Kendo().DateInput()
+        .Name("dateinput")
+        .Size(ComponentSize.Medium)
+    )
+```
+{% if site.core %}
+```TagHelper
+    <kendo-dateinput name="dateinput" size="ComponentSize.Medium">
+    </kendo-dateinput>
+```
+{% endif %}
 
 ### Rounded
 
@@ -47,13 +56,22 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The default rounded value is `Medium`.
 
-```html
-<span class="k-dateinput k-input k-rounded-md">
-</span>
+```HtmlHelper
+    @(Html.Kendo().DateInput()
+        .Name("dateinput")
+        .Rounded(Rounded.Medium)
+    )
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-dateinput name="dateinput" rounded="Rounded.Medium">
+    </kendo-dateinput>
+```
+{% endif %}
 
 ### FillMode
 
@@ -64,13 +82,22 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The default fillMode value is `Solid`.
 
-```html
-<span class="k-dateinput k-input k-input-solid">
-</span>
+```HtmlHelper
+    @(Html.Kendo().DateInput()
+        .Name("dateinput")
+        .FillMode(FillMode.Solid)
+    )
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-dateinput name="dateinput" fill-mode="FillMode.Solid">
+    </kendo-dateinput>
+```
+{% endif %}
 
 ## Old vs New Rendering
 
@@ -95,12 +122,23 @@ The new rendering of the component consists of an `input` element nested in a wr
 
 The following example demonstrates how to configure the appearance of the component through the styling options:
 
+```HtmlHelper
     @(Html.Kendo().DateInput()
-        .Name("dateinput")
-        .Size(ComponentSize.Large)
-        .Rounded(Rounded.Small)
-        .FillMode(FillMode.Outline)
+      .Name("dateinput")
+      .Size(ComponentSize.Large)
+      .Rounded(Rounded.Small)
+      .FillMode(FillMode.Outline)
     )
+```
+{% if site.core %}
+```TagHelper
+    <kendo-dateinput name="dateinput" 
+      size="ComponentSize.Large"
+      rounded="Rounded.Small"
+      fill-mode="FillMode.Outline">
+    </kendo-dateinput>
+```
+{% endif %}
 
 ## Visual Backwards Compatibility
 
@@ -118,6 +156,21 @@ With the new rendering, you must target the DateInput element by using the `k-in
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the DateInput element in the new rendering.
+```
+
+The following example showcases how to apply a background color to the **DateInput** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      .k-textbox {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      /* Doesn't work BEFORE R1 2022 */
+      .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
 ```
 
 ## See Also

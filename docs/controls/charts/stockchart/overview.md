@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Charts Documentation | StockChart Overview
+page_title: jQuery Charts Documentation - StockChart Overview
 description: "Get started with the jQuery StockChart by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_stockcharts
 position: 1
 ---
 
-# StockChart Overview
+# {{ site.product }} StockChart Overview
 
 The StockChart is a specialized control visualizing the price movement of any financial instrument over a certain period of time.
 
@@ -20,7 +20,7 @@ All of the following series types that are supported by the StockChart are also 
 * Line
 * Area
 
-![Stock Chart](stock-chart.png)
+![Kendo UI for jQuery Stock Chart Overview](stock-chart-overview.png)
 
 * [Demo page for the StockChart](https://demos.telerik.com/kendo-ui/financial/index)
 

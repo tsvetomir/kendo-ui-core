@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery DropDownList Documentation | Appearance
+page_title: jQuery DropDownList Documentation - Appearance
 description: "Learn how to apply different styling options to the DropDownList widget."
 slug: appearance_kendoui_dropdownlist_widget
 position: 9
@@ -12,7 +12,7 @@ position: 9
 
 In this article, you will find information about the rendering of the Kendo UI DropDownList.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the DropDownList](https://demos.telerik.com/kendo-ui/dropdownlist/appearance).
 
@@ -339,9 +339,9 @@ Popup rendering with virtualization:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 Previously, a reference to the DropDownList input element was obtainable through the `k-input` class.
 
@@ -349,7 +349,7 @@ Previously, a reference to the DropDownList input element was obtainable through
 $(".k-input") // Returns a reference to the input element in the old rendering.
 ```
 
-With the new rendering, the DropDownList input element must be targeted by using the `k-input-inner` class.
+With the new rendering, you must target the DropDownList input element by using the `k-input-inner` class.
 
 ```javascript
 $('.k-dropdownlist .k-input-inner') // Returns a reference to the input element in the new rendering.
@@ -361,7 +361,7 @@ Previously, a reference to the dropdown button element was obtainable through th
 $(".k-select") // Returns a reference to the dropdown button element in the old rendering.
 ```
 
-With the new rendering, a reference to the dropdown button element is obtainable through the `k-button` and `k-input-button` classes.
+With the new rendering, you can obtain a reference to the dropdown button element through the `k-button` and `k-input-button` classes.
 
 ```javascript
 $(".k-button") // Returns a reference to the dropdown button element in the new rendering.
@@ -380,9 +380,149 @@ With the new rendering, the DropDownList item elements must be targeted by using
 $('.k-list-item') // Returns a reference to the items rendered in the DropDownList popup.
 ```
 
+The following example showcases how to customize the styles of the **DropDownList** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="products" style="width: 100%" />
+    <script>
+      var dataSource = new kendo.data.DataSource({
+        transport: {
+          read: {
+            url: "https://demos.telerik.com/kendo-ui/service/products",
+            dataType: "jsonp"
+          }
+        }
+      });
+      $("#products").kendoDropDownList({
+        dataSource: dataSource,
+        dataTextField: "ProductName",
+        dataValueField: "ProductID",         
+        value: [5]
+      });
+
+    </script>
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later*/ 
+
+      .k-dropdownlist .k-input-inner{ /* customize the style input */
+        background: lightgreen;
+      }
+
+      .k-list-item{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD;
+      }    
+
+      #products_list .k-selected{ /* applies orange background and border to the selected item in the popup */
+        background-color: #FBBBB9;
+        border: 2px solid #E56E94;
+      }   
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */ 
+
+
+      #products-list .k-item{ /* customize the styles of the items in the popup */
+        background-color: #FFE5B4 !important;
+      }
+
+      #products-list .k-state-selected{ /* customize the styles of the selected items in the popup */      
+        border: 2px solid orange !important;
+        color: brown !important;
+      }
+
+      #products-list .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+        background-color: orange !important;
+        color: white !important;
+      }
+    </style>
+```
+
+With the new rendering different classes should be used in order to customize the [DropDownList templates](/controls/editors/dropdownlist/templates).
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="customers" style="width: 100%" />
+    <script>
+      $(document).ready(function() {
+        $("#customers").kendoDropDownList({          
+          dataTextField: "ContactName", 
+          dataValueField: "CustomerID",
+          groupTemplate: "Group template: #: data #",
+          fixedGroupTemplate: "Fixed header: #: data #",
+          footerTemplate: 'Total <strong>#: instance.dataSource.total() #</strong> items found',
+          noDataTemplate: 'No Data!',
+          height: 400,
+          filter: 'contains',
+          dataSource: {
+            type: "odata",
+            transport: {
+              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+            },
+            group: { field: "Country" }
+          }
+        });
+      });
+    </script>
+    <style>
+
+      /*  NEW RENDERING */
+      /*  The styles below will work with versions R1 2022 or later*/ 
+
+      /*customize groupTemplate */
+      #customers-list .k-list-item-group-label{
+        background: blue !important;
+        color: yellow !important;
+        font-size: 18px;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-list-group-sticky-header{
+        background: turquoise !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-list-footer{
+        background: darkCyan !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-no-data{
+        color: green !important;
+        font-weight: bold;
+      }
+
+      /*  OLD RENDERING */
+      /*  The styles below will work with versions prior to R1 2022 */ 
+
+      /*customize groupTemplate */
+      #customers-list .k-item>.k-group{
+        background: red !important;
+        color: white !important;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-group-header{
+        background: salmon !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-footer{
+        background: tomato !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-nodata{        
+        color: red;
+      }
+    </style>
+```
 
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the DropDownList](https://demos.telerik.com/kendo-ui/dropdownlist/appearance)
 * [JavaScript API Reference of the DropDownList](/api/javascript/ui/dropdownlist)

@@ -1,7 +1,7 @@
 ---
 title: Update a Field in All TreeList Child Nodes
 page_title: Update a Field in All TreeList Child Nodes
-description: "Learn how to update all child nodes recursively, propagating the state of a row in a Kendo UI TreeList widget."
+description: "Learn how to update all child nodes recursively, propagating the state of a row in a Kendo UI TreeList component."
 slug: howto_updatefieldinallchildnodes_treelist
 previous_url: /controls/data-management/treelist/how-to/AngularJS/update-a-field-in-all-child-nodes, /controls/data-management/treelist/how-to/update-a-field-in-all-child-nodes-angular
 tags: kendo, jquery, treelist, update, field, recursively, in, all child, nodes
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TreeList for jQuery</td>
+  <td>Progress® Kendo UI® TreeList for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

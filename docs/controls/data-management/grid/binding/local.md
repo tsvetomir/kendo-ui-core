@@ -1,6 +1,6 @@
 ---
 title: Local Data
-page_title: jQuery Grid Documentation | Local Data
+page_title: jQuery Grid Documentation - Local Data
 description: "Get started with the jQuery Grid by Kendo UI and learn how to bind the Grid to local data."
 slug: local_data_grid
 position: 2
@@ -31,7 +31,7 @@ To bind the Grid to local data, set the `dataSource` option of the `kendoGrid` o
 
 **Figure 1: A Grid that is bound to a local data array**
 
-![Kendo UI Grid bound to a local data array](../grid2_1.png)
+![Kendo UI for jQuery Grid Local Data Binding](../grid-local-data-binding.png)
 
 ## See Also
 

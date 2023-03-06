@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery TimePicker Documentation | TimePicker Overview
+page_title: jQuery TimePicker Documentation - TimePicker Overview
 description: "Get started with the jQuery TimePicker by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_timepicker_widget
 position: 1
 ---
 
-# TimePicker Overview
+# {{ site.product }} TimePicker Overview
 
 The TimePicker enables users to select time values from a predefined list or enter new ones.
 

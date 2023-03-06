@@ -206,6 +206,18 @@ The gulp `custom` task will create a custom minified file - `dist/kendo.custom.m
 npx gulp custom -c autocomplete,dropdownlist
 ```
 
+### Building ESM and CJS modules
+
+The npm script `npm run scripts:modules` will create two folders (`cjs` and `esm`) in the `dist` folder, which includes the bundled modules.
+
+### Development
+
+- Run the dev script in order to compile both modules and js files in `dist/dev` and `dist/mjs` folder
+
+    `npm run scripts:dev` or `npm run scripts:dev -- -w`
+
+- Run the tests by running `npx gulp tests`
+
 ## Source Code and Downloads
 
 If you want to skip building Kendo UI Core yourself, head on over to [Telerik.com](http://www.telerik.com/kendo-ui/open-source-core) to grab the full source.
@@ -275,6 +287,6 @@ This project has been released under the [Apache License, version 2.0](http://ww
    See the License for the specific language governing permissions and
    limitations under the License.
 
-*Copyright © 2021 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.*
+*Copyright © 2023 Progress Software Corporation and/or its subsidiaries or affiliates. All Rights Reserved.*
 
 *Progress, Telerik, and certain product names used herein are trademarks or registered trademarks of Progress Software Corporation and/or one of its subsidiaries or affiliates in the U.S. and/or other countries.*

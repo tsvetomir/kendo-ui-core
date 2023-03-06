@@ -2,7 +2,7 @@
 title: Persist the State of the Grid alongside the Function Handlers
 description: "Persist the Grid state and include the function definitions in the saved options."
 type: how-to
-page_title: Persist the State of the Kendo UI Grid alongside the Function Handlers | Kendo UI Grid for jQuery
+page_title: Persist the State of the Kendo UI Grid alongside the Function Handlers - Kendo UI for jQuery Data Grid
 slug: grid-persist-state-with-functions
 tags: grid, persist, state, save, options, restore, function, functions, handler, handlers
 res_type: kb
@@ -13,7 +13,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>

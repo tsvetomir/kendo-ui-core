@@ -1,8 +1,8 @@
 ---
 title: Disable Dirty Indicators in Grid by Using CSS
-description: An example on how to disable dirty indicators in the Kendo UI Grid by using CSS.
+description: Learn how to disable dirty indicators in the Kendo UI Grid by using CSS.
 type: how-to
-page_title: Disable Dirty Indicators by Using CSS | Kendo UI Grid for jQuery
+page_title: Disable Dirty Indicators by Using CSS - Kendo UI for jQuery Data Grid
 slug: disable-dirty-indicator-using-css
 tags: dirty, indicator, grid, disable, css
 ticketid: 1136481
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -122,4 +122,4 @@ For the full implementation, open the following example in the Dojo.
 
 ## See Also
 
-* [Customization of Appearance in Kendo UI](https://docs.telerik.com/kendo-ui/styles-and-layout/appearance-styling#customization-of-appearance)
+* [Customization of Appearance in Kendo UI]({% slug sassbasedthemes_customization_kendoui %})

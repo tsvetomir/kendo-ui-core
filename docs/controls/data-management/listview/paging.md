@@ -1,6 +1,6 @@
 ---
 title: Paging
-page_title: jQuery ListView Documentation | Paging
+page_title: jQuery ListView Documentation - Paging
 description: "Get started with the jQuery ListView by Kendo UI and learn how to implement a separate pager and split its content into pages."
 slug: paging_kendoui_listview
 position: 5
@@ -102,7 +102,7 @@ When you use the Pager widget and when the number of items, which are bound to a
 
         <script type="text/x-kendo-tmpl" id="template">
             <div class="product">
-                <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+                <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="Kendo UI for jQuery ListView #: ProductName # " />
                 <h3>#:ProductName#</h3>
                 <p>#:kendo.toString(UnitPrice, "c")#</p>
             </div>
@@ -138,7 +138,7 @@ The following example demonstrates the full implementation of the suggested appr
 
 <script type="text/x-kendo-tmpl" id="template">
     <div class="product">
-        <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="#: ProductName # image" />
+        <img src="https://demos.telerik.com/kendo-ui/content/web/foods/#= ProductID #.jpg" alt="Kendo UI for jQuery ListView #: ProductName # " />
         <h3>#:ProductName#</h3>
         <p>#:kendo.toString(UnitPrice, "c")#</p>
     </div>

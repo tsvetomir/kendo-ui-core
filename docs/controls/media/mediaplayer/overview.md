@@ -1,13 +1,13 @@
 ---
 title: Overview
-page_title: jQuery MediaPlayer Documentation | MediaPlayer Overview
+page_title: jQuery MediaPlayer Documentation - MediaPlayer Overview
 description: "Get started with the jQuery MediaPlayer by Kendo UI and learn how to create, initialize, and enable the widget."
 previous_url: /web/mediaplayer/overview, /getting-started/web/mediaplayer/overview
 slug: overview_kendoui_mediaplayer_widget
 position: 1
 ---
 
-# MediaPlayer Overview
+# {{ site.product }} MediaPlayer Overview
 
 The MediaPlayer plays video files from static sources or streams online YouTube videos and enriches your website with dynamic content in a user-friendly interface.
 
@@ -19,7 +19,7 @@ To respond to cutting-end design practices and trends, the MediaPlayer component
 
 The following image demonstrates a template of the MediaPlayer.
 
-![Template of the MediaPlayer](images/mediaplayer-overview1.png)
+![Kendo UI for jQuery MediaPlayer Template](images/mediaplayer-overview1.png)
 
 ## Initializing the MediaPlayer
 

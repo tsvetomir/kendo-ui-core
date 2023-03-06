@@ -289,6 +289,23 @@ it("month view renders week number column when enabled", function() {
     assert.equal(div.find("tbody").find("td").length, 48);
 });
 
+it("month view renderer does not duplicate week numbers", function() {
+    var today = new Date('2021-01-01T19:20:30Z');
+
+    div.html(calendar.views[0].content({
+        date: today,
+        empty: template.empty,
+        isWeekColumnVisible: true,
+        content: template.content,
+        min: new Date(2000, 10, 10),
+        max: new Date(2023, 10, 10),
+        disableDates: $.noop,
+        messages: { weekColumnHeader: "" }
+    }));
+
+    assert.equal(div.find("tr").eq(1).find("td").eq(0).text(), "53");
+});
+
 it("month view's content method honors culture", function() {
     var today = new Date(),
         days = kendo.getCulture("bg-BG").calendars.standard.days;
@@ -359,7 +376,7 @@ it("month view renders anchor in td with title", function() {
     }));
 
     assert.equal(div.find("tbody").find("a").attr("title"), kendo.toString(firstVisibleDay, "D"));
-    assert.equal(div.find("tbody").find("a").attr("class"), "k-link");
+    assert.equal(div.find("tbody").find("a").attr("class").trim(), "k-link");
 });
 
 it("month view renders anchor in td with title depending on the options.culture", function() {
@@ -427,7 +444,7 @@ it("month view should render data-val attribute", function() {
         content: template.content
     }));
 
-    assert.equal(div.find("tbody").find("a:first").attr("data-value"), value);
+    assert.equal(div.find("tbody").find("a:first").attr(kendo.attr("value")), value);
 });
 
 it("month view should render k-other-month style", function() {
@@ -501,7 +518,7 @@ it("month view do not apply k-other-month to the first day of the month", functi
 
     var cell = div.find("tbody").find("tr:first").find(".k-other-month:last").next();
 
-    assert.equal(cell.children().attr("data-value"), "2011/8/1");
+    assert.equal(cell.children().attr(kendo.attr('value')), "2011/8/1");
 });
 
 it("month view renders k-today if today is in the current view", function() {
@@ -874,14 +891,8 @@ it("if no options.month then build template without WITH block", function() {
     assert.isOk(cal.month.content.toString().indexOf("with") == -1);
 });
 
-it("set options.month build template with WITH block", function() {
-    var cal = new kendo.ui.Calendar(div, { month: { content: "#=value#" } });
-
-    assert.isOk(cal.month.content.toString().indexOf("with") != -1);
-});
-
 it("set options.month should be used as template", function() {
-    var cal = new kendo.ui.Calendar(div, { month: { content: "#=value#" } }),
+    var cal = new kendo.ui.Calendar(div, { month: { content: ({ value }) => value } }),
         oldView = kendo.calendar.views[0].content, options;
 
     kendo.calendar.views[0].content = function(o) {

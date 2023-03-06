@@ -1,7 +1,7 @@
 ---
 title: Edit the Scheduler by Using ContextMenu
 page_title: Edit the Scheduler by Using ContextMenu
-description: "Learn how to edit the Kendo UI for jQuery Scheduler by using the Kendo UI ContextMenu widget."
+description: "Learn how to edit the Kendo UI for jQuery Scheduler by using the Kendo UI ContextMenu component."
 previous_url: /aspnet/web/scheduler/how-to/editing-using-contextmenu, /controls/scheduling/scheduler/how-to/editing-using-contextmenu, /controls/scheduling/scheduler/how-to/editing/editing-using-contextmenu
 slug: howto_edit_using_kendouicontextmenu_scheduler
 tags: telerik, kendo, jquery, scheduler, edit, with, using, the, contextmenu 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -50,8 +50,8 @@ The following example demonstrates how to achieve the desired scenario.
     var selectState = null;
 
     var scheduler = $("#scheduler").kendoScheduler({
-      date: new Date("2013/6/13"),
-      startTime: new Date("2013/6/13 07:00 AM"),
+      date: new Date("2022/6/13"),
+      startTime: new Date("2022/6/13 07:00 AM"),
       height: 600,
                 views: [
         "day",

@@ -2,7 +2,7 @@
 title: Cannot Get Any Data to Load in Grid
 description: The Grid does not load any records in an ASP.NET Core project.
 type: troubleshooting
-page_title: Grid in ASP.NET Core Does Not Show Any Records | Kendo UI Grid for ASP.NET Core
+page_title: Grid in ASP.NET Core Does Not Show Any Records - Kendo UI Grid for ASP.NET Core
 slug: grid-is-not-showing-data
 tags: grid, data, core, aspnet, not showing, binding, loading
 ticketid: 1112718
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid for ASP.NET Core</td>
+  <td>Progress® Telerik® UI Grid for ASP.NET Core</td>
  </tr>
  <tr>
   <td>Operating System</td>
@@ -26,7 +26,7 @@ component: grid
   <td>All</td>
  </tr>
  <tr>
-  <td>.Net framework</td>
+  <td>.NET Framework</td>
   <td>Version 1 0</td>
  </tr>
 </table>

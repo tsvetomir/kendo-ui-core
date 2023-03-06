@@ -1,6 +1,6 @@
 ---
 title: Grid Troubleshooting on Editing
-page_title: Grid Troubleshooting on Editing | Kendo UI for jQuery
+page_title: Grid Troubleshooting on Editing
 description: "Troubleshoot any issues that might occur while editing the data of the Kendo UI Grid for jQuery."
 previous_url: /controls/data-management/grid/editing/troubleshooting
 slug: edittroubleshoot_kendoui_grid_widget
@@ -9,6 +9,17 @@ component: grid
 type: troubleshooting
 res_type: kb
 ---
+
+## Environment
+
+<table>
+ <tr>
+  <td>Product</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
+ </tr>
+</table>
+
+## Description
 
 This article provides solutions for issues you might encounter while working with the editing functionality of the Grid.
 
@@ -36,4 +47,4 @@ To work around this issue, define a custom data-binding mechanism. After applyin
 ## See Also
 
 * [Implementing Foreign-Key Columns in the Grid (Demo)](https://demos.telerik.com/kendo-ui/grid/foreignkeycolumn)
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

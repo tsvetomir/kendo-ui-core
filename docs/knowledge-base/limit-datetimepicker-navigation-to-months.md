@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI DateTimePicker for jQuery</td>
+  <td>Progress® Kendo UI® DateTimePicker for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -60,7 +60,7 @@ The following example demonstrates how to achieve the desired scenario through M
                 var viewName = widget.view().name;
                 var disable = viewName == "month" && viewName !== "year";
                 widget.wrapper.find(".k-nav-fast")
-                .toggleClass("k-state-disabled", disable)
+                .toggleClass("k-disabled", disable)
                 .attr("aria-disabled", disable);
               })
               .trigger("navigate");

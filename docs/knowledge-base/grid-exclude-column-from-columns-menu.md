@@ -1,8 +1,8 @@
 ---
 title: Exclude Specific Columns from Column Menu List in Grid
-description: An example on how to remove an item from the list of columns in the column menu of the Kendo UI Grid for jQuery.
+description: Learn how to remove an item from the list of columns in the column menu of the Kendo UI Grid for jQuery.
 type: how-to
-page_title: Exclude Specific Columns from Column List | Kendo UI Grid for jQuery
+page_title: Exclude Specific Columns from Column List - Kendo UI for jQuery Data Grid
 slug: grid-exclude-column-from-columns-menu
 tags: grid, exclude, hidden, column, columns, menu
 ticketid: 1158504
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Grid for Progress® Kendo UI®</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>
@@ -108,5 +108,5 @@ The following example demonstrates the full implementation of the suggested appr
 ## See Also
 
 * [API Reference of the columnMenuInit Event](https://docs.telerik.com/kendo-ui/api/javascript/ui/grid/events/columnmenuinit)
-* [How to Change the Column Names inside the Column Menu of the Grid](https://docs.telerik.com/kendo-ui/knowledge-base/grid-column-menu-change-text)
-* [How to Include Hidden Columns in PDF Export](https://docs.telerik.com/kendo-ui/knowledge-base/grid-include-hidden-columns-to-exported-pdf)
+* [Change the Column Names inside the Column Menu of the Grid](https://docs.telerik.com/kendo-ui/knowledge-base/grid-column-menu-change-text)
+* [Include Hidden Columns in PDF Export](https://docs.telerik.com/kendo-ui/knowledge-base/grid-include-hidden-columns-to-exported-pdf)

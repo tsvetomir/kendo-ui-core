@@ -8,7 +8,7 @@ position: 3
 permalink: /getting-started/first-steps-cli
 ---
 
-# First Steps with CLI
+# Telerik UI for ASP.NET Core First Steps with CLI
 
 Welcome to the First Steps with CLI guide on getting started with Progress<sup>®</sup> Telerik<sup>®</sup> UI for ASP.NET Core by using the [command-line interface (CLI)](https://docs.microsoft.com/en-us/dotnet/core/tools/?tabs=netcore2x)!
 
@@ -143,7 +143,7 @@ Install the appropriate [.Net Core SDK 2.0 or later](https://www.microsoft.com/n
 
 7. Navigate to the project folder by using the Terminal (cmd) and run it by using the `dotnet run` command. The **Index** page will display a [Kendo UI DatePicker]({% slug htmlhelpers_datepicker_aspnetcore %}). As a result, the following sample page is created.
 
-    ![The created sample page](../getting-started-core/images/sample-page.png)
+    ![{{ site.product_short }} The created sample page](../getting-started-core/images/sample-page.png)
 
 @[template](/_contentTemplates/core/json-serialization-note.md#json-serialization-note)
 

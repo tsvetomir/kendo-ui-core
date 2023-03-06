@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery FlatColorPicker Documentation | FlatColorPicker Overview
+page_title: jQuery FlatColorPicker Documentation - FlatColorPicker Overview
 description: "Get started with the jQuery FlatColorPicker by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_flatcolorpicker_widget
 position: 1
 ---
 
-# FlatColorPicker Overview
+# {{ site.product }} FlatColorPicker Overview
 
 The FlatColorPicker component provides a rich interface to choose a color from Palette and Gradient views. It enables the user to preview the selected color before submit and to ensure that a certain contrast requirements are met.
 
@@ -25,6 +25,48 @@ The below example shows a basic initialization of the FlatColorPicker:
         $(document).ready(function(){
             $("#flatcolorpicker").kendoFlatColorPicker();
         });
+    </script>
+```
+
+As of Kendo UI R3 2022, you can initialize the ColorGradient from an `input` element and use it for value submission. The widget is also supported as an editor in the Kendo Form.
+
+```dojo
+    <form id="myForm"></form>
+
+    <script>
+      $("#myForm").kendoForm({
+        formData: {
+          ID: 1,
+          Name: "John Doe",
+          Address: 3,
+          Color: "red"
+        },
+        items: [
+          {
+            field: "Name",
+            validation: { required: true }
+          },
+          {
+            field: "Address",
+            editor:"DropDownList",
+            editorOptions:{
+              dataTextField:"text",
+              dataValueField:"id",
+              dataSource: {
+                data: [
+                  {text:"Sofia", id:1},
+                  {text:"London", id:2},
+                  {text:"New York", id:3}
+                ]
+              }
+            }
+          },
+          {
+            field: "Color",
+            editor:"FlatColorPicker"
+          }
+        ]
+      });
     </script>
 ```
 

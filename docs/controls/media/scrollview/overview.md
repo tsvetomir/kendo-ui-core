@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ScrollView Documentation | ScrollView Overview
+page_title: jQuery ScrollView Documentation - ScrollView Overview
 description: "Get started with the jQuery ScrollView by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_scrollview_widget
 position: 1
 ---
 
-# ScrollView Overview
+# {{ site.product }} ScrollView Overview
 
 The ScrollView displays a horizontal collection of content or image views with built-in navigation between them.
 

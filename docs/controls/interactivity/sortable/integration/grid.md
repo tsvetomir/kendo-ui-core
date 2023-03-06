@@ -1,6 +1,6 @@
 ---
 title: Grid
-page_title: jQuery Sortable Documentation | Grid Integration
+page_title: jQuery Sortable Documentation - Grid Integration
 description: "Get started with the jQuery Sortable by Kendo UI and integrate the widget with the Kendo UI Grid."
 previous_url: /controls/interactivity/sortable/integration
 slug: integrationwith_grid_sortable
@@ -60,7 +60,7 @@ The following example demonstrates how to style the `hint` element, so it looks 
           return hint; // Return the hint element.
         },
         placeholder: function(element) { // Customize the placeholder.
-          return element.clone().addClass("k-state-hover").css("opacity", 0.65);
+          return element.clone().addClass("k-hover").css("opacity", 0.65);
         },
         change: function(e) {
           // Handle the change event.

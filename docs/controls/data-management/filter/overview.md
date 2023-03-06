@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Filter Documentation | Filter Overview
+page_title: jQuery Filter Documentation - Filter Overview
 description: "Get started with the jQuery Filter by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_filter_widget
 position: 1
 ---
 
-# Filter Overview
+# {{ site.product }} Filter Overview
 
 The [Kendo UI Filter widget](https://demos.telerik.com/kendo-ui/filter/index) a unified control for filtering data-bound components that have a [data source](/api/javascript/data/datasource).
 
@@ -14,7 +14,7 @@ The user interface of the Filter is useful for data-bound components that do not
 
 * [Demo page for the Filter](https://demos.telerik.com/kendo-ui/filter/index)
 
-![A Filter widget](images/filter-overview.png)
+![Kendo UI for jQuery Filter Component Overview](images/filter-overview.png)
 
 ## Initializing the Filter
 

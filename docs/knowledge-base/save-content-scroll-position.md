@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TabStrip for jQuery</td>
+  <td>Progress® Kendo UI® TabStrip for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -46,7 +46,7 @@ To persist the scroll position, use the [`select`](/api/javascript/ui/tabstrip/e
 ```dojo
     <div id="tabstrip" style="width:600px">
       <ul>
-        <li class="k-state-active">
+        <li class="k-active">
           One
         </li>
         <li>
@@ -84,6 +84,6 @@ To persist the scroll position, use the [`select`](/api/javascript/ui/tabstrip/e
 ## See Also
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
-* [How to Add Close Button to Tabs]({% slug howto_addclosebuttontotabs_tabstrip %})
-* [How to Expand to 100% Height and Auto-Resize]({% slug howto_expandto100percentheightautoresize_tabstrip %})
-* [How to Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
+* [Add Close Button to Tabs]({% slug howto_addclosebuttontotabs_tabstrip %})
+* [Expand to 100% Height and Auto-Resize]({% slug howto_expandto100percentheightautoresize_tabstrip %})
+* [Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})

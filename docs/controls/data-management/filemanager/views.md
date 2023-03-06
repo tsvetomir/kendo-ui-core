@@ -1,6 +1,6 @@
 ---
 title: Views
-page_title: jQuery FileManager Documentation | Grid and List Views in FileManager
+page_title: jQuery FileManager Documentation - Grid and List Views in FileManager
 description: "Get familiar with Grid and List Views in FileManager."
 slug: views_kendoui_filemanager_widget
 position: 4
@@ -52,7 +52,7 @@ This view is achieved with the Kendo Grid and in renders the files in a tabular 
 
 **GridView type in FileManager:**
 
-<img src="gridview.png">
+![Kendo UI for jQuery FileManager Grid View](gridview.png)
 
 ## List View (Thumbnails)
 
@@ -94,7 +94,7 @@ The List view is implemented with the help of the Kendo ListView component. The 
 ```
 **ListView type in FileManager:** 
 
-<img src="listview.png">
+![Kendo UI for jQuery FileManager ListView](listview.png)
 
 ## See Also
 

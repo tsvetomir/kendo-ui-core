@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Chat Documentation | Chat Overview
+page_title: jQuery Chat Documentation - Chat Overview
 description: "Get started with the jQuery Chat by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_chat_widget
 position: 1
 ---
 
-# Chat Overview
+# {{ site.product }} Chat Overview
 
 The Chat allows the user to participate in chat sessions with other users or with chat bots.
 
@@ -14,7 +14,7 @@ Chats provide support for default cards and actions, and enable the configuratio
 
 * [Demo page for the Chat](https://demos.telerik.com/kendo-ui/chat/index)
 
-![Structure of the Chat](images/chat-structure-no-toolbar.png)
+![Kendo UI for jQuery Chat Structure](images/chat-structure-no-toolbar.png)
 
 ## Initializing the Chat
 

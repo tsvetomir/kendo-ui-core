@@ -27,7 +27,7 @@
             $.mockjax.clear();
         });
 
-        it("clicking on window brings it in front of other windows and adds k-state-focused", function() {
+        it("clicking on window brings it in front of other windows and adds k-focus", function() {
             jasmine.clock().install();
             var firstWindow = createWindow({ animation: { open: { duration: 50 } } }),
                 secondWindow = createWindow();
@@ -38,11 +38,11 @@
                 +firstWindow.wrapper.css("zIndex"),
                 +secondWindow.wrapper.css("zIndex") + 2
             );
-            assert.isOk(firstWindow.wrapper.is(".k-state-focused"));
+            assert.isOk(firstWindow.wrapper.is(".k-focus"));
             jasmine.clock().uninstall();
         });
 
-        it("clicking on minimized window brings it in front of other windows and adds k-state-focused", function() {
+        it("clicking on minimized window brings it in front of other windows and adds k-focus", function() {
             jasmine.clock().install();
             var firstWindow = createWindow({ animation: { open: { duration: 50 } } }),
                 secondWindow = createWindow();
@@ -54,11 +54,11 @@
                 +firstWindow.wrapper.css("zIndex"),
                 +secondWindow.wrapper.css("zIndex") + 2
             );
-            assert.isOk(firstWindow.wrapper.is(".k-state-focused"));
+            assert.isOk(firstWindow.wrapper.is(".k-focus"));
             jasmine.clock().uninstall();
         });
 
-        it("clicking on inactive iframe window adds k-state-focused", function() {
+        it("clicking on inactive iframe window adds k-focus", function() {
             jasmine.clock().install();
             var firstWindow = createWindow({
                     content: "/base/tests/window/blank.html",
@@ -73,7 +73,7 @@
 
             firstWindow.element.find(".k-overlay").trigger("mousedown");
             jasmine.clock().tick(50);
-            assert.isOk(firstWindow.wrapper.is(".k-state-focused"));
+            assert.isOk(firstWindow.wrapper.is(".k-focus"));
             jasmine.clock().uninstall();
         });
 
@@ -123,7 +123,7 @@
                     }
                 });
 
-            dialog.wrapper.find(".k-i-refresh").trigger("click");
+            dialog.wrapper.find(".k-i-arrow-rotate-cw,.k-svg-i-arrow-rotate-cw").trigger("click");
 
             assert.equal(triggers, 1);
         });
@@ -136,7 +136,7 @@
                     }
                 });
 
-            dialog.wrapper.find(".k-i-close").trigger("click");
+            dialog.wrapper.find(".k-i-x,.k-svg-i-x").trigger("click");
         });
 
         it("clicking the close button triggers close event when default is prevented", function() {
@@ -149,8 +149,8 @@
                     }
                 });
 
-            dialog.wrapper.find(".k-i-close").trigger("click");
-            dialog.wrapper.find(".k-i-close").trigger("click");
+            dialog.wrapper.find(".k-i-x,.k-svg-i-x").trigger("click");
+            dialog.wrapper.find(".k-i-x,.k-svg-i-x").trigger("click");
         });
 
         it("minimize triggers minimize event", function() {
@@ -162,7 +162,7 @@
                     }
                 });
 
-            dialog.wrapper.find(".k-i-window-minimize").trigger("click");
+            dialog.wrapper.find(".k-i-window-minimize,.k-svg-i-window-minimize").trigger("click");
 
             assert.equal(triggers, 1);
         });
@@ -176,7 +176,7 @@
                     }
                 });
 
-            dialog.wrapper.find(".k-i-window-maximize").trigger("click");
+            dialog.wrapper.find(".k-i-window,.k-svg-i-window").trigger("click");
 
             assert.equal(triggers, 1);
         });
@@ -605,7 +605,7 @@
         it("hitting arrow keys in nested input does not trigger keyboard support", function() {
             var dialogObject = createWindow({
                 content: {
-                    template: "<input class='foo' />"
+                    template: () => "<input class='foo' />"
                 }
             });
             var dialog = dialogObject.element;
@@ -621,7 +621,7 @@
             var handler = spy();
 
             var dialogObject = createWindow({
-                actions: ["custom"],
+                actions: ["gear"],
                 close: handler
             });
 

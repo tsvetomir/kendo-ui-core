@@ -1,13 +1,12 @@
-(function(f, define) {
-    define([ "./kendo.resizable" ], f);
-})(function() {
+import "./kendo.resizable.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "splitter",
     name: "Splitter",
     category: "web",
     description: "The Splitter widget provides an easy way to create a dynamic layout of resizable and collapsible panes.",
-    depends: [ "resizable" ]
+    depends: [ "resizable", "icons" ]
 };
 
 (function($, undefined) {
@@ -31,7 +30,7 @@ var __meta__ = { // jshint ignore:line
         CLICK = "click",
         PANE = "pane",
         MOUSELEAVE = "mouseleave",
-        FOCUSED = "k-state-focused",
+        FOCUSED = "k-focus",
         KPANE = "k-" + PANE,
         PANECLASS = "." + KPANE,
         TABINDEX = "tabindex",
@@ -322,7 +321,7 @@ var __meta__ = { // jshint ignore:line
                 return;
             }
 
-            arrow = target.children(".k-icon:not(.k-resize-handle)");
+            arrow = target.children("span:not(.k-resize-handle)");
 
             if (arrow.length !== 1) {
                 return;
@@ -342,7 +341,7 @@ var __meta__ = { // jshint ignore:line
             var that = this;
 
             return function(e) {
-                var target = $(e.target),
+                var target = $(e.currentTarget),
                     pane;
 
                 if (target.closest(".k-splitter")[0] != that.element[0]) {
@@ -358,8 +357,9 @@ var __meta__ = { // jshint ignore:line
             };
         },
         _updateSplitBar: function(splitbar, previousPane, nextPane, previousPaneEl) {
-            var catIconIf = function(iconType, condition) {
-                   return condition ? "<div class='k-icon " + iconType + "'></div>" : "";
+            var catIconIf = function(actionType, iconType, condition) {
+                    var icon = iconType ? ui.icon(iconType) : "";
+                    return condition ? "<span class='k-" + actionType + "'>" + icon + "</span>" : "";
                 },
                 orientation = this.orientation,
                 draggable = (previousPane.resizable !== false) && (nextPane.resizable !== false),
@@ -385,16 +385,16 @@ var __meta__ = { // jshint ignore:line
                     .toggleClass("k-splitbar-static-" + orientation,
                         !draggable && !prevCollapsible && !nextCollapsible)
                     .html(
-                        catIconIf("k-collapse-prev k-i-arrow-60-up", prevCollapsible && !prevCollapsed && !nextCollapsed && orientation == VERTICAL) +
-                        catIconIf("k-collapse-prev k-i-arrow-60-left", prevCollapsible && !prevCollapsed && !nextCollapsed && orientation == HORIZONTAL) +
-                        catIconIf("k-expand-prev k-i-arrow-60-down", prevCollapsible && prevCollapsed && !nextCollapsed && orientation == VERTICAL) +
-                        catIconIf("k-expand-prev k-i-arrow-60-right", prevCollapsible && prevCollapsed && !nextCollapsed && orientation == HORIZONTAL) +
-                        catIconIf("k-resize-handle k-i-hbar", draggable && orientation == VERTICAL) +
-                        catIconIf("k-resize-handle k-i-vbar", draggable && orientation == HORIZONTAL) +
-                        catIconIf("k-collapse-next k-i-arrow-60-down", nextCollapsible && !nextCollapsed && !prevCollapsed && orientation == VERTICAL) +
-                        catIconIf("k-collapse-next k-i-arrow-60-right", nextCollapsible && !nextCollapsed && !prevCollapsed && orientation == HORIZONTAL) +
-                        catIconIf("k-expand-next k-i-arrow-60-up", nextCollapsible && nextCollapsed && !prevCollapsed && orientation == VERTICAL) +
-                        catIconIf("k-expand-next k-i-arrow-60-left", nextCollapsible && nextCollapsed && !prevCollapsed && orientation == HORIZONTAL)
+                        catIconIf("collapse-prev", "caret-alt-up", prevCollapsible && !prevCollapsed && !nextCollapsed && orientation == VERTICAL) +
+                        catIconIf("collapse-prev", "caret-alt-left", prevCollapsible && !prevCollapsed && !nextCollapsed && orientation == HORIZONTAL) +
+                        catIconIf("expand-prev", "caret-alt-down", prevCollapsible && prevCollapsed && !nextCollapsed && orientation == VERTICAL) +
+                        catIconIf("expand-prev", "caret-alt-right", prevCollapsible && prevCollapsed && !nextCollapsed && orientation == HORIZONTAL) +
+                        catIconIf("resize-handle", null, draggable && orientation == VERTICAL) +
+                        catIconIf("resize-handle", null, draggable && orientation == HORIZONTAL) +
+                        catIconIf("collapse-next", "caret-alt-down", nextCollapsible && !nextCollapsed && !prevCollapsed && orientation == VERTICAL) +
+                        catIconIf("collapse-next", "caret-alt-right", nextCollapsible && !nextCollapsed && !prevCollapsed && orientation == HORIZONTAL) +
+                        catIconIf("expand-next", "caret-alt-up", nextCollapsible && nextCollapsed && !prevCollapsed && orientation == VERTICAL) +
+                        catIconIf("expand-next", "caret-alt-left", nextCollapsible && nextCollapsed && !prevCollapsed && orientation == HORIZONTAL)
                     );
 
             if (previousPane.labelId) {
@@ -486,10 +486,10 @@ var __meta__ = { // jshint ignore:line
                     var element = $(this),
                         config = element.data(PANE) || {}, size;
 
-                    element.removeClass("k-state-collapsed");
+                    element.removeClass("k-collapsed");
                     if (config.collapsed) {
                         size = config.collapsedSize ? calculateSize(config.collapsedSize, totalSize) : 0;
-                        element.css("overflow", "hidden").addClass("k-state-collapsed");
+                        element.css("overflow", "hidden").addClass("k-collapsed");
                     } else if (isFluid(config.size)) {
                         freeSizedPanes = freeSizedPanes.add(this);
                         panesSizes.push(false);
@@ -811,6 +811,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

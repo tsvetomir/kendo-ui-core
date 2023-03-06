@@ -1,8 +1,8 @@
 ---
 title: How To Reorder Items by Drag and Drop in MultiSelect
-description: An example on how to reorder selected items and items in MultiSelect popup.
+description: Learn how to reorder selected items and items in MultiSelect popup.
 type: how-to
-page_title: Drag and Drop to Reorder Selected Items and Popup Items Using Sortable  | Kendo UI MultiSelect for jQuery
+page_title: Drag and Drop to Reorder Selected Items and Popup Items Using Sortable  - Kendo UI MultiSelect for jQuery
 slug: multiselect-reorder-sortable
 tags: multiselect, reorder, sortable, drag, drop
 res_type: kb
@@ -15,7 +15,7 @@ component: multiselect
 <table>
  <tr>
   <td>Product</td>
-  <td>Kendo UI MultiSelect</td>
+  <td>Progress® Kendo UI® MultiSelect for jQuery</td>
   <td>Kendo UI Sortable</td>
  </tr> 
 </table>
@@ -114,15 +114,14 @@ You can find the full example below:
               }
             }
             arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-            return arr; // for testing
+            return arr;
           };
-          var checkInputs = function(elements) {
-            console.log(elements);
+          var checkInputs = function(elements) { 
             elements.each(function() {
               var element = $(this);     
-              var input = element.children("input");
+              var input = element.children().find("input");
 
-              input.prop("checked", element.hasClass("k-state-selected"));
+              input.prop("checked", element.hasClass("k-selected"));
             });
           };
           // create MultiSelect from select HTML element

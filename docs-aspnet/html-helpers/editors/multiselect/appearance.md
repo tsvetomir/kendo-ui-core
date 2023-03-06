@@ -29,6 +29,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the MultiSelect:
 ```HtmlHelper
@@ -92,6 +93,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest (ellipse-like) border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the MultiSelect:
 ```HtmlHelper
@@ -154,6 +156,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The default value is `Solid` and it is applied to the `span.k-multiselect` wrapping element through the `k-input-solid` class and to the `span.k-chip` elements through the `.k-chip-solid .k-chip-solid-base` classes.
 
@@ -278,6 +281,41 @@ New Rendering:
 In order to achieve the same look and feel as the old rendering, make sure to use the classes available in the new rendering. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Appearance Overview]({% slug components_rendering_overview %}) article for additional information.
 
 > If you use a LESS theme, the new rendering will support only the [default options](#options).
+
+The following example showcases how to change the background colors of the input elements of the **MultiSelect** in both the new, and the old rendering:
+
+```
+      <style>
+        /* Doesn't work BEFORE R1 2022 */
+        .k-chip{ /* customize the styles of the selected items in the input */
+          background: lightgreen
+        }
+        .k-list-item{ /* customize the styles of the items in the popup */
+          background-color: #FFDFDD !important;
+        }    
+        .k-selected{ /* customize the styles of the selected items in the popup */
+          background-color: #FBBBB9 !important;
+          border: 2px solid #E56E94 !important;
+        }   
+
+        /* Doesn't work AFTER R1 2022 */ 
+        .k-item{ /* customize the styles of the items in the popup */
+          background-color: #FFE5B4 !important;
+        }
+        .k-state-selected{ /* customize the styles of the selected items in the popup */
+          background-color: #FED8B1 !important;
+          border: 2px solid orange !important;
+          color: brown !important;
+        }
+        .k-state-selected:hover{ /* customize the styles of the selected items in the popup */
+          background-color: orange !important;
+          color: white !important;
+        }
+        #multiselect_taglist li{ /* customize the styles of the selected items in the input */
+          background-color: orange !important;
+        }
+      </style>
+```
 
 ## See Also
 

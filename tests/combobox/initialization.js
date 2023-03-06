@@ -90,8 +90,7 @@
             assert.isOk(button.is("button"));
             assert.isOk(button.hasClass("k-input-button"));
             assert.isOk(arrow.is("span"));
-            assert.isOk(arrow.hasClass("k-icon k-i-arrow-s"));
-            assert.equal(arrow.html(), "");
+            assert.isOk(arrow.is(".k-icon.k-i-caret-alt-down, .k-svg-icon.k-svg-i-caret-alt-down"));
         });
 
         it("text input should keep the visible input empty on init", function() {
@@ -330,7 +329,7 @@
             ];
             var combobox = new ComboBox(input, {
                 dataSource: data,
-                headerTemplate: "<div>Header</div>"
+                headerTemplate: () => "<div>Header</div>"
             });
 
             combobox.options.height = 100;
@@ -372,8 +371,9 @@
         it("combobox sets default item template", function() {
             var combobox = new ComboBox(input, { });
             var template = combobox.listView.options.template;
+            var result = template("abc");
 
-            assert.equal(template, "#:data#");
+            assert.equal(result, "abc");
         });
 
         it("template should use defined dataTextField", function() {
@@ -381,24 +381,26 @@
                 dataTextField: "ProductName"
             });
             var template = combobox.listView.options.template;
+            var result = template({ ProductName: "abc" });
 
-            assert.equal(template, "#:data.ProductName#");
+            assert.equal(result, "abc");
         });
 
         it("changing the template", function() {
             var combobox = new ComboBox(input, {
                 dataTextField: "",
-                template: "#= data.toUpperCase() #"
+                template: (data) => data.toUpperCase()
             });
             var template = combobox.listView.options.template;
+            var result = template("abc");
 
-            assert.equal(template, "#= data.toUpperCase() #");
+            assert.equal(result, "ABC");
         });
 
         it("defining header template", function() {
             var combobox = new ComboBox(input, {
-                template: "#= data.toUpperCase() #",
-                headerTemplate: "<div id='t'>Header</div>"
+                template: (data) => data.toUpperCase(),
+                headerTemplate: () => "<div id='t'>Header</div>"
             });
             var list = combobox.list;
 
@@ -407,7 +409,7 @@
 
         it("render footer container", function() {
             var combobox = new ComboBox(input, {
-                footerTemplate: "footer"
+                footerTemplate: () => "footer"
             });
             var footer = combobox.footer;
 
@@ -418,7 +420,7 @@
         it("render footer template", function() {
             var combobox = new ComboBox(input, {
                 autoBind: true,
-                footerTemplate: "footer"
+                footerTemplate: () => "footer"
             });
             var footer = combobox.footer;
 
@@ -428,7 +430,7 @@
         it("compile footer template with the combobox instance", function() {
             var combobox = new ComboBox(input, {
                 autoBind: true,
-                footerTemplate: "#: instance.dataSource.total() #"
+                footerTemplate: ({ instance }) => instance.dataSource.total()
             });
             var footer = combobox.footer;
 
@@ -438,7 +440,7 @@
         it("update footer template on dataBound", function() {
             var combobox = new ComboBox(input, {
                 autoBind: true,
-                footerTemplate: "#: instance.dataSource.total() #"
+                footerTemplate: ({ instance }) => instance.dataSource.total()
             });
             var footer = combobox.footer;
 
@@ -452,7 +454,7 @@
                 animation: false,
                 autoBind: false,
                 dataSource: ["item1", "item2", "item3", "item4", "item5"],
-                footerTemplate: "<div>Footer</div>",
+                footerTemplate: () => "<div>Footer</div>",
                 height: 100
             });
 
@@ -577,7 +579,7 @@
             var combobox = new ComboBox(input, {
                 autoBind: false,
                 dataSource: dataSource,
-                template: "<div style='height:30px'>#= text # </div>",
+                template: ({ text }) => `<div style='height:30px'>${text} </div>`,
                 height: 50
             });
 
@@ -1065,17 +1067,17 @@
 
         it("ComboBox opens the popup if noDataTemplate", function() {
             var combobox = new ComboBox(input, {
-                noDataTemplate: "no data"
+                noDataTemplate: () => "no data"
             });
 
-            combobox.wrapper.find(".k-icon:last").click();
+            combobox.wrapper.find(".k-icon:last, .k-svg-icon:last").click();
 
             assert.isOk(combobox.popup.visible());
         });
 
         it("ComboBox doesn't open the popup if no data", function() {
             var combobox = new ComboBox(input, {
-                noDataTemplate: ""
+                noDataTemplate: null
             });
 
             combobox.wrapper.find(".k-icon:last").click();
@@ -1110,7 +1112,7 @@
             combobox.dataSource.bind("change", function() {
                 assert.isOk(false, "dataSource should not be read");
             });
-            combobox.wrapper.find(".k-icon:last").click();
+            combobox.wrapper.find(".k-i-caret-alt-down, .k-svg-i-caret-alt-down").click();
 
             assert.isOk(combobox.popup.visible());
         });
@@ -1124,7 +1126,7 @@
             combobox.dataSource.bind("change", function() {
                 assert.isOk(false, "dataSource should not be read");
             });
-            combobox.wrapper.find(".k-icon:last").click();
+            combobox.wrapper.find(".k-i-caret-alt-down, .k-svg-i-caret-alt-down").click();
 
             assert.isOk(combobox.popup.visible());
         });
@@ -1132,7 +1134,7 @@
         //no data template
         it("ComboBox builds a noDataTemplate", function() {
             var combobox = new ComboBox(input, {
-                noDataTemplate: "test"
+                noDataTemplate: () => "test"
             });
 
             assert.isOk(combobox.noDataTemplate);
@@ -1140,18 +1142,18 @@
 
         it("render nodata container", function() {
             var combobox = new ComboBox(input, {
-                noDataTemplate: "test"
+                noDataTemplate: () => "test"
             });
 
             assert.isOk(combobox.noData);
             assert.isOk(combobox.noData.hasClass("k-no-data"));
-            assert.equal(combobox.noData.text(), combobox.options.noDataTemplate);
+            assert.equal(combobox.noData.text(), combobox.options.noDataTemplate());
         });
 
         it("render nodata before footerTemplate", function() {
             var combobox = new ComboBox(input, {
-                noDataTemplate: "test",
-                footerTemplate: "footer"
+                noDataTemplate: () => "test",
+                footerTemplate: () => "footer"
             });
 
             assert.isOk(combobox.noData.next().hasClass("k-list-footer"));
@@ -1168,8 +1170,8 @@
                         { name: "item3", type: "b" }
                     ]
                 },
-                noDataTemplate: "no data",
-                template: '#:data.name#'
+                noDataTemplate: () => "no data",
+                template: ({ name }) => name
             });
 
             combobox.open();
@@ -1184,8 +1186,8 @@
                 dataSource: {
                     data: [ ]
                 },
-                noDataTemplate: "no data",
-                template: '#:data.name#'
+                noDataTemplate: () => "no data",
+                template: ({ name }) => name
             });
 
             combobox.open();
@@ -1200,8 +1202,8 @@
                 dataSource: {
                     data: [ ]
                 },
-                noDataTemplate: "no data",
-                template: '#:data.name#'
+                noDataTemplate: () => "no data",
+                template: ({ name }) => name
             });
 
             combobox.open();
@@ -1220,7 +1222,7 @@
         it("update noData template on dataBound", function() {
             var combobox = new ComboBox(input, {
                 autoBind: true,
-                noDataTemplate: "#: instance.dataSource.total() #"
+                noDataTemplate: ({ instance }) => instance.dataSource.total()
             });
 
             var noData = combobox.noData;
@@ -1270,6 +1272,85 @@
             });
 
             assert.isOk(combobox._syncValueAndText());
+        });
+
+        it("renders not-floating label from string", function() {
+            var combobox = new ComboBox(input, {
+                dataValueField: "name",
+                dataTextField: "name",
+                dataSource: {
+                    data: [
+                        { name: "item1", value: "1" },
+                        { name: "item2", value: "2" },
+                        { name: "item3", value: "3" }
+                    ],
+                    group: "name"
+                },
+                label: "Label"
+            });
+
+            assert.equal(combobox.label.element.text(), "Label");
+            assert.isNotOk(!!combobox.label.floatingLabel);
+        });
+
+        it("renders label from object", function() {
+            var combobox = new ComboBox(input, {
+                dataValueField: "name",
+                dataTextField: "name",
+                dataSource: {
+                    data: [
+                        { name: "item1", value: "1" },
+                        { name: "item2", value: "2" },
+                        { name: "item3", value: "3" }
+                    ],
+                    group: "name"
+                },
+                label: {
+                    content: "some label"
+                }
+            });
+
+            assert.equal(combobox.label.element.text(), "some label");
+        });
+
+        it("renders floating label", function() {
+            var combobox = new ComboBox(input, {
+                dataValueField: "name",
+                dataTextField: "name",
+                dataSource: {
+                    data: [
+                        { name: "item1", value: "1" },
+                        { name: "item2", value: "2" },
+                        { name: "item3", value: "3" }
+                    ],
+                    group: "name"
+                },
+                label: {
+                    content: "some label",
+                    floating: true
+                }
+            });
+
+            assert.equal(combobox.label.element.text(), "some label");
+            assert.isOk(!!combobox.label.floatingLabel);
+        });
+
+        it("renders label with funciton", function() {
+            var combobox = new ComboBox(input, {
+                dataValueField: "name",
+                dataTextField: "name",
+                dataSource: {
+                    data: [
+                        { name: "item1", value: "1" },
+                        { name: "item2", value: "2" },
+                        { name: "item3", value: "3" }
+                    ],
+                    group: "name"
+                },
+                label: () => `some label`
+            });
+
+            assert.equal(combobox.label.element.text(), "some label");
         });
 
     });

@@ -2,7 +2,7 @@
 title: Toggle the grid's editable mode on and off
 description: An example demonstrating how to toggle the editable mode of the Kendo UI Grid using a ToolBar button
 type: how-to
-page_title: Toggle Grid's editable mode | Kendo UI Grid for jQuery
+page_title: Toggle Grid's editable mode - Kendo UI for jQuery Data Grid
 slug: grid-toggle-editable-mode
 tags: grid, toolbar, editable, toggle, edit
 res_type: kb
@@ -13,7 +13,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Grid for Progress® Kendo UI®</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Product Version</td>
@@ -65,7 +65,7 @@ toolbar: [{
         // Change the text of the button depending on the grid state.
         editable ? toggleButton.text("Toggle Readonly") : toggleButton.text("Toggle Editable");
         // If the grid is not editable disable the column commands.
-        commands && !editable ? commands.addClass("k-state-disabled") : commands.removeClass("k-state-disabled");
+        commands && !editable ? commands.addClass("k-disabled") : commands.removeClass("k-disabled");
     }
 ```
 
@@ -151,7 +151,7 @@ toolbar: [{
                     // Change the text of the button depending on the grid state.
                     editable ? toggleButton.text("Toggle Readonly") : toggleButton.text("Toggle Editable");
                     // If the grid is not editable disable the column commands.
-                    commands && !editable ? commands.children("a").addClass("k-state-disabled") : commands.children("a").removeClass("k-state-disabled");
+                    commands && !editable ? commands.children("a").addClass("k-disabled") : commands.children("a").removeClass("k-disabled");
                 }
             });
         });

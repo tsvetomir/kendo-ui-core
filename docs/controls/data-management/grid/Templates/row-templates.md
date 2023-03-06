@@ -1,6 +1,6 @@
 ---
 title: Row Templates
-page_title: jQuery Grid Documentation | Row Templates
+page_title: jQuery Grid Documentation - Row Templates
 description: "Get started with the jQuery Grid by Kendo UI and learn how to place custom content into a grid row with the help of row templates."
 previous_url: /controls/data-management/grid/walkthrough#templates
 slug: row_templates_kendoui_grid_widget
@@ -43,7 +43,7 @@ The following example demonstrates how to specify the previous approach as a tem
 
 **Figure 1: A Grid with an applied row template**
 
-![Grid with row template](../grid8_1.png)
+![Kendo UI for jQuery Grid with row template](../grid-row-template.png)
 
 ## Using Row Templates with Detail Templates
 

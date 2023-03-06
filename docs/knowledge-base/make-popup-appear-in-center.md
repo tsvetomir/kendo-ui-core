@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Window for jQuery</td>
+  <td>Progress® Kendo UI® Window for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -76,8 +76,8 @@ The example below demonstrates how to position a popup in the center of the brow
 ## See Also
 
 * [Window JavaScript API Reference](/api/javascript/ui/window)
-* [How to Post to Iframe]({% slug howto_posttoiframe_window %})
-* [How to Restrict Window Positioning]({% slug howto_restrictpositioning_window %})
-* [How to Use Custom Action Icons]({% slug howto_customactionicons_window %})
+* [Post to Iframe]({% slug howto_posttoiframe_window %})
+* [Restrict Window Positioning]({% slug howto_restrictpositioning_window %})
+* [Use Custom Action Icons]({% slug howto_customactionicons_window %})
 
 

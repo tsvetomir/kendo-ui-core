@@ -1,7 +1,7 @@
 ---
 title: Customize Confirmation Window
-page_title: Customize Confirmation Window | Kendo UI Grid for jQuery
-description: "An example on how to customize a confirmation dialog in the Kendo UI Grid for jQuery."
+page_title: Customize Confirmation Window - Kendo UI for jQuery Data Grid
+description: "Learn how to customize a confirmation dialog in the Kendo UI Grid for jQuery."
 previous_url: /web/grid/how-to/Editing/grid-custom-delete-confirmation-window, /controls/data-management/grid/how-to/Editing/custom-delete-confirmation-dialog
 slug: howto_customize_delete_confirmation_dialog_grid
 tags: grid, customize, confirmation, window
@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid for jQuery</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
@@ -141,4 +141,4 @@ To achieve this behavior, use the Kendo UI templates, the Window, and the `remov
 
 ## See Also
 
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Captcha Documentation | Captcha Overview
+page_title: jQuery Captcha Documentation - Captcha Overview
 description: "Get started with the jQuery Captcha by Kendo UI and learn how to initialize the widget."
 slug: overview_kendoui_captcha_widget
 position: 1
 ---
 
-# Captcha Overview
+# {{ site.product }} Captcha Overview
 
 The Kendo UI Captcha widget is a security measure that prevents automated spam from performing tasks such as form submissions in your application. The widget generates distorted images of letters and numbers that are easily decipherable to humans, but not to automated programs (spam bots).
 

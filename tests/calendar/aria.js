@@ -110,7 +110,7 @@ it("Calendar adds aria-disabled to the up nav", function() {
 
 it("Calendar adds aria-selected to the selected cell", function() {
     instance.value(new Date());
-    assert.equal(instance._table.find("td.k-state-selected").attr("aria-selected"), "true");
+    assert.equal(instance._table.find("td.k-selected").attr("aria-selected"), "true");
 });
 
 it("Calendar adds only one aria-selected=true", function() {
@@ -163,6 +163,13 @@ it("Calendar with enabled week has not empty th if not message is set", function
     var firstTh = instance.element.find("th:first");
 
     assert.equal(firstTh.text().trim(), test);
+});
+
+it("only role='grid' element remains in the tabsequence", function() {
+    assert.equal(div.find(".k-calendar-nav-prev").attr("tabindex"), -1);
+    assert.equal(div.find(".k-calendar-nav-next").attr("tabindex"), -1);
+    assert.equal(div.find(".k-calendar-nav-today").attr("tabindex"), -1);
+    assert.equal(div.find(".k-calendar-nav-fast").attr("tabindex"), -1);
 });
 
     });

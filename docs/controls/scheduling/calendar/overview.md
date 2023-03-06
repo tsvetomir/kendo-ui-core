@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Calendar Documentation | Calendar Overview
+page_title: jQuery Calendar Documentation - Calendar Overview
 description: "Get started with the jQuery Calendar by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_calendar_widget
 position: 1
 ---
 
-# Calendar Overview
+# {{ site.product }} Calendar Overview
 
 The Calendar renders a graphical calendar that provides navigation and selection functionalities.
 

@@ -26,12 +26,12 @@
             assert.isTrue(cal.element.find(".k-calendar-header").length === 0);
         });
 
-        it("calendar header should contain four anchor tags when componentType is set to modern", function() {
+        it("calendar header should contain four buttons tags when componentType is set to modern", function() {
             var cal = new Calendar(div, {
                 componentType: 'modern'
             });
 
-            assert.equal(cal.element.find(".k-calendar-header a").length, 4);
+            assert.equal(cal.element.find(".k-calendar-header button").length, 4);
         });
 
         it("calendar header should contain three anchor tags when componentType is set to classic", function() {
@@ -45,7 +45,7 @@
                 componentType: 'modern'
             });
 
-            assert.equal(cal.element.find(".k-calendar-header .k-nav-today").length, 1);
+            assert.equal(cal.element.find(".k-calendar-header .k-calendar-nav-today").length, 1);
         });
 
         it("calendar should not create a footer when componentType is set to modern", function() {
@@ -118,7 +118,7 @@
                 }
             });
 
-            assert.isTrue(cal._today.is('.k-state-disabled'));
+            assert.isTrue(cal._today.is('.k-disabled'));
         });
     });
 }());

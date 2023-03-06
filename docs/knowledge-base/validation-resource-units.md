@@ -1,7 +1,7 @@
 ---
 title: Change Validation Options of Resource Units in the Gantt
 page_title: Change Validation Options of Resource Units in the Gantt
-description: "Learn how to change validation options of resource units in the Kendo UI for jQuery Gantt widget."
+description: "Learn how to change validation options of resource units in the Kendo UI for jQuery Gantt component."
 slug: howto_validation_resource_units_gantt
 previous_url: /controls/scheduling/gantt/how-to/validation-resource-units
 tags: telerik, kendo, jquery, gantt, change, validation, options, of, resource, units
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Gantt for jQuery</td>
+  <td>Progress® Kendo UI® Gantt for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

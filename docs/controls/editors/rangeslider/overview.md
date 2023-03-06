@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery RangeSlider Documentation | RangeSlider Overview
+page_title: jQuery RangeSlider Documentation - RangeSlider Overview
 description: "Get started with the jQuery RangeSlider by Kendo UI and learn how to create and initialize the widget."
 slug: overview_kendoui_rangeslider_widget
 position: 1
 ---
 
-# RangeSlider Overview
+# {{ site.product }} RangeSlider Overview
 
 The Kendo UI RangeSlider displays a range of values and allows you to select ranges of values.
 

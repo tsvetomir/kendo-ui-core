@@ -1,6 +1,6 @@
 ---
 title: Tools
-page_title: jQuery ImageEditor Documentation | Tools
+page_title: jQuery ImageEditor Documentation - Tools
 description: "Get started with the jQuery ImageEditor by Kendo UI and use its tools."
 slug: tools_kendoui_imageeditor_widget
 position: 2
@@ -32,7 +32,7 @@ The following example demonstrates how to instantiate an ImageEditor with predef
                     {
                         type: "button",
                         text: "Custom Button",
-                        icon: "info",
+                        icon: "info-circle",
                         enable: true,
                         click:function(){
                             alert('button clicked')

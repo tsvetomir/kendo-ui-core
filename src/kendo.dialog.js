@@ -1,13 +1,14 @@
-(function(f, define) {
-    define(["./kendo.core", "./kendo.popup", "./kendo.textbox"], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.popup.js";
+import "./kendo.textbox.js";
+import "./kendo.icons.js";
 
-    var __meta__ = { // jshint ignore:line
+    var __meta__ = {
         id: "dialog",
         name: "Dialog",
         category: "web", // suite
         description: "The dialog widget is a modal popup that brings information to the user.",
-        depends: ["core", "popup", "textbox"] // dependencies
+        depends: ["core", "popup", "textbox", "icons"] // dependencies
     };
 
     (function($, undefined) {
@@ -17,6 +18,7 @@
             template = kendo.template,
             keys = kendo.keys,
             isFunction = kendo.isFunction,
+            encode = kendo.htmlEncode,
             NS = "kendoWindow",
             KDIALOG = ".k-dialog",
             KWINDOW = ".k-window",
@@ -27,7 +29,7 @@
             KTITLELESS = "k-dialog-titleless",
             KDIALOGTITLE = ".k-dialog-title",
             KDIALOGTITLEBAR = ".k-dialog-titlebar",
-            KBUTTONGROUP = ".k-dialog-buttongroup",
+            KBUTTONGROUP = ".k-dialog-actions",
             // KACTIONS = ".k-actions",
             KBUTTON = ".k-button",
             KALERT = "k-alert",
@@ -120,6 +122,7 @@
             setOptions: function(options) {
                 var that = this;
                 var sizeClass = that.options.size;
+                that.wrapper.removeClass(kendo.getValidCssClass("k-dialog-", "themeColor", that.options.themeColor));
 
                 options = $.extend(that.options, options);
 
@@ -149,6 +152,10 @@
                     that.wrapper.hide();
                 } else {
                     that._triggerOpen();
+                }
+
+                if (options.themeColor && options.themeColor !== "none") {
+                    that.wrapper.addClass(kendo.getValidCssClass("k-dialog-", "themeColor", that.options.themeColor));
                 }
 
                 if (typeof options.modal !== "undefined") {
@@ -353,6 +360,9 @@
                 that._closable(wrapper);
 
                 wrapper.append(content);
+                if (options.themeColor && options.themeColor !== "none") {
+                    wrapper.addClass(wrapper.addClass(kendo.getValidCssClass("k-dialog-", "themeColor", options.themeColor)));
+                }
 
                 if (options.content) {
                     kendo.destroy(content.children());
@@ -368,7 +378,7 @@
                 var that = this;
                 var options = that.options;
                 var titlebar = wrapper.children(KDIALOGTITLEBAR);
-                var titlebarActions = titlebar.find(".k-window-actions");
+                var titlebarActions = titlebar.find(".k-window-titlebar-actions");
                 var closeAction = titlebarActions.length ? titlebarActions.find(".k-dialog-close") : wrapper.find(".k-dialog-close");
 
                 closeAction.remove();
@@ -758,7 +768,8 @@
             },
 
             _closeAnimationEnd: function() {
-                var that = this;
+                var that = this,
+                    previousFocus = that._previousFocus;
 
                 that._closing = false;
                 that.wrapper.hide().css("opacity", "");
@@ -768,6 +779,12 @@
                     var lastModal = that._object(that._modals().last());
                     if (lastModal) {
                         lastModal.toFront();
+                    } else if (previousFocus) {
+                        that._previousFocus = null;
+
+                        setTimeout(function() {
+                            previousFocus.focus();
+                        });
                     }
                 }
             },
@@ -833,7 +850,7 @@
                     options = that.options,
                     titlebar = wrapper.children(KDIALOGTITLEBAR),
                     title = titlebar.children(KDIALOGTITLE),
-                    encodedHtml = kendo.htmlEncode(html);
+                    encodedHtml = encode(html);
 
                 if (!arguments.length) {
                     return title.html();
@@ -888,6 +905,10 @@
             },
 
             _focusDialog: function() {
+                var firstModal = this._object(this._modals().first());
+
+                this._previousFocus = firstModal && firstModal._previousFocus ? firstModal._previousFocus : document.activeElement;
+
                 if (this._defaultFocus) {
                     this._focus(this._defaultFocus);
                 }
@@ -911,6 +932,7 @@
             options: {
                 title: "",
                 buttonLayout: "stretched",
+                themeColor: "",
                 actions: [],
                 modal: true,
                 size: "auto",
@@ -996,7 +1018,7 @@
                 name: "Alert",
                 modal: true,
                 actions: [{
-                    text: "#: messages.okText #"
+                    text: () => `${encode(messages.okText)}`
                 }]
             }
         });
@@ -1019,13 +1041,13 @@
                 name: "Confirm",
                 modal: true,
                 actions: [{
-                    text: "#: messages.okText #",
+                    text: ({ messages }) => `${encode(messages.okText)}`,
                     primary: true,
                     action: function(e) {
                         e.sender.result.resolve();
                     }
                 }, {
-                    text: "#: messages.cancel #",
+                    text: ({ messages }) => `${encode(messages.cancel)}`,
                     action: function(e) {
                         e.sender.result.reject();
                     }
@@ -1072,7 +1094,7 @@
                 modal: true,
                 value: "",
                 actions: [{
-                    text: "#: messages.okText #",
+                    text: ({ messages }) => `${encode(messages.okText)}`,
                     primary: true,
                     action: function(e) {
                         var sender = e.sender,
@@ -1081,7 +1103,7 @@
                         sender.result.resolve(value);
                     }
                 }, {
-                    text: "#: messages.cancel #",
+                    text: ({ messages }) => `${encode(messages.cancel)}`,
                     action: function(e) {
                         var sender = e.sender,
                             value = sender.input.value();
@@ -1104,23 +1126,24 @@
         };
 
         templates = {
-            wrapper: template("<div class='k-widget k-window k-dialog' role='dialog'></div>"),
-            action: template("<button type='button' class='k-button k-button-md k-rounded-md k-button-solid # if (data.primary) { # k-button-solid-primary # } else { # k-button-solid-base # } #' role='button'></button>"),
-            titlebar: template(
-                "<div class='k-window-titlebar k-dialog-titlebar k-hstack'>" +
-                    "<span class='k-window-title k-dialog-title'>#: title #</span>" +
-                    "<div class='k-window-actions k-dialog-actions k-hstack'></div>" +
+            wrapper: template(() => "<div class='k-window k-dialog' role='dialog'></div>"),
+            action: template((data) => `<button type='button' class='k-button k-button-md k-rounded-md k-button-solid ${data.primary ? 'k-button-solid-primary' : 'k-button-solid-base'}'></button>`),
+            titlebar: template(({ title }) =>
+                "<div class='k-window-titlebar k-dialog-titlebar'>" +
+                    `<span class='k-window-title k-dialog-title'>${encode(title)}</span>` +
+                    "<div class='k-window-titlebar-actions k-dialog-titlebar-actions k-hstack'></div>" +
                 "</div>"
             ),
-            close: template("<a role='button' href='\\#' class='k-button k-button-md k-rounded-md k-button-flat k-button-flat-base k-icon-button k-window-action k-dialog-action k-dialog-close' title='#: messages.close #' aria-label='#: messages.close #' tabindex='-1'>" +
-                "<span class='k-button-icon k-icon k-i-close'></span></a>"),
-            actionbar: template("<div class='k-dialog-buttongroup k-actions k-hstack k-justify-content-#: buttonLayout #' role='toolbar'></div>"),
+            close: template(({ messages }) => `<button class="k-window-titlebar-action k-dialog-titlebar-action k-button k-button-md k-button-flat k-button-flat-base k-rounded-md k-icon-button k-dialog-close" title='${encode(messages.close)}' aria-label='${encode(messages.close)}' tabindex='-1'>
+                                                    ${kendo.ui.icon({ icon: "x", iconClass: "k-button-icon" })}
+                                                </button>`),
+            actionbar: template(({ buttonLayout }) => `<div class='k-dialog-actions k-actions k-hstack k-justify-content-${encode(buttonLayout)}'></div>`),
             overlay: "<div class='k-overlay'></div>",
-            alertWrapper: template("<div class='k-widget k-window k-dialog' role='alertdialog'></div>"),
+            alertWrapper: template(() => "<div class='k-window k-dialog' role='alertdialog'></div>"),
             alert: "<div></div>",
             confirm: "<div></div>",
             prompt: "<div></div>",
-            promptInputContainer: template("<div class='k-prompt-container'><input type='text' title='#: messages.promptInput #' aria-label='#: messages.promptInput #' /></div>")
+            promptInputContainer: template(({ messages }) => `<div class='k-prompt-container'><input type='text' title='${encode(messages.promptInput)}' aria-label='${encode(messages.promptInput)}' /></div>`)
         };
 
         kendo.alert = kendoAlert;
@@ -1129,6 +1152,3 @@
 
     })(window.kendo.jQuery);
 
-    return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

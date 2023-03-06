@@ -1,6 +1,6 @@
 ---
 title: Hidden Containers
-page_title: jQuery Grid Documentation | Hidden Container
+page_title: jQuery Grid Documentation - Hidden Container
 description: "Get started with the jQuery Grid by Kendo UI and learn how to handle the most common scenarios when initializing it in a hidden container."
 slug: hidden_containers_kendoui_grid_widget
 position: 4
@@ -20,8 +20,8 @@ You can identify that the Grid is initialized in a hidden state if any of the fo
 * The pager may not appear or may be the smallest responsive pager instead of the full one
 
 To handle the behavior that is related to the initialization of the Grid inside a hidden container, use any of the following approaches:
-* Delay the initialization of the Grid or change the order in which various Kendo UI widgets are initialized, so that the Grid is initialized after its element becomes visible.
-* Execute the [`resize`]({% slug responsivewebdesign_integration_kendoui %}#individual-widget-resizing) method of the Grid after the widget becomes visible.
+* Delay the initialization of the Grid or change the order in which various Kendo UI components are initialized, so that the Grid is initialized after its element becomes visible.
+* Execute the [`resize`](/api/javascript/kendo/methods/resize) method of the Grid after the component becomes visible.
 * Instead of setting an overall height for the Grid in its configuration, define the height for the scrollable data area only. In this case, no height calculations are made. This approach is applicable only if frozen columns and virtual scrolling are _not_ used.
 
     ```
@@ -33,9 +33,12 @@ To handle the behavior that is related to the initialization of the Grid inside 
 
 * Fetch the data source instead of calling the `resize()` method. This approach is applicable if virtual scrolling is enabled and the Kendo UI version is older than 2014.3.1119.
 
+  Note that Grids that are rendered inside a container component, such as a Kendo UI for jQuery TabStrib, PanelBar, or Window, have to be resized once the container is visible and its animation completed.
+
     ```
     $("#GridID").data("kendoGrid").dataSource.fetch();
     ```
+
 
 ## KB Articles on Hidden Containers
 

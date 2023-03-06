@@ -1,8 +1,9 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.data.odata", "./kendo.data.xml" ], f);
-})(function() {
+import "./kendo.core.js";
+import { filterExprNoEval } from "./data/filter-expression-no-eval.js";
+import "./kendo.data.odata.js";
+import "./kendo.data.xml.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "data",
     name: "Data source",
     category: "framework",
@@ -26,7 +27,7 @@ var __meta__ = { // jshint ignore:line
     }]
 };
 
-/*jshint eqnull: true, loopfunc: true, evil: true */
+
 (function($, undefined) {
     var extend = $.extend,
         isPlainObject = $.isPlainObject,
@@ -486,13 +487,25 @@ var __meta__ = { // jshint ignore:line
         };
     }
 
+    function isPrimitiveType(value) {
+        return (typeof value === "object" && Object.getPrototypeOf(value) === Object.getPrototypeOf({}))
+                || Object.getPrototypeOf(value) === Object.getPrototypeOf(new Date())
+                || typeof value !== "object";
+      }
+
     function ownKeys(value, ignoreObjectKeys) {
         var props = [];
+        var protoKeys = [];
         var keys, filteredObjectKeys;
 
         value = value || {};
 
-        keys = Object.getOwnPropertyNames(value);
+        if (!isPrimitiveType(value)) {
+            protoKeys = Object.getOwnPropertyNames(Object.getPrototypeOf(value));
+        }
+
+        keys = Object.getOwnPropertyNames(value).concat(protoKeys);
+
         filteredObjectKeys = objectKeys.filter(function(key) {
             return keys.indexOf(key) < 0;
         });
@@ -951,7 +964,13 @@ var __meta__ = { // jshint ignore:line
 
             proto.defaults[originalName !== name ? originalName : name] = value;
 
-            field.parse = field.parse || parsers[type];
+            if ($.isPlainObject(field)) {
+                field.parse = field.parse || parsers[type];
+            } else {
+                field = {
+                    parse: parsers[type]
+                };
+            }
         }
 
         if (functionFields.length > 0) {
@@ -1258,7 +1277,13 @@ var __meta__ = { // jshint ignore:line
         this.data = data || [];
     }
 
-    Query.filterExpr = function(expression) {
+    // Continue to support legacy unsafe-eval for the spreadsheet
+    Query.filterExpr = function(expression, options = { noEval: false }) {
+        if (options.noEval) {
+            // using no-eval for most cases
+            return filterExprNoEval(expression);
+        }
+
         var expressions = [],
             logic = { and: " && ", or: " || " },
             idx,
@@ -1574,16 +1599,9 @@ var __meta__ = { // jshint ignore:line
         },
 
         filter: function(expressions) {
-            var idx,
-            current,
-            length,
-            compiled,
-            predicate,
+            var compiled,
             data = this.data,
-            fields,
-            operators,
-            result = [],
-            filter;
+            result = [];
 
             expressions = normalizeFilter(expressions);
 
@@ -1591,27 +1609,9 @@ var __meta__ = { // jshint ignore:line
                 return this;
             }
 
-            compiled = Query.filterExpr(expressions);
-            fields = compiled.fields;
-            operators = compiled.operators;
+            compiled = Query.filterExpr(expressions, { noEval: true });
 
-            predicate = filter = new Function("d, __f, __o", "return " + compiled.expression);
-
-            if (fields.length || operators.length) {
-                filter = function(d) {
-                    return predicate(d, fields, operators);
-                };
-            }
-
-
-            for (idx = 0, length = data.length; idx < length; idx++) {
-                current = data[idx];
-
-                if (filter(current)) {
-                    result.push(current);
-                }
-            }
-
+            result = data.filter(compiled);
             return new Query(result);
         },
 
@@ -1959,6 +1959,7 @@ var __meta__ = { // jshint ignore:line
 
                 if (skip + take > total && options.virtual) {
                     skip -= skip + take - total;
+                    skip = skip < 0 ? 0 : skip;
                 }
                 query = query.range(skip, take);
             }
@@ -2337,12 +2338,18 @@ var __meta__ = { // jshint ignore:line
                     if (currOriginal.hasSubgroups && currOriginal.value == currentNew.value) {
                         fillLastGroup(currOriginal, currentNew);
                     } else if (currOriginal.field && currOriginal.value == currentNew.value) {
+                        currOriginal.items.omitChangeEvent = true;
                         currOriginal.items.push.apply(currOriginal.items, currentNew.items);
+                        currOriginal.items.omitChangeEvent = false;
                     } else {
+                        originalGroup.items.omitChangeEvent = true;
                         originalGroup.items.push.apply(originalGroup.items, [currentNew]);
+                        originalGroup.items.omitChangeEvent = false;
                     }
                 } else if (currentNew) {
+                    originalGroup.items.omitChangeEvent = true;
                     originalGroup.items.push.apply(originalGroup.items, [currentNew]);
+                    originalGroup.items.omitChangeEvent = false;
                 }
             }
         }
@@ -2756,6 +2763,12 @@ var __meta__ = { // jshint ignore:line
             return this._storage.getItem() || [];
         },
 
+        _isGrouped: function() {
+            var group = this.group() || [];
+
+            return group.length;
+        },
+
         _isServerGrouped: function() {
             var group = this.group() || [];
 
@@ -3131,7 +3144,7 @@ var __meta__ = { // jshint ignore:line
                 hasGroups = that._isServerGrouped();
 
             if (hasGroups && model.uid && (!model.isNew || !model.isNew())) {
-                that._destroyed.push(model);
+                that._pushInDestroyed(model);
             }
 
             this._eachItem(that._data, function(items) {
@@ -3158,7 +3171,7 @@ var __meta__ = { // jshint ignore:line
                 data = this._flatData(this._data, this.options.useRanges);
 
             for (idx = 0, length = data.length; idx < length; idx++) {
-                if (data[idx].isNew && data[idx].isNew()) {
+                if (data[idx].isNew && data[idx].isNew() && !data[idx].notFetched) {
                     result.push(data[idx]);
                 }
             }
@@ -3662,7 +3675,7 @@ var __meta__ = { // jshint ignore:line
                     var state = item.__state__;
                     if (state == "destroy") {
                         if (!itemIds[item[idField]]) {
-                            this._destroyed.push(this._createNewModel(item));
+                            this._pushInDestroyed(this._createNewModel(item));
                         }
                     } else {
                         items.push(item);
@@ -3990,13 +4003,22 @@ var __meta__ = { // jshint ignore:line
             that._total = total;
         },
 
+        _pushInDestroyed: function(model) {
+            var isPushed = this._destroyed.find(function(item) {
+                return item.uid === model.uid;
+            });
+            if (!isPushed) {
+                this._destroyed.push(model);
+            }
+        },
+
         _change: function(e) {
             var that = this, idx, length, action = e ? e.action : "";
 
             if (action === "remove") {
                 for (idx = 0, length = e.items.length; idx < length; idx++) {
                     if (!e.items[idx].isNew || !e.items[idx].isNew()) {
-                        that._destroyed.push(e.items[idx]);
+                        that._pushInDestroyed(e.items[idx]);
                     }
                 }
             }
@@ -4081,6 +4103,24 @@ var __meta__ = { // jshint ignore:line
                 });
             } else {
                 result = that._queryProcess(data, options);
+            }
+
+            if (that._filter && e && e.action === "add") {
+                var model = e.items[0],
+                    resultData = result.data;
+
+                if (that._isGrouped()) {
+                    resultData = flattenGroups(resultData);
+                }
+
+                var modelIsInView = resultData.find(function(item) {
+                    return item.uid === model.uid;
+                });
+
+                if (!modelIsInView) {
+                    result.data.splice(model.index, 0, that._isGrouped() ? that._wrapInEmptyGroup(model) : model);
+                    result.total++;
+                }
             }
 
             if (that.options.serverAggregates !== true) {
@@ -4632,10 +4672,11 @@ var __meta__ = { // jshint ignore:line
                 for (var i = 0; i < length; i++) {
                     currentSubGroup = group.items[i];
                     indexes.push(i);
-                    if (currentSubGroup.uid === subgroup.uid) {
+                    if (currentSubGroup.uid === subgroup.uid ||
+                            (currentSubGroup.hasSubgroups &&
+                            currentSubGroup.items.length &&
+                            that._containsSubGroup(currentSubGroup, subgroup, indexes))) {
                         return true;
-                    } else if (currentSubGroup.hasSubgroups && currentSubGroup.items.length) {
-                        return that._containsSubGroup(currentSubGroup, subgroup, indexes);
                     }
                     indexes.pop();
                 }
@@ -6128,10 +6169,6 @@ var __meta__ = { // jshint ignore:line
 
         _markHierarchicalQuery: function(expressions) {
             var compiled;
-            var predicate;
-            var fields;
-            var operators;
-            var filter;
             var accentFoldingFiltering = this.options.accentFoldingFiltering;
 
             expressions = accentFoldingFiltering ? $.extend({}, normalizeFilter(expressions), { accentFoldingFiltering: accentFoldingFiltering }) : normalizeFilter(expressions);
@@ -6141,19 +6178,9 @@ var __meta__ = { // jshint ignore:line
                 return false;
             }
 
-            compiled = Query.filterExpr(expressions);
-            fields = compiled.fields;
-            operators = compiled.operators;
+            compiled = Query.filterExpr(expressions, { noEval: true });
 
-            predicate = filter = new Function("d, __f, __o", "return " + compiled.expression);
-
-            if (fields.length || operators.length) {
-                filter = function(d) {
-                    return predicate(d, fields, operators);
-                };
-            }
-
-            this._updateHierarchicalFilter(filter);
+            this._updateHierarchicalFilter(compiled);
             return true;
         },
 
@@ -6622,6 +6649,3 @@ var __meta__ = { // jshint ignore:line
     });
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

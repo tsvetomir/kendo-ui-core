@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI PivotGrid</td>
+  <td>Progress® Kendo UI® PivotGrid for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
@@ -140,13 +140,13 @@ In this way, the widget drills down on `expand` always starting from the expande
         this.element.append("<h4>Rows:</h4>");
         this.rowsList = $(LIST_HTML).appendTo(this.element).children("ul");
 
-        this.columnsList.on("click", "li:not(.k-state-selected)", (function(e) {
+        this.columnsList.on("click", "li:not(.k-selected)", (function(e) {
           var idx = $(e.currentTarget).data("idx");
 
           this.pop("columns", idx);
         }).bind(this));
 
-        this.rowsList.on("click", "li:not(.k-state-selected)", (function(e) {
+        this.rowsList.on("click", "li:not(.k-selected)", (function(e) {
           var idx = $(e.currentTarget).data("idx");
 
           this.pop("rows", idx);
@@ -157,7 +157,7 @@ In this way, the widget drills down on `expand` always starting from the expande
       },
 
       _toggleHover: function(e) {
-        $(e.currentTarget).toggleClass("k-state-hover", e.type === "mouseenter");
+        $(e.currentTarget).toggleClass("k-hover", e.type === "mouseenter");
       },
 
       _buildHtml: function(list) {
@@ -165,7 +165,7 @@ In this way, the widget drills down on `expand` always starting from the expande
         var length = list.length;
 
         for (var idx = 0; idx < length; idx++) {
-          var className = "k-item k-header" + (idx === (length - 1) ? " k-state-selected" : "");
+          var className = "k-item k-header" + (idx === (length - 1) ? " k-selected" : "");
 
           html += this.itemTemplate({
             idx: idx,
@@ -258,7 +258,7 @@ In this way, the widget drills down on `expand` always starting from the expande
 ## See Also
 
 * [PivotGrid JavaScript API Reference](/api/javascript/ui/pivotgrid)
-* [How to Change Data Source Dynamically]({% slug howto_change_datasource_dynamically_pivotgrid %})
-* [How to Drill Down Navigation Always Starting from Root Tuple]({% slug howto_drill_down_navigation_startingfrom_root_tuple_pivotgrid %})
-* [How to Expand Multiple Column Dimensions]({% slug howto_expand_multiple_column_dimensions_pivotgrid %})
-* [How to Filter by Using the include Operator]({% slug howto_use_include_operator_pivotgrid %})
+* [Change Data Source Dynamically]({% slug howto_change_datasource_dynamically_pivotgrid %})
+* [Drill Down Navigation Always Starting from Root Tuple]({% slug howto_drill_down_navigation_startingfrom_root_tuple_pivotgrid %})
+* [Expand Multiple Column Dimensions]({% slug howto_expand_multiple_column_dimensions_pivotgrid %})
+* [Filter by Using the include Operator]({% slug howto_use_include_operator_pivotgrid %})

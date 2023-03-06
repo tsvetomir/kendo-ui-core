@@ -1,6 +1,6 @@
 ---
 title: Export Strikethrough Text to Excel
-page_title: Export Strikethrough Text to Excel | Kendo UI Grid for jQuery
+page_title: Export Strikethrough Text to Excel - Kendo UI for jQuery Data Grid
 description: "An example demonstrating how to export cell values that have a strikethrough decoration."
 type: how-to
 slug: grid-excel-export-strikethrough-text
@@ -17,7 +17,7 @@ res_type: kb
 	</tr>
 	<tr>
 		<td>Product</td>
-		<td>Grid for Progress® Kendo UI®</td>
+		<td>Progress® Kendo UI® Grid for jQuery</td>
 	</tr>
 </table>
 

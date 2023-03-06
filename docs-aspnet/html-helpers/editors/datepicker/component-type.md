@@ -1,6 +1,6 @@
 ---
 title: Component Types
-page_title: Telerik UI DatePicker Documentation | DatePicker Component Types | Telerik UI
+page_title: Telerik UI DatePicker Documentation - DatePicker Component Types
 description: "Get started with the Telerik UI DatePicker and learn how to enable the modern component type."
 slug: htmlhelpers_datepicker_aspnetcore_componenttype
 position: 8
@@ -28,7 +28,7 @@ By default, the DatePicker is initialized with the `classic` render mode. In ord
 
 As a result, the appearance of the widget is alternated. 
 
-![Comparison between the component types](../../../images/modern-classic-datepicker.png)
+![{{ site.product_short }} DatePicker comparison between the component types](../../../images/modern-classic-datepicker.png)
 
 ## See Also
 

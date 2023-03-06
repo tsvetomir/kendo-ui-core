@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: "{{ site.framework }} TextArea Documentation | TextArea Appearance"
+page_title: "{{ site.framework }} TextArea Documentation - TextArea Appearance"
 description: "Learn how to customize the appearance of the Telerik UI TextArea HtmlHelper for {{ site.framework }}."
 slug: textarea_appearance
 position: 2
@@ -51,6 +51,7 @@ The following values are available for the `Size` option:
 - `Small`
 - `Medium`
 - `Large`
+- `None`
 
 
 ### Rounded
@@ -83,6 +84,7 @@ The `Rounded()` method supports the following values:
 - `Medium`
 - `Large`
 - `Full`
+- `None`
 
 
 ### FillMode
@@ -116,6 +118,7 @@ The following values are available for the `FillMode` option:
 - `Solid`
 - `Flat`
 - `Outline`
+- `None`
 
 
 ### Overflow
@@ -223,16 +226,31 @@ To achieve the same look and feel as the old rendering, the element references m
 
 > The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
 
-Previously, a reference to the `textarea` element was obtainable through the `k-textbox` class.
+Previously, a reference to the `textarea` element was obtainable through the `k-input` class.
 
 ```javascript
-$(".k-textbox") // Returns a reference to the textarea element in the old rendering.
+$(".k-input") // Returns a reference to the textarea element in the old rendering.
 ```
 
 With the new rendering, the `textarea` element must be targeted by using the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the textarea element in the new rendering.
+```
+
+The following example showcases how to apply a background color to the **TextArea** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Works BEFORE R1 2022 */
+      .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      /* Works AFTER R1 2022 */
+      .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
 ```
 
 ## See Also

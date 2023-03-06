@@ -10,6 +10,7 @@
 */
 
 (function($, undefined) {
+
 /* FlatColorPicker messages */
 
 if (kendo.ui.FlatColorPicker) {
@@ -681,7 +682,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Radhitja",
     "buttons": {
-     "justtifyLeft": "Radhit majtas",
+     "justifyLeft": "Radhit majtas",
      "justifyCenter": "Qendër",
      "justifyRight": "Radhit djathtas",
      "justifyFull": "Justifiko",
@@ -859,7 +860,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Shto rresht poshtë",
   "alignment": "Radhitja",
   "alignmentButtons": {
-    "justtifyLeft": "Radhit majtas",
+    "justifyLeft": "Radhit majtas",
     "justifyCenter": "Qendër",
     "justifyRight": "Radhit djathtas",
     "justifyFull": "Justifiko",

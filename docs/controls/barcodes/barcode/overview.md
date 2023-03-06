@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Barcode Documentation | Barcode Overview
+page_title: jQuery Barcode Documentation - Barcode Overview
 description: "Get started with the jQuery Barcode by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_barcode_widget
 position: 1
 ---
 
-# Barcode Overview
+# {{ site.product }} Barcode Overview
 
 The Barcode represents data in a machine-readable format.
 

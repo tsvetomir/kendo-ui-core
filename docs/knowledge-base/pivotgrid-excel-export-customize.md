@@ -2,7 +2,7 @@
 title: PivotGrid Customize Exported Excel File
 description: How to align content in cells, change background and add borders to the exported excel file in the Kendo UI PivotGrid
 type: how-to
-page_title: How to Add Borders and Change the Background Color of Cells | Kendo UI PivotGrid for jQuery
+page_title: How to Add Borders and Change the Background Color of Cells - Kendo UI PivotGrid for jQuery
 slug: pivotgrid-excel-export-customize
 tags: pivot, pivotgrid, excel, export, custom, cells, border, background, align
 ticketid: 1146696
@@ -14,7 +14,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>PivotGrid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® PivotGrid for jQuery</td>
 		</tr>
 	</tbody>
 </table>
@@ -49,10 +49,10 @@ The PivotGrid triggers its [`excelExport`](api/javascript/ui/pivotgrid/events/ex
                 cell.borderRight = { color: "black", size: 1 };
                 cell.borderBottom = { color: "black", size: 1 };
                 cell.borderLeft = { color: "black", size: 1 };
-                  
+
                 // change the cell background
                 cell.background == "#dfdfdf" ? cell.background = "#ffffff": cell.background = "#0080ff";
-                  
+
                 // align cells top
                 if(cell.rowSpan > 1){
                   	cell.verticalAlign = "top";
@@ -64,7 +64,7 @@ The PivotGrid triggers its [`excelExport`](api/javascript/ui/pivotgrid/events/ex
 
 ```dojo
     <script src="https://kendo.cdn.telerik.com/{{ site.cdnVersion }}/js/jszip.min.js"></script>
-    
+
     <div id="example">
       <button id="export" class="k-button k-button-icontext hidden-on-narrow"><span class="k-icon k-i-excel"></span>Export to Excel</button>
       <div id="pivotgrid" class="hidden-on-narrow"></div>
@@ -84,15 +84,15 @@ The PivotGrid triggers its [`excelExport`](api/javascript/ui/pivotgrid/events/ex
                   cell.borderRight = { color: "black", size: 1 };
                   cell.borderBottom = { color: "black", size: 1 };
                   cell.borderLeft = { color: "black", size: 1 };
-                  
+
                   // change cell background
                   cell.background == "#dfdfdf" ? cell.background = "#ffffff": cell.background = "#0080ff";
-                  
+
                   // align cells top
                   if(cell.rowSpan > 1){
                   	cell.verticalAlign = "top";
                   }
-                  
+
                 }
               }
             },
@@ -138,4 +138,4 @@ The PivotGrid triggers its [`excelExport`](api/javascript/ui/pivotgrid/events/ex
         }
       </style>
     </div>
-``` 
+```

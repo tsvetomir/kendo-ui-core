@@ -1,6 +1,6 @@
 ---
 title: Section 508 Support
-page_title: Section 508 Support | Kendo UI Accessibility Support
+page_title: Section 508 Support - Kendo UI Accessibility Support
 description: "Learn more about the Section 508 Accesibility support provided by Kendo UI controls."
 slug: section508_accessibility_support
 position: 2
@@ -13,6 +13,8 @@ position: 2
 These standards apply to electronic and information technology and contain technical criteria specific to various types of technologies and performance-based requirements which focus on functional capabilities of covered products.
 
 The following table is based on the [Voluntary Product Accessibility Template (VPAT)](https://www.itic.org/policy/accessibility/) requirements. It provides detailed explanation about the accessibility features Kendo UI delivers according to the [Section 508 Web content standards](https://www.section508.gov/content/learn/standards/quick-reference-guide#1194.22).
+
+<a href="assets/KendoUI-VPAT2.4RevINT.doc" download>Here</a> you can download the latest version of the VPAT Template, describing the Kendo UI for jQuery accessibility compliance state.
 
 **Table 1. Section 1194.22 Web Information and Application Standards**
 

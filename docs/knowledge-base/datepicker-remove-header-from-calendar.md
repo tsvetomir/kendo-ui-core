@@ -1,7 +1,7 @@
 ---
 title: Remove the Header From the DatePicker Calendar
-page_title: Remove the Header From the DatePicker Calendar | Kendo UI DatePicker for jQuery
-description: "An example demonstrating how to remove the header element from the calendar of the DatePicker widget."
+page_title: Remove the Header From the DatePicker Calendar - Kendo UI DatePicker for jQuery
+description: "An example demonstrating how to remove the header element from the calendar of the DatePicker component."
 type: how-to
 slug: datepicker-remove-header-from-calendar
 tags: datepicker, remove, hide, header, calendar, year, navigation, view
@@ -18,7 +18,7 @@ res_type: kb
 	</tr>
 	<tr>
 		<td>Product</td>
-		<td>DatePicker for Progress® Kendo UI®</td>
+		<td>Progress® Kendo UI® DatePicker for jQuery</td>
 	</tr>
 </table>
 

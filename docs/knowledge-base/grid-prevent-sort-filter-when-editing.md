@@ -1,8 +1,8 @@
 ---
 title: Prevent Sorting and Filtering While Grid Is in Edit Mode
-description: An example on how to prevent the filter and sort operations in the Kendo UI Grid when an item is created or edited.
+description: Learn how to prevent the filter and sort operations in the Kendo UI Grid when an item is created or edited.
 type: how-to
-page_title: Prevent Sorting and Filtering While Editing | Kendo UI Grid for jQuery
+page_title: Prevent Sorting and Filtering While Editing - Kendo UI for jQuery Data Grid
 slug: grid-prevent-sort-filter-when-editing
 tags: grid, prevent, sort, filter, edit, create, insert
 res_type: kb
@@ -14,7 +14,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 

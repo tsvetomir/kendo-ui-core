@@ -1,6 +1,6 @@
 ---
 title: Component Types
-page_title: jQuery DateTimePicker Documentation | DateTimePicker Component Types
+page_title: jQuery DateTimePicker Documentation - DateTimePicker Component Types
 description: "Get started with the jQuery DateTimePicker by Kendo UI and learn how to enable the modern component type."
 slug: componenttypes_datetimepicker
 position: 5
@@ -20,7 +20,7 @@ By default, the DateTimePicker is initialized with the `classic` render mode. In
 
 As a result, the appearance of the widget is alternated. 
 
-![Comparison between the content types](../../../images/modern-classic-datetimepicker.png)
+![Kendo UI for jQuery DateTimePicker Comparison between the content types](../../../images/modern-classic-datetimepicker.png)
 
 > The rendered selectors in the time picker of the Kendo UI DateTimePicker depend on the currently applied format. If the format is omitted, the default format from the application's culture is used. 
 

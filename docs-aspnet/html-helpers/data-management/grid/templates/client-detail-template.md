@@ -23,18 +23,18 @@ To configure the client detail template:
 To configure the Grid for {{ site.framework }} to display additional details of the **Product** entity from the **Northwind** database:
 
 {% if site.mvc %}
-1. Create a new ASP.NET MVC application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetmvc %}), create a Telerik UI for ASP.NET MVC application. Name the application `KendoGridClientDetailTemplate`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
+1. Create a new ASP.NET MVC application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetcore %}), create a Telerik UI for ASP.NET MVC application. Name the application `KendoGridClientDetailTemplate`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
 1. Add a new `Entity Framework Data Model`. Right-click the `~/Models` folder in the solution explorer and pick **Add** > **New Item**. Choose **Data** > **ADO.NET Entity Data Model** in the **Add New Item** dialog. Name the model `Northwind.edmx` and click **Next**. This starts the **Entity Data Model Wizard**.
 
-    ![A new entity data model](../images/grid-entity-data-model.png)
+    ![{{ site.product_short }} A new entity data model](../images/grid-entity-data-model.png)
 
 1. Select **Generate from database** and click **Next**. Configure a connection to the **Northwind** database. Click **Next**.
 
-    ![Choosing the connection](../images/grid-entity-data-model.png)
+    ![{{ site.product_short }} Choosing the connection](../images/grid-entity-data-model.png)
 
 1. Choose the **Products** table from the **Which database objects do you want to include in your model?**. Leave all other options as they are set by default. Click **Finish**.
 
-    ![Choosing the Products table](../images/grid-database-objects.png)
+    ![{{ site.product_short }} Choosing the Products table in the database objects](../images/grid-database-objects.png)
 {% endif %}
 
 1. Open `HomeController.cs` and add a new action method which will return the Products as JSON. The Grid makes Ajax requests to this action.
@@ -173,7 +173,7 @@ To configure the Grid for {{ site.framework }} to display additional details of 
 
 {% if site.mvc %}
 1. Build and run the project.
-![The final result](../images/grid-detail-template.png)
+![{{ site.product_short }} The final result is a Grid with detail template](../images/grid-detail-template.png)
 
 To download the Visual Studio Project, refer to [this GitHub repository](https://github.com/telerik/ui-for-aspnet-mvc-examples/tree/master/grid/client-detail-template).
 {% endif %}
@@ -183,14 +183,14 @@ To download the Visual Studio Project, refer to [this GitHub repository](https:/
 To configure the Grid for {{ site.framework }} to display all **Product** entities that are available per the **Category** entity from the **Northwind** database:
 
 {% if site.mvc %}
-1. Create a new ASP.NET MVC application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetmvc %}), create a Telerik UI for ASP.NET MVC application. Name the application `KendoGridClientHierarchy`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
+1. Create a new ASP.NET MVC application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetcore %}), create a Telerik UI for ASP.NET MVC application. Name the application `KendoGridClientHierarchy`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
 1. Add a new `Entity Framework Data Model`. Right-click the `~/Models` folder in the solution explorer and pick **Add** > **New Item**. Choose **Data** > **ADO.NET Entity Data Model** in the **Add New Item** dialog. Name the model `Northwind.edmx` and click **Next**. This starts the **Entity Data Model Wizard**.
 
-    ![A new entity data model](../images/grid-entity-data-model.png)
+    ![{{ site.product_short }} A new entity data model](../images/grid-entity-data-model.png)
 
 1.  Select **Generate from database** and click **Next**. Configure a connection to the **Northwind** database. Click **Next**.
 
-    ![Choosing the connection](../images/grid-entity-data-model.png)
+    ![{{ site.product_short }} Choosing the connection](../images/grid-entity-data-model.png)
 
 1. Choose the **Products** and **Categories** tables from **Which database objects do you want to include in your model?**. Leave all other options as they are set by default. Click **Finish**.
 {% endif %}
@@ -388,14 +388,14 @@ To configure the Grid for {{ site.framework }} to display all **Product** entiti
 {% if site.mvc %}
 1. Build and run the project.
 
-    ![The final result](../images/grid-hierarchy.png)
+    ![{{ site.product_short }} The final result is a hierarchical Grid](../images/grid-hierarchy.png)
 
 To download the Visual Studio Project, refer to [this GitHub repository]((https://github.com/telerik/ui-for-aspnet-mvc-examples/tree/master/grid/client-hierarchy).
 {% endif %}
 
 ## Handling Nested Client Templates
 
-Nesting client templates are not an out-of-the-box feature the Kendo UI Core wrappers support. For more information on this issue, check the Grid troubleshooting section in [invalid template errors when nesting client templates](https://docs.telerik.com/aspnet-mvc/helpers/grid/troubleshoot/known-exceptions#invalid-template-error-when-nesting-client-templates).
+Nesting client templates are not an out-of-the-box feature the Kendo UI Core wrappers support. For more information on this issue, check the Grid troubleshooting section in [invalid template errors when nesting client templates]({% slug knownexceptions_gridhelper_aspnetmvc%}#invalid-template-error-when-nesting-client-templates).
 
 ## See Also
 

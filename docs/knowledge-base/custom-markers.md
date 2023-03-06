@@ -1,7 +1,7 @@
 ---
 title: Customize the Markers on a Map
 page_title: Customize the Markers on a Map
-description: "Learn how to custyomize markers on a Kendo UI Map widget."
+description: "Learn how to custyomize markers on a Kendo UI Map component."
 slug: howto_customizemarkersonmap_map
 previous_url: /controls/diagrams-and-maps/map/how-to/custom-markers
 tags: kendo, jquery, map, customize, markers
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Map for jQuery</td>
+  <td>Progress® Kendo UI® Map for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

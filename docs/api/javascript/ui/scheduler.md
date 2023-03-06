@@ -181,7 +181,7 @@ If the `dataSource` option is an existing [kendo.data.SchedulerDataSource](/api/
     <div id="scheduler"></div>
     <script>
     $("#scheduler").kendoScheduler({
-      date: new Date("2013/6/6"),
+      date: new Date("2022/6/6"),
       dataSource: {
         batch: true,
         transport: {
@@ -264,7 +264,7 @@ If the `dataSource` option is an existing [kendo.data.SchedulerDataSource](/api/
       }
     });
     $("#scheduler").kendoScheduler({
-      date: new Date("2013/6/6"),
+      date: new Date("2022/6/6"),
       dataSource: dataSource
     });
     </script>
@@ -447,7 +447,10 @@ If set to `true` the user can delete events from the view by clicking the "destr
 
 ### editable.editRecurringMode `String`
 
-Recurring events edit mode. The available modes are: "dialog" (default), "series" and "occurrence".
+Recurring events edit mode. The available modes are: 
+- "dialog" (default) - displays a dialog that allows the user to choose whether the current occurrence or the entire series will be edited; 
+- "series" - displays an editor for updating the entire series;
+- "occurrence" - only the current occurrence will be edited.
 
 #### Example - disable event deleting
     <div id="scheduler"></div>
@@ -4495,7 +4498,7 @@ The complete list of the supported timezones is available in the [List of IANA t
     <div id="scheduler"></div>
     <script>
     $("#scheduler").kendoScheduler({
-        date: new Date("2013/6/13"),
+        date: new Date("2022/6/13"),
         timezone: "Etc/UTC",
         dataSource: {
             batch: true,
@@ -6574,7 +6577,7 @@ The end date of the period.
 
 ### refresh
 
-Refreshes the Scheduler rendering using the current data items.
+Refreshes the Scheduler data rendering using the current data items. This method will not refresh the slots of the view.
 
 #### Example - refresh the widget
 

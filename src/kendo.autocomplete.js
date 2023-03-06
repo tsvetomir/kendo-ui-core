@@ -1,8 +1,8 @@
-(function(f, define) {
-    define([ "./kendo.list", "./kendo.mobile.scroller", "./kendo.virtuallist" ], f);
-})(function() {
+import "./kendo.list.js";
+import "./kendo.mobile.scroller.js";
+import "./kendo.virtuallist.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "autocomplete",
     name: "AutoComplete",
     category: "web",
@@ -23,6 +23,7 @@ var __meta__ = { // jshint ignore:line
 
 (function($, undefined) {
     var kendo = window.kendo,
+        encode = kendo.htmlEncode,
         support = kendo.support,
         caret = kendo.caret,
         activeElement = kendo._activeElement,
@@ -123,12 +124,6 @@ var __meta__ = { // jshint ignore:line
 
             that._old = that._accessor();
 
-            if (element[0].id) {
-                element.attr("aria-owns", that.ul[0].id);
-            }
-
-            that._aria();
-
             that._placeholder();
 
             that._initList();
@@ -146,6 +141,12 @@ var __meta__ = { // jshint ignore:line
             kendo.notify(that);
             that._toggleCloseVisibility();
             that._applyCssClasses();
+
+            if (options.label) {
+                that._label();
+            }
+
+            that._aria();
         },
 
         options: {
@@ -153,8 +154,8 @@ var __meta__ = { // jshint ignore:line
             enabled: true,
             suggest: false,
             template: "",
-            groupTemplate: "#:data#",
-            fixedGroupTemplate: "#:data#",
+            groupTemplate: (data) => encode(data),
+            fixedGroupTemplate: (data) => encode(data),
             dataTextField: "",
             minLength: 1,
             enforceMinLength: false,
@@ -173,7 +174,8 @@ var __meta__ = { // jshint ignore:line
             popup: null,
             size: "medium",
             fillMode: "solid",
-            rounded: "medium"
+            rounded: "medium",
+            label: null
         },
 
         _dataSource: function() {
@@ -398,6 +400,7 @@ var __meta__ = { // jshint ignore:line
                 return this._accessor();
             }
             this._toggleCloseVisibility();
+            this._refreshFloatingLabel();
         },
 
         _click: function(e) {
@@ -612,6 +615,16 @@ var __meta__ = { // jshint ignore:line
                     });
                 }
                 e.preventDefault();
+            } else if (key === keys.ESC ) {
+                if (visible) {
+                    e.preventDefault();
+                    that.close();
+                } else {
+                    that._clearValue();
+                }
+            } else if (e.altKey && key === keys.UP && visible) {
+                e.preventDefault();
+                that.close();
             } else if (key === keys.UP) {
                 if (visible) {
                     this._move(current ? "focusPrev" : "focusLast");
@@ -637,13 +650,6 @@ var __meta__ = { // jshint ignore:line
                 }
 
                 this._blur();
-            } else if (key === keys.ESC) {
-                if (visible) {
-                    e.preventDefault();
-                } else {
-                    that._clearValue();
-                }
-                that.close();
             } else if (that.popup.visible() && (key === keys.PAGEDOWN || key === keys.PAGEUP)) {
                 e.preventDefault();
 
@@ -840,6 +846,3 @@ var __meta__ = { // jshint ignore:line
     }]);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

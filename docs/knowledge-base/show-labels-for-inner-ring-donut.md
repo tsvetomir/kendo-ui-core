@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Chart for jQuery</td>
+  <td>Progress® Kendo UI® Chart for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -143,6 +143,6 @@ The following example demonstrates how to configure such behavior.
 
 * [Chart JavaScript API Reference](/api/javascript/dataviz/ui/chart)
 * [Drawing API]({% slug overview_kendoui_drawingapi %})
-* [How to Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
-* [How to Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
-* [How to Fit PDF Exported Chart to Page]({% slug howto_fitpdfexportedcharttopage_charts %})
+* [Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
+* [Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
+* [Fit PDF Exported Chart to Page]({% slug howto_fitpdfexportedcharttopage_charts %})

@@ -13,7 +13,7 @@
 
         afterEach(function() {
             if (container.data("kendoToolBar")) {
-                container.kendoToolBar("destroy");
+                container.getKendoToolBar().destroy();
             }
         });
 
@@ -74,9 +74,9 @@
                 ]
             });
 
-            $(".k-split-button .k-split-button-arrow").trigger('click');
+            $(".k-split-button .k-button").eq(1).trigger('click');
 
-            var splitWrapper = $(".k-split-wrapper");
+            var splitWrapper = $("[data-role=\"buttonmenu\"]");
 
             axeRun(splitWrapper, done);
         });
@@ -102,9 +102,9 @@
                 ]
             });
 
-            $(".k-overflow-anchor").trigger('click');
+            $(".k-toolbar-overflow-button").trigger('click');
 
-            var overflowWrapper = $(".k-overflow-wrapper");
+            var overflowWrapper = $(".k-context-menu");
 
             axeRun(overflowWrapper, done);
         });
@@ -118,7 +118,7 @@
 
         afterEach(function() {
             if (container.data("kendoToolBar")) {
-                container.kendoToolBar("destroy");
+                container.getKendoToolBar().destroy();
             }
         });
 
@@ -162,7 +162,7 @@
 
             var mainbutton = container.find("#foo");
 
-            assert.equal(mainbutton.attr("aria-disabled"), "true");
+            assert.equal(mainbutton.attr("aria-disabled"), 'true');
         });
 
         it("toggleButton receives aria-pressed attribute", function() {
@@ -217,7 +217,7 @@
                 ]
             }).data("kendoToolBar");
 
-            $(".k-overflow-anchor").trigger('click');
+            $(".k-toolbar-overflow-button").trigger('click');
             var separators = $(".k-separator");
 
             separators.each(function(i, sep) {
@@ -244,7 +244,7 @@
                 ]
             }).data("kendoToolBar");
 
-            var button = $(".k-overflow-container").find("#id_overflow .k-button");
+            var button = $(".k-context-menu").find("#id_overflow");
 
             assert.equal(button.attr("aria-label"), "Foo");
         });

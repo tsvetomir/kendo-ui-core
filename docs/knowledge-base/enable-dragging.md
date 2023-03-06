@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Switch for jQuery</td>
+  <td>Progress® Kendo UI® Switch for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -85,7 +85,7 @@ The following example demonstrates how to enable the dragging of the Switch drag
           constrain = kendo._outerWidth(switchButton.wrapper, true) - kendo._outerWidth(handle, true);
           position = 0;
 
-          handle.addClass("k-state-active");
+          handle.addClass("k-active");
       }
     };
 
@@ -94,7 +94,7 @@ The following example demonstrates how to enable the dragging of the Switch drag
 
       sliding = false;
 
-      handle.removeClass("k-state-active");
+      handle.removeClass("k-active");
       switchButton.check(checked);
       switchButton.trigger("change", { checked: checked });
       sliding = true;

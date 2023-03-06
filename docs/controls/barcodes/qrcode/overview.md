@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery QRCode Documentation | QRCode Overview
+page_title: jQuery QRCode Documentation - QRCode Overview
 description: "Get started with the jQuery QRCode by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_qrcode_widget
 position: 1
 ---
 
-# QRCode Overview
+# {{ site.product }} QRCode Overview
 
 The QRCode generates [Canvas](https://en.wikipedia.org/wiki/Canvas_X) and [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) images that represent [Quick Response (QR) codes](https://en.wikipedia.org/wiki/QR_code).
 

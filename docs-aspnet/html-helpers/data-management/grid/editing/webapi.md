@@ -1,6 +1,6 @@
 ---
 title: WebAPI Editing
-page_title: WebAPI Editing | Telerik UI Grid component
+page_title: WebAPI Editing - Telerik UI Grid Component
 description: "Implement CRUD data operations with a WebAPI controller for the Kendo UI Grid for {{ site.framework }}."
 previous_url: /helpers/grid/webapi-editing, /helpers/data-management/grid/webapi-editing
 slug: webapi_editing_grid_aspnetmvc
@@ -15,20 +15,20 @@ For runnable examples, refer to the [demos on editing of the Grid](https://demos
 > Defining a Schema.Model.Id is mandatory for the proper execution of the Update, Create and Destroy of the Grid.
 
 {% if site.mvc %}
-1. Create a new ASP.NET MVC 4 application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetmvc %}), create a Telerik UI for ASP.NET MVC Web application. Name the application `KendoGridWebApiCRUD`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
+1. Create a new ASP.NET MVC 5 application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetcore %}), create a Telerik UI for ASP.NET MVC Web application. Name the application `KendoGridWebApiCRUD`. If you decided not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug gettingstarted_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
 1. Add a new `Entity Framework Data Model`. Right-click the `~/Models` folder in the solution explorer and pick **Add** > **New Item**. Choose **Data** > **ADO.NET Entity Data Model** in the **Add New Item** dialog. Name the model `Northwind.edmx` and click **Next**. This starts the **Entity Data Model Wizard**.
 
-    ![A new entity data model](../images/grid-entity-data-model.png)
+    ![{{ site.product_short }} A new entity data model](../images/grid-entity-data-model.png)
 
 1. Select **Generate from database** and click **Next**. Configure a connection to the Northwind database. Click **Next**.
 1. Select the **Products** table. Leave all other options as they are set by default. Click **Finish** to create the Entity Framework model.
 
-    ![Choosing the Products table](../images/grid-database-objects.png)
+    ![{{ site.product_short }} Choosing the Products table in the database objects](../images/grid-database-objects.png)
 
 1. Right click the `Controllers` folder in Visual Studio solution explorer. Select **Add** > **Controller**.
 1. Set **ProductsController** as **Controller name**. Select **API controller with read/write actions, using Entity Framework** as **Template**. Select **Product (KendoGridWebApiCRUD.Models)** as **Model class** and **NorthwindEntities (KendoGridWebApiCRUD.Models)** as **Data context class**. Click **Add** to create the WebAPI controller.
 
-    ![Adding the Controller](../images/grid-api-controller.png)
+    ![{{ site.product_short }} Adding the Controller](../images/grid-api-controller.png)
 {% else %}
 1. Add a new class to the `~/Models` folder. The following example uses the `ProductViewModel` name.
 
@@ -170,7 +170,7 @@ For runnable examples, refer to the [demos on editing of the Grid](https://demos
 1. Build and run the application.
 
     {% if site.mvc %}
-    ![The final result](../images/grid-inline-grid.png)
+    ![{{ site.product_short }} The final result is a Grid with editing configured](../images/grid-inline-editing.png)
     {% endif %}
 
 ## See Also

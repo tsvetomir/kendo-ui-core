@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Rating Documentation | Rating Overview
+page_title: jQuery Rating Documentation - Rating Overview
 description: "Get started with the jQuery Rating by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_rating_widget
 position: 1
 ---
 
-# Rating Overview
+# {{ site.product }} Rating Overview
 
 The Rating allows to intuitively rate by selecting number of items stars from a predefined maximum number of items.
 

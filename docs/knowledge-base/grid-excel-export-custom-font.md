@@ -1,8 +1,8 @@
 ---
 title: Customize Font Family and Font Size in Grid When Exporting to Excel
-description: An example on how to set a custom font for the Excel export of the Kendo UI Grid.
+description: Learn how to set a custom font for the Excel export of the Kendo UI Grid.
 type: how-to
-page_title: Set Custom Font Family and Font Size When Exporting to Excel | Kendo UI Grid for jQuery
+page_title: Set Custom Font Family and Font Size When Exporting to Excel - Kendo UI for jQuery Data Grid
 slug: grid-excel-export-custom-font
 tags: excel, export, grid, font, font-family, row, font-size
 ticketid: 1137653
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 

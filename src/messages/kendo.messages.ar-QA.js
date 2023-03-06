@@ -1,5 +1,5 @@
 (function($, undefined) {
-    /* FlatColorPicker messages */
+    /* FlatColorPicker messages  */
 
     if (kendo.ui.FlatColorPicker) {
         kendo.ui.FlatColorPicker.prototype.options.messages =
@@ -244,7 +244,7 @@
                     },
                     deleteConfirm: {
                         title: "تأكيد الحذف",
-                        content: "<p style='text-align: center;'>هل أنت متأكد من حذف الملفات المحددة؟?</br>لا يمكنك التراجع عن هذا الإجراء.</p>",
+                        content: "<p style='text-align: center;'>هل أنت متأكد من حذف الملفات المحددة؟?<br/>لا يمكنك التراجع عن هذا الإجراء.</p>",
                         okText: "حذف",
                         cancel: "إلغاء",
                         close: "إغلاق"
@@ -893,7 +893,7 @@
                 "alignmentDialog": {
                     "title": "المحاذاة",
                     "buttons": {
-                        "justtifyLeft": "محاذاة إلى اليسار",
+                        "justifyLeft": "محاذاة إلى اليسار",
                         "justifyCenter": "وسط",
                         "justifyRight": "محاذاة إلي اليمين",
                         "justifyFull": "ضبط",
@@ -1083,7 +1083,7 @@
                 "addRowBelow": "أضف صف إلي الأسفل",
                 "alignment": "محاذاة",
                 "alignmentButtons": {
-                    "justtifyLeft": "محاذاة إلي اليسار",
+                    "justifyLeft": "محاذاة إلي اليسار",
                     "justifyCenter": "وسط",
                     "justifyRight": "محاذاة إلي اليمين",
                     "justifyFull": "ضبط",

@@ -29,6 +29,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element)
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element)
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the MaskedTextBox:
 
@@ -63,6 +64,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element)
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element)
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element)
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the MaskedTextBox:
 
@@ -96,6 +98,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element
 - `Flat`—applies the `k-input-flat` class to the wrapping span element
 - `Outline`—applies the `k-input-outline` class to the wrapping span element
+- `None`—unset.
 
 The following example demonstrates how to set `FillMode` in the declaration of the MaskedTextBox:
     
@@ -191,6 +194,21 @@ With the new rendering, the MaskedTextBox element must be targeted using the `k-
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the input element in the new rendering.
+```
+
+The following example showcases how to apply a background color to the **MaskedTextBox** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      .k-textbox {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      /* Doesn't work BEFORE R1 2022 */
+      .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
 ```
 
 ## See Also

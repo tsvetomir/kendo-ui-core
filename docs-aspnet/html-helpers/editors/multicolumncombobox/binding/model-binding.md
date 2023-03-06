@@ -55,6 +55,26 @@ Local data is the data that is available on the client when the MultiColumnCombo
             .BindTo((System.Collections.IEnumerable)ViewData["products"])
         )
     ```
+    {% if site.core %}
+    ```TagHelper
+        @model MvcApplication1.Models.ProductViewModel
+
+        @{
+            var data = (System.Collections.IEnumerable)ViewData["products"];
+        }
+        <kendo-multicolumncombobox for="@Model.ProductID" 
+            bind-to="(dynamic)data"
+            datatextfield="ProductName"
+            datavaluefield="ProductID">
+            <multicolumncombobox-columns>
+                <column field="ProductName" title="Name" width="200px">
+                </column>
+                <column field="ProductID" title="ID" width="200px">
+                </column>
+            </multicolumncombobox-columns>
+        </kendo-multicolumncombobox>
+    ```
+    {% endif %}
 
 ## Remote Data
 
@@ -70,7 +90,7 @@ You can configure the MultiColumnComboBox to get its data from a remote source b
                 ProductName = "ProductName4"
             });
         }
-
+        {% if site.mvc %}
         public JsonResult GetProductsAjax()
         {
             var products = Enumerable.Range(0, 500).Select(i => new ProductViewModel
@@ -81,6 +101,18 @@ You can configure the MultiColumnComboBox to get its data from a remote source b
 
             return Json(products, JsonRequestBehavior.AllowGet);
         }
+        {% else %}
+        public JsonResult GetProductsAjax()
+        {
+            var products = Enumerable.Range(0, 500).Select(i => new ProductViewModel
+            {
+                ProductID = i,
+                ProductName = "ProductName" + i
+            });
+
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+        {% endif %}
 
 1. Add the MultiColumnComboBox to the view and configure its DataSource to use remote data.
 
@@ -107,6 +139,29 @@ You can configure the MultiColumnComboBox to get its data from a remote source b
             })
         )
     ```
+    {% if site.core %}
+    ```TagHelper
+        @model MvcApplication1.Models.ProductViewModel
+
+        <kendo-multicolumncombobox for="@Model.ProductID" 
+            filter="FilterType.Contains"
+            datatextfield="ProductName"
+            datavaluefield="ProductID"
+            placeholder="Select product">
+            <multicolumncombobox-columns>
+                <column field="ProductName" title="Name" width="200px">
+                </column>
+                <column field="ProductID" title="ID" width="200px">
+                </column>
+            </multicolumncombobox-columns>
+            <datasource server-operation="false">
+                <transport>
+                    <read url="@Url.Action("GetProductsAjax", "Home")" />
+                </transport>
+            </datasource>
+        </kendo-multicolumncombobox>
+    ```
+    {% endif %}
 
 ## See Also
 

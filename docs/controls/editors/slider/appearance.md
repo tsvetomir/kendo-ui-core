@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery Slider Documentation | Appearance
+page_title: jQuery Slider Documentation - Appearance
 description: "Learn how to apply different styling options to the Slider widget."
 slug: appearance_kendoui_slider_widget
 position: 2
@@ -12,7 +12,7 @@ position: 2
 
 In this article, you will find information about the new rendering of the Kendo UI Slider.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 
 ## Old vs New Rendering
@@ -87,7 +87,7 @@ The following example demonstrates the full version of the old rendering:
 
 The new rendering of the component consists of a single wrapping `span` element that contains the child `input` and `button` elements.
 
-With the new rendering additional classes are applied to the **Increase** and **Decrease** buttons inside the Slider. For additional information regarding the new button rendering, visit the [Button Styling]({% slug button_styling %}) article.
+With the new rendering additional classes are applied to the **Increase** and **Decrease** buttons inside the Slider. For additional information regarding the new button rendering, visit the [Button Styling]({% slug button_styling_widget %}) article.
 
 The new rendering of the Slider component consists of the following elements:
 
@@ -180,8 +180,40 @@ $('.k-button-increase') // Returns a reference to the increase button.
 $('.k-button-decrease') // Returns a reference to the decrease button.
 ```
 
+The following example showcases how to customize the styles of the **Slider** in both the new, and the old rendering:
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="slider" />
+    <script>
+      $("#slider").kendoSlider();
+    </script>
+    <style>
+      .k-slider .k-button:nth-of-type(1){ /* applies red border to the Decrease button with the new rendering; applies red border to the Increase button with the new rendering;  */
+        border: 2px solid red;
+      }
+
+      .k-slider .k-button:nth-of-type(2){ /* applies red border to the Decrease button with the new rendering; applies red border to the Increase button with the new rendering;  */
+        border: 2px solid green;
+      }
+
+      /*  NEW RENDERING */
+      /*  The style below will works with version R1 2022 or later */
+
+      .k-slider .k-slider-track-wrap{ /* applies pink background to the Slider items in the new rendering */
+        background-color: pink;
+      }
+
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */
+
+      .k-slider  .k-slider-wrap{ /* applies yellow background to the slider items and the increasing and decreasing buttons in the old version */
+        background-color: yellow;
+      }
+    </style>
+```
 
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [JavaScript API Reference of the Slider](/api/javascript/ui/slider)

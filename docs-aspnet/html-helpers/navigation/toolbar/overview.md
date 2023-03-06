@@ -7,7 +7,7 @@ slug: htmlhelpers_toolbar_aspnetcore
 position: 1
 ---
 
-# ToolBar Overview
+# {{ site.framework }} ToolBar Overview
 
 {% if site.core %}
 The Telerik UI ToolBar TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI ToolBar widget.
@@ -34,9 +34,9 @@ The following example demonstrates how to define the ToolBar.
             items.Add().Type(CommandType.Button).Text("Toggle Button").Togglable(true);
             items.Add().Type(CommandType.SplitButton).Text("Insert").MenuButtons(menuButtons =>
             {
-                menuButtons.Add().Text("Insert above").Icon("insert-up");
+                menuButtons.Add().Text("Insert above").Icon("insert-top");
                 menuButtons.Add().Text("Insert between").Icon("insert-middle");
-                menuButtons.Add().Text("Insert below").Icon("insert-down");
+                menuButtons.Add().Text("Insert below").Icon("insert-bottom");
             });
         })
     )
@@ -172,9 +172,14 @@ The following example demonstrates the basic configuration of the ToolBar.
 
 ## Functionality and Features
 
+The ToolBar component provides the .NavigateOnTab() property which can be used to control [its Keyboard Navigation](https://demos.telerik.com/{{ site.platform }}/toolbar/keyboard-navigation).
+
+For more advanced configuration options you can check:
+
 * [Spacer]({% slug spacer_toolbar_aspnetcore %})
 * [Manual closing]({% slug htmlhelpers_toolbar_popup_manual_close_aspnetcore %})
 * [Using FontAwesome icons]({% slug htmlhelpers_use_fontawesome_icons_aspnetcore %})
+* [Supported toolbar command types]({% slug htmlhelpers_toolbar_button_aspnetcore %})
 
 ## Events
 

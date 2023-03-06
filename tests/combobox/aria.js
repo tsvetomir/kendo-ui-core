@@ -74,8 +74,8 @@ var ComboBox = kendo.ui.ComboBox,
         it("ComboBox with templates has accessible popup", function(done) {
             var combo = new ComboBox(input, {
                 dataSource: ["Item"],
-                footerTemplate: 'Total items found',
-                headerTemplate: 'Total items found'
+                footerTemplate: () => 'Total items found',
+                headerTemplate: () => 'Total items found'
             });
 
             combo.search("I");
@@ -99,18 +99,6 @@ it("ComboBox adds role to the input", function() {
     var combobox = new ComboBox(input);
 
     assert.equal(combobox.input[0].getAttribute("role"), "combobox");
-});
-
-it("ComboBox adds aria-owns", function() {
-    var combobox = new ComboBox(input.attr("id", "test"));
-
-    assert.equal(combobox.input.attr("aria-owns"), combobox.ul.attr("id"));
-});
-
-it("ComboBox adds aria-owns without input id", function() {
-    var combobox = new ComboBox(input);
-
-    assert.equal(combobox.input.attr("aria-owns"), combobox.ul.attr("id"));
 });
 
 it("ComboBox adds aria-controls without input id", function() {

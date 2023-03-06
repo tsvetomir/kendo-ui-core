@@ -1,6 +1,6 @@
 ---
 title: Templates
-page_title: jQuery BottomNavigation Documentation | BottomNavigation Templates
+page_title: jQuery BottomNavigation Documentation - BottomNavigation Templates
 description: "Learn about how to use Kendo UI templates with the jQuery BottomNavigation"
 slug: templates_bottomnavigation_widget
 position: 4
@@ -28,10 +28,10 @@ The [`template`](/api/javascript/ui/bottomnavigation/configuration/template) con
         $("#bottomNavigation").kendoBottomNavigation({
             template: kendo.template($("#bottomnav-template").html()),
             items: [
-                { data: { view: "inbox" }, icon: "email", text: "Inbox", selected: true },
+                { data: { view: "inbox" }, icon: "envelop", text: "Inbox", selected: true },
                 { data: { view: "calendar" }, icon: "calendar", text: "Calendar" },
                 { data: { view: "profile" }, icon: "user", text: "Profile" }
-            ],            
+            ],
         });
     </script>
 ```

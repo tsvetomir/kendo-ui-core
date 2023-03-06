@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery DateRangePicker Documentation | DateRangePicker Overview
+page_title: jQuery DateRangePicker Documentation - DateRangePicker Overview
 description: "Get started with the jQuery DateRangePicker by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_daterangepicker_widget
 position: 1
 ---
 
-# DateRangePicker Overview
+# {{ site.product }} DateRangePicker Overview
 
 The DateRangePicker is a container for holding start and end date inputs.
 

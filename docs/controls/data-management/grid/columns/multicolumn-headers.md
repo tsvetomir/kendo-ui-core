@@ -1,6 +1,6 @@
 ---
 title: Multi-Column Headers
-page_title: jQuery Grid Documentation | Multi-Column Headers
+page_title: jQuery Grid Documentation - Multi-Column Headers
 description: "Get started with the multicolumn headers feature of the jQuery Grid by Kendo UI allowing you to group together one or more columns by a common header."
 previous_url: /appearance/columns/multicolumn-headers
 slug: multicolumn_headers_kendoui_grid_widget
@@ -36,7 +36,7 @@ That common header in turn can be a child of another upper `MultiColumn` header 
 
 The previous example results in the following output.
 
-<img src="multicolumn-headers.png">
+![Kendo UI for jQuery Grid MultiColumn Headers](multicolumn-headers.png)
 
 ## KB Articles on Column Headers
 

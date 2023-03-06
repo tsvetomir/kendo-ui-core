@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery FileManager Documentation | FileManager Overview
+page_title: jQuery FileManager Documentation - FileManager Overview
 description: "Get started with the jQuery FileManager by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_filemanager_widget
 position: 0
 ---
 
-# FileManager Overview
+# {{ site.product }} FileManager Overview
 
 The Kendo UI FileManager is an Explorer-like component enabling you to manage file and folders. 
 

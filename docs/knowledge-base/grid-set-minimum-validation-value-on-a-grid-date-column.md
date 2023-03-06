@@ -2,7 +2,7 @@
 title: Set Minimum Validation Value on a Grid Date Column
 description: How to Set Minimum Validation Value in a Grid Date Column
 type: how-to
-page_title: How to Set Minimum Validation Value on a Grid Date Column | Kendo UI Grid for jQuery
+page_title: How to Set Minimum Validation Value on a Grid Date Column - Kendo UI for jQuery Data Grid
 slug: grid-set-minimum-validation-value-on-a-grid-date-column
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>

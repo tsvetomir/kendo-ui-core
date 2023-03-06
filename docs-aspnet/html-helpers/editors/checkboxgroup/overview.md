@@ -6,7 +6,7 @@ slug: htmlhelpers_checkboxgroup_aspnetcore_overview
 position: 1
 ---
 
-# CheckBoxGroup Overview
+# {{ site.framework }} CheckBoxGroup Overview
 
 {% if site.core %}
 The Telerik UI CheckBoxGroup TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI CheckBoxGroup widget.
@@ -59,10 +59,15 @@ The following example demonstrates the basic configuration for the CheckBoxGroup
 ```
 {% if site.core %}
 ```TagHelper
-    <kendo-checkboxgroup name="checkboxgroup">
+    @{
+        var data = new string[]{ "1" };
+    }
+    <kendo-checkboxgroup name="checkboxgroup"
+                        value="data" >
         <kendo-checkboxgroup-items>
-            <kendo-checkboxgroup-item value="one" label="Female"></kendo-checkboxgroup-item>
-            <kendo-checkboxgroup-item value="two" label="Male"></kendo-checkboxgroup-item>
+            <kendo-checkboxgroup-item value="1" label="Spain"></kendo-checkboxgroup-item>
+            <kendo-checkboxgroup-item value="2" label="Italy"></kendo-checkboxgroup-item>
+            <kendo-checkboxgroup-item value="3" label="UK"></kendo-checkboxgroup-item>
         </kendo-checkboxgroup-items>
     </kendo-checkboxgroup>
 ```

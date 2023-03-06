@@ -25,7 +25,8 @@ When you set an array, list the days that need to be disabled by using the first
 ```
 {% if site.core %}
 ```TagHelper
-    <kendo-multiviewcalendar name="multiviewcalendar" disable-dates="new DateTime[] { DateTime.Now }">
+    <kendo-multiviewcalendar name="MultiViewCalendar" 
+        disable-dates="new DateTime[] { DateTime.Now }">
     </kendo-multiviewcalendar>
 ```
 {% endif %}
@@ -39,7 +40,14 @@ When you add a function, determine its return value as `true` for the date that 
         .Name("MultiViewCalendar")
         .DisableDates("handler")
     )
-
+```
+{% if site.core %}
+```TagHelper
+    <kendo-multiviewcalendar value="DateTime.Now" name="dateTimePicker" disable-dates-handler="handler">
+    </kendo-multiviewcalendar>
+```
+{% endif %}
+```JavaScript
     <script>
         function handler(date) {
             var disabled = [13,14,20,21];

@@ -1,16 +1,16 @@
 ---
 title: Table Wizard Dialog
-page_title: jQuery Editor Documentation | Table Wizard Dialog
+page_title: jQuery Editor Documentation - Table Wizard Dialog
 description: "Get started with the jQuery Editor by Kendo UI and enable the user to add and configure HTML tables with the Table Wizard dialog."
 slug: table_wizard_dialog_editor_widget
-position: 12
+position: 13
 ---
 
 # Table Wizard Dialog
 
 As of the Kendo UI R3 2016 release and in addition to the **Insert Table** tool, the user can add and configure tables by using the **Table Wizard** dialog.
 
-![Table Wizard](table-wizard.png)
+![Kendo UI for jQuery Editor Table Wizard](table-wizard.png)
 
 ## Inserting Tables
 
@@ -21,7 +21,7 @@ To insert a new table by using the **Table Wizard** dialog:
 1. Configure the table that is to be inserted.
 1. Click the **OK** button.
 
-![Table Wizard Open](table-wizard-open.png)
+![Kendo UI for jQuery Editor Table Wizard Open](table-wizard-open.png)
 
 ## Modifying Tables
 
@@ -32,7 +32,7 @@ To modify an existing table or a table cell:
 
 > You can resize the table rows and columns by dragging the cell border with the mouse and without using the **Table Wizard** dialog.
 
-![Table Wizard Edit](table-wizard-edit.png)
+![Kendo UI for jQuery Editor Table Wizard Edit](table-wizard-edit.png)
 
 ## Available Options
 

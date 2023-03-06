@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: "{{ site.framework }} CheckBox Documentation | CheckBox Appearance"
+page_title: "{{ site.framework }} CheckBox Documentation - CheckBox Appearance"
 description: "Learn how to customize the appearance of the Telerik UI CheckBox HtmlHelper for {{ site.framework }}."
 slug: checkbox_appearance
 position: 2
@@ -46,6 +46,7 @@ The following values are available for the `Size` option:
 - `Small`
 - `Medium`
 - `Large`
+- `None`
 
 The default size value is `Medium` and it is added as a class `k-checkbox-md` to the input element.
 
@@ -88,6 +89,7 @@ The following values are available for the `Rounded` option:
 - `Small`
 - `Medium`
 - `Large`
+- `None`
 
 The default value is `Medium` and it is added as a class `k-roundend-md` to the input element.
 

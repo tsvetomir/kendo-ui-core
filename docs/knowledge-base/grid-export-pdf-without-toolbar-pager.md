@@ -1,8 +1,8 @@
 ---
 title: Exclude Toolbar and Pager from Grid PDF Export
-description: An example on how to export the Kendo UI Grid to PDF without the toolbar and pager.
+description: Learn how to export the Kendo UI Grid to PDF without the toolbar and pager.
 type: how-to
-page_title: Exclude Toolbar and Pager from PDF Export | Kendo UI Grid for jQuery
+page_title: Exclude Toolbar and Pager from PDF Export - Kendo UI for jQuery Data Grid
 slug: grid-export-pdf-without-toolbar-pager
 tags: grid, export, pdf, toolbar, pager, ignore, exclude, columnmenu, column, menu, filter, icon
 ticketid: 1143253
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -46,7 +46,7 @@ Use the following CSS rules.
 
 ```css
 .k-pdf-export .k-grid-toolbar,
-.k-pdf-export .k-pager-wrap
+.k-pdf-export .k-pager
 {
   display: none;
 }
@@ -54,7 +54,7 @@ Use the following CSS rules.
 - Filter Menu icon
 
 ```css
-  .k-pdf-export .k-grid-filter {
+  .k-pdf-export .k-grid-filter-menu {
     display:none;
   }
 ```
@@ -62,7 +62,7 @@ Use the following CSS rules.
 - Column Menu icon
 
 ```css
-  .k-pdf-export .k-header-column-menu {
+  .k-pdf-export .k-grid-column-menu {
     display:none;
   }
 ```
@@ -127,7 +127,7 @@ The following example demonstrates the outcome of the suggested approach.
 
     /* Hide the Grid header and pager during export */
     .k-pdf-export .k-grid-toolbar,
-    .k-pdf-export .k-pager-wrap
+    .k-pdf-export .k-pager
     {
       display: none;
     }

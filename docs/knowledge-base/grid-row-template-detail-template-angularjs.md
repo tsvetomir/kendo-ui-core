@@ -1,8 +1,8 @@
 ---
 title: Use Grid Detail Template with Row Template
-description: An example on how to use the grid detail template together with a row template in a Kendo UI Grid for AngularJS.
+description: Learn how to use the grid detail template together with a row template in a Kendo UI Grid for AngularJS.
 type: how-to
-page_title: Row Template Directive with Detail Template | Kendo UI Grid for AngularJS
+page_title: Row Template Directive with Detail Template - Kendo UI Grid for AngularJS
 slug: grid-row-template-detail-template-angularjs
 tags: grid, angular, js, angularjs, directive, template, row, detail, rowTemplate, detailTemplate
 ticketid: 1179134
@@ -15,10 +15,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Created with Kendo UI version</td>
+  <td>Product Version</td>
   <td>2018.2.620</td>
  </tr>
 </table>
@@ -76,7 +76,7 @@ I can't seem to get the `k-row-template` and `k-detail-template` to work togethe
           <div k-detail-template>
             <kendo-tabstrip>
               <ul>
-                <li class="k-state-active">Orders</li>
+                <li class="k-active">Orders</li>
                 <li>Contact information</li>
               </ul>
               <div>

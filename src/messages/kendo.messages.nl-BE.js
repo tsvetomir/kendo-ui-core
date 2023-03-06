@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* Filter cell operator messages */
 
 if (kendo.ui.FilterCell) {
@@ -427,7 +428,7 @@ if (kendo.ui.FileManager) {
       },
       "deleteConfirm": {
         "title": "Bevestigen",
-        "content": "<p style = 'text-align: center;'> Weet u zeker dat u de geselecteerde bestanden wilt verwijderen? </br> U kunt deze actie niet ongedaan maken. </p>",
+        "content": "<p style = 'text-align: center;'> Weet u zeker dat u de geselecteerde bestanden wilt verwijderen? <br/> U kunt deze actie niet ongedaan maken. </p>",
         "okText": "Verwijderen",
         "cancel": "Annuleren",
         "close": "Sluiten"

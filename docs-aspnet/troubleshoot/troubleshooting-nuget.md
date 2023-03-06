@@ -32,6 +32,10 @@ The password must contain only ASCII characters.
 
 As an alternative, you can [reset your Telerik NuGet Feed credentials from the Windows Credentials Manager](#solution-2-windows-credentials-manager)
 
+## Issue: Unable to load the service index for source https://nuget.telerik.com/v3/index.json
+
+Make sure that the Telerik NuGet Feed is live at [https://status.telerik.com/](https://status.telerik.com/).
+
 ## Issue: Resetting Telerik Nuget Credentials
 
 On Windows, if you enter and save wrong credentials for the Telerik NuGet or if you change your Telerik credentials, you won't have access to the desired NuGet packages. Before you can enter the correct user name and password, you must clear the saved credentials.
@@ -51,6 +55,6 @@ Alternatively, use Windows Credentials Manager to remove the saved credentials:
 1. Remove the following saved credentials:
     * `nuget.telerik.com`
     * `VSCredentials_nuget.telerik.com`
-![My Image](../knowledge-base/images/windows-credential-manager.png)
-1. Add the Telerik NuGet Feed again, and then enter the correct credentials. For more details, see the {% if site.core %} [Installing with Nuget]({% slug nuget_install_aspnetmvc6_aspnetmvc %}) {% else %} [Installing with Nuget]({% slug aspnetmvc_nuget %}) {% endif %} article.
+![{{ site.product_short }} Remove credentials from Windows Credential Manager](../knowledge-base/images/windows-credential-manager.png)
+1. Add the Telerik NuGet Feed again, and then enter the correct credentials. For more details, see the [Installing with Nuget]({% slug nuget_install_aspnetmvc6_aspnetmvc %}) article.
 1. If desired, verify the NuGet credentials by inspecting the `NuGet.config` file located in `%AppData%\NuGet\NuGet.config`

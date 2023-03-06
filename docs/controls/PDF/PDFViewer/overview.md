@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery PDFViewer Documentation | PDFViewer Overview
+page_title: jQuery PDFViewer Documentation - PDFViewer Overview
 description: "Get started with the jQuery PDFViewer by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_pdfviewer_widget
 position: 1
 ---
 
-# PDFViewer Overview
+# {{ site.product }} PDFViewer Overview
 
 The PDFViewer displays PDF files in the browser and consists of a toolbar and a scrollable container that wraps the page elements.
 

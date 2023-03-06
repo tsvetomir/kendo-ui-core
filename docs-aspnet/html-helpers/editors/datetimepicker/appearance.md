@@ -29,6 +29,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element).
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element).
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the DateTimePicker:
 ```HtmlHelper
@@ -67,6 +68,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element).
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element).
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the DateTimePicker:
 ```HtmlHelper
@@ -105,6 +107,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element.
 - `Flat`—applies the `k-input-flat` class to the wrapping span element.
 - `Outline`—applies the `k-input-outline` class to the wrapping span element.
+- `None`—unset.
 
 The following example demonstrates how to set `FillMode` in the declaration of the DateTimePicker:
 
@@ -307,6 +310,34 @@ With the new rendering, a reference to the date and time button elements is obta
 ```javascript
 $(".k-button:eq(0)") // Returns a reference to the date button element in the new rendering.
 $(".k-button:eq(1)") // Returns a reference to the time button element in the new rendering.
+```
+
+The following example showcases how to change the background colors of the input and button elements of the **DateTimePicker** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work BEFORE R1 2022 */
+      .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+      .k-input-button:nth-of-type(1) {
+        background-color: yellow; /* Applies yellow color to the date button element AFTER R1 2022 */
+      }
+      .k-input-button:nth-of-type(2) {
+        background-color: orange; /* Applies yellow color to the time button element AFTER R1 2022 */
+      }
+
+      /* Doesn't work AFTER R1 2022 */
+      .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      .k-link-date {
+        background-color: red; /* Applies red color to the date button element BEFORE R1 2022 */
+      }
+      .k-link-time {
+        background-color: cyan; /* Applies cyan color to the time button element BEFORE R1 2022 */
+      }
+    </style>
 ```
 
 ## See Also

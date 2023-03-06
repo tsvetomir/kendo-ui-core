@@ -1,8 +1,8 @@
 ---
 title: Use Both Standard and Checkbox Selection in Grid
-description: An example on how to use both standard and checkbox selection in a Kendo UI Grid.
+description: Learn how to use both standard and checkbox selection in a Kendo UI Grid.
 type: how-to
-page_title: Use Both Standard and Checkbox Selection | Kendo UI Grid for jQuery
+page_title: Use Both Standard and Checkbox Selection - Kendo UI for jQuery Data Grid
 slug: grid-use-both-standard-and-checkbox-selection
 tags: grid, selection, checkbox, standard, select, both, click, unselect, deselect
 res_type: kb
@@ -14,10 +14,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with version 2020.3.1021</td>
  </tr>
 </table>
@@ -83,7 +83,7 @@ How can I use both standard and checkbox selection in the Grid?
             var row = $(rowElement);
             var grid = $("#grid").getKendoGrid();
 
-            if (row.hasClass("k-state-selected")) {
+            if (row.hasClass("k-selected")) {
 
               var selected = grid.select();
 

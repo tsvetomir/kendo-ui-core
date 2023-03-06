@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Editor for jQuery</td>
+  <td>Progress® Kendo UI® Editor for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -47,6 +47,9 @@ The following example demonstrates how to handle such a scenario by:
 
 ```dojo
 <style>
+.editorToolbarWindow{
+      display: flex;
+}
 
 .zIndexEnforce
 {
@@ -54,7 +57,6 @@ The following example demonstrates how to handle such a scenario by:
     /* The z-index value itself can be arbitrary. */
     z-index: 12345 !important;
 }
-
 </style>
 
 <div id="window">

@@ -1,8 +1,8 @@
 ---
 title: Exclude Content from PDF Export with Drawing API
-description: An example on how to exclude specific content while exporting to PDF by using the Kendo UI Drawing API.
+description: Learn how to exclude specific content while exporting to PDF by using the Kendo UI Drawing API.
 type: how-to
-page_title: Prevent the Export of Content to PDF | Kendo UI Drawing Library
+page_title: Prevent the Export of Content to PDF - Kendo UI Drawing Library
 slug: pdf-export-exclude-content
 tags: pdf, export, content, exclude, drawing, api
 ticketid: 1135598
@@ -15,7 +15,7 @@ component: drawing-api
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Drawing API</td>
+  <td>Progress® Kendo UI® Drawing API</td>
  </tr>
  <tr>
   <td>Operating System</td>

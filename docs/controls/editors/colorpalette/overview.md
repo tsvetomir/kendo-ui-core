@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ColorPalette Documentation | ColorPalette Overview
+page_title: jQuery ColorPalette Documentation - ColorPalette Overview
 description: "Get started with the jQuery ColorPalette by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_colorpalette_widget
 position: 1
 ---
 
-# ColorPalette Overview
+# {{ site.product }} ColorPalette Overview
 
 The Kendo UI for jQuery ColorPalette renders colors by using color presets (sets of predefined colors) or by implementing a custom color palette.
 
@@ -23,6 +23,48 @@ To initialize the ColorPalette, use a `div` element. The following example shows
         $(document).ready(function(){
             $("#colorpalette").kendoColorPalette();
         });
+    </script>
+```
+
+As of Kendo UI R3 2022, you can initialize the ColorGradient from an `input` element and use it for value submission. The widget is also supported as an editor in the Kendo Form.
+
+```dojo
+    <form id="myForm"></form>
+
+    <script>
+      $("#myForm").kendoForm({
+        formData: {
+          ID: 1,
+          Name: "John Doe",
+          Address: 3,
+          Color: "red"
+        },
+        items: [
+          {
+            field: "Name",
+            validation: { required: true }
+          },
+          {
+            field: "Address",
+            editor:"DropDownList",
+            editorOptions:{
+              dataTextField:"text",
+              dataValueField:"id",
+              dataSource: {
+                data: [
+                  {text:"Sofia", id:1},
+                  {text:"London", id:2},
+                  {text:"New York", id:3}
+                ]
+              }
+            }
+          },
+          {
+            field: "Color",
+            editor:"ColorPalette"
+          }
+        ]
+      });
     </script>
 ```
 

@@ -1,8 +1,8 @@
 ---
 title: Select a parent row if any of the child rows are selected in the Grid
-description: An example on how to select a parent row when any row of the child is selected in the Grid.
+description: Learn how to select a parent row when any row of the child is selected in the Grid.
 type: how-to
-page_title: Select Parent Row when any Child Grid Row is Selected | Kendo UI Grid
+page_title: Select Parent Row when any Child Grid Row is Selected - Kendo UI Grid
 slug: grid-select-parent-row-when-a-child-row-is-selected
 tags: grid, selection, parent, master, child, hierarchy, checkbox, select, row, any
 ticketid: 1147793
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 
@@ -28,15 +28,15 @@ I have a hierarchical Kendo Grid with checkboxes for selection. On selection of 
 
 1. Add an event handler to the [`change`](/api/javascript/ui/grid/events/change) event of the child grid.
 1. Use the [`select()`](/api/javascript/ui/grid/methods/select) method to check if there are any selected rows
-1. Get a reference to the master row and add or remove the `k-state-selected` class if there are any selected rows in the child grid.
+1. Get a reference to the master row and add or remove the `k-selected` class if there are any selected rows in the child grid.
 
 ```
     change: function(e){
         var masterRow = this.element.closest("tr").prev();
         if(this.select().length){
-            masterRow.addClass("k-state-selected");
+            masterRow.addClass("k-selected");
         } else {
-            masterRow.removeClass("k-state-selected");
+            masterRow.removeClass("k-selected");
         }
     },
 ```
@@ -104,9 +104,9 @@ I have a hierarchical Kendo Grid with checkboxes for selection. On selection of 
                       	change: function(e){
                           var masterRow = this.element.closest("tr").prev();
                           if(this.select().length){
-                            masterRow.addClass("k-state-selected");
+                            masterRow.addClass("k-selected");
                           } else {
-                            masterRow.removeClass("k-state-selected");
+                            masterRow.removeClass("k-selected");
                           }
                         },
                         columns: [

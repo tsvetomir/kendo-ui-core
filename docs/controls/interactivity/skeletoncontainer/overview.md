@@ -1,13 +1,13 @@
 ---
 title: Overview
-page_title: jQuery SkeletonContainer Documentation | SkeletonContainer Overview
+page_title: jQuery SkeletonContainer Documentation - SkeletonContainer Overview
 description: "Get started with the jQuery SkeletonContainer by Kendo UI and learn how to initialize the widget."
 slug: overview_kendoui_skeletoncontainer_widget
 position: 1
 CTAControlName: SkeletonContainer
 ---
 
-# SkeletonContainer Overview
+# {{ site.product }} SkeletonContainer Overview
 
 The SkeletonContainer widget indicates to the user that the content is coming but has not yet been loaded. It aims at helping the user focus on progress and makes the page load time appear shorter.
 

@@ -1,6 +1,6 @@
 ---
 title: Component Types
-page_title: Telerik UI TimePicker Documentation | TimePicker Component Types | Telerik UI
+page_title: Telerik UI TimePicker Documentation - TimePicker Component Types
 description: "Get started with the jQuery TimePicker by Telerik UI and learn how to enable the modern component type."
 slug: htmlhelpers_componenttype_timepicker_aspnetcore
 position: 6
@@ -27,7 +27,7 @@ By default, the TimePicker is initialized with the `classic` render mode. In ord
 
 As a result, the appearance of the widget is alternated. 
 
-![Comparison between the component types](../../../images/modern-classic-timepicker.png)
+![{{ site.product_short }} TimePicker comparison between the component types](../../../images/modern-classic-timepicker.png)
 
 > The rendered selectors in the Telerik UI TimePicker for {{ site.framework }} depend on the currently applied format. If the format is omitted, the default format from the application's culture is used. 
 

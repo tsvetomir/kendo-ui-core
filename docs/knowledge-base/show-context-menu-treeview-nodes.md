@@ -1,7 +1,7 @@
 ---
 title: Show a Context Menu of a TreeView Node
 page_title: Show a Context Menu of a TreeView Node
-description: "Learn how to show a ContextMenu with tree-item actions in a Kendo UI for jQuery TreeView widget."
+description: "Learn how to show a ContextMenu with tree-item actions in a Kendo UI for jQuery TreeView component."
 slug: howto_shiwnodecontextmenu_treeview
 previous_url: /controls/navigation/treeview/how-to/integration/show-context-menu
 tags: telerik, kendo, jquery, treeview, show, contextmenu, for, nodes, items
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TreeView for jQuery</td>
+  <td>Progress® Kendo UI® TreeView for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

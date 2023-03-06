@@ -2,7 +2,7 @@
 title: PivotGrid hide row and column summaries
 description: How to hide the All row and columns in the Kendo UI PivotGrid
 type: how-to
-page_title: Remove row and column summaries | Kendo UI PivotGrid for jQuery
+page_title: Remove row and column summaries - Kendo UI PivotGrid for jQuery
 slug: pivotgrid-hide-row-and-column-summaries
 tags: pivot, pivotgrid, hide, summary, column, row, databound, remove, footer, last column, last row
 ticketid: 1413666
@@ -14,7 +14,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>PivotGrid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® PivotGrid for jQuery</td>
 		</tr>
         <tr>
 			<td>Created with version</td>

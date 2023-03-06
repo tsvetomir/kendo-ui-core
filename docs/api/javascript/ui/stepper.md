@@ -43,7 +43,7 @@ Indicates whether the Steps in the **Stepper** will render their label element (
 
 ### linear `Boolean` *(default: true)*
 
-Indicates whether the **Stepper** will force the user to follow the Steps sequence or not. If set to "false" it will allow the user to select any step. If in its default state ("true") the user will be able to select the step immediately after the currently selected step or any previous step.
+Indicates whether the **Stepper** will force the user to follow the Steps sequence or not. If set to "false" it will allow the user to select any step. If in its default state ("true") the user will be able to select the step immediately after the currently selected step or the previous step.
 
 #### Example
 
@@ -441,7 +441,7 @@ The index of the Step that should be removed.
 
 ### resize
 
-Recalculates the dimensions of the underlying PrgressBar indicating the Stepper progress. Should be used when changing width/height of the widget element, its parent, or when removing a "display: none;" style from one of those elements. Should always be called if the **Stepper** is initialized in a hidden container right after the container was made visible.
+Recalculates the dimensions of the underlying ProgressBar indicating the Stepper progress. Should be used when changing width/height of the widget element, its parent, or when removing a "display: none;" style from one of those elements. Should always be called if the **Stepper** is initialized in a hidden container right after the container was made visible.
 
 #### Example
 

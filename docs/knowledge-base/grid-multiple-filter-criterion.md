@@ -1,8 +1,8 @@
 ---
 title: Create Filter Widgets with Multiple Filter Criteria in Grid
-description: An example on how to create a filter widget with a multiple filter criterion in the Kendo UI Grid.
+description: Learn how to create a filter widget with a multiple filter criterion in the Kendo UI Grid.
 type: how-to
-page_title: Create Filter Widgets with Multiple Filter Criteria | Kendo UI Grid for jQuery
+page_title: Create Filter Widgets with Multiple Filter Criteria - Kendo UI for jQuery Data Grid
 slug: grid-multiple-filter-criterion
 tags: grid, multiple, filter, filters, criterion, extra, more, filtering, filtratrion, many
 res_type: kb
@@ -14,10 +14,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>2018.1.117</td>
  </tr>
 </table>
@@ -168,6 +168,8 @@ How can I create a filter widget with a multiple filter criterion in the Grid?
                 }
                 
                 grid.dataSource.filter(filterQuery);
+
+                e.container.find(".k-input").val(null);
                 
                 e.container.parent().data("kendoPopup").close();
               });

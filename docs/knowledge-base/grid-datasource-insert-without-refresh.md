@@ -1,8 +1,8 @@
 ---
 title: Create an Item in the DataSource without Refreshing the Grid
-description: An example on how to add an item to the dataSource without refreshing the Kendo UI Grid.
+description: Learn how to add an item to the dataSource without refreshing the Kendo UI Grid.
 type: how-to
-page_title: Insert Items in the DataSource without Rebinding | Kendo UI Grid for jQuery
+page_title: Insert Items in the DataSource without Rebinding - Kendo UI for jQuery Data Grid
 slug: grid-datasource-insert-without-refresh
 tags: grid, datasource, insert, change, rebind
 ticketid: 1142171
@@ -14,10 +14,10 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with the 2017.3.1026 version</td>
  </tr>
 </table>

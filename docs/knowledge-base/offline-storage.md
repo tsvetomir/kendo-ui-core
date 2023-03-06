@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -49,8 +49,8 @@ The following example demonstrates how to achieve the desired scenario. For more
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             "day",

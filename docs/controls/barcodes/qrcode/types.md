@@ -1,6 +1,6 @@
 ---
 title: QRCode Types
-page_title: jQuery QRCode Documentation | QRCode Types
+page_title: jQuery QRCode Documentation - QRCode Types
 description: "Try the different types of Telerik UI QRCode for the jQuery"
 slug: types_kendoui_qrcode_widget
 position: 3
@@ -48,7 +48,7 @@ The following implementation demonstrates the code needed for the Swiss Type:
 ```
 Overview of the Swiss Type:
 
-![Swiss Type](images/swissType.png)
+![Kendo UI for jQuery QRCode Swiss Type](images/qrcode_swissType.png)
 
 * [Demo showing Swiss QRCode format](https://demos.telerik.com/kendo-ui/qrcode/swiss)
 
@@ -92,7 +92,7 @@ The following implementation demonstrates the code needed for the Image Type:
 ```
 Overview of the Image Type:
 
-![Image Type](images/imageType.png)
+![Kendo UI for jQuery QRCode Image Type](images/qrcode_imageType.png)
 
 * [Demo of QRCode with image](https://demos.telerik.com/kendo-ui/qrcode/image)
 

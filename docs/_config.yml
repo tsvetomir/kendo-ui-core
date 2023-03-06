@@ -7,7 +7,7 @@ capital_casing_redirects: true
 
 # Exclude files which should not be in the output
 exclude: [README.md, Gemfile, Gemfile.lock,api_sort.rb, all-pages.md, Dockerfile, bs-config.js, build-docs.sh, copy_content.sh, copy_local.sh, docs-watcher/*, exclude_files.txt, install-npm.sh, start-docs.sh, watch.sh]
-exclude_navigation: ["knowledge-base/*"]
+exclude_navigation: ["knowledge-base/*", contribution.html]
 navigation:
 ## List your directory names and order here, like this:
     "api":
@@ -28,13 +28,13 @@ navigation:
         title: "Download and Installation"
         position: 2
     "intro/widget-basics":
-        title: "Working with Widgets"
+        title: "Working with Components"
         position: 3
     "intro/scripts":
-        title: "Widget Script Dependencies"
+        title: "Script Dependencies"
         position: 4
     "controls":
-        title: "Widgets"
+        title: "Components"
         position: 4
     "controls/data-management":
         title: "Data Management"
@@ -49,64 +49,31 @@ navigation:
         position: 2
     "controls/data-management/grid/binding":
         title: "Data Binding"
-        position: 2
+        position: 4
     "controls/data-management/grid/editing":
         title: "Editing"
-        position: 3
+        position: 5
     "controls/data-management/grid/grouping":
         title: "Grouping"
-        position: 5
+        position: 7
     "controls/data-management/grid/columns":
         title: "Columns"
-        position: 11
+        position: 13
     "controls/data-management/grid/scrolling":
         title: "Scroll Modes"
-        position: 12
+        position: 14
     "controls/data-management/grid/export":
         title: "Export"
-        position: 13
+        position: 15
     "controls/data-management/grid/Templates":
         title: "Templates"
-        position: 14
+        position: 16
     "controls/data-management/grid/appearance":
         title: "Appearance"
-        position: 15
+        position: 17
     "controls/data-management/grid/performance":
         title: "Performance Tips"
-        position: 16
-    "controls/data-management/grid/how-to":
-        title: "How To"
-        position: 70
-    "controls/data-management/grid/how-to/AngularJS":
-        title: "AngularJS"
-    "controls/data-management/grid/how-to/Layout":
-        title: "Rendering and Dimensions"
-    "controls/data-management/grid/how-to/binding":
-        title: "Data Binding"
-    "controls/data-management/grid/how-to/Editing":
-        title: "Editing"
-    "controls/data-management/grid/how-to/pdf-export":
-        title: "PDF Export"
-    "controls/data-management/grid/how-to/excel":
-        title: "Excel Export"
-    "controls/data-management/grid/how-to/filtering":
-        title: "Filtering"
-    "controls/data-management/grid/how-to/hidden":
-        title: "Hidden Containers"
-    "controls/data-management/grid/how-to/integration":
-        title: "Integration"
-    "controls/data-management/grid/how-to/Paging":
-        title: "Paging"
-    "controls/data-management/grid/how-to/Selection":
-        title: "Selection"
-    "controls/data-management/grid/how-to/sorting":
-        title: "Sorting"
-    "controls/data-management/grid/how-to/state":
-        title: "State Persistence"
-    "controls/data-management/grid/how-to/Templates":
-        title: "Templates"
-    "controls/data-management/grid/how-to/various":
-        title: "Various"
+        position: 18
     "controls/data-management/pivotgrid/binding":
         title: "Data Binding"
         position: 2
@@ -201,9 +168,13 @@ navigation:
         title: "ButtonGroup"
     "controls/navigation/drawer":
         title: "Drawer"
+    "controls/navigation/dropdownbutton":
+        title: "DropDownButton"
     "controls/navigation/menu/contextmenu":
         title: "ContextMenu"
         position: 6
+    "controls/navigation/splitbutton":
+        title: "SplitButton"
     "controls/navigation/stepper":
         title: "Stepper"
     "controls/navigation/wizard":
@@ -350,7 +321,7 @@ navigation:
         title: "AngularJS Directives"
         position: 8
     "framework/AngularJS/widget-basics":
-        title: "Working with Widgets"
+        title: "Working with Components"
         position: 2
     "framework/AngularJS/how-to":
         title: "How To"
@@ -364,44 +335,41 @@ navigation:
     "styles-and-layout":
         title: "Styles & Appearance"
         position: 6
-    "styles-and-layout/styling-components":
-        title: "Styling Components"
+    "styles-and-layout/sass-themes":
+        title: "Sass Themes"
         position: 1
-    "third-party":
-        title: "Third-Party Libraries"
+    "styles-and-layout/less-themes":
+        title: "Less Themes"
+        position: 2
+    "kendo-in-the-cloud":
+        title: "Cloud Integration"
         position: 7
+    "third-party":
+        title: "Third-Party Integration"
+        position: 8
     "third-party/webforms":
         title: "ASP.NET Web Forms"
         position: 20
-    "kendo-in-the-cloud":
-        title: "Cloud Integration"
-        position: 8
-    "telerik-product-integration":
-        title: "Integration with other Telerik Products"
-        position: 8
     "globalization":
         title: "Globalization"
-        position: 9
+        position: 10
     "globalization/intl":
         title: "Internationalization"
         position: 2
     "accessibility":
         title: "Accessibility"
-        position: 10
+        position: 11
     "jsp":
         title: "Progress<sup>®</sup> Telerik<sup>®</sup> UI for JSP"
-        position: 11
+        position: 20
     "php":
         title: "Progress<sup>®</sup> Telerik<sup>®</sup> UI for PHP"
-        position: 12
+        position: 30
     "php/widgets":
         title: "Classes"
     "backwards-compatibility":
         title: "Breaking Changes"
-        position: 20
-    "troubleshoot":
-        title: "Troubleshooting"
-        position: 30
+        position: 40
     "*how-to":
         title: "How To"
         position: 200
@@ -457,7 +425,7 @@ navigation:
         title: "Troubleshooting"
         position: 201
     "*widgets":
-        title: "Widgets"
+        title: "Components"
     "*tags":
         title: "Tags"
     "*excel":
@@ -572,6 +540,10 @@ navigation:
         title: "Calendar"
     "*captcha":
         title: "Captcha"
+    "*chip":
+        title: "Chip"
+    "*chiplist":
+        title: "ChipList"
     "controls/scheduling/multiviewcalendar":
         title: "MultiViewCalendar"
     "*colorpalette":
@@ -660,6 +632,8 @@ navigation:
         title: "RadioGroup"
     "*rating":
         title: "Rating"
+    "*signature":
+        title: "Signature"
     "*panelbar":
         title: "PanelBar"
     "*pdfviewer":
@@ -705,6 +679,8 @@ navigation:
         title: "TimeLine"
     "*timepicker":
         title: "TimePicker"
+    "*timedurationpicker":
+        title: "TimeDurationPicker"
     "*tooltip":
         title: "Tooltip"
     "*toolbar":
@@ -747,10 +723,13 @@ navigation:
 baseurl: /kendo-ui
 
 ## The Kendo UI version used
-cdnVersion: "2022.2.510"
+cdnVersion: "2023.1.117"
+
+## The themes CDN used
+themesCdnVersion: "5.11.0"
 
 ## The MVC Core version used
-mvcCoreVersion: "2022.2.510"
+mvcCoreVersion: "2023.1.117"
 
 ## Progress NPM Registry
 registry_url: 'https://registry.npm.telerik.com/'
@@ -1649,7 +1628,7 @@ defaults:
         path: "controls/charts"
     values:
         component: "charts"
-        
+
 -
     scope:
         path: "controls/editors/checkbox"
@@ -1689,6 +1668,12 @@ defaults:
 -
     scope:
         path: "controls/editors/timepicker"
+    values:
+        component: "date-time-pickers"
+
+-
+    scope:
+        path: "controls/editors/timedurationpicker"
     values:
         component: "date-time-pickers"
 
@@ -1853,7 +1838,7 @@ defaults:
         path: "controls/navigation/floatingactionbutton"
     values:
         component: "floatingactionbutton"
-        
+
 -
     scope:
         path: "controls/layout/expansionpanel"
@@ -1889,6 +1874,12 @@ defaults:
         path: "controls/editors/rating"
     values:
         component: "rating"
+
+-
+    scope:
+        path: "controls/editors/signature"
+    values:
+        component: "signature"
 
 -
     scope:
@@ -2189,11 +2180,13 @@ intro_columns:
       "RadioGroup": "overview_kendoui_radiogroup_widget"
       "RangeSlider": "overview_kendoui_rangeslider_widget"
       "Rating": "overview_kendoui_rating_widget"
+      "Signature": "overview_kendoui_signature_widget"
       "Slider": "overview_kendoui_slider_widget"
       "Switch": "overview_kendoui_switch_widget"
       "TextArea": "overview_kendoui_textarea_widget"
       "TextBox": "overview_kendoui_textbox_widget"
       "TimePicker": "overview_kendoui_timepicker_widget"
+      "TimeDurationPicker": "overview_kendoui_timedurationpicker_widget"
       "Upload": "overview_kendoui_upload_widget"
       "Validator": "overview_kendoui_validator_widget"
 
@@ -2223,10 +2216,12 @@ intro_columns:
       "Breadcrumb": "overview_kendoui_breadcrumb_widget"
       "Button": "overview_kendoui_button_widget"
       "ButtonGroup": "overview_kendoui_buttongroup_widget"
+      "DropDownButton": "overview_kendoui_dropdownbutton_widget"
       "Drawer": "overview_kendoui_drawer_widget"
       "FloatingActionButton": "overview_kendoui_floatingactionbutton_widget"
       "Menu": "overview_kendoui_menu_widget"
       "PanelBar": "overview_kendoui_panelbar_widget"
+      "SplitButton": "overview_kendoui_splitbutton_widget"
       "Stepper": "overview_stepper_widget"
       "TabStrip": "overview_kendoui_tabstrip_widget"
       "Timeline": "overview_kendoui_timeline_widget"
@@ -2304,6 +2299,7 @@ footer:
     "Forums": https://www.telerik.com/forums/kendo-ui
     "Blogs": https://www.telerik.com/blogs/kendo-ui
     "Feedback Portal": https://feedback.telerik.com/kendo-jquery-ui
+    "Doc Contribution": https://docs.telerik.com/kendo-ui/contribution
 -
   title: "Frameworks"
   links:

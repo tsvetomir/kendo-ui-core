@@ -1,8 +1,8 @@
 ---
 title: Grid Search and Pager on the Top
-description: An example on how to have the search panel and the pager in a single row at the top of the Kendo UI Grid.
+description: Learn how to have the search panel and the pager in a single row at the top of the Kendo UI Grid.
 type: how-to
-page_title: Combine Search and Pager in the Grid | Kendo UI Grid for jQuery
+page_title: Combine Search and Pager in the Grid - Kendo UI for jQuery Data Grid
 slug: grid-search-and-pager-in-a-single-row
 tags: kendoui, kendo, grid, search, panel, pager, combine, single, one, same, row
 res_type: kb
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
   <td>Created with version</td>
   <td>2020.3.1118</td>
  </tr>

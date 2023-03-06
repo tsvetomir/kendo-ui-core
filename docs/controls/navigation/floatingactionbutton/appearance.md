@@ -12,7 +12,7 @@ position: 3
 
 In this article, you will find information about the new rendering of the Kendo UI FloatingActionButton.
 
-For additional information regarding the decision behind these changes, visit the [Styling Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the FloatingActionButton](https://demos.telerik.com/kendo-ui/floatingactionbutton/appearance).
 
@@ -198,10 +198,69 @@ The default rounded value is `full` and it is applied to the button element thro
 ## Visual Backwards Compatibility
 
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
+The following example showcases how to customize the styles of the **FloatingActionButton** depending on the selected [themeColor](#themeColor) in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <button id="fab-primary"></button>
+    <button id="fab-secondary"></button>
+    <button id="fab-tertiary"></button>
+
+    <script>
+      $('#fab-primary').kendoFloatingActionButton({
+        themeColor: 'primary',
+        icon: 'home',
+        align: 'top start'
+      });
+      $('#fab-secondary').kendoFloatingActionButton({
+        themeColor: 'secondary',
+        icon: 'home',
+        align: 'top center'
+      });
+      $('#fab-tertiary').kendoFloatingActionButton({
+        themeColor: 'tertiary',
+        icon: 'home',
+        align: 'top end'
+      });
+    </script>
+
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later */      
+
+      #fab-primary.k-fab-solid-primary{ /* applies border to primary FAB in the new rendering */
+        border: 2px solid yellow !important;
+      }
+
+      #fab-secondary.k-fab-solid-secondary{ /* applies border to secondary FAB in the new rendering */
+        border: 2px solid fuchsia !important;
+      }
+
+      #fab-tertiary.k-fab-solid-tertiary{ /* applies border to tertiary FAB in the new rendering */
+        border: 2px solid lime !important;
+      }
+
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */
+
+      #fab-primary.k-fab-primary{ /* applies border to primary FAB in the old rendering */
+        border: 2px solid red !important;
+      }
+
+      #fab-secondary.k-fab-secondary{ /* applies border to secondary FAB in the old rendering */
+        border: 2px solid blue !important;
+      }
+
+      #fab-tertiary.k-fab-tertiary{ /* applies border to tertiary FAB in the old rendering */
+        border: 2px solid green !important;
+      }
+    </style>
+```
 
 ## Best Practices
 
@@ -237,7 +296,7 @@ The [`icon`](/api/javascript/ui/floatingactionbutton/configuration/icon) configu
                 icon:"plus",
                 items:[
                     {icon:"star",label:"Add Rating"},
-                    {icon:"edit", label:"Add Comment"}
+                    {icon: "pencil", label:"Add Comment"}
                 ]
             });
         });

@@ -1,5 +1,6 @@
 (function($, undefined) {
-/* Filter menu operator messages */
+
+/* Filter menu operator messages  */
 
 if (kendo.ui.FilterCell) {
 kendo.ui.FilterCell.prototype.options.operators =
@@ -199,6 +200,28 @@ $.extend(true, kendo.ui.Pager.prototype.options.messages,{
 });
 }
 
+/* TreeList messages */
+
+if (kendo.ui.TreeList) {
+kendo.ui.TreeList.prototype.options.messages =
+$.extend(true, kendo.ui.TreeList.prototype.options.messages,{
+    "noRows": "Нет записей доступны.",
+    "loading": "Loading...",
+    "requestFailed": "Request failed.",
+    "retry": "Retry",
+    "commands": {
+        "edit": "Изменить",
+        "update": "Обновить",
+        "canceledit": "Отмена",
+        "create": "Добавить",
+        "createchild": "Добавить ребенка",
+        "destroy": "Удалить",
+        "excel": "Экспорт в Excel",
+        "pdf": "Экспорт в PDF"
+    }
+});
+}
+
 /* TreeListPager messages */
 
 if (kendo.ui.TreeListPager) {
@@ -295,7 +318,7 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "justifyRight": "Вправо",
   "outdent": "Уменьшить отступ",
   "strikethrough": "Зачеркнутый",
-  "styles": "Стиль",
+  "style": "Стиль",
   "subscript": "Под строкой",
   "superscript": "Над строкой",
   "underline": "Подчеркнутый",
@@ -656,7 +679,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Выравнивание",
     "buttons": {
-      "justtifyLeft": "Выровнять по левому краю",
+      "justifyLeft": "Выровнять по левому краю",
       "justifyCenter": "Центр",
       "justifyRight": "Выровнять по правому краю",
       "justifyFull": "Оправдывать",
@@ -846,7 +869,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Добавить строку ниже",
   "alignment": "Выравнивание",
   "alignmentButtons": {
-    "justtifyLeft": "Выровнять по левому краю",
+    "justifyLeft": "Выровнять по левому краю",
     "justifyCenter": "Центр",
     "justifyRight": "Выровнять по правому краю",
     "justifyFull": "Оправдывать",

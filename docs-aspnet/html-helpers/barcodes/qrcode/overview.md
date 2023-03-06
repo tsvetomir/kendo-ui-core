@@ -7,7 +7,7 @@ slug: overview_qrcodehelper_aspnetcore
 position: 1
 ---
 
-# QRCode Overview
+# {{ site.framework }} QRCode Overview
 
 {% if site.core %}
 The QRCode TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI QRCode widget. To add the component to your ASP.NET Core app, you can use either.
@@ -68,7 +68,10 @@ To configure the QRCode, pass the configuration options as attributes, for examp
 ```
 {% if site.core %}
 ```TagHelper
-    <kendo-qrcode name="qrUrl" value="https://docs.telerik.com/aspnet-core/introduction" error-correction="QRErrorCorrectionLevel.M size=" 150">
+    <kendo-qrcode name="qrUrl" 
+                  value="https://docs.telerik.com/aspnet-core/introduction" 
+                  error-correction="QRErrorCorrectionLevel.M 
+                  size=" 150">
         <border color="#AA11AA" width="2" />
     </kendo-qrcode>
 ```

@@ -1,15 +1,25 @@
 ---
 title: Creating Your Own Custom Bundles
 page_title: Creating Your Own Custom Bundles
-description: "Get started with Telerik UI for ASP.NET Core, customize its components according to your project and add only the helpers that you need."
-previous_url: /getting-started/scripts/what-you-need, /installation/scripts/what-you-need
+description: "Get started with {{ site.product }}, customize its components according to your project, and add only the helpers that you need."
+previous_url: /getting-started/scripts/what-you-need, /installation/scripts/what-you-need, installation-mvc/adding-client-side-resources/scripts/what-you-need
 slug: custombundles_core
 position: 1
 ---
 
 # Creating Your Own Custom Bundles
 
-Depending on your project, you may need to skip some of the Kendo UI utilities and install only what your application requires.
+Depending on your project, you may need to skip some of the Kendo UI utilities and install only what your application requires.  
+
+To facilitate the customization of your project, Kendo UI for jQuery delivers a set of combined and individual scripts, and also provides further options for scripts customization.
+
+* The [combined scripts bundles](#combined-scripts) contain the scripts of specific types of widgets (for example, desktop, hybrid) available for the different Kendo UI distributions.
+
+* The [individual scripts bundles](#individual-scripts) contain the scripts of widgets grouped by their common functionality (for example, Charts, Editors) so that you can select which individual control to add to your project.  
+
+* Customizing your project by [creating your custom scripts](#custom-scripts) allows you to add the specific widgets and features required by your project.
+
+* [Using ECMAScript]({% slug core_ecmascript_overview %}) allows you to import individual modules in your application. The related dependencies will be automatically bundled alongside their respective modules. This will save you the trouble of having to manually select which scripts to include in your project.
 
 ## Combined Scripts
 
@@ -103,8 +113,5 @@ The server-side wrappers for the Kendo UI widgets are self-initialized which mea
 ## See Also
 
 * [Including Client-Side Resources]({% slug copyclientresources_aspnetmvc6_aspnetmvc %})
-* [Installing Telerik UI for ASP.NET Core by Using the CDN Services]({% slug cdnservices_core %})
-* [Installing Telerik UI for ASP.NET Core with NuGet]({% slug nuget_install_aspnetmvc6_aspnetmvc %})
-* [First Steps on Visual Studio for Windows (Online Guide)]({% slug gettingstarted_aspnetmvc6_aspnetmvc %})
-* [First Steps on Visual Studio for Mac (Online Guide)]({% slug gettingstarted_firststeps_vsmac %})
-* [First Steps with CLI (Online Guide)]({% slug gettingstartedcli_aspnetmvc6_aspnetmvc %})
+* [Installing {{ site.product }} by Using the CDN Services]({% slug cdnservices_core %})
+* [Installing {{ site.product }} with NuGet]({% slug nuget_install_aspnetmvc6_aspnetmvc %})

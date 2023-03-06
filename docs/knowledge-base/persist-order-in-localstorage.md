@@ -1,7 +1,7 @@
 ---
 title: Persist Order in the localStorage of the Sortable
 page_title: Persist Order in the localStorage of the Sortable
-description: "Learn how to save the order in localStorage and restore it on page load in the Kendo UI Sortable widget."
+description: "Learn how to save the order in localStorage and restore it on page load in the Kendo UI Sortable component."
 slug: howto_persistoderinlocalstorage_sortable
 previous_url: /controls/interactivity/sortable/how-to/persist-order-in-localstorage
 tags: telerik, kendo, jquery, sortable, persist, order, in, localstorage
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Sortable for jQuery</td>
+  <td>Progress® Kendo UI® Sortable for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TabStrip for jQuery</td>
+  <td>Progress® Kendo UI® TabStrip for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -66,7 +66,7 @@ The example below demonstrates how to make the TabStrip widget 100% high and res
 
     <div id="tabstrip">
       <ul>
-        <li class="k-state-active">Item 1</li>
+        <li class="k-active">Item 1</li>
         <li>Item 2</li>
       </ul>
       <div>
@@ -128,6 +128,6 @@ The example below demonstrates how to make the TabStrip widget 100% high and res
 ## See Also
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
-* [How to Add Close Button to Tabs]({% slug howto_addclosebuttontotabs_tabstrip %})
-* [How to Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
-* [How to Scroll TabStrip with Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})
+* [Add Close Button to Tabs]({% slug howto_addclosebuttontotabs_tabstrip %})
+* [Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
+* [Scroll TabStrip with Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})

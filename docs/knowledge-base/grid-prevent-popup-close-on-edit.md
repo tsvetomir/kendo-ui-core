@@ -1,8 +1,8 @@
 ---
 title: Prevent Grid Popup Editor from Closing on Update and Create
-description: An example on how to keep the Kendo UI Grid popup editor open after an update is finished.
+description: Learn how to keep the Kendo UI Grid popup editor open after an update is finished.
 type: how-to
-page_title: Keep Popup Open | Kendo UI Grid for jQuery
+page_title: Keep Popup Open - Kendo UI for jQuery Data Grid
 slug: grid-prevent-popup-close-on-edit
 tags: grid, edit, popup, prevent, cancel, stop, close, edit, insert, create, modal, reopen, keep, open
 res_type: kb
@@ -14,10 +14,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>2020.3.1021</td>
  </tr>
 </table>
@@ -93,7 +93,7 @@ How can I keep the popup editor of the Grid open after I update or insert a reco
                 { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
             editable: "popup",
             edit: function (e) {
-                var editWindow = this.editable.element.data("kendoWindow");
+                var editWindow = e.container.data("kendoWindow");
                // editWindow.unbind("close");
                 editWindow.bind("close", onWindowEditClose);
             },
@@ -110,7 +110,7 @@ How can I keep the popup editor of the Grid open after I update or insert a reco
         }
     };
 
-    $(".k-grid-cancel").on("mousedown", function (e) {
+    $(".k-grid-cancel-command").on("mousedown", function (e) {
         preventCloseOnSave = false;
     });
 </script>

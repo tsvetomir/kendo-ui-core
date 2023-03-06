@@ -1,8 +1,9 @@
-(function(f, define) {
-    define([ "./kendo.list", "./kendo.mobile.scroller", "./kendo.virtuallist", "./kendo.html.button" ], f);
-})(function() {
+import "./kendo.list.js";
+import "./kendo.mobile.scroller.js";
+import "./kendo.virtuallist.js";
+import "./kendo.html.button.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "combobox",
     name: "ComboBox",
     category: "web",
@@ -23,6 +24,7 @@ var __meta__ = { // jshint ignore:line
 
 (function($, undefined) {
     var kendo = window.kendo,
+        encode = kendo.htmlEncode,
         ui = kendo.ui,
         html = kendo.html,
         List = ui.List,
@@ -88,8 +90,6 @@ var __meta__ = { // jshint ignore:line
 
             that._oldIndex = that.selectedIndex = -1;
 
-            that._aria();
-
             that._initialIndex = options.index;
 
             that.requireValueMapper(that.options);
@@ -124,6 +124,12 @@ var __meta__ = { // jshint ignore:line
             kendo.notify(that);
             that._toggleCloseVisibility();
             that._applyCssClasses();
+
+            if (options.label) {
+                that._label();
+            }
+
+            that._aria();
         },
 
         options: {
@@ -146,19 +152,22 @@ var __meta__ = { // jshint ignore:line
             cascadeFrom: "",
             cascadeFromField: "",
             cascadeFromParentField: "",
+            cascadeOnCustomValue: false,
             ignoreCase: true,
             animation: {},
             virtual: false,
             template: null,
-            groupTemplate: "#:data#",
-            fixedGroupTemplate: "#:data#",
+            groupTemplate: (data) => encode(data),
+            fixedGroupTemplate: (data) => encode(data),
             clearButton: true,
             syncValueAndText: true,
             autoWidth: false,
             popup: null,
             size: "medium",
             fillMode: "solid",
-            rounded: "medium"
+            rounded: "medium",
+            label: null,
+            clearOnEscape: true
         },
 
         events: [
@@ -767,6 +776,7 @@ var __meta__ = { // jshint ignore:line
 
                     that._cascadeTriggered = true;
                     that._triggerCascade();
+                    that._refreshFloatingLabel();
                 }
 
                 that._prev = input.value;
@@ -829,6 +839,8 @@ var __meta__ = { // jshint ignore:line
                         that._state = STATE_ACCEPT;
                     }
                     that._toggleCloseVisibility();
+
+                    that._refreshFloatingLabel();
                 });
         },
 
@@ -947,7 +959,7 @@ var __meta__ = { // jshint ignore:line
 
             if (!input[0]) {
                 arrowBtn = html.renderButton('<button type="button" class="k-input-button" aria-label="expand combobox"></button>', {
-                    icon: "arrow-s",
+                    icon: "caret-alt-down",
                     size: options.size,
                     fillMode: options.fillMode,
                     shape: "none",
@@ -996,11 +1008,7 @@ var __meta__ = { // jshint ignore:line
                     "role": "button",
                     "tabIndex": -1
                 });
-            that._arrowIcon = that._arrow.find(".k-icon");
-
-            if (element.id) {
-                that._arrow.attr("aria-controls", that.ul[0].id);
-            }
+            that._arrowIcon = that._arrow.find(".k-icon, .k-svg-icon");
         },
 
         _clearButton: function() {
@@ -1074,7 +1082,7 @@ var __meta__ = { // jshint ignore:line
                 }
             } else if (key != keys.TAB && !that._move(e) && !isNonPrintableKey && !isFkey && !e.ctrlKey) {
                that._search();
-            } else if (key === keys.ESC && !that.popup.visible() && that.text()) {
+            } else if (that.options.clearOnEscape && key === keys.ESC && !that.popup.visible() && that.text()) {
                 that._clearValue();
             }
         },
@@ -1215,6 +1223,3 @@ var __meta__ = { // jshint ignore:line
     }]);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

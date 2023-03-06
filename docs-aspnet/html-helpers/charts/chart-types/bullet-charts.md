@@ -65,10 +65,46 @@ To configure the axes, use the `CategoryAxis` and `ValueAxis` settings. Multiple
         )
     )
 ```
+{% if site.core %}
+```TagHelper
+    @addTagHelper *, Kendo.Mvc
+    <kendo-chart name="chart">
+        <category-axis>
+            <category-axis-item>
+                <major-grid-lines visible="false"/>
+                <major-ticks visible="false"/>
+            </category-axis-item>
+        </category-axis>
+        <series>
+            <series-item type="ChartSeriesType.Bullet" data="new double[][] { new double[] { 750, 762.5 }}">
+            </series-item>
+        </series>
+        <value-axis>
+            <value-axis-item max="795" min="715" type="numeric">
+                <major-grid-lines visible="false"/>
+                <minor-ticks visible="true"/>
+                <plot-bands>
+                    <chart-value-axis-plot-band from="715" to="752" color="#ccc" opacity="0.6">
+                    </chart-value-axis-plot-band>
+                    <chart-value-axis-plot-band from="752" to="772" color="#ccc" opacity="0.3">
+                    </chart-value-axis-plot-band>
+                </plot-bands>
+            </value-axis-item>
+        </value-axis>
+        <chart-area>
+            <margin bottom="0" left="0" right="0" top="0"/>
+        </chart-area>
+        <chart-legend visible="false">
+        </chart-legend>
+        <tooltip shared="true" template="Maximum: #= value.target # <br /> Average: #= value.current #" visible="true">
+        </tooltip>
+    </kendo-chart>
+```
+{% endif %}
 
 The configuration from the previous example results in the following Bullet Chart.
 
-![A sample Bullet Chart](images/chart-bullet.png)
+![{{ site.product_short }} A sample Bullet Chart](images/chart-bullet.png)
 
 ## Customizing the Target Value Lines
 
@@ -92,8 +128,22 @@ The following example demonstrates how to use all three options to customize the
         );
     })
 ```
+{% if site.core %}
+```TagHelper
+	<series>
+	 	<series-item type="ChartSeriesType.Bullet" 
+            data="new double[][] { new double[] { 750, 762.5 }}"
+			color="darkblue">
+			    <target color="green">
+				    <border color="turquoise" width="2" />
+				    <line width="6"/>
+			    </target>
+	 	</series-item>
+	</series>
+```
+{% endif %}
 
-![A Bullet Chart with custom target line](images/chart-bullet-target.png)
+![{{ site.product_short }} A Bullet Chart with custom target line](images/chart-bullet-target.png)
 
 ## See Also
 

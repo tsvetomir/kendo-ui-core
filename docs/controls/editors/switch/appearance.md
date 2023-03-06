@@ -1,6 +1,6 @@
 ---
 title: Switch Appearance
-page_title: jQuery Switch Documentation | Switch Appearance
+page_title: jQuery Switch Documentation - Switch Appearance
 description: "Learn how to apply different styling options to the Switch widget."
 slug: appearance_kendoui_switch_widget
 position: 2
@@ -11,7 +11,7 @@ position: 2
 > As of Kendo UI R1 2022, the jQuery Switch widget has new rendering and styling options.
 In this article, you will find information about the rendering of the Kendo UI Switch.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the Switch](https://demos.telerik.com/kendo-ui/switch/appearance).
 
@@ -166,14 +166,51 @@ The full rendering of the component has the following HTML structure:
 </span>
 ```
 
+The following example showcases how to customize the styles of the **Switch** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input type="checkbox" id="switch" checked="checked" />
+
+    <script>
+      var switchInstance = $("#switch").kendoSwitch();
+    </script>
+     <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later */ 
+      .k-switch .k-switch-thumb{
+        border-color: blue !important;
+        background-color: pink !important;
+        border-width: 3px !important;
+      }    
+
+      .k-switch .k-switch-track{
+        border: 2px solid orange !important;
+      }    
+
+        /*  OLD RENDERING */
+        /*  The style below will works with versions prior to R1 2022 */ 
+      .k-switch .k-switch-handle{
+        border-color: green !important;
+        background-color: purple !important;
+      }
+
+      .k-switch .k-switch-container{
+        border: 2px solid green !important;
+      }
+    </style>
+```
+
+
+
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Styling Demo of the Switch](https://demos.telerik.com/kendo-ui/switch/styling)
 * [JavaScript API Reference of the Switch](/api/javascript/ui/switch)

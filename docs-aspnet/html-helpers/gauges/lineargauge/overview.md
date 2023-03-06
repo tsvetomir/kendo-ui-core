@@ -7,7 +7,7 @@ slug: overview_lineargaugehelper_aspnetcore
 position: 1
 ---
 
-# LinearGauge Overview
+# {{ site.framework }} LinearGauge Overview
 
 {% if site.core %}
 The Telerik UI LinearGauge TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI LinearGauge widget.
@@ -40,8 +40,15 @@ The following example demonstrates how to initialize the LinearGauge.
 ```
 {% if site.core %}
 ```TagHelper
-    <kendo-lineargauge name="gauge"></kendo-lineargauge>
+    <kendo-lineargauge name="gauge">
+        <scale min="0" max="200">
+        </scale>
+        <lineargauge-pointers>
+            <pointer value="10"></pointer>
+        </lineargauge-pointers>
+    </kendo-lineargauge>
 ```
+{% endif %}
 
 ## Basic Configuration
 
@@ -66,6 +73,7 @@ The LinearGauge configuration options are passed as attributes.
           )
     )
 ```
+{% if site.core %}
 ```TagHelper
     <kendo-lineargauge name="gauge">
         <lineargauge-pointers>

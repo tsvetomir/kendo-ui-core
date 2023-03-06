@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery TextArea Documentation | TextArea Overview
+page_title: jQuery TextArea Documentation - TextArea Overview
 description: "Get started with the jQuery TextArea by Kendo UI and learn how to create and initialize the widget."
 slug: overview_kendoui_textarea_widget
 position: 1
 ---
 
-# TextArea Overview
+# {{ site.product }} TextArea Overview
 
 The TextArea converts a `<textarea>` element into a styled textarea.
 

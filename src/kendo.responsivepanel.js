@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "responsive-panel",
     name: "Responsive Panel",
     category: "web",
@@ -40,28 +38,28 @@ var __meta__ = { // jshint ignore:line
             this._resizeHandler = this.resize.bind(this, true);
             $(window).on("resize" + NS, this._resizeHandler);
         },
-        _mediaQuery:
-            "@media (max-width: #= breakpoint-1 #px) {" +
-                ".#= guid #.k-rpanel-animate.k-rpanel-left," +
-                ".#= guid #.k-rpanel-animate.k-rpanel-right {" +
+        _mediaQuery: ({ breakpoint, guid, toggleButton }) =>
+            `@media (max-width: ${breakpoint - 1}px) {` +
+                `.${guid}.k-rpanel-animate.k-rpanel-left,` +
+                `.${guid}.k-rpanel-animate.k-rpanel-right {` +
                     "-webkit-transition: -webkit-transform .2s ease-out;" +
                     "-ms-transition: -ms-transform .2s ease-out;" +
                     "transition: transform .2s ease-out;" +
                 "} " +
-                ".#= guid #.k-rpanel-top {" +
+                `.${guid}.k-rpanel-top {` +
                     "overflow: hidden;" +
                 "}" +
-                ".#= guid #.k-rpanel-animate.k-rpanel-top {" +
+                `.${guid}.k-rpanel-animate.k-rpanel-top {` +
                     "-webkit-transition: max-height .2s linear;" +
                     "-ms-transition: max-height .2s linear;" +
                     "transition: max-height .2s linear;" +
                 "}" +
             "} " +
-            "@media (min-width: #= breakpoint #px) {" +
-                "#= toggleButton # { display: none; } " +
-                ".#= guid #.k-rpanel-left { float: left; } " +
-                ".#= guid #.k-rpanel-right { float: right; } " +
-                ".#= guid #.k-rpanel-left, .#= guid #.k-rpanel-right {" +
+            `@media (min-width: ${breakpoint}px) {` +
+                `${toggleButton} { display: none; } ` +
+                `.${guid}.k-rpanel-left { float: left; } ` +
+                `.${guid}.k-rpanel-right { float: right; } ` +
+                `.${guid}.k-rpanel-left, .${guid}.k-rpanel-right {` +
                     "position: relative;" +
                     "-webkit-transform: translateX(0);" +
                     "-ms-transform: translateX(0);" +
@@ -70,13 +68,13 @@ var __meta__ = { // jshint ignore:line
                     "-ms-transform: translateX(0) translateZ(0);" +
                     "transform: translateX(0) translateZ(0);" +
                 "} " +
-                ".k-ie9 .#= guid #.k-rpanel-left { left: 0; } " +
-                ".#= guid #.k-rpanel-top { max-height: none; }" +
+                `.k-ie9 .${guid}.k-rpanel-left { left: 0; } ` +
+                `.${guid}.k-rpanel-top { max-height: none; }` +
             "}",
         _registerBreakpoint: function() {
             var options = this.options;
 
-            this._registerStyle(kendo.template(this._mediaQuery)({
+            this._registerStyle(this._mediaQuery({
                 breakpoint: options.breakpoint,
                 toggleButton: options.toggleButton,
                 guid: this._guid
@@ -159,6 +157,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(ResponsivePanel);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

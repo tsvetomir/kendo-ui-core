@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* FlatColorPicker messages */
 
 if (kendo.ui.FlatColorPicker) {
@@ -701,7 +702,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Sắp xếp",
     "buttons": {
-     "justtifyLeft": "Canh trái",
+     "justifyLeft": "Canh trái",
      "justifyCenter": "Canh giữa",
      "justifyRight": "Canh phải",
      "justifyFull": "Canh đều hai bên",
@@ -891,7 +892,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Thêm cột phía dưới",
   "alignment": "Canh chỉnh",
   "alignmentButtons": {
-    "justtifyLeft": "Canh trái",
+    "justifyLeft": "Canh trái",
     "justifyCenter": "Canh giữa",
     "justifyRight": "Canh phải",
     "justifyFull": "Canh đều hai bên",

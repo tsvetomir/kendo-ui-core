@@ -1,13 +1,15 @@
-(function(f, define) {
-    define([ "./kendo.list", "./kendo.mobile.scroller", "./kendo.virtuallist", "./kendo.html.button" ], f);
-})(function() {
+import "./kendo.list.js";
+import "./kendo.mobile.scroller.js";
+import "./kendo.virtuallist.js";
+import "./kendo.html.button.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "dropdownlist",
     name: "DropDownList",
     category: "web",
     description: "The DropDownList widget displays a list of values and allows the selection of a single value from the list.",
-    depends: [ "list", "html.button" ],
+    depends: [ "list", "html.button", "icons" ],
     features: [ {
         id: "mobile-scroller",
         name: "Mobile scroller",
@@ -23,6 +25,7 @@ var __meta__ = { // jshint ignore:line
 
 (function($, undefined) {
     var kendo = window.kendo,
+        encode = kendo.htmlEncode,
         ui = kendo.ui,
         html = kendo.html,
         List = ui.List,
@@ -91,6 +94,10 @@ var __meta__ = { // jshint ignore:line
             that._ignoreCase();
 
             that._filterHeader();
+
+            if (options.label) {
+                this._label();
+            }
 
             that._aria();
 
@@ -171,14 +178,15 @@ var __meta__ = { // jshint ignore:line
             template: null,
             valueTemplate: null,
             optionLabelTemplate: null,
-            groupTemplate: "#:data#",
-            fixedGroupTemplate: "#:data#",
+            groupTemplate: (data) => encode(data),
+            fixedGroupTemplate: (data) => encode(data),
             autoWidth: false,
             popup: null,
             filterTitle: null,
             size: "medium",
             fillMode: "solid",
-            rounded: "medium"
+            rounded: "medium",
+            label: null
         },
 
         events: [
@@ -301,7 +309,7 @@ var __meta__ = { // jshint ignore:line
             this._prevent = true;
 
             filterInput.addClass("k-hidden");
-            filterInput.closest(".k-list-filter").css("width", this.popup.element.css("width"));
+            filterInput.closest(".k-list-filter").css("width", this.popup.element.width());
             filterInput.removeClass("k-hidden");
 
             if (isInputActive) {
@@ -397,6 +405,7 @@ var __meta__ = { // jshint ignore:line
                     return data === loweredText;
                 }).done(function() {
                     that._textAccessor(that.dataItem() || text);
+                    that._refreshFloatingLabel();
                 });
 
             } else {
@@ -448,6 +457,7 @@ var __meta__ = { // jshint ignore:line
             listView.value(value).done(function() {
                 that._old = that._valueBeforeCascade = that._accessor();
                 that._oldIndex = that.selectedIndex;
+                that._refreshFloatingLabel();
             });
         },
 
@@ -468,15 +478,9 @@ var __meta__ = { // jshint ignore:line
             }
 
             if (!template) {
-                template = "#:";
-
-                if (typeof optionLabel === "string") {
-                    template += "data";
-                } else {
-                    template += kendo.expr(options.dataTextField, "data");
-                }
-
-                template += "#";
+                template = (data) => (typeof optionLabel === "string" ?
+                    encode(data) :
+                    encode(kendo.getter(options.dataTextField)(data)));
             }
 
             if (typeof template !== "function") {
@@ -887,8 +891,12 @@ var __meta__ = { // jshint ignore:line
             that._search();
         },
 
-        _popupOpen: function() {
+        _popupOpen: function(e) {
             var popup = this.popup;
+
+            if (e.isDefaultPrevented()) {
+                return;
+            }
 
             popup.wrapper = kendo.wrap(popup.element);
 
@@ -1222,7 +1230,7 @@ var __meta__ = { // jshint ignore:line
         _filterHeader: function() {
             var filterTemplate = '<div class="k-list-filter">' +
                 '<span class="k-searchbox k-input k-input-md k-rounded-md k-input-solid" type="text" autocomplete="off">' +
-                    '<span class="k-input-icon k-icon k-i-search"></span>' +
+                    kendo.ui.icon({ icon: "search", iconClass: "k-input-icon" }) +
                 '</span>' +
             '</div>';
 
@@ -1265,8 +1273,8 @@ var __meta__ = { // jshint ignore:line
             span = wrapper.find(SELECTOR);
 
             if (!span[0]) {
-                arrowBtn = html.renderButton('<button type="button" tabindex="-1" unselectable="on" class="k-input-button" aria-label="select"></button>', {
-                    icon: "arrow-s",
+                arrowBtn = html.renderButton('<span role="button" class="k-input-button" aria-label="select"></span>', {
+                    icon: "caret-alt-down",
                     size: options.size,
                     fillMode: options.fillMode,
                     shape: "none",
@@ -1284,7 +1292,7 @@ var __meta__ = { // jshint ignore:line
 
             that.span = span;
             that._arrow = wrapper.find(".k-input-button");
-            that._arrowIcon = that._arrow.find(".k-icon");
+            that._arrowIcon = that._arrow.find(".k-icon,.k-svg-icon");
         },
 
         _wrapper: function() {
@@ -1310,7 +1318,6 @@ var __meta__ = { // jshint ignore:line
                     accesskey: element.attr("accesskey"),
                     unselectable: "on",
                     role: "combobox",
-                    "aria-haspopup": "listbox",
                     "aria-expanded": false
                 });
 
@@ -1347,7 +1354,7 @@ var __meta__ = { // jshint ignore:line
 
 
             if (!template) {
-                template = kendo.template('#:this._text(data)#', { useWithBlock: false }).bind(that);
+                template = (data) => encode(that._text(data));
             } else {
                 template = kendo.template(template);
             }
@@ -1489,6 +1496,3 @@ var __meta__ = { // jshint ignore:line
     }]);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

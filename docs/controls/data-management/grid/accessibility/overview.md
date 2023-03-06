@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: jQuery Grid Documentation | Grid Accessibility
+page_title: jQuery Grid Documentation - Grid Accessibility
 description: "Get started with the jQuery Grid by Kendo UI and learn about its accessibility support for WAI-ARIA, Section 508, and WCAG 2.1."
 slug: accessibility_kendoui_grid_widget
 position: 1
@@ -32,7 +32,7 @@ For more information, refer to:
 
 ## Hierarchical Grid
 
-Customization of the text in the column header for the expand or collapse columns in Hierarchical Grids can be made via the [messages.expandCollapseColumnHeader property](/api/javascript/dataviz/ui/chart#configuration-series.spacing). This sets the value to make the widget compliant with the web accessibility standards.
+Customization of the text in the column header for the expand or collapse columns in Hierarchical Grids can be made via the [messages.expandCollapseColumnHeader property](/api/javascript/dataviz/ui/chart#configuration-series.spacing). This sets the value to make the component compliant with the web accessibility standards.
 
 ## Scrollable Grid
 

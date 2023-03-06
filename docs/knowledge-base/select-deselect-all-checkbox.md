@@ -1,7 +1,7 @@
 ---
 title: Select or Deselect All Rows with Select All Header Checkbox
-page_title: Select or Deselect All Checkboxes | Kendo UI Grid for jQuery
-description: "An example on how to select or deselect all rows in the Kendo UI Grid for jQuery with a Select All header checkbox."
+page_title: Select or Deselect All Checkboxes - Kendo UI for jQuery Data Grid
+description: "Learn how to select or deselect all rows in the Kendo UI Grid for jQuery with a Select All header checkbox."
 previous_url: /controls/data-management/grid/how-to/Selection/select-deselect-all-checkbox
 slug: howto_select_deselect_all_rowswith_checkboxes_grid
 tags: select, deselect, all, grid, rows, with, selectall, header, checkbox
@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -159,11 +159,11 @@ You can also select multiple rows by using the checkboxes and applying custom st
             var checked = ev.target.checked;
             $('.row-checkbox').each(function (idx, item) {
                 if (checked) {
-                    if (!($(item).closest('tr').is('.k-state-selected'))) {
+                    if (!($(item).closest('tr').is('.k-selected'))) {
                         $(item).click();
                     }
                 } else {
-                    if ($(item).closest('tr').is('.k-state-selected')) {
+                    if ($(item).closest('tr').is('.k-selected')) {
                         $(item).click();
                     }
                 }
@@ -195,12 +195,12 @@ You can also select multiple rows by using the checkboxes and applying custom st
 
         if (checked) {
             //-select the row
-            row.addClass("k-state-selected");
+            row.addClass("k-selected");
 
             var checkHeader = true;
 
             $.each(grid.items(), function (index, item) {
-                if (!($(item).hasClass("k-state-selected"))) {
+                if (!($(item).hasClass("k-selected"))) {
                     checkHeader = false;
                 }
             });
@@ -208,7 +208,7 @@ You can also select multiple rows by using the checkboxes and applying custom st
             $("#header-chb")[0].checked = checkHeader;
         } else {
             //-remove selection
-            row.removeClass("k-state-selected");
+            row.removeClass("k-selected");
             $("#header-chb")[0].checked = false;
         }
     }
@@ -219,7 +219,7 @@ You can also select multiple rows by using the checkboxes and applying custom st
         for (var i = 0; i < view.length; i++) {
             if (checkedIds[view[i].id]) {
                 this.tbody.find("tr[data-uid='" + view[i].uid + "']")
-                    .addClass("k-state-selected")
+                    .addClass("k-selected")
                     .find(".k-checkbox")
                     .attr("checked", "checked");
             }
@@ -231,4 +231,4 @@ You can also select multiple rows by using the checkboxes and applying custom st
 
 ## See Also
 
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

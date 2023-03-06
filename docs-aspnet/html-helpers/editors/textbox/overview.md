@@ -1,12 +1,12 @@
 ---
 title: Overview
 page_title: Overview
-description: "Learn the basics when working with the Telerik UI TextBox for {{ site.framework }}."
+description: "The Telerik UI TextBox component for {{ site.framework }} enables user input and its appearance matches the general Telerik theme of the page."
 slug: htmlhelpers_overview_textbox
-position: 1
+position: 0
 ---
 
-# TextBox Overview
+# {{ site.framework }} TextBox Overview
 
 {% if site.core %}
 The Telerik UI TextBox TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI TextBox widget.
@@ -41,56 +41,22 @@ The following example demonstrates the basic configuration for the TextBox.
 
 ## Functionality and Features
 
-* [Accessibility]({% slug accessibility_textbox_aspnetcore %})
+* [Appearance]({% slug textbox_appearance %})—The TextBox comes with built-in styling options that allow you to customize the appearance of the component.
+* [Labels]({% slug htmlhelpers_labels_textbox %})—You can associate the TextBox with a label.
+* [Accessibility]({% slug accessibility_textbox_aspnetcore %})—The TextBox is accessible by screen readers and provides WAI-ARIA, Section 508, WCAG 2.1, and keyboard support.
+* [RTL support]({% slug rtl_textbox_aspnetcore %})—You can use the Right-to-left (RTL) support of the TextBox to render its content for right-to-left languages, such as Arabic, Hebrew, Chinese, or Japanese.
+* [Events]({% slug events_textbox_aspnetcore %})—The TextBox emits multiple events that you can handle and control the behavior of the component.
 
-## Events
+## Next Steps
 
-You can subscribe to the TextBox events. For a complete example on basic TextBox events, refer to the [demo on using the events of the TextBox](https://demos.telerik.com/{{ site.platform }}/textbox/events).
-
-The following example demonstrates how to subscribe to events by a handler name.
-
-```HtmlHelper
-  @(Html.Kendo().TextBox()
-        .Name("textbox")
-        .Events(e => e
-            .Change("textbox_change")
-        )
-  )
-```
-{% if site.core %}
-```TagHelper
-<kendo-textbox name="textbox"
-               on-change="textbox_change">
-</kendo-textbox>
-```
-{% endif %}
-```script.js
-  <script>
-  function textbox_change() {
-      // Handle the change event.
-  }
-  </script>
-```
-
-## Referencing Existing Instances
-
-To reference an existing Telerik UI TextBox instance, use the [`jQuery.data()`](https://api.jquery.com/jQuery.data/) method. Once a reference is established, use the [TextBox client-side API](https://docs.telerik.com/kendo-ui/api/javascript/ui/textbox#methods) to control its behavior.
-
-The following example demonstrates how to access an existing TextBox instance.
-
-      // Place the following after your Telerik UI TextBox for {{ site.framework }} declaration.
-      <script>
-      $(function() {
-          // The Name() of the TextBox is used to get its client-side instance.
-          var textbox = $("#textbox").data("kendoTextBox");
-      });
-      </script>
-
-## See Also
-
+* [Getting Started with the TextBox]({% slug aspnetcore_textbox_getting_started %})
 * [Basic Usage of the TextBox HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/textbox/index)
 {% if site.core %}
 * [Basic Usage of the TextBox TagHelper for ASP.NET Core (Demo)](https://demos.telerik.com/aspnet-core/textbox/tag-helper)
 {% endif %}
-* [Using the API of the TextBox HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/textbox/api)
-* [Server-Side API](/api/textbox)
+
+
+## See Also
+
+* [Using the API of the TextBox for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/textbox/api)
+* [Knowledge Base Section](/knowledge-base)

@@ -1,10 +1,10 @@
 ---
-title: Add Time to the End Date of a Recurring Event in the Scheduler 
-page_title: Add Time to the End Date of a Recurring Event in the Scheduler
-description: "Add the time to the end date of a recurrent event in a Kendo UI for jQuery Scheduler."
+title: Add Time to the End Date of a Recurring Event in the Scheduler
+page_title: Add Time to the End Date of a Recurring Event - jQuery Scheduler
+description: "Add more time to the end date of a recurrent event in a Kendo UI for jQuery Scheduler."
 previous_url: /controls/scheduling/scheduler/how-to/add-time-to-the-end-date-in-recurrence-editor, /controls/scheduling/scheduler/how-to/editing/add-time-to-the-end-date-in-recurrence-editor
 slug: howto_add_time_to_the_end_date_of_a_recurring_event_scheduler
-tags: telerik, kendo, jquery, scheduler, add, time, to, the, end, date, of, recurring, events 
+tags: telerik, kendo, jquery, scheduler, add, time, to, the, end, date, of, recurring, events
 component: scheduler
 type: how-to
 res_type: kb
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -51,8 +51,8 @@ The following example demonstrates how to achieve the desired scenario.
 <script>
 $(function() {
     $("#scheduler").kendoScheduler({
-        date: new Date("2013/6/13"),
-        startTime: new Date("2013/6/13 07:00 AM"),
+        date: new Date("2022/6/13"),
+        startTime: new Date("2022/6/13 07:00 AM"),
         height: 600,
         views: [
             "day",
@@ -132,7 +132,7 @@ $(function() {
           								  .data("kendoRecurrenceEditor");
 
           var updateUntilPicker = function() {
-            // Modify the private variables at your own risk. 
+            // Modify the private variables at your own risk.
 
             recurrenceEditor._until.setOptions({
               format: "MM/dd/yyyy hh:mm tt"
@@ -205,3 +205,4 @@ $(function() {
 * [Basic Usage of the Scheduler (Demo)](https://demos.telerik.com/kendo-ui/scheduler/index)
 * [Using the API of the Scheduler (Demo)](https://demos.telerik.com/kendo-ui/scheduler/api)
 * [JavaScript API Reference of the Scheduler](/api/javascript/ui/scheduler)
+* [Product Page of the jQuery Scheduler](https://www.telerik.com/kendo-jquery-ui/scheduler)

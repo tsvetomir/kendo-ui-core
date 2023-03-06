@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* Filter menu operator messages */
 
 if (kendo.ui.FilterCell) {
@@ -221,7 +222,7 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "overwriteFile": "Dizinde \"{0}\" isimli bir dosya zaten mevcut. Üzerine yazmak istiyor musunuz?",
   "search": "Arama",
   "strikethrough": "Üstü çizili",
-  "styles": "Stiller",
+  "style": "Stiller",
   "subscript": "İndis",
   "superscript": "Üstyazı",
   "underline": "Altını çiz",
@@ -229,6 +230,28 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "uploadFile": "Yükle",
   "viewHtml": "HTML Görünümü ",
   "insertFile": "Dosya Ekle"
+});
+}
+
+/* TreeList messages */
+
+if (kendo.ui.TreeList) {
+kendo.ui.TreeList.prototype.options.messages =
+$.extend(true, kendo.ui.TreeList.prototype.options.messages,{
+  "noRows": "No records to display",
+  "loading": "Loading...",
+  "requestFailed": "Request failed.",
+  "retry": "Tekrar Dene",
+  "commands": {
+      "edit": "Düzenle",
+      "update": "Güncelle",
+      "canceledit": "Cancel",
+      "create": "Yeni Kayıt Ekle",
+      "createchild": "Add child record",
+      "destroy": "Sil",
+      "excel": "Excel'e aktar",
+      "pdf": "PDF'e aktar"
+  }
 });
 }
 
@@ -362,6 +385,7 @@ kendo.ui.Scheduler.prototype.options.messages =
 $.extend(true, kendo.ui.Scheduler.prototype.options.messages,{
   "allDay": "Tüm gün",
   "cancel": "İptal Et",
+  "search": "Arama...",
   "editable": {
     "confirmation": "Bu etkinliği silmek istediğinizden emin misiniz?"
   },
@@ -462,7 +486,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "hizalama",
     "buttons": {
-      "justtifyLeft": "Sola hizalamak",
+      "justifyLeft": "Sola hizalamak",
       "justifyCenter": "merkez",
       "justifyRight": "Sağa hizala",
       "justifyFull": "Savunmak",
@@ -652,7 +676,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Aşağıya satır ekle",
   "alignment": "hizalama",
   "alignmentButtons": {
-    "justtifyLeft": "Sola hizalamak",
+    "justifyLeft": "Sola hizalamak",
     "justifyCenter": "merkez",
     "justifyRight": "Sağa hizala",
     "justifyFull": "Savunmak",

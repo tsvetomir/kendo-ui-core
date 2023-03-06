@@ -1,10 +1,10 @@
 (function() {
     var Selectable = kendo.ui.Selectable,
         ul,
-        SELECTED = "k-state-selected",
-        ACTIVE = "k-state-selecting",
+        SELECTED = "k-selected",
+        ACTIVE = "k-selecting",
         SELECTABLE = "k-selectable",
-        UNSELECTING = "k-state-unselecting";
+        UNSELECTING = "k-unselecting";
 
     describe("kendo.ui.Selectable", function() {
         beforeEach(function() {
@@ -512,7 +512,7 @@
             assert.isOk(true);
         });
 
-        it("set values to select through value method triggers change event", function() {
+        it("set values to select through value method does not trigger change event", function() {
             var selectable = new Selectable(ul, { multiple: true }),
                 selectees = $(ul.find(">li")),
                 changeWasFired = false;
@@ -522,7 +522,7 @@
             });
             selectable.value(selectees);
 
-            assert.isOk(changeWasFired);
+            assert.isNotOk(changeWasFired);
         });
 
         it("selectRange with shift key pressed triggers select event", function() {
@@ -537,10 +537,10 @@
             selectable.selectRange(start, end);
 
             assert.equal(selectable.value().length, 2);
-            assert.isOk(selectWasFired);
+            assert.isNotOk(selectWasFired);
         });
 
-        it("selectRange with shift key pressed triggers change event", function() {
+        it("selectRange method does not trigger change event", function() {
             var selectable = new Selectable(ul, { multiple: true }),
                 start = $(ul.find(">li")[1]),
                 end = $(ul.find(">li")[0]),
@@ -552,7 +552,7 @@
             selectable.selectRange(start, end);
 
             assert.equal(selectable.value().length, 2);
-            assert.isOk(changeWasFired);
+            assert.isNotOk(changeWasFired);
         });
 
         it("select element adds aria attribute", function() {

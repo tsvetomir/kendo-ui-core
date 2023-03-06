@@ -1,8 +1,7 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.userevents" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.userevents.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "selectable",
     name: "Selectable",
     category: "framework",
@@ -15,14 +14,16 @@ var __meta__ = { // jshint ignore:line
         Widget = kendo.ui.Widget,
         abs = Math.abs,
         ARIASELECTED = "aria-selected",
-        SELECTED = "k-state-selected",
-        ACTIVE = "k-state-selecting",
+        SELECTED = "k-selected",
+        ACTIVE = "k-selecting",
         SELECTABLE = "k-selectable",
         CHANGE = "change",
         NS = ".kendoSelectable",
         UNSELECT = "unselect",
-        UNSELECTING = "k-state-unselecting",
-        INPUTSELECTOR = "input,a,textarea,.k-multiselect-wrap,select,button,.k-button>span,.k-button>img,span.k-icon.k-i-arrow-60-down,span.k-icon.k-i-arrow-60-up,label.k-checkbox-label.k-no-text,.k-icon.k-i-collapse,.k-icon.k-i-expand,span.k-numeric-wrap,.k-focusable",
+        UNSELECTING = "k-unselecting",
+        INPUTSELECTOR_ICONSSELECTOR_FONT = "span.k-icon.k-i-caret-alt-down,span.k-icon.k-i-caret-alt-up,.k-icon.k-i-caret-alt-down,.k-icon.k-i-caret-alt-right",
+        INPUTSELECTOR_ICONSSELECTOR_SVG = INPUTSELECTOR_ICONSSELECTOR_FONT.replaceAll('k-i', 'k-svg-i'),
+        INPUTSELECTOR = `input,a,textarea,.k-multiselect-wrap,select,button,${INPUTSELECTOR_ICONSSELECTOR_FONT},${INPUTSELECTOR_ICONSSELECTOR_SVG},.k-button>span,.k-button>img,label.k-checkbox-label.k-no-text,span.k-numeric-wrap,.k-focusable`,
         msie = kendo.support.browser.msie,
         supportEventDelegation = false,
         extend = $.extend;
@@ -127,23 +128,41 @@ var __meta__ = { // jshint ignore:line
             }
 
             selected = target.hasClass(selectedClass);
-            if (!multiple || !ctrlKey) {
-                that.clear();
-            }
 
             target = target.add(that.relatedTarget(target));
 
-            if (shiftKey) {
-                that.selectRange(that._firstSelectee(), target, e);
-            } else {
+            if (!multiple) {
                 if (selected && ctrlKey) {
                     that._unselect(target);
                     that._notify(CHANGE, e);
-                } else {
+                } else if (!selected) {
+                    that.clear();
                     that.value(target, e);
+                    that._notify(CHANGE, e);
                 }
+            } else {
+                if (shiftKey) {
+                    if (!that._lastRange || !compareElements(that._lastRange, target)) {
+                        that.selectRange(that._firstSelectee(), target, e);
+                        that._notify(CHANGE, e);
+                    }
+                    that._lastRange = target;
+                } else {
+                    that._lastRange = null;
+                    if (selected && ctrlKey) {
+                        that._unselect(target);
+                        that._notify(CHANGE, e);
+                    } else if (ctrlKey) {
+                        that.value(target, e);
+                        that._notify(CHANGE, e);
+                    } else if (!selected || that.value().length > 1) {
+                        that.clear();
+                        that.value(target, e);
+                        that._notify(CHANGE, e);
+                    }
 
-                that._lastActive = that._downTarget = target;
+                    that._lastActive = that._downTarget = target;
+                }
             }
         },
 
@@ -235,7 +254,11 @@ var __meta__ = { // jshint ignore:line
                 }
             }
 
-            that.value(target, e);
+            if (!that._lastRange || !compareElements(that._lastRange, target)) {
+                that.value(target, e);
+                that._notify(CHANGE, e);
+            }
+            that._lastRange = target;
             that._lastActive = that._downTarget;
             that._items = null;
         },
@@ -304,7 +327,7 @@ var __meta__ = { // jshint ignore:line
             return collision;
         },
 
-        value: function(val, e) {
+        value: function(val) {
             var that = this,
                 selectElement = that._selectElement.bind(that);
 
@@ -313,7 +336,6 @@ var __meta__ = { // jshint ignore:line
                     selectElement(this);
                 });
 
-                that._notify(CHANGE, e);
                 return;
             }
 
@@ -425,7 +447,7 @@ var __meta__ = { // jshint ignore:line
             this._unselect(items);
         },
 
-        selectRange: function(start, end, e) {
+        selectRange: function(start, end) {
             var that = this,
                 idx,
                 tmp,
@@ -455,10 +477,8 @@ var __meta__ = { // jshint ignore:line
             }
 
             for (idx = start; idx <= end; idx ++ ) {
-                that._selectElement(items[idx]);
+                that._selectElement(items[idx], true);
             }
-
-            that._notify(CHANGE, e);
         },
 
         destroy: function() {
@@ -482,6 +502,21 @@ var __meta__ = { // jshint ignore:line
             cell: asLowerString && asLowerString.indexOf("cell") > -1
         };
     };
+
+    function compareElements(element, toCompare) {
+
+        if (element.length !== toCompare.length) {
+            return false;
+        }
+
+        for (var i = 0; i < element.length; i++) {
+            if (element[i] !== toCompare[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     function collision(element, position) {
         if (!element.is(":visible")) {
@@ -512,6 +547,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

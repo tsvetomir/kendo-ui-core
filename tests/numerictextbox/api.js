@@ -121,6 +121,21 @@
             assert.equal(textbox.value(), null);
         });
 
+        it("value method should refresh the floating label", function() {
+            var textbox = new NumericTextBox(input, {
+                value: 12.34,
+                format: "n0",
+                label: {
+                    content: "Set age",
+                    floating: true
+                }
+            }), value = "24";
+
+            textbox.value(value);
+
+            assert.isOk(!textbox.floatingLabel.element.hasClass("k-empty"));
+        });
+
         it("formatted value should be set to _text", function() {
             var textbox = new NumericTextBox(input), value = "12.347";
 
@@ -552,6 +567,19 @@
             assert.equal(textbox.wrapper.hasClass("k-expand-padding"), false);
         });
 
+        it("Spinners work after setOptions call", function() {
+            var textbox = new NumericTextBox(input, {
+                value: 5
+            });
+            textbox.setOptions({
+                value: 10
+            });
+
+            textbox._upArrowEventHandler.notify("press");
+
+            assert.equal(textbox.value(), 11);
+        });
+
         it("NumericTextBox setOptons correctly sets spinners size", function() {
             var textbox = new NumericTextBox(input, {
                 spinners: true
@@ -595,6 +623,14 @@
             textbox.value(15);
 
             assert.equal(textbox._oldText, "15");
+        });
+
+        it("setOptions modifies label", function() {
+            var textbox = new NumericTextBox(input);
+
+            textbox.setOptions({ label: "123" });
+
+            assert.equal(textbox.wrapper.prev().text(), "123");
         });
     });
 }());

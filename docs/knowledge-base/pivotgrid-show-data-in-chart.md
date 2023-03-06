@@ -2,7 +2,7 @@
 title: Show PivotGrid Data in a Chart
 description: "An example demonstrating how to render a Kendo UI Chart using the data of the PivotGrid."
 type: how-to
-page_title: Show PivotGrid Data in a Chart | Kendo UI Grid for jQuery
+page_title: Show PivotGrid Data in a Chart - Kendo UI for jQuery Data Grid
 slug: pivotgrid-show-resize-data-in-chart
 tags: pivotgrid, chart, data, bar, column
 ticketid: 1359517
@@ -14,10 +14,10 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI PivotGrid</td>
+  <td>Progress® Kendo UI® PivotGrid for jQuery</td>
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with the 2021.3.1109 version</td>
  </tr>
 </table>

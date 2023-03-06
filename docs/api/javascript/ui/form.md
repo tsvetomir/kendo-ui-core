@@ -187,7 +187,7 @@ Defines the editor widget type. Available options are:
 
 * DropDown widgets - "AutoComplete", "DropDownList", "ComboBox", "MultiSelect", "DropDownTree", "MultiColumnComboBox"
 * DatePicker widgets - "DateInput", "DatePicker", "DateTimePicker", "TimePicker"
-* Input widgets - "TextBox", "TextArea", "NumericTextBox", "MaskedTextBox", "RadioGroup", "CheckBoxGroup", "Switch", "Rating", "Slider", "ColorPicker", "hidden"
+* Input widgets - "TextBox", "TextArea", "NumericTextBox", "MaskedTextBox", "RadioGroup", "CheckBoxGroup", "Switch", "Rating", "Slider", "ColorPicker", "ColorGradient", "ColorPalette", "FlatColorPicker", "Signature", "hidden"
 * Editor widget - "Editor"
 
 #### Example - define editor as string
@@ -1129,9 +1129,53 @@ Grid layout settings.
 
 Defines the columns of the grid.
 
-### grid.gutter `Number|String`
+### grid.gutter `Number|String|Object`
 
 Defines the width of the gutters between the columns / rows.
+
+### grid.gutter.rows `Number|String`
+
+Defines the width of the gutters between the rows.
+
+### grid.gutter.cols `Number|String`
+
+Defines the width of the gutters between the columns.
+
+### size `String`*(default: "medium")*
+
+Sets a value controlling size of the component. Can also be set to the following string values:
+
+- "small"
+- "medium"
+- "large"
+- "none"
+
+#### Example - sets a size
+
+    <form id="myForm"></form>
+
+    <script>
+        $("#myForm").kendoForm({
+            size: "large",
+            validatable: {
+                errorTemplate: "<span>#=message#</span>"
+            },
+            formData: {
+                ID: 1,
+                Name: "Ivan",
+                Address: "Sofia"
+            },
+            items: [{
+                field: "Name",
+                label: "Name:",
+                validation: { required: true }
+            }, {
+                field: "Address",
+                label: "Address:",
+                validation: { required: true }
+            }]
+        });
+    </script>
 
 ## Methods
 

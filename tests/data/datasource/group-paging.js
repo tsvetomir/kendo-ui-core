@@ -164,6 +164,7 @@
                             return total;
                         },
                         model: {
+                            id: "OrderID",
                             fields: {
                                 OrderID: {
                                     type: "number"
@@ -1994,6 +1995,22 @@
             assert.equal(dataSourceStub.calls("_expandedSubGroupItemsCount"), 1);
         });
 
+        it("data items with default id and marked as non-fetched are not marked as new", function() {
+            var dataSource = remoteDataSource(null, {
+                total: 100,
+                serverPaging: false,
+                group: {
+                    field: 'ShipAddress'
+                },
+                groupPaging: true
+            });
+            dataSource.read();
+            var group = dataSource._ranges[0].data[0];
+            group.items[0].notFetched = true;
+
+            assert.isNotOk(dataSource.created().length);
+        });
+
         it("_expandedSubGroupItemsCount returns the correct count of expanded subgroups", function() {
             var dataSource = remoteDataSource(null, {
                 total: 100,
@@ -2145,6 +2162,78 @@
             assert.isNotOk(view[0].aggregates);
             assert.isNotOk(dataSource._ranges.length);
 
+        });
+
+        it("_containsSubGroup should remove the current index when the searched group is not contained", function() {
+            var group = new kendo.data.ObservableObject({
+                field: "foo",
+                value: "boo",
+                hasSubgroups: true,
+                subgroupCount: 1,
+                items: [
+                    {
+                        field: "boo",
+                        value: "foo",
+                        hasSubgroups: true,
+                        subgroupCount: 1,
+                        items: [
+                            {
+                                field: "moo",
+                                value: "voo",
+                                hasSubgroups: true,
+                                items: [
+                                    {
+                                        field: "qoo",
+                                        value: "too",
+                                        hasSubgroups: true,
+                                        items: [
+                                            { name: 'foo' }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        field: "boo",
+                        value: "foo",
+                        hasSubgroups: true,
+                        subgroupCount: 1,
+                        items: [
+                            {
+                                field: "moo",
+                                value: "voo",
+                                hasSubgroups: false,
+                                items: [
+                                    { name: 'foo' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        field: "boo",
+                        value: "foo",
+                        hasSubgroups: true,
+                        subgroupCount: 1,
+                        items: [
+                            {
+                                field: "moo",
+                                value: "voo",
+                                hasSubgroups: false,
+                                items: [
+                                    { name: 'foo' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            });
+
+            var subroup = new kendo.data.ObservableObject({ foo: "moo" });
+            var indexes = [];
+            DataSource.fn._containsSubGroup(group, subroup, indexes);
+
+            assert.equal(indexes.length, 0);
         });
     });
 }());

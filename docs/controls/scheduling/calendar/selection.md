@@ -1,6 +1,6 @@
 ---
 title: Selection
-page_title: jQuery Calendar Documentation | Selection
+page_title: jQuery Calendar Documentation - Selection
 description: "Get started with the jQuery Calendar by Kendo UI and implement single, multiple, range-date, and week selections."
 slug: selection_kendoui_calendar
 position: 7
@@ -37,7 +37,7 @@ To perform the multiple date selection, the user can also use the keyboard:
 
 The following image demonstrates a Calendar with selected multiple dates.
 
-![A Calendar with multiple dates selected](calendar1_1.png)
+![Kendo UI for jQuery Calendar with Multiple Dates Selected](calendar-multiple-date-selection.png)
 
 ## Range Date Selection
 
@@ -50,7 +50,7 @@ The usage of the `Shift` key allows the user to select a range of dates in the s
 
 The following image demonstrates a Calendar with enabled date-range selection.  
 
-![A Calendar with range selection](calendar1_2.png)
+![Kendo UI for jQuery Calendar with Range Selection](calendar-range-selection.png)
 
 ## Week Selection
 
@@ -58,7 +58,7 @@ When the user clicks a specific week number, the Calendar selects the entire wee
 
 The following image demonstrates a Calendar with enabled week selection.
 
-![A Calendar with week selection](calendar1_3.png)
+![Kendo UI for jQuery Calendar with Week Selection](calendar-week-selection.png)
 
 ## See Also
 

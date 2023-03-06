@@ -1,8 +1,7 @@
-(function(f, define) {
-    define([ "./kendo.mobile.popover", "./kendo.mobile.shim" ], f);
-})(function() {
+import "./kendo.mobile.popover.js";
+import "./kendo.mobile.shim.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.actionsheet",
     name: "ActionSheet",
     category: "mobile",
@@ -23,7 +22,7 @@ var __meta__ = { // jshint ignore:line
         BUTTONS = "li>a",
         CONTEXT_DATA = "actionsheetContext",
         WRAP = '<div class="km-actionsheet-wrapper"></div>',
-        cancelTemplate = kendo.template('<li class="km-actionsheet-cancel"><a href="\\#">#:cancel#</a></li>');
+        cancelTemplate = kendo.template(({ cancel }) => `<li class="km-actionsheet-cancel"><a href="#">${kendo.htmlEncode(cancel)}</a></li>`);
 
     var ActionSheet = Widget.extend({
         init: function(element, options) {
@@ -164,6 +163,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(ActionSheet);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

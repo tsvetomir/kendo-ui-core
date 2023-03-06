@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Scheduler Documentation | Scheduler Overview
+page_title: jQuery Scheduler Documentation - Scheduler Overview
 description: "Get started with the jQuery Scheduler by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_scheduler_widget
 position: 1
 ---
 
-# Scheduler Overview
+# {{ site.product }} Scheduler Overview
 
 The Scheduler displays a set of events, appointments, or tasks.
 

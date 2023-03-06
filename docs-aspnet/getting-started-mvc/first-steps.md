@@ -8,15 +8,15 @@ position: 1
 permalink: /getting-started/first-steps
 ---
 
-# Starting with a Project Template
+# Starting in {{ site.product }} with a Project Template
 
 Welcome to the Getting Started with Progress<sup>®</sup> Telerik<sup>®</sup> UI for ASP.NET MVC in Visual Studio tutorial!
 
 The fastest way to start with Telerik UI is with a project template, but you can also manually [add the Telerik controls to an existing application]({% slug manualsetup_aspnetmvc%}). 
 
-This tutorial guides you through implementing the Telerik UI for ASP.NET MVC Grid and Datepicker in a new application. To create the application, you will use the project template provided by the [Visual Studio Extensions]({% slug overview_visualstudio_aspnetmvc %}) that come with the Telerik UI for ASP.NET MVC installation.
+This tutorial guides you through implementing the Telerik UI for ASP.NET MVC Grid and Datepicker in a new application. To create the application, you will use the project template provided by the [Visual Studio Extensions]({% slug overview_visualstudio_aspnetcore %}) that come with the Telerik UI for ASP.NET MVC installation.
 
-The Telerik extensions streamline the Telerik UI for ASP.NET MVC setup by automatically adding the necessary references and configuration. These extensions also provide a wizard that can [configure an existing ASP.NET MVC application]({% slug projectwizardcoversion_visualstudio_aspnetmvc %}) for the Telerik controls.
+The Telerik extensions streamline the Telerik UI for ASP.NET MVC setup by automatically adding the necessary references and configuration. These extensions also provide a wizard that can [configure an existing ASP.NET MVC application]({% slug convertprojectwizard_visualstudio_aspnetcore %}) for the Telerik controls.
 
 Other popular approaches for starting with Telerik UI for ASP.NET MVC include:
 
@@ -67,13 +67,13 @@ After the Visual Studio Extensions are installed, create a Telerik ASP.NET MVC a
 
 1. Search for and select the **Telerik ASP.NET MVC C#** project template. Click **Next**.
 
-	![Telerik ASP.NET MVC application](../getting-started-mvc/images/create-new-project-mvc.png)
+	![{{ site.product_short }} Create a new Telerik application](../getting-started-mvc/images/create-new-project-mvc.png)
 
 1. Select the **GRID AND MENU** template.
 
-   For more information on the additional predefined Telerik template options, refer to the [Creating New Projects]({% slug newprojectwizards_visualstudio_aspnetmvc %}) article. 
+   For more information on the additional predefined Telerik template options, refer to the [Creating New Projects]({% slug newprojectwizards_visualstudio_aspnetcore %}) article. 
 
-	![The new Project Wizard](../getting-started-mvc/images/create-new-project-templates-mvc.png)
+	![{{ site.product_short }} New Project Wizard templates](../getting-started-mvc/images/create-new-project-templates-mvc.png)
 
 1. Select the **Default-v2** visual theme for your Telerik ASP.NET MVC Application, and click **Finish** to complete the creation of the application.
 
@@ -81,9 +81,13 @@ The newly created application already has a reference to the required `Kendo.Mvc
 
 You can now start adding components.
 
+* [Find more information about Creating new Telerik Projects in this article.](https://docs.telerik.com/aspnet-mvc/vs-integration/new-project-wizard)
+
 ## Adding Components to the Application
 
 As a result of selecting the **GRID AND MENU** template, a Grid component has been added to the `Index.cshtml` view, and a Menu to the `_Layout.cshtml`. The Grid is configured and bound remotely to sample data returned by the `GridController`.
+
+[This article is giving additional information about the Initialization of the Grid HtmlHelper](https://docs.telerik.com/aspnet-mvc/getting-started/manual-setup#initializing-the-grid-htmlhelper)
 
 Add a DatePicker to the `Index.cshtml` view:
 
@@ -100,18 +104,18 @@ Add a DatePicker to the `Index.cshtml` view:
 
 Press `CTRL+F5` to build and run the application. You have a Grid and a DatePicker on your page.
 
-![Sample page](../getting-started-mvc/images/grid-and-datepicker-mvc.png)
+![{{ site.product_short }} Sample page showing a Grid and a DatePicker](../getting-started-mvc/images/grid-and-datepicker-mvc.png)
 
 ## Next Steps
 
 * [Explore the Telerik UI for ASP.NET MVC fundamentals]({% slug fundamentals_aspnetmvc %})
 * [Grid Data Binding Overview]({% slug htmlhelpers_grid_aspnetcore_binding_overview %})
-* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetmvc %})
+* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetcore %})
 
 ## See Also
 
 * [Exploring the Helper Script Dependencies]({% slug script_filesfor_barcodes_widgets %})
-* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetmvc %})
-* [Upgrade Telerik UI for ASP.NET MVC]({% slug upgrade_aspnetmvc %})
+* [Integrate Telerik UI for ASP.NET MVC in Visual Studio]({% slug overview_visualstudio_aspnetcore %})
+* [Upgrade Telerik UI for ASP.NET MVC]({% slug upgrade_aspnetcore %})
 * [Collected Examples on ASP.NET MVC](https://github.com/telerik/kendo-examples-asp-net-mvc)
 * [Collected Examples on Telerik UI for ASP.NET MVC](https://github.com/telerik/ui-for-aspnet-mvc-examples)

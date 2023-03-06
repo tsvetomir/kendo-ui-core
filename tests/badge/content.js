@@ -54,7 +54,7 @@
                 data: {
                     templateProp: 'template'
                 },
-                template: '#= templateProp #'
+                template: ({ templateProp }) => `${templateProp}`
             });
 
             assert.equal(badge.element.html(), 'template');
@@ -66,7 +66,7 @@
                 data: {
                     templateProp: 'template'
                 },
-                template: '#= templateProp #'
+                template: ({ templateProp }) => `${templateProp}`
             });
 
             assert.equal(badge.element.html(), 'template');
@@ -76,7 +76,7 @@
             span.html('<strong>text</strong>');
             badge = new Badge(span, {
                 text: 100,
-                template: '<i>template</i>'
+                template: () => '<i>template</i>'
             });
 
             assert.equal(badge.text(), 100);
@@ -87,7 +87,7 @@
             span.html('<strong>text</strong>');
             badge = new Badge(span, {
                 icon: 'add',
-                template: '<i>template</i>'
+                template: () => '<i>template</i>'
             });
 
             assert.equal(badge.icon(), undefined);
@@ -111,7 +111,7 @@
         });
 
         test('badge.options.max has no effect on templates', function() {
-            badge = new Badge(span, { template: '100', max: 14 });
+            badge = new Badge(span, { template: () => '100', max: 14 });
 
             assert.equal(badge.element.html(), '100');
         });
@@ -141,30 +141,30 @@
         // #region badge.options.icon
         test('badge.options.icon sets the content of the badge', function() {
             badge = new Badge(span, {
-                icon: 'add'
+                icon: 'plus'
             });
 
-            assert.equal(badge.element.html(), '<span class=\"k-badge-icon k-icon k-i-add\"></span>');
+            assert.equal(badge.element.find(".k-badge-icon").length, 1);
         });
 
         test('badge.options.icon overides the initial HTML of the badge element', function() {
             span.html('<strong>text</strong>');
             badge = new Badge(span, {
-                icon: 'add'
+                icon: 'plus'
             });
 
-            assert.equal(badge.element.html(), '<span class=\"k-badge-icon k-icon k-i-add\"></span>');
+            assert.equal(badge.element.find(".k-badge-icon").length, 1);
         });
 
         test('badge.options.icon takes precedense over badge.options.text', function() {
             span.html('<strong>text</strong>');
             badge = new Badge(span, {
                 text: 100,
-                icon: 'add'
+                icon: 'plus'
             });
 
             assert.equal(badge.text(), undefined);
-            assert.equal(badge.element.html(), '<span class=\"k-badge-icon k-icon k-i-add\"></span>');
+            assert.equal(badge.element.find(".k-badge-icon").length, 1);
         });
         // #endregion
 
@@ -208,15 +208,15 @@
         test('badge.setOptions({icon: icon}) works correctly', function() {
             badge = new Badge(span);
 
-            badge.setOptions({ icon: 'add' });
+            badge.setOptions({ icon: 'plus' });
 
-            assert.equal(badge.icon(), 'add');
-            assert.equal(badge.element.html(), '<span class=\"k-badge-icon k-icon k-i-add\"></span>');
+            assert.equal(badge.icon(), 'plus');
+            assert.equal(badge.element.find(".k-badge-icon").length, 1);
         });
         test('badge.setOptions({template: tmeplate}) works correctly', function() {
             badge = new Badge(span);
 
-            badge.setOptions({ template: '200' });
+            badge.setOptions({ template: () => '200' });
             assert.equal(badge.element.html(), 200);
         });
         // #endregion

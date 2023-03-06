@@ -11,12 +11,13 @@
         }
 
         options = $.extend({
-            template: "<li>#:data#</li>",
+            template: (data) => `<li>$(kendo.htmlEncode(data}</li>`,
+            ariaLabel: "listview label",
             navigatable: true,
             selectable: true,
             dataSource: dataSource = new DataSource({ data: [1, 2, 3, 4, 5] })
         }, options);
-        return $("<div aria-label='listview label'/>").appendTo(Mocha.fixture).kendoListView(options);
+        return $("<div/>").appendTo(Mocha.fixture).kendoListView(options);
     }
 
     describe("kendo.ui.ListView WAI-ARIA roles and attributes", function() {
@@ -30,10 +31,10 @@
             kendo.ns = "";
         });
 
-        it("ListView adds role list", function() {
+        it("ListView adds role listbox", function() {
             var container = setup();
 
-            assert.equal(container.attr("role"), "listbox");
+            assert.equal(container.find(".k-listview-content").attr("role"), "listbox");
         });
 
         it("ListView does not add role when empty", function() {
@@ -44,10 +45,10 @@
             assert.equal(container.attr("role"), undefined);
         });
 
-        it("ListView adds role list when not navigatable and selectable", function() {
-            var container = setup({ navigatable: false, selectable: false });
+        it("ListView adds role list when not selectable", function() {
+            var container = setup({ selectable: false });
 
-            assert.equal(container.attr("role"), "list");
+            assert.equal(container.find(".k-listview-content").attr("role"), "list");
         });
 
         it("ListView adds aria-multiselectable if selectable=multiple", function() {
@@ -55,7 +56,7 @@
                 selectable: "multiple"
             });
 
-            assert.equal(container.attr("aria-multiselectable"), "true");
+            assert.equal(container.find(".k-listview-content").attr("aria-multiselectable"), "true");
         });
 
         it("ListView does not add aria-multiselectable when empty", function() {
@@ -132,20 +133,20 @@
 
         it("ListView preserves the id of the LI elements", function() {
             var listview = setup({
-                template: "<li id='custom[#=data#]'>#=data#</li>",
+                template: (data) => `<li id='custom[${data}]'>${data}</li>`,
                 selectable: true,
                 navigatable: true
             }).data("kendoListView");
 
             listview.current(listview.content.children().eq(0));
-            var li = listview.content.find(".k-state-focused");
+            var li = listview.content.find(".k-focus");
 
             assert.equal(li.attr("id"), "custom[1]");
         });
 
         it("ListView uses id of the LI element for the aria-activedescendant", function() {
             var listview = setup({
-                template: "<li id='custom[#=data#]'>#=data#</li>",
+                template: (data) => `<li id='custom[${data}]'>${data}</li>`,
                 selectable: true,
                 navigatable: true
             }).data("kendoListView");

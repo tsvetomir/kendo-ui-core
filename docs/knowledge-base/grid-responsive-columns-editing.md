@@ -1,8 +1,8 @@
 ---
 title:  Responsive column editing template
-description: An example on how to use editing when responsive columns templates are used in the jQuery Kendo UI Grid.
+description: Learn how to use editing when responsive columns templates are used in the jQuery Kendo UI Grid.
 type: how-to
-page_title: Use editing with responsive columns template | Kendo UI Grid for jQuery
+page_title: Use editing with responsive columns template - Kendo UI for jQuery Data Grid
 slug: grid-responsive-columns-editing
 tags: grid, responsive, column, columns, editing, template
 res_type: kb
@@ -15,23 +15,23 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
-  <td>Created with Kendo UI version</td>
+  <td>Product Version</td>
   <td>2020.2.617</td>
  </tr>
 </table>
 
 ## Description
 
-My current grid is editable, but how can I use editing in a smaller screen when only the template is shown that combines all the other columns values as seen in your [Responsive Columns Demo](https://demos.telerik.com/kendo-ui/grid/responsive-columns)? 
+My current grid is editable, but how can I use editing in a smaller screen when only the template is shown that combines all the other columns values as seen in your [Responsive Columns Demo](https://demos.telerik.com/kendo-ui/grid/responsive-columns)?
 
 ## Solution
 
 The functionality that the responsive columns provide is in essence the ability to hide some or all of the available columns and show a template column that contains the values of all column fields.
 
-To implement the desired outcome, you will need to replace the read template with an edit template programmatically if the grid bound columns are not visible (two templates like we have in the ListView but using the `k-grid-edit` class on the button so the built-in events can get triggered). You can do that easily by getting hold of the `beforeEdit` event:
+To implement the desired outcome, you will need to replace the read template with an edit template programmatically if the grid bound columns are not visible (two templates like we have in the ListView but using the `k-grid-edit-command` class on the button so the built-in events can get triggered). You can do that easily by getting hold of the `beforeEdit` event:
 
 ```
     beforeEdit: function(e){
@@ -42,7 +42,7 @@ To implement the desired outcome, you will need to replace the read template wit
 
 To see the following demo in action, click **Open in Dojo**. You should resize the panel to as small as it can get, so that you can see the template column in action:
 
-![](images/resize-dojo-splitbar-to-see-template.png)
+![Kendo UI for jQuery Resize Dojo Splitbar](images/resize-dojo-splitbar-to-see-template.png)
 
 ```dojo
     <script type="text/x-kendo-tmpl" id="editTemplate">
@@ -67,7 +67,7 @@ To see the following demo in action, click **Open in Dojo**. You should resize t
                 <dd><input type="checkbox" name="Discontinued" data-bind="checked:Discontinued"></dd>
             </dl>
             <div class="edit-buttons">
-                <a role="button" class="k-button k-button-icontext k-primary k-grid-update" href=""><span class="k-icon k-i-check"></span>Update</a><a role="button" class="k-button k-button-icontext k-grid-cancel" href=""><span class="k-icon k-i-cancel"></span>Cancel</a>
+                <a role="button" class="k-button k-button-icontext k-primary k-grid-save-command" href=""><span class="k-icon k-i-check"></span>Update</a><a role="button" class="k-button k-button-icontext k-grid-cancel-command" href=""><span class="k-icon k-i-cancel"></span>Cancel</a>
             </div>
         </div>
     </script>
@@ -166,7 +166,7 @@ To see the following demo in action, click **Open in Dojo**. You should resize t
 
         <strong>Discontinued</strong>
         <p class="col-template-val">#=data.Discontinued#</p>
-       <a role="button" class="k-button k-button-icontext k-grid-edit" href=""><span class="k-icon k-i-edit"></span>Edit</a>
+       <a role="button" class="k-button k-button-icontext k-grid-edit-command" href=""><span class="k-icon k-i-edit"></span>Edit</a>
     </script>
 
     <style>

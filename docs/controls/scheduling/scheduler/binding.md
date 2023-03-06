@@ -1,6 +1,6 @@
 ---
 title: Data Binding
-page_title: jQuery Scheduler Documentation | Data Binding
+page_title: jQuery Scheduler Documentation - Data Binding
 description: "Get started with the jQuery Scheduler by Kendo UI and bind the widget to local data arrays or remote data services."
 slug: databinding_kendoui_scheduler
 position: 2
@@ -42,14 +42,14 @@ The following example demonstrates how to initialize a Scheduler with two events
 
 ## Binding to Remote Data
 
-You can bind the Scheduler to a remote service which will return, create, update, or delete Scheduler events. The [online Kendo UI Scheduler demos](https://demos.telerik.com/kendo-ui/scheduler/index) use a demo remote service which returns sample Gantt tasks and dependencies. To support cross-domain requests, the remote service uses [JSONP](https://en.wikipedia.org/wiki/JSONP).
+You can bind the Scheduler to a remote service which will return, create, update, or delete Scheduler events. The [online Kendo UI Scheduler demos](https://demos.telerik.com/kendo-ui/scheduler/index) use a demo remote service which returns sample Scheduler events. To support cross-domain requests, the remote service uses [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
 > If the service you use resides in the same domain as your website, use JSON instead. For more information on cross-domain requests, refer to [this article]({% slug corsdatafetching_anotherdomain_datasourcecomponent %}).
 
 The following example demonstrates how to bind the widget to a remote service. Note how the fields of the event in the `schema.model` section are configured and mapped to the fields that are returned by the remote service by using the `from` option.
 
     $("#scheduler").kendoScheduler({
-        date: new Date("2013/6/13"),
+        date: new Date("2022/6/13"),
         timezone: "Etc/UTC", // Setting the timezone is recommended when binding to a remote service.
         dataSource: {
             batch: true, // Enable the batch updates.

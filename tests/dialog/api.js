@@ -282,7 +282,7 @@
         it("clicking on a button triggers action method", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK",
+                    text: () => "OK",
                     action: function() { assert.isOk(true); }
                 }]
             });
@@ -293,7 +293,7 @@
         it("clicking on an element in the button triggers action method", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "<span class='button-span'>OK</span>",
+                    text: () => "<span class='button-span'>OK</span>",
                     action: function() { assert.isOk(true); }
                 }]
             });
@@ -304,11 +304,11 @@
         it("executing action closes the dialog", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK"
+                    text: () => "OK"
                 }]
             });
 
-            dialog.wrapper.find(".k-dialog-buttongroup .k-button").click();
+            dialog.wrapper.find(".k-dialog-actions .k-button").click();
             assert.isOk(!dialog.options.visible);
             assert.isOk(!dialog.wrapper.is(":visible"));
         });
@@ -316,14 +316,14 @@
         it("executing action returning false does't closes the dialog", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK",
+                    text: () => "OK",
                     action: function() {
                         return false;
                     }
                 }]
             });
 
-            dialog.wrapper.find(".k-dialog-buttongroup .k-button").click();
+            dialog.wrapper.find(".k-dialog-actions .k-button").click();
             assert.isOk(dialog.options.visible);
             assert.isOk(dialog.wrapper.is(":visible"));
         });
@@ -331,24 +331,24 @@
         it("setOptions modifies actions", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK"
+                    text: () => "OK"
                 }]
             });
 
             dialog.setOptions({
                 actions: [
-                    { text: "OK" },
-                    { text: "Cancel" }
+                    { text: () => "OK" },
+                    { text: () => "Cancel" }
                 ]
             });
 
-            assert.equal(dialog.wrapper.find(".k-dialog-buttongroup .k-button").length, 2);
+            assert.equal(dialog.wrapper.find(".k-dialog-actions .k-button").length, 2);
         });
 
         it("setOptions modifies title", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK"
+                    text: () => "OK"
                 }]
             });
 
@@ -362,7 +362,7 @@
         it("setOptions modifies modality", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK"
+                    text: () => "OK"
                 }],
                 modal: true
             });
@@ -377,7 +377,7 @@
         it("setOptions modifies modality", function() {
             var dialog = createDialog({
                 actions: [{
-                    text: "OK"
+                    text: () => "OK"
                 }],
                 modal: true
             });

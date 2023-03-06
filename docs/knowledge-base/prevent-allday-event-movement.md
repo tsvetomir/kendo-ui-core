@@ -1,7 +1,7 @@
 ---
 title: Prevent Moving All-Day Scheduler Events outside the All-Day Header
 page_title: Prevent Moving All-Day Scheduler Events outside the All-Day Header
-description: "Learn how to prevent event movement if users try to drop it outside the AllDay header of a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to prevent event movement if users try to drop it outside the AllDay header of a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/prevent-allday-event-movement, /controls/scheduling/scheduler/how-to/editing/prevent-allday-event-movement
 slug: howto_preventmovingalldayevents_fromalldayheader_scheduler
 tags: telerik, kendo, jquery, scheduler, prevent, moving, allday, events, outside, the, header 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -44,8 +44,8 @@ The following example demonstrates how to achieve the desired scenario.
 <script>
 $(function() {
     $("#scheduler").kendoScheduler({
-        date: new Date("2013/6/13"),
-        startTime: new Date("2013/6/13 07:00 AM"),
+        date: new Date("2022/6/13"),
+        startTime: new Date("2022/6/13 07:00 AM"),
         height: 600,
         moveEnd: function(e) {
           var slot = e.slot;

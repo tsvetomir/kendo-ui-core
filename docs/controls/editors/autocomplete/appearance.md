@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery AutoComplete Documentation | Appearance
+page_title: jQuery AutoComplete Documentation - Appearance
 description: "Get started with the jQuery AutoComplete by Kendo UI and set its list and popup widths, access the list elements, and remove its input values."
 slug: sizedimensions_kendoui_autocomplete
 position: 7
@@ -12,7 +12,7 @@ position: 7
 
 In this article, you will find information about the rendering of the Kendo UI AutoComplete.
 
-For additional information regarding the decision behind these changes, visit the [Styling Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the AutoComplete](https://demos.telerik.com/kendo-ui/autocomplete/appearance).
 
@@ -123,7 +123,7 @@ The changes are applied to the `span.k-autocomplete` wrapping element:
 
 Below you will find the differences between the old and the new rendering. 
 
-Wrapper Rendering:
+The following example shows the wrapper rendering.
 
 ```html
 <!-- OLD WRAPPER-->
@@ -137,7 +137,7 @@ Wrapper Rendering:
 </span>
 ```
 
-Popup rendering without virtualization:
+The following example shows the popup rendering without virtualization.
 
 ```html
 <!-- OLD POPUP WITHOUT VIRTUALIZATION-->
@@ -192,7 +192,7 @@ Popup rendering without virtualization:
 </div>
 ```
 
-Popup rendering with virtualization:
+The following example shows the popup rendering with virtualization.
 
 
 ```html
@@ -266,9 +266,9 @@ Popup rendering with virtualization:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references. 
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 Previously, a reference to the AutoComplete input element was obtainable through the `k-input` class.
 
@@ -276,13 +276,131 @@ Previously, a reference to the AutoComplete input element was obtainable through
 $(".k-input") // Returns a reference to the input element in the old rendering.
 ```
 
-With the new rendering, the AutoComplete input element must be targeted by using the `k-input-inner` class.
+With the new rendering, you must target the AutoComplete input element by using the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the input element in the new rendering.
 ```
 
+The following example showcases how to customize the styles of the **AutoComplete** in both the new, and the old rendering:
 
+```dojo
+    <input id="autocomplete" />
+    <script>
+      $("#autocomplete").kendoAutoComplete({
+        dataSource: [
+          { id: 1, name: "Apples" },
+          { id: 1, name: "Tomatoes" },
+          { id: 1, name: "Strawberry" },
+          { id: 1, name: "Cherry" },
+          { id: 1, name: "Melon" },
+          { id: 2, name: "Oranges" }
+        ],
+        dataTextField: "name",
+        value: "Oranges"
+      });
+    </script>
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later*/ 
+
+      #autocomplete.k-input-inner{ /* customize the style input */
+        background: lightgreen;
+      }
+
+      #autocomplete-list .k-list-item{ /* customize the styles of the items in the popup */
+        background-color: #FFDFDD;
+      }    
+
+      /*  OLD RENDERING */
+      /*  The style below will works with versions prior to R1 2022 */ 
+
+      #autocomplete-list .k-item{ /* customize the styles of the items in the popup */
+        background-color: #FFE5B4 !important;
+      }
+    </style>
+```
+
+With the new rendering different classes should be used in order to customize the [AutoComplete templates](/controls/editors/autocomplete/templates).
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="customers" style="width: 100%" />
+    <script>
+      $(document).ready(function() {
+        $("#customers").kendoAutoComplete({          
+          dataTextField: "ContactName",        
+          groupTemplate: "Group template: #: data #",
+          fixedGroupTemplate: "Fixed header: #: data #",
+          footerTemplate: 'Total <strong>#: instance.dataSource.total() #</strong> items found',
+          noDataTemplate: 'No Data!',
+          height: 400,
+          filter: 'contains',
+          dataSource: {
+            type: "odata",
+            transport: {
+              read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Customers"
+            },
+            group: { field: "Country" }
+          }
+        });
+      });
+    </script>
+    <style>
+
+      /*  NEW RENDERING */
+      /*  The styles below will work with versions R1 2022 or later*/ 
+
+      /*customize groupTemplate */
+      #customers-list .k-list-item-group-label{
+        background: blue !important;
+        color: yellow !important;
+        font-size: 18px;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-list-group-sticky-header{
+        background: turquoise !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-list-footer{
+        background: darkCyan !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-no-data{
+        color: green !important;
+        font-weight: bold;
+      }
+
+      /*  OLD RENDERING */
+      /*  The styles below will work with versions prior to R1 2022 */ 
+
+      /*customize groupTemplate */
+      #customers-list .k-item>.k-group{
+        background: red !important;
+        color: white !important;
+      }
+
+      /*customize fixedGroupTemplate */
+      #customers-list .k-group-header{
+        background: salmon !important;
+      }
+
+      /*customize footerTemplate */
+      #customers-list .k-footer{
+        background: tomato !important;
+        color: white;
+      }
+
+      /*customize nodataTemplate */
+      #customers-list .k-nodata{        
+        color: red;
+      }
+    </style>
+```
 
 
 The AutoComplete also provides options for setting the widths of its [list](#setting-the-list-width) and [popup](#setting-the-popup-width), [accessing its `list` elements](#accessing-the-list-elements), and [removing its input value](#removing-the-input-value).

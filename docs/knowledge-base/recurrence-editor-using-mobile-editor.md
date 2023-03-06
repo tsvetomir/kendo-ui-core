@@ -1,7 +1,7 @@
 ---
 title: Create a Recurrence Editor in the Scheduler by Using a Mobile Editor
 page_title: Create a Recurrence Editor in the Scheduler by Using a Mobile Editor
-description: "Learn how to create a recurrence editor by using a mobile editor approach in a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to create a recurrence editor by using a mobile editor approach in a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/recurrence-editor-using-mobile-editor, /controls/scheduling/scheduler/how-to/editing/recurrence-editor-using-mobile-editor
 slug: howto_createrecurrenceeditor_byusingmobileeditor_scheduler
 tags: telerik, kendo, jquery, scheduler, create, recurrence, editor, using, with, mobile, editor 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -51,8 +51,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/26"),
-          startTime: new Date("2013/6/26 07:00 AM"),
+          date: new Date("2022/6/26"),
+          startTime: new Date("2022/6/26 07:00 AM"),
 					views: [
             { type: "day", selected: true },
             { type: "week", selectedDateFormat: "{0:ddd,MMM dd,yyyy} - {1:ddd,MMM dd,yyyy}" },

@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery TreeView Documentation | TreeView Overview
+page_title: jQuery TreeView Documentation - TreeView Overview
 description: "Get started with the jQuery TreeView by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_treeview_widget
 position: 1
 ---
 
-# TreeView Overview
+# {{ site.product }} TreeView Overview
 
 The Kendo UI TreeView widget displays hierarchical data in a traditional tree structure.
 

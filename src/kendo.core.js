@@ -1,8 +1,4 @@
-(function(f, define) {
-    define(['jquery'], f);
-})(function() {
-
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "core",
     name: "Core",
     category: "framework",
@@ -14,11 +10,11 @@ var packageMetadata = {
     productName: 'Kendo UI',
     productCodes: ['KENDOUICOMPLETE', 'KENDOUI', 'KENDOUI', 'KENDOUICOMPLETE'],
     publishDate: 0,
-    version: '',
-    licensingDocsUrl: 'https://www.telerik.com/kendo-ui/my-license/'
+    version: '$KENDO_VERSION'.replace(/^\s+|\s+$/g, ''),
+    licensingDocsUrl: 'https://docs.telerik.com/kendo-ui/intro/installation/using-license-code'
 };
 
-/*jshint eqnull: true, loopfunc: true, evil: true, boss: true, freeze: false*/
+
 (function($, window, undefined) {
     var kendo = window.kendo = window.kendo || { cultures: {} },
         extend = $.extend,
@@ -158,9 +154,12 @@ var packageMetadata = {
         this.options = deepExtend({}, this.options, options);
     };
 
-    var isFunction = kendo.isFunction = function(fn) {
-        return typeof fn === "function";
-    };
+    const isPresent = kendo.isPresent = (value) => value !== null && value !== undefined;
+    const isBlank = kendo.isBlank = (value) => value === null || value === undefined;
+    const isString = kendo.isString = (value) => typeof value === 'string';
+    const isNumeric = kendo.isNumeric = (value) => !isNaN(value - parseFloat(value));
+    const isDate = kendo.isDate = (value) => value && value.getTime;
+    const isFunction = kendo.isFunction = (value) => typeof value === 'function';
 
     var preventDefault = function() {
         this._defaultPrevented = true;
@@ -374,11 +373,16 @@ var packageMetadata = {
             functionBody = functionBody.replace(sharpRegExp, "#");
 
             try {
+                // This function evaluation is required for legacy support of the Kendo Template syntax - non CSP compliant.
                 fn = new Function(argumentName, functionBody);
                 fn._slotCount = Math.floor(parts.length / 2);
                 return fn;
             } catch (e) {
-                throw new Error(kendo.format("Invalid template:'{0}' Generated code:'{1}'", template, functionBody));
+                if (kendo.debugTemplates) {
+                    window.console.warn(`Invalid template:'${template}' Generated code:'${functionBody}'`);
+                } else {
+                    throw new Error(kendo.format("Invalid template:'{0}' Generated code:'{1}'", template, functionBody));
+                }
             }
         }
     };
@@ -1755,9 +1759,9 @@ function pad(number, digits, end) {
             parent = element.parent(),
             windowOuterWidth = outerWidth(window);
 
-        parent.removeClass("k-animation-container-sm");
+        parent.parent().removeClass("k-animation-container-sm");
 
-        if (!parent.hasClass("k-animation-container")) {
+        if (!parent.hasClass("k-child-animation-container")) {
             var width = element[0].style.width,
                 height = element[0].style.height,
                 percentWidth = percentRegExp.test(width),
@@ -1770,27 +1774,31 @@ function pad(number, digits, end) {
             if (!percentHeight && (!autosize || (autosize && height)) || element.is(".k-menu-horizontal.k-context-menu")) { height = outerHeight(element); }
 
             element.wrap(
+                $("<div/>")
+                .addClass("k-child-animation-container")
+                .css({
+                    width: width,
+                    height: height
+                }));
+            parent = element.parent();
+
+            parent.wrap(
                          $("<div/>")
                          .addClass("k-animation-container")
                          .attr("role", "region")
-                         .css({
-                             width: width,
-                             height: height
-                         }));
-            parent = element.parent();
+                        );
 
             if (percentage) {
                 element.css({
                     width: "100%",
-                    height: "100%",
-                    boxSizing: "border-box",
-                    mozBoxSizing: "border-box",
-                    webkitBoxSizing: "border-box"
+                    height: "100%"
                 });
             }
         } else {
             wrapResize(element, autosize);
         }
+
+        parent = parent.parent();
 
         if (windowOuterWidth < outerWidth(parent)) {
             parent.addClass("k-animation-container-sm");
@@ -1805,8 +1813,11 @@ function pad(number, digits, end) {
         var percentage,
             outerWidth = kendo._outerWidth,
             outerHeight = kendo._outerHeight,
-            wrapper = element.parent(".k-animation-container"),
-            wrapperStyle = wrapper[0].style;
+            parent = element.parent(),
+            wrapper = element.closest(".k-animation-container"),
+            visible = element.is(":visible"),
+            wrapperStyle = parent[0].style,
+            elementHeight = element[0].style.height;
 
         if (wrapper.is(":hidden")) {
             wrapper.css({
@@ -1818,13 +1829,25 @@ function pad(number, digits, end) {
         percentage = percentRegExp.test(wrapperStyle.width) || percentRegExp.test(wrapperStyle.height);
 
         if (!percentage) {
-            wrapper.css({
+            if (!visible) {
+                element.add(parent).show();
+            }
+            parent.css("width", ""); // Needed to get correct width dimensions
+            parent.css({
                 width: autosize ? outerWidth(element) + 1 : outerWidth(element),
-                height: outerHeight(element),
-                boxSizing: "content-box",
-                mozBoxSizing: "content-box",
-                webkitBoxSizing: "content-box"
             });
+
+            if (elementHeight === "auto") {
+                element.css({ height: outerHeight(parent) });
+            } else {
+                parent.css({
+                    height: outerHeight(element)
+                });
+            }
+
+            if (!visible) {
+                element.hide();
+            }
         }
     }
 
@@ -1936,6 +1959,10 @@ function pad(number, digits, end) {
     }
 
     function isScrollable(element) {
+        if (element.dataset[kendo.ns + "scrollable"] === "false") {
+            return false;
+        }
+
         if (element && element.className && typeof(element.className) === "string" && element.className.indexOf("k-auto-scrollable") > -1) {
             return true;
         }
@@ -2225,7 +2252,8 @@ function pad(number, digits, end) {
             mobileOS = support.mobileOS = {
                 ios: true,
                 tablet: "tablet",
-                device: "ipad"
+                device: "ipad",
+                majorVersion: 13
             };
         }
 
@@ -2387,7 +2415,7 @@ function pad(number, digits, end) {
             safari = support.browser.safari;
         support.msPointers = !chrome && window.MSPointerEvent;
         support.pointers = !chrome && !mobileChrome && !mozilla && !safari && window.PointerEvent;
-        support.kineticScrollNeeded = mobileOS && (support.touch || support.msPointers || support.pointers);
+        support.kineticScrollNeeded = mobileOS && (mobileOS.device !== "ipad" || mobileOS.majorVersion < 13) && (support.touch || support.msPointers || support.pointers);
     })();
 
 
@@ -2790,13 +2818,57 @@ function pad(number, digits, end) {
             return expression;
         },
 
+        exprToArray: (expression, safe) => {
+            expression = expression || "";
+            const FIELD_REGEX = /\[(?:(\d+)|['"](.*?)['"])\]|((?:(?!\[.*?\]|\.).)+)/g;
+            const fields = [];
+
+            expression.replace(FIELD_REGEX, (_, index, indexAccessor, field) => {
+                fields.push(kendo.isPresent(index) ? index : (indexAccessor || field));
+                return undefined;
+            });
+
+            return fields;
+        },
+
         getter: function(expression, safe) {
             var key = expression + safe;
-            return getterCache[key] = getterCache[key] || new Function("d", "return " + kendo.expr(expression, safe));
+
+            return getterCache[key] = getterCache[key] || ((obj) => {
+                const fields = kendo.exprToArray(expression, safe);
+
+                let result = obj;
+                for (let idx = 0; idx < fields.length; idx++) {
+                    result = result[fields[idx]];
+                    if (!kendo.isPresent(result) && safe) {
+                        return result;
+                    }
+                }
+
+                return result;
+            });
         },
 
         setter: function(expression) {
-            return setterCache[expression] = setterCache[expression] || new Function("d,value", kendo.expr(expression) + "=value");
+            return setterCache[expression] = setterCache[expression] || ((obj, value) => {
+                const fields = kendo.exprToArray(expression);
+
+                const innerSetter = ({ parent, val, prop, props }) => {
+                    if (props.length) {
+                        parent = parent[props.shift()];
+                        innerSetter({ parent, val, prop, props });
+                    } else {
+                        parent[prop] = val;
+                    }
+                };
+
+                innerSetter({
+                    parent: obj,
+                    val: value,
+                    prop: fields.pop(),
+                    props: fields
+                });
+            });
         },
 
         accessor: function(expression) {
@@ -2996,7 +3068,7 @@ function pad(number, digits, end) {
         },
 
         _applyCssClasses: function(element) {
-            var protoOptions = this.__proto__.options, // jshint ignore:line
+            var protoOptions = this.__proto__.options,
                 options = this.options,
                 el = element || this.wrapper || this.element,
                 classes = [],
@@ -3063,7 +3135,7 @@ function pad(number, digits, end) {
         },
 
         _clearCssClasses: function(newOptions, element) {
-            var protoOptions = this.__proto__.options, // jshint ignore:line
+            var protoOptions = this.__proto__.options,
                 currentOptions = this.options,
                 el = element || this.wrapper || this.element,
                 i, prop, widgetName;
@@ -3171,7 +3243,12 @@ function pad(number, digits, end) {
         } else if (numberRegExp.test(value) && option != "mask" && option != "format") {
             value = parseFloat(value);
         } else if (jsonRegExp.test(value) && !jsonFormatRegExp.test(value)) {
-            value = new Function("return (" + value + ")")();
+            try {
+                value = JSON.parse(value);
+            } catch (error) {
+                // Fallback to function eval for legacy reason - non CSP compliant
+                value = new Function("return (" + value + ")")();
+            }
         }
 
         return value;
@@ -3578,15 +3655,6 @@ function pad(number, digits, end) {
             // HACK!!! mobile view scroller widgets are instantiated on data-role="content" elements. We need to discover them when resizing.
             if (role === "content") {
                 role = "scroller";
-            }
-
-            // kendoEditorToolbar is not a public plugin, thus it does not exist in kendo.ui.roles.
-            // Therefore, this is needed in order to be resized when placed in Kendo Window.
-            if (role === "editortoolbar") {
-                var editorToolbar = element.data("kendoEditorToolbar");
-                if (editorToolbar) {
-                    return editorToolbar;
-                }
             }
 
             // kendo.View is not a ui plugin
@@ -4888,6 +4956,7 @@ function pad(number, digits, end) {
                 cssProperties = kendo.cssProperties,
                 defaultValues = cssProperties.defaultValues[propName],
                 widgetProperties = cssProperties.propertyDictionary[widget],
+                overridePrefix = args.prefix,
                 widgetValues, validValue, prefix;
 
             if (!widgetProperties) {
@@ -4911,6 +4980,8 @@ function pad(number, digits, end) {
                 } else {
                     prefix = widgetProperties[PREFIX];
                 }
+
+                prefix = overridePrefix || prefix;
 
                 return prefix + validValue;
             } else {
@@ -5157,7 +5228,7 @@ function pad(number, digits, end) {
     };
 
     kendo.isElement = function(element) {
-        return element instanceof Element || element instanceof HTMLDocument; // jshint ignore:line
+        return element instanceof Element || element instanceof HTMLDocument;
     };
 
     // Kendo defaults
@@ -5184,6 +5255,9 @@ function pad(number, digits, end) {
                 curr[key] = value;
             }
         };
+
+        // Use external global flags for templates.
+        kendo.debugTemplates = window.DEBUG_KENDO_TEMPLATES;
 
     })();
 
@@ -5220,6 +5294,3 @@ function pad(number, digits, end) {
 
 })(jQuery, window);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

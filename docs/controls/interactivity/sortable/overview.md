@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Sortable Documentation | Sortable Overview
+page_title: jQuery Sortable Documentation - Sortable Overview
 description: "Get started with the jQuery Sortable by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_sortable_widget
 position: 1
 ---
 
-# Sortable Overview
+# {{ site.product }} Sortable Overview
 
 The Sortable provides a sortable drag-and-drop functionality to elements within a list.
 

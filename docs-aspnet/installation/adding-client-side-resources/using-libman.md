@@ -3,7 +3,7 @@ title: Using LibMan
 page_title: Using LibMan
 description: "Learn how to add the Kendo client-side web assets in a Telerik UI for ASP.NET Core project by using LibMan and WebPack."
 slug: using_libman
-position: 3
+position: 4
 ---
 
 # Adding Client-Side Resources through LibMan
@@ -25,14 +25,18 @@ To provide the client-side web assets by using LibMan:
     "libraries": [
         {
         "provider": "unpkg",
-        "library": "@progress/kendo-ui@2021.3.914",
-        "destination": "wwwroot/lib/kendo-ui/2021.3.914"
+        "library": "@progress/kendo-ui@{{ site.cdnVersion }}",
+        "destination": "wwwroot/lib/kendo-ui/{{ site.cdnVersion }}"
         }
     ]
     }
     ```
 
     > This step uses unpkg to load the Kendo UI library distributed on NPM. The scripts in the NPM package are not usable in the browser. This requires you to use a bundler such as [WebPack](https://webpack.js.org/).
+
+1. Generate a license file by following the instructions in the [Using Script License File article]({% slug using_license_code %}).
+
+    > As of the R2 2022 release, the `@progress/kendo-ui` NPM package requires a [script license activation]({% slug using_license_code %}).
 
 1. Add the following files, containing the configurations provided below:
     * `webpack.config.js` and `package.json` files to the **wwwroot** folder of the application.
@@ -95,9 +99,17 @@ To provide the client-side web assets by using LibMan:
         require("jquery")
         window.$ = window.jQuery = $
 
-        require("../lib/kendo-ui/2021.3.914/js/kendo.all")
-        require("../lib/kendo-ui/2021.3.914/js/kendo.aspnetmvc")
+        require("../lib/kendo-ui/{{ site.cdnVersion }}/js/kendo.all")
+        require("../lib/kendo-ui/{{ site.cdnVersion }}/js/kendo.aspnetmvc")
     ```
+
+   Since version 2022.3.1109 the Kendo UI scripts can be acquired as ECMAScript. In this case, you will replace the `js/kendo.all` part with:
+     ```javascript
+        require("../lib/kendo-ui/{{ site.cdnVersion }}/mjs/kendo.-componentName-")
+      ```
+
+   Additional information you can find in the dedicated [ECMAScript Modules article]({% slug core_ecmascript_overview %})
+
 
 1. Once LibMan has fetched the Kendo UI client-side files, navigate to the **wwwroot** folder and execute the following commands:
     * `npm install` to install the dependencies in the local **node_modules** folder.
@@ -105,11 +117,12 @@ To provide the client-side web assets by using LibMan:
 
     The result of the bundling will be a `bundle.js` file output in the **wwwroot/dist/** folder.
 
-1. In the `_Layout.cshtml`, file add a reference to the desired theme and the bundled scripts:
+1. In the `_Layout.cshtml`, file add a reference to the desired theme, the bundled scripts, and the license file `kendo-ui-license.js`:
 
     ```_Layout.cshtml
-        <link rel="stylesheet" href="~/lib/kendo-ui/2021.3.914/css/web/kendo.default-v2.css" />
+        <link rel="stylesheet" href="~/lib/kendo-ui/{{ site.cdnVersion }}/css/web/kendo.default-v2.css" />
         <script src="~/dist/bundle.js"></script>
+        <script src="./kendo-ui-license.js"></script>
     ```
 
 ## See Also

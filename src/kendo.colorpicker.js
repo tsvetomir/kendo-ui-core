@@ -1,22 +1,17 @@
-(function(f, define) {
-    define([
-        "./kendo.core",
-        "./kendo.color",
-        "./kendo.popup",
-        "./kendo.slider",
-        "./kendo.userevents",
-        "./kendo.button",
-        "./kendo.binder",
-        "./kendo.textbox",
-        "./kendo.numerictextbox",
-        "./kendo.html.button",
+import "./kendo.core.js";
+import "./kendo.color.js";
+import "./kendo.popup.js";
+import "./kendo.slider.js";
+import "./kendo.userevents.js";
+import "./kendo.button.js";
+import "./kendo.binder.js";
+import "./kendo.textbox.js";
+import "./kendo.numerictextbox.js";
+import "./kendo.html.button.js";
+import "./colorpicker/colorselector.js";
+import "./colorpicker/flatcolorpicker.js";
 
-        "./colorpicker/colorselector",
-        "./colorpicker/flatcolorpicker"
-    ], f);
-})(function() {
-
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "colorpicker",
     name: "Color tools",
     category: "web",
@@ -27,7 +22,7 @@ var __meta__ = { // jshint ignore:line
 (function($, undefined) {
     // WARNING: removing the following jshint declaration and turning
     // == into === to make JSHint happy will break functionality.
-    /*jshint eqnull:true  */
+
     var kendo = window.kendo,
         ui = kendo.ui,
         Widget = ui.Widget,
@@ -83,7 +78,7 @@ var __meta__ = { // jshint ignore:line
             that._value = options.value = value;
 
             var _buttonHtml = kendo.html.renderButton('<button class="k-input-button" unselectable="on" aria-label="select" tabindex="-1"></button>', $.extend({}, that.options, {
-                icon: "arrow-s"
+                icon: "caret-alt-down"
             }));
 
             var content = that._inputWrapper = that.wrapper = $(that._template($.extend({}, that.options, {
@@ -95,21 +90,7 @@ var __meta__ = { // jshint ignore:line
 
             if (element.is("input")) {
                 element.appendTo(content);
-
-                // if there exists a <label> associated with this
-                // input field, we must catch clicks on it to prevent
-                // the built-in color picker from showing up.
-                // https://github.com/telerik/kendo-ui-core/issues/292
-
-                var label = element.closest("label");
-                var id = element.attr("id");
-                if (id) {
-                    label = label.add('label[for="' + id + '"]');
-                }
-                label.on("click", function(ev) {
-                    that.open();
-                    ev.preventDefault();
-                });
+                that._preventDefaultLabelClick();
             }
 
             that._tabIndex = element.attr("tabIndex") || 0;
@@ -174,17 +155,15 @@ var __meta__ = { // jshint ignore:line
             }
         },
 
-        _template: kendo.template(
-            '<span role="textbox" aria-haspopup="true" class="k-colorpicker k-picker k-icon-picker">' +
-                '<span  class="k-input-inner">' +
-                    '<span class="k-value-icon k-color-preview #: toolIcon ? "k-icon-color-preview" : "" #">' +
-                        '# if (toolIcon) { #' +
-                        '<span class="k-color-preview-icon k-icon #= toolIcon #"></span>' +
-                        '# } #' +
+        _template: kendo.template(({ toolIcon, _buttonHtml }) =>
+           '<span role="textbox" aria-haspopup="true" class="k-colorpicker k-picker k-icon-picker">' +
+                '<span class="k-input-inner">' +
+                    `<span class="k-value-icon k-color-preview ${toolIcon ? 'k-icon-color-preview' : ''}">` +
+                        (toolIcon ? kendo.ui.icon({ icon: toolIcon, iconClass: "k-color-preview-icon" }) : '') +
                         '<span class="k-color-preview-mask"></span>' +
                     '</span>' +
                 '</span >' +
-                '#= _buttonHtml #' +
+                _buttonHtml +
             '</span>'
         ),
 
@@ -207,7 +186,7 @@ var __meta__ = { // jshint ignore:line
             view: "gradient",
             views: ["gradient", "palette"],
             backgroundColor: null,
-            ARIATemplate: 'Current selected color is #=data || ""#',
+            ARIATemplate: (data) => `Current selected color is ${data || "none"}`,
             size: "medium",
             rounded: "medium",
             fillMode: "solid"
@@ -252,12 +231,43 @@ var __meta__ = { // jshint ignore:line
         value: ColorSelector.fn.value,
         _select: ColorSelector.fn._select,
         _triggerSelect: ColorSelector.fn._triggerSelect,
-        _isInputTypeColor: function() {
-            var el = this.element[0];
-            return (/^input$/i).test(el.tagName) && (/^color$/i).test(el.type);
+        _isInputTypeColor: ColorSelector.fn._isInputTypeColor,
+
+        _preventDefaultLabelClick: function() {
+            // if there exists a <label> associated with this
+            // input field, we must catch clicks on it to prevent
+            // the built-in color picker from showing up.
+            // https://github.com/telerik/kendo-ui-core/issues/292
+            var that = this,
+                element = that.element,
+                label = element.closest("label"),
+                id = element.attr("id");
+
+            if (id) {
+                label = label.add('label[for="' + id + '"]');
+            }
+            label.on("click", function(ev) {
+                that.open();
+                ev.preventDefault();
+            });
         },
 
         _updateUI: function(value, dontChangeSelector) {
+            this._updateInput(value);
+            this._triggerSelect(value);
+
+            this.wrapper.find(".k-color-preview-mask").css(
+                BACKGROUNDCOLOR,
+                value ? value.toDisplay() : ""
+            );
+
+            this._noColorIcon().toggleClass("k-no-color", !value);
+
+            if (this._selector && !dontChangeSelector) {
+                this._selector.value(value);
+            }
+        },
+        _updateInput: function(value) {
             var formattedValue = "";
 
             if (value) {
@@ -277,18 +287,6 @@ var __meta__ = { // jshint ignore:line
             }
 
             this.wrapper.attr("aria-label", this._ariaTemplate(formattedValue));
-
-            this._triggerSelect(value);
-            this.wrapper.find(".k-color-preview-mask").css(
-                BACKGROUNDCOLOR,
-                value ? value.toDisplay() : ""
-            );
-
-            this._noColorIcon().toggleClass("k-no-color", !formattedValue);
-
-            if (this._selector && !dontChangeSelector) {
-                this._selector.value(value);
-            }
         },
         _keydown: function(ev) {
             var key = ev.keyCode;
@@ -318,6 +316,8 @@ var __meta__ = { // jshint ignore:line
                 delete options.select;
                 delete options.change;
                 delete options.cancel;
+
+                options._otOfPicker = false;
 
                 var id = kendo.guid();
 
@@ -430,6 +430,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

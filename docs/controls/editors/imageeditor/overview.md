@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ImageEditor Documentation |  ImageEditor Overview
+page_title: jQuery ImageEditor Documentation -  ImageEditor Overview
 description: "Get started with the jQuery ImageEditor by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_imageeditor_widget
 position: 1
 ---
 
-# ImageEditor Overview
+# {{ site.product }} ImageEditor Overview
 
 The ImageEditor utilizes a canvas element and enables image editing. It allows you to open, edit and save edited images.
 

@@ -1,7 +1,7 @@
 ---
 title: Filter Out Search Results in the TreeView
 page_title: Filter Out Search Results in the TreeView
-description: "Learn how to search for tree nodes and show them along with their parent nodes in a Kendo UI for jQuery TreeView widget."
+description: "Learn how to search for tree nodes and show them along with their parent nodes in a Kendo UI for jQuery TreeView component."
 slug: howto_filetroutserachresults_treeview
 previous_url: /controls/navigation/treeview/how-to/filtering/filter-out-search-results
 tags: telerik, kendo, jquery, treeview, filter, out, search, results
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TreeView for jQuery</td>
+  <td>Progress® Kendo UI® TreeView for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

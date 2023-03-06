@@ -9,7 +9,7 @@
 
 
             instance = new DateTimePicker(input, {
-                ARIATemplate: "#=kendo.toString(current, 'G')#"
+                ARIATemplate: ({ current }) => `${kendo.toString(current, 'G')}`
             });
         });
         afterEach(function() {
@@ -24,6 +24,11 @@
             assert.equal(input.attr("aria-expanded"), "false");
         });
 
+        it("DateTimePicker sets aria-haspopup=grid", function() {
+            instance.open();
+            assert.equal(input.attr("aria-haspopup"), "grid");
+        });
+
         it("DateTimePicker sets aria-expanded=true", function() {
             instance.open();
             assert.equal(input.attr("aria-expanded"), "true");
@@ -33,11 +38,6 @@
             instance.open();
             instance.close();
             assert.equal(input.attr("aria-expanded"), "false");
-        });
-
-        it("DateTimePicker adds aria-controls to the toggle button", function() {
-            assert.equal(instance._dateIcon.attr("aria-controls"), instance.dateView.popup.element.attr("id"));
-            assert.equal(instance._timeIcon.attr("aria-controls"), instance.timeView.ul.attr("id"));
         });
 
         it("DateTimePicker sets id to the ul element", function() {
@@ -54,27 +54,10 @@
             assert.equal(instance.timeView.current().attr("aria-selected"), "true");
         });
 
-        it("DateTimePicker sets aria-owns to the DateView id", function() {
-            instance.open("date");
-            assert.equal(instance.element.attr("aria-owns"), instance.dateView._dateViewID);
-        });
-
-        it("DateTimePicker removes aria-owns to the DateView id", function() {
-            instance.open("date");
-            instance.close("date");
-            assert.equal(instance.element.attr("aria-owns"), undefined);
-        });
-
-        it("DateTimePicker sets aria-owns to the DateView id", function() {
+        it("DateTimePicker sets aria-controls to the DateView and TimeView ids", function() {
             instance.open("date");
             instance.open("time");
-            assert.equal(instance.element.attr("aria-owns"), instance.timeView._timeViewID);
-        });
-
-        it("DateTimePicker removes aria-owns to the DateView id", function() {
-            instance.open("time");
-            instance.close("time");
-            assert.equal(instance.element.attr("aria-owns"), undefined);
+            assert.equal(instance.element.attr("aria-controls"), instance.dateView._dateViewID + " " + instance.timeView._timeViewID);
         });
 
         it("DateTimePicker sets aria-activedescendant", function() {
@@ -93,7 +76,7 @@
                 keyCode: 40
             });
 
-            var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+            var cell = instance.dateView.calendar.element.find("td.k-focus");
 
             assert.equal(instance.element.attr("aria-activedescendant"), cell.attr("id"));
         });
@@ -102,7 +85,7 @@
             instance.open();
 
             var date = kendo.date.today();
-            var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+            var cell = instance.dateView.calendar.element.find("td.k-focus");
 
             assert.equal(cell.attr("aria-label"), kendo.toString(date, "G"));
         });
@@ -141,16 +124,18 @@ describe("kendo.ui.DateTimePicker ARIA defaults", function() {
 
         var date = kendo.date.today();
         instance.element.trigger("focus");
-        var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+        var cell = instance.dateView.calendar.element.find("td.k-focus");
 
         assert.equal(cell.attr("aria-label"), "Current focused date is " + kendo.toString(date, "D"));
     });
 
     it("DateTimePicker add evaluates ariatemplate in correct context", function() {
-        instance = new DateTimePicker(input, { ARIATemplate: "Current focused date is #= this.dateView.calendar.view().name === 'month' ? 'test': kendo.toString(data.current, 'MMM yyyy') #" });
+        instance = new DateTimePicker(input, {
+             ARIATemplate: ({ current }) => `Current focused date is ${instance.dateView.calendar.view().name === 'month' ? 'test' : kendo.toString(current, 'MMM yyyy')}`
+            });
         instance.open();
         instance.element.trigger("focus");
-        var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+        var cell = instance.dateView.calendar.element.find("td.k-focus");
         assert.equal(cell.attr("aria-label"), "Current focused date is test");
     });
 
@@ -159,7 +144,7 @@ describe("kendo.ui.DateTimePicker ARIA defaults", function() {
         instance = new DateTimePicker(input, { start: "year" });
         instance.open();
         instance.element.trigger("focus");
-        var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+        var cell = instance.dateView.calendar.element.find("td.k-focus");
         assert.equal(cell.attr("aria-label"), "Current focused month is " + kendo.toString(date, "MMMM"));
     });
 
@@ -168,7 +153,7 @@ describe("kendo.ui.DateTimePicker ARIA defaults", function() {
         instance = new DateTimePicker(input, { start: "decade" });
         instance.open();
         instance.element.trigger("focus");
-        var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+        var cell = instance.dateView.calendar.element.find("td.k-focus");
         assert.equal(cell.attr("aria-label"), "Current focused year is " + kendo.toString(date, "yyyy"));
     });
 
@@ -176,7 +161,7 @@ describe("kendo.ui.DateTimePicker ARIA defaults", function() {
         instance = new DateTimePicker(input, { start: "century", value: new Date(2021, 0, 1) });
         instance.open();
         instance.element.trigger("focus");
-        var cell = instance.dateView.calendar.element.find("td.k-state-focused");
+        var cell = instance.dateView.calendar.element.find("td.k-focus");
 
         assert.equal(cell.attr("aria-label"), "Current focused decade is 2020 - 2029");
     });

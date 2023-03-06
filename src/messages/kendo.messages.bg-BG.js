@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* Validator */
 if (kendo.ui.Validator) {
 kendo.ui.Validator.prototype.options.messages =
@@ -108,7 +109,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Подравняване",
     "buttons": {
-     "justtifyLeft": "Подравняване отляво",
+     "justifyLeft": "Подравняване отляво",
      "justifyCenter": "Центриране",
      "justifyRight": "Подравняване отдясно",
      "justifyFull": "Двустранно подравняване",
@@ -263,7 +264,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Добави ред отдолу",
   "alignment": "Подравняване",
   "alignmentButtons": {
-    "justtifyLeft": "Подравняване отляво",
+    "justifyLeft": "Подравняване отляво",
     "justifyCenter": "Центрирано",
     "justifyRight": "Подравняване отдясно",
     "justifyFull": "Двустранно подравняване",
@@ -414,7 +415,20 @@ $.extend(true, kendo.ui.Gantt.prototype.options.messages,{
     "resourcesHeader": "Ресурси",
     "start": "Начало",
     "title": "Заглавие",
-    "unitsHeader": "Единици"
+    "unitsHeader": "Единици",
+    "parent": "Родител",
+    "addNew": "Добави",
+    "name": "Име",
+    "percentCompleteHint": "стойност от 0 до 1",
+    "remove": "Премахни",
+    "actualStart": "Действително начало",
+    "actualEnd": "Действителен край",
+    "parentOptionLabel": "-Няма-",
+    "general": "Общи",
+    "predecessors": "Предходни",
+    "successors": "Следващи",
+    "other": "Други",
+    "dependencyType": "Тип"
   },
   "plannedTasks": {
     "switchText": "Планирана задача",
@@ -728,7 +742,10 @@ $.extend(true, kendo.ui.Grid.prototype.options.messages,{
   },
   "noRecords": "Няма налични записи.",
   "groupHeader": "Натиснете ctrl + space за да групирате",
-  "ungroupHeader": "Натиснете ctrl + space за да разгрупирате"
+  "ungroupHeader": "Натиснете ctrl + space за да разгрупирате",
+  "toolbarLabel": "тулбар на таблицата",
+  "groupingHeaderLabel": "ред за групиране на таблицата",
+  "filterCellTitle": "клетка за филтриране"
 });
 }
 
@@ -891,6 +908,7 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "fontSizeInherit": "(наследен размер)",
   "formatBlock": "Избери формат",
   "indent": "Добави отстъп",
+  "cleanFormatting": "Изчисти формата",
   "insertHtml": "Вмъкни HTML",
   "insertImage": "Вмъкни картина",
   "insertOrderedList": "Вмъкни номериран списък",
@@ -919,26 +937,26 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "backColor": "Цвят на фона",
   "foreColor": "Цвят",
   "dialogButtonSeparator": "or",
-  "dialogCancel": "Cancel",
-  "dialogInsert": "Insert",
+  "dialogCancel": "Откажи",
+  "dialogInsert": "Добави",
   "dialogOk": "Ok",
-  "imageAltText": "Alternate text",
-  "imageWebAddress": "Web address",
-  "linkOpenInNewWindow": "Open link in new window",
-  "linkText": "Text",
+  "imageAltText": "Алтернативен текст",
+  "imageWebAddress": "Интернет адрес",
+  "linkOpenInNewWindow": "Отвори връзката в нов прозорец",
+  "linkText": "Текст",
   "linkToolTip": "ToolTip",
-  "linkWebAddress": "Web address",
+  "linkWebAddress": "Интернет адрес",
   "search": "Търси",
   "createTable": "Създай таблица",
   "dropFilesHere": "преместете с мишката файлове тук за да ги качите",
-  "addColumnLeft": "Add column on the left",
-  "addColumnRight": "Add column on the right",
-  "addRowAbove": "Add row above",
-  "addRowBelow": "Add row below",
-  "deleteColumn": "Delete column",
-  "deleteRow": "Delete row",
+  "addColumnLeft": "Добави колона от ляво",
+  "addColumnRight": "Добави колона от дясно",
+  "addRowAbove": "Добави ред отгоре",
+  "addRowBelow": "Добави ред отдолу",
+  "deleteColumn": "Изтрий колоната",
+  "deleteRow": "Изтрий реда",
   "styles": "Стилове",
-  "formatting": "Format",
+  "formatting": "Форматиране",
   "viewHtml": "Виж HTML-а",
   "dialogUpdate": "Обнови",
   "insertFile": "Вмъкни файл",
@@ -1033,7 +1051,7 @@ $.extend(true, kendo.ui.Scheduler.prototype.options.messages,{
     "separateTimezones": "Използвай различни часови зони за начало и край",
     "start": "Начало",
     "startTimezone": "Начална часова зона",
-    "timezone": " ",
+    "timezone": "Часова зона",
     "timezoneEditorButton": "Часовa зона",
     "timezoneEditorTitle": "Часови зони",
     "title": "Заглавие",
@@ -1319,7 +1337,7 @@ if (kendo.ui.PDFViewer) {
                 }
             },
             okText: "ОК",
-            save: "Сапази",
+            save: "Запази",
             cancel: "Отмени",
             search: {
                 inputLabel: "Търси текст",
@@ -1327,7 +1345,8 @@ if (kendo.ui.PDFViewer) {
                 next: "Следващо съвпадение",
                 previous: "Предишно съвпадение",
                 close: "Затвори",
-                of: "от"
+                of: "от",
+                dragHandle: "Премести търсенето"
             }
         }
     });

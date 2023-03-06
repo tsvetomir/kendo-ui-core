@@ -1,7 +1,7 @@
 ---
 title: Select Multiple Rows with Checkboxes
-page_title:  Multiple Rows with Checkboxes | Kendo UI Grid for jQuery
-description: "An example on how to select multiple rows with checkboxes in the Kendo UI Grid for jQuery."
+page_title:  Multiple Rows with Checkboxes - Kendo UI for jQuery Data Grid
+description: "Learn how to select multiple rows with checkboxes in the Kendo UI Grid for jQuery."
 previous_url: /controls/data-management/grid/how-to/Selection/select-multiple-rows-with-checkboxes
 slug: howto_select_multiple_rowswith_checkboxes_grid
 tags: select, multiple, rows, checkboxes, grid
@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -59,7 +59,7 @@ The following example demonstrates how to select multiple rows by using the chec
         },
         change: function(e) {
           $('tr').find('[type=checkbox]').prop('checked', false);
-          $('tr.k-state-selected').find('[type=checkbox]').prop('checked', true);
+          $('tr.k-selected').find('[type=checkbox]').prop('checked', true);
         },
         columns: [{
             title: "select",
@@ -72,7 +72,7 @@ The following example demonstrates how to select multiple rows by using the chec
         dataBound: function (e) {
           $(".checkbox").bind("click", function (e) {
             e.stopPropagation();
-            $(e.target).closest("tr").toggleClass("k-state-selected");
+            $(e.target).closest("tr").toggleClass("k-selected");
           });
 
           var rows = e.sender.element.find("tr");
@@ -86,12 +86,12 @@ The following example demonstrates how to select multiple rows by using the chec
         e.stopPropagation();
         var tr = $(e.target).closest("tr");
 
-        tr.find('[type=checkbox]').prop('checked', !tr.hasClass("k-state-selected"));
-        tr.toggleClass("k-state-selected");
+        tr.find('[type=checkbox]').prop('checked', !tr.hasClass("k-selected"));
+        tr.toggleClass("k-selected");
       }
     </script>
 ```
 
 ## See Also
 
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

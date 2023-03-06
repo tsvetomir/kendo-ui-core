@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: "{{ site.framework }} RadioButton Documentation | RadioButton Appearance"
+page_title: "{{ site.framework }} RadioButton Documentation - RadioButton Appearance"
 description: "Learn how to customize the appearance of the Telerik UI RadioButton HtmlHelper for {{ site.framework }}."
 slug: radiobutton_appearance
 position: 2
@@ -40,6 +40,7 @@ The following values are available for the `Size` option:
 - `Small`
 - `Medium`
 - `Large`
+- `None`
 
 The default size value is `Medium` and it is added as a class `k-radio-md` to the input element.
 

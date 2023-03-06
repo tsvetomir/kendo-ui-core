@@ -1,13 +1,15 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.userevents", "./kendo.floatinglabel", "./kendo.html.button" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.userevents.js";
+import "./kendo.floatinglabel.js";
+import "./kendo.html.button.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "numerictextbox",
     name: "NumericTextBox",
     category: "web",
     description: "The NumericTextBox widget can format and display numeric, percentage or currency textbox.",
-    depends: [ "core", "userevents", "floatinglabel", "html.button" ]
+    depends: [ "core", "userevents", "floatinglabel", "html.button", "icons" ]
 };
 
 (function($, undefined) {
@@ -274,11 +276,32 @@ var __meta__ = { // jshint ignore:line
 
             that.options.format = extractFormat(that.options.format);
             that._upArrowEventHandler.destroy();
+            that._upArrowEventHandler = null;
             that._downArrowEventHandler.destroy();
+            that._downArrowEventHandler = null;
             that._arrowsWrap.remove();
             that._arrows();
 
             that._applyCssClasses();
+
+            if (that._inputLabel) {
+                that._inputLabel.off(ns);
+                that._inputLabel.remove();
+
+                if (that.floatingLabel) {
+                    that.floatingLabel.destroy();
+                    if (that._floatingLabelContainer) {
+                        that.wrapper.unwrap();
+                    }
+                }
+            }
+
+            that._label();
+
+            that._editable({
+                readonly: that.options.readonly,
+                disable: !that.options.enable
+            });
 
             if (options.value !== undefined) {
                 that.value(options.value);
@@ -340,6 +363,10 @@ var __meta__ = { // jshint ignore:line
 
             that._update(value);
             that._old = that._value;
+
+            if (that.floatingLabel) {
+                that.floatingLabel.refresh();
+            }
         },
 
         focus: function() {
@@ -400,7 +427,7 @@ var __meta__ = { // jshint ignore:line
             var that = this;
             var element = that.element;
 
-            that._validationIcon = $("<span class='k-input-validation-icon " + CLASS_ICON + " k-i-warning k-hidden'></span>").insertAfter(element);
+            that._validationIcon = $(kendo.ui.icon({ icon: "exclamation-circle", iconClass: "k-input-validation-icon k-hidden" })).insertAfter(element);
         },
 
         _blur: function() {
@@ -935,7 +962,7 @@ var __meta__ = { // jshint ignore:line
     }]);
 
     function buttonHtml(direction, text, options) {
-        var className = direction === "increase" ? "arrow-n" : "arrow-s";
+        var className = direction === "increase" ? "caret-alt-up" : "caret-alt-down";
         var dir = direction === "increase" ? "increase" : "decrease";
 
         return html.renderButton('<button role="button" tabindex="-1" unselectable="on" class="k-spinner-' + dir + '" aria-label="' + text + '" title="' + text + '"></button>', extend({}, options, {
@@ -959,6 +986,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(NumericTextBox);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

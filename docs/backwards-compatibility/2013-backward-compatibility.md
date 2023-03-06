@@ -1,10 +1,10 @@
 ---
 title: 2013 Releases
-page_title: 2013 Releases | Kendo UI Backwards Compatibility
+page_title: 2013 Releases - Kendo UI Backwards Compatibility
 description: "Learn about the breaking changes and backwards compatibility released by Kendo UI in 2013."
 previous_url: /backwards-compatibility/2013/2013-backward-compatibility
 slug: breakingchanges2013_kendoui
-position: 9
+position: 10
 ---
 
 # 2013 Releases
@@ -19,7 +19,7 @@ The `kendo.support.pointers` now only shows support for Internet Explorer (IE) 1
 
 **Splitter**
 
-* The internal `trigger("resize")` method, which has been provided as a workaround in certain scenarios, no longer works. It is now replaced with the [`resize()`]({% slug responsivewebdesign_integration_kendoui %}) public API method, which is now available in all Kendo UI widgets. For more information, refer to [`kendo.resize()`](/api/javascript/kendo/methods/resize).
+* The internal `trigger("resize")` method, which has been provided as a workaround in certain scenarios, no longer works. It is now replaced with the [`resize()`](/api/javascript/kendo/methods/resize) public API method, which is now available in all Kendo UI widgets. For more information, refer to [`kendo.resize()`](/api/javascript/kendo/methods/resize).
 
 * The `layoutChange` event is now obsolete and will be removed in the future. Use the `resize` event instead.
 

@@ -2,7 +2,7 @@
 title: Search Panel with Multiple Values
 description: How to Filter Grid with Multiple Values
 type: how-to
-page_title: How to Filter Grid with Multiple Values and a Single TextBox | Kendo UI Grid for jQuery
+page_title: How to Filter Grid with Multiple Values and a Single TextBox - Kendo UI for jQuery Data Grid
 slug: grid-search-panel-with-multiple-values
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>

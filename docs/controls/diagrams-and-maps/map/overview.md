@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Map Documentation | Map Overview
+page_title: jQuery Map Documentation - Map Overview
 description: "Get started with the jQuery Map by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_mapwidget
 position: 1
 ---
 
-# Map Overview
+# {{ site.product }} Map Overview
 
 The Map displays geospatial information organized in layers and is supported for both desktop and mobile devices.
 
@@ -37,7 +37,7 @@ The following example demonstrates how to add a basic tile layer to the Map that
     });
     </script>
 
-![A Map with basic configuration](/controls/diagrams-and-maps/map/images/map-basic.png)
+![Kendo UI for jQuery Map with basic configuration](/controls/diagrams-and-maps/map/images/map-basic.png)
 
 ## Functionality and Features
 

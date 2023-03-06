@@ -10,11 +10,11 @@ position: 1
     {% assign VSExt = "overview_visualstudio_aspnetcore" %}
     {% assign GettingStarted = "gettingstarted_aspnetmvc6_aspnetmvc" %}
 {% else %}
-    {% assign VSExt = "overview_visualstudio_aspnetmvc" %}
+    {% assign VSExt = "overview_visualstudio_aspnetcore" %}
     {% assign GettingStarted = "gettingstarted_aspnetmvc" %}
 {% endif %}
 
-# PivotGrid Overview
+# {{ site.framework }} PivotGrid Overview
 
 {% if site.core %}
 The Telerik UI PivotGrid TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI PivotGrid widget. To add the component to your ASP.NET Core app, you can use either.
@@ -91,9 +91,19 @@ To configure the PivotGrid for Ajax binding to an **Adventure Works** cube that 
             <connection catalog="Adventure Works DW 2008R2" cube="Adventure Works"></connection>
         </transport>
     </kendo-pivotdatasource>
-    <kendo-pivotconfigurator name="configurator" datasource-id="pivotSource">
+
+    <kendo-pivotconfigurator name="configurator" 
+                             filterable="true" 
+                             height="570" 
+                             datasource-id="pivotSource">
     </kendo-pivotconfigurator>
-    <kendo-pivotgrid name="pivotgrid" datasource-id="pivotSource">
+
+    <kendo-pivotgrid name="pivotgrid"
+                     filterable="true" 
+                     column-width="200" 
+                     height="570"
+                     datasource-id="pivotSource">
+        <sortable enabled="true" />
     </kendo-pivotgrid>
 ```
 {% else %}

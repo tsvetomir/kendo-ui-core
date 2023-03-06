@@ -6,7 +6,7 @@ slug: htmlhelpers_filemanager_aspnetcore_overview
 position: 0
 ---
 
-# FileManager Overview
+# {{ site.framework }} FileManager Overview
 
 The {{ site.product }} FileManager is an Explorer-like component enabling you to manage file and folders. 
 
@@ -27,6 +27,8 @@ The Telerik UI FileManager HtmlHelper for {{ site.framework }} is a server-side 
 ## Initializing the FileManager
 
 The following example demonstrates the initialization of the FileManager with remote binding. The file structure is served as JSON though the FileManager DataSource object.
+
+> As of the 2022 R3 release, the `Selectable` mechanism is altered. The `Change` event will now be fired only when Selection/Deselection is performed.
 
 ```HtmlHelper
    @(Html.Kendo().FileManager()

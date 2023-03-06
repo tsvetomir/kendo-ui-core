@@ -1,13 +1,13 @@
 ---
 title: Overview
-page_title: Overview
+page_title: MediaPlayer Overview
 description: "Learn the basics when working with the Telerik UI MediaPlayer for {{ site.framework }}."
 previous_url: /helpers/html-helpers/mediaplayer, /helpers/media/mediaplayer/overview
 slug: htmlhelpers_mediaplayer_aspnetcore
 position: 1
 ---
 
-# MediaPlayer Overview
+# {{ site.framework }} MediaPlayer Overview
 
 {% if site.core %}
 The Telerik UI MediaPlayer TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI MediaPlayer widget.
@@ -23,7 +23,7 @@ To respond to cutting-end design practices and trends, the MediaPlayer component
 
 The following image demonstrates a template of the MediaPlayer.
 
-![Template of the MediaPlayer](images/mediaplayer-overview1.png)
+![{{ site.product_short }} Template of the MediaPlayer](images/mediaplayer-template.png)
 
 ## Initializing the MediaPlayer
 
@@ -162,4 +162,4 @@ To reference an existing MediaPlayer instance, use the [`jQuery.data()`](http://
 
 * [Basic Usage of the MediaPlayer for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/mediaplayer/index)
 * [Using the API of the MediaPlayer HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/mediaplayer/api)
-* [Server-Side API](/api/mediaplayer)
+* [Server-Side API of the MediaPlayer for {{ site.framework }}](/api/mediaplayer)

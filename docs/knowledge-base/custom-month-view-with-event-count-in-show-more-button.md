@@ -4,7 +4,7 @@ page_title: Create Custom Month Views with Event Count in the Show More Button o
 description: "Learn how to inherit some of the built-in views and implement specific custom logic in a Kendo UI for jQuery Scheduler."
 previous_url: /controls/scheduling/scheduler/how-to/custom-month-view-with-event-count-in-show-more-button, /controls/scheduling/scheduler/how-to/custom-views/custom-month-view-with-event-count-in-show-more-button
 slug: howto_create_custom_monthview_eventcount_showmore_button_scheduler
-tags: telerik, kendo, jquery, scheduler, create, custom, month, views, with, event, count, in, the, show, more, button 
+tags: telerik, kendo, jquery, scheduler, create, custom, month, views, with, event, count, in, the, show, more, button
 component: scheduler
 type: how-to
 res_type: kb
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -61,7 +61,6 @@ The following example demonstrates how to achieve the desired scenario.
                 name: "CustomMonthView",
                 title: "Month Week"
             },
-            name: "CustomMonthView",
             _positionEvent: function(slotRange, element, group) {
                 var eventHeight = this.options.eventHeight;
                 var startSlot = slotRange.start;
@@ -144,8 +143,8 @@ The following example demonstrates how to achieve the desired scenario.
 
         $(function() {
             var scheduler = $("#scheduler").kendoScheduler({
-                date: new Date("2013/6/13"),
-                startTime: new Date("2013/6/13 07:00 AM"),
+                date: new Date("2022/6/13"),
+                startTime: new Date("2022/6/13 07:00 AM"),
                 height: 600,
                 views: [
                     { type: "CustomMonthView", selected: true },

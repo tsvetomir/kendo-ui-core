@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Avatar Documentation | Avatar Overview
+page_title: jQuery Avatar Documentation - Avatar Overview
 description: "Get started with the jQuery Avatar by Kendo UI and learn how to create and initialize the widget."
 slug: overview_kendoui_avatar_widget
 position: 1
 ---
 
-# Avatar Overview
+# {{ site.product }} Avatar Overview
 
 The Kendo UI for jQuery Avatar is typically used to display images, icons or initials representing people or other entities.
 

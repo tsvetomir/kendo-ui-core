@@ -1,5 +1,6 @@
 (function() {
     var MultiSelect = kendo.ui.MultiSelect,
+        encode = kendo.htmlEncode,
         select;
 
     describe("kendo.ui.MultiSelect Single Tag mode", function() {
@@ -42,14 +43,13 @@
 
         assert.equal(tag.children().length, 2);
         assert.equal(tag.find(".k-chip-content").html(), '<span class="k-chip-label">1 item(s) selected</span>');
-        assert.isOk(tag.find(".k-chip-icon").is(".k-i-arrow-s"));
+        assert.isOk(tag.find(".k-chip-icon").is(".k-i-caret-alt-down,.k-svg-i-caret-alt-down"));
         assert.equal(tag.find(".k-chip-icon").attr("aria-label"), "open");
-        assert.equal(tag.find(".k-chip-icon").html(), "");
     });
 
     it("Widget renders a single tag using a custom template with 'values' and 'maxTotal'", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:values.length# selected of #:maxTotal#",
+            tagTemplate: ({ values, maxTotal }) => `${encode(values.length)} selected of ${encode(maxTotal)}`,
             tagMode: "single",
             value: [1]
         });
@@ -60,12 +60,12 @@
 
         assert.equal(tag.children().length, 2);
         assert.equal(tag.find(".k-chip-content").html(), '<span class="k-chip-label">1 selected of 15</span>');
-        assert.isOk(tag.find(".k-chip-icon").is(".k-i-arrow-s"));
+        assert.isOk(tag.find(".k-chip-icon").is(".k-i-caret-alt-down,.k-svg-i-caret-alt-down"));
     });
 
     it("Widget passes 'dataitems' and 'total' value to the single tag template", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:dataItems.length# (#:dataItems[0].text#) selected of #:currentTotal#",
+            tagTemplate: ({ dataItems, currentTotal }) => `${encode(dataItems.length)} (${encode(dataItems[0].text)}) selected of ${encode(currentTotal)}`,
             tagMode: "single",
             value: [1]
         });
@@ -76,12 +76,12 @@
 
         assert.equal(tag.children().length, 2);
         assert.equal(tag.find(".k-chip-content").html(), '<span class="k-chip-label">1 (1) selected of 15</span>');
-        assert.isOk(tag.find(".k-chip-icon").is(".k-i-arrow-s"));
+        assert.isOk(tag.find(".k-chip-icon").is(".k-i-caret-alt-down,.k-svg-i-caret-alt-down"));
     });
 
     it("Widget passes 'dataitems' and 'total' value to the single tag template", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:dataItems.length# (#:dataItems[0].text#) selected of #:currentTotal#",
+            tagTemplate: ({ dataItems, currentTotal }) => `${encode(dataItems.length)} (${encode(dataItems[0].text)}) selected of ${encode(currentTotal)}`,
             tagMode: "single",
             value: [1]
         });
@@ -92,12 +92,12 @@
 
         assert.equal(tag.children().length, 2);
         assert.equal(tag.find(".k-chip-content").html(), '<span class="k-chip-label">1 (1) selected of 15</span>');
-        assert.isOk(tag.find(".k-chip-icon").is(".k-i-arrow-s"));
+        assert.isOk(tag.find(".k-chip-icon").is(".k-i-caret-alt-down,.k-svg-i-caret-alt-down"));
     });
 
     it("Updates the text of the selected tag when value is changed", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:dataItems.length#,#:currentTotal#,#:maxTotal#",
+            tagTemplate: ({ dataItems, currentTotal, maxTotal }) => `${encode(dataItems.length)},${encode(currentTotal)},${encode(maxTotal)}`,
             tagMode: "single",
             value: [1]
         });
@@ -112,7 +112,7 @@
 
     it("Removes tag when no value", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:dataItems.length#,#:currentTotal#,#:maxTotal#",
+            tagTemplate: ({ dataItems, currentTotal, maxTotal }) => `${encode(dataItems.length)},${encode(currentTotal)},${encode(maxTotal)}`,
             tagMode: "single",
             value: [1]
         });
@@ -125,7 +125,7 @@
 
     it("Passes maxTotal value to the template different than currentTotal", function() {
         var multiselect = new MultiSelect(select, {
-            tagTemplate: "#:dataItems.length#,#:currentTotal#,#:maxTotal#",
+            tagTemplate: ({ dataItems, currentTotal, maxTotal }) => `${encode(dataItems.length)},${encode(currentTotal)},${encode(maxTotal)}`,
             tagMode: "single",
             value: [1]
         });

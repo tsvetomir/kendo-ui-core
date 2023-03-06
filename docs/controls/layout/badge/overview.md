@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Badge Documentation | Badge Overview
+page_title: jQuery Badge Documentation - Badge Overview
 description: "Get started with the jQuery Badge by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_badge_widget
 position: 1
 ---
 
-# Badge Overview
+# {{ site.product }} Badge Overview
 
 The Badge is an absolutely positioned element that is used to decorate avatars, navigation menus, or other components in the application when the visual notification is needed.
 

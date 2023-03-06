@@ -30,7 +30,7 @@ Depending on your preferred editor, use any of the following approaches:
 
 {% else %}
 
-* [Create a new Telerik UI for ASP.NET MVC application from the Standard template]({% slug newprojectwizards_visualstudio_aspnetmvc %})
+* [Create a new Telerik UI for ASP.NET MVC application from the Standard template]({% slug newprojectwizards_visualstudio_aspnetcore %})
 * [Create a new ASP.NET MVC application in Visual Studio and include the Telerik UI for ASP.NET MVC package]({% slug gettingstarted_aspnetmvc %})
 
 {% endif %}
@@ -364,4 +364,4 @@ In the `Views\Home\Index.cshtml` fie, initialize the Chat and implement handlers
 ## See Also
 
 * [Basic Usage of the Chat HtmlHelper for {{ site.framework }} (Demo)](https://demos.telerik.com/{{ site.platform }}/chat/index)
-* [Server-Side API](/api/chat)
+* [Server-Side API of the Chat for {{ site.framework }}](/api/chat)

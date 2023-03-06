@@ -1,10 +1,6 @@
-(function(f, define) {
-    define([
-        "./kendo.core"
-    ], f);
-})(function() {
+import "./kendo.core.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "html.base",
     name: "Html.Base",
     category: "web",
@@ -33,7 +29,8 @@ var __meta__ = { // jshint ignore:line
         _addClasses: function() {
             var that = this,
                 options = that.options,
-                stylingOptions = options.stylingOptions;
+                stylingOptions = options.stylingOptions,
+                previouslyAddedClasses = that.wrapper.data("added-classes");
 
             stylingOptions = stylingOptions.map(function(option) {
                 var validFill;
@@ -58,6 +55,11 @@ var __meta__ = { // jshint ignore:line
                 });
             });
 
+            if (previouslyAddedClasses) {
+                that.wrapper.removeClass(previouslyAddedClasses.join(" "));
+            }
+
+            that.wrapper.data("added-classes", stylingOptions);
             that.wrapper.addClass(stylingOptions.join(" "));
         },
         html: function() {
@@ -73,6 +75,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

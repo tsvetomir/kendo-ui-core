@@ -1,8 +1,8 @@
 ---
 title: Export the Entire Grid Data to Excel
-description: An example on how to export the entire data of the Kendo UI Grid for jQuery without the paging, filtering, and grouping.
+description: Learn how to export the entire data of the Kendo UI Grid for jQuery without the paging, filtering, and grouping.
 type: how-to
-page_title: Export the Entire Data to Excel | Kendo UI Grid for jQuery
+page_title: Export the Entire Data to Excel - Kendo UI for jQuery Data Grid
 slug: grid-excel-export-entire-data
 tags: grid, excel, export, whole, data, no filter, group, all pages, complete, entire
 ticketid: 1140199
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 

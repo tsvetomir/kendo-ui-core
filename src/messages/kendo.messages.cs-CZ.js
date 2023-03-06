@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* FlatColorPicker messages */
 
 if (kendo.ui.FlatColorPicker) {
@@ -405,7 +406,7 @@ $.extend(true, kendo.ui.Grid.prototype.options.messages,{
     "destroy": "Smazat",
     "edit": "Upravit",
     "excel": "Export do Excelu",
-    "pdf": "Export do PDF",
+    "pdf": "Exportovat do PDF",
     "save": "Uložit změny",
     "select": "Vybrat",
     "update": "Uložit"
@@ -749,7 +750,7 @@ $.extend(true, kendo.ui.Scheduler.prototype.options.messages,{
     "allDayEvent": "Celodenní",
     "description": "Popis",
     "repeat": "Opakování",
-    "timezone": " ",
+    "timezone": "Časové pásmo",
     "startTimezone": "Časové pásmo začátku",
     "endTimezone": "Časové pásmo konce",
     "separateTimezones": "Různá časové pásma pro začátek a konec",
@@ -815,7 +816,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Zarovnání",
     "buttons": {
-     "justtifyLeft": "Zarovnat doleva",
+     "justifyLeft": "Zarovnat doleva",
      "justifyCenter": "Zarovnat na střed",
      "justifyRight": "Zarovnat doprava",
      "justifyFull": "Do bloku",
@@ -1005,7 +1006,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Vložit řádek pod",
   "alignment": "Zarovnání",
   "alignmentButtons": {
-    "justtifyLeft": "Zarovnat doleva",
+    "justifyLeft": "Zarovnat doleva",
     "justifyCenter": "Zarovnat na střed",
     "justifyRight": "Zarovnat doprava",
     "justifyFull": "Zarovnat do bloku",

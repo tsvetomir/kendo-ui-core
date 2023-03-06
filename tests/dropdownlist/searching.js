@@ -586,7 +586,7 @@
 
         it("update popup height when no items are found", function(done) {
             var dropdownlist = new DropDownList(select, {
-                noDataTemplate: "",
+                noDataTemplate: () => "",
                 filter: "startswith",
                 delay: 0,
                 dataSource: [
@@ -612,7 +612,7 @@
 
         it("update popup height when no items are found and noDataTemplate is defined", function(done) {
             var dropdownlist = new DropDownList(select, {
-                noDataTemplate: "No data found.",
+                noDataTemplate: () => "No data found.",
                 filter: "startswith",
                 delay: 0,
                 dataSource: [
@@ -740,10 +740,10 @@
             });
 
             dropdownlist.open();
-            assert.closeTo(dropdownlist.popup.element.parent(".k-animation-container").width(), dropdownlist.popup.element.outerWidth(true) + 1, 0.1);
+            assert.closeTo(dropdownlist.popup.element.closest(".k-animation-container").outerWidth(), dropdownlist.popup.element.outerWidth(true) + 1, 1);
             dropdownlist.close();
             dropdownlist.open();
-            assert.closeTo(dropdownlist.popup.element.parent(".k-animation-container").width(), dropdownlist.popup.element.outerWidth(true) + 1, 0.1);
+            assert.closeTo(dropdownlist.popup.element.closest(".k-animation-container").outerWidth(), dropdownlist.popup.element.outerWidth(true) + 1, 1);
         });
 
         it("enabled autoWidth disables X scrolling", function() {

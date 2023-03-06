@@ -1,6 +1,6 @@
 ---
 title: Heatmap
-page_title: jQuery Chart Documentation | Heatmap
+page_title: jQuery Chart Documentation - Heatmap
 description: "Learn how to create a Kendo UI Heatmap and use the different options it provides."
 slug: heatmapcharts_widget
 position: 12
@@ -61,7 +61,7 @@ The following example demonstrates how to configure a basic Heatmap.
 
 The following image shows a sample Heatmap.
 
-![A sample Heatmap](chart-heatmap.png)
+![Kendo UI for jQuery Heatmap Chart example](chart-heatmap.png)
 
 ## Setting the Marker Type
 
@@ -85,7 +85,7 @@ For a runnable example on the `markers` configuration, visit the [demo page for 
 
 The following image shows a sample Heatmap with circular markers.
 
-![A Heatmap with circle markers](chart-heatmap-circle-markers.png)
+![Kendo UI for jQuery Heatmap Chart with circle markers](chart-heatmap-circle-markers.png)
 
 ## See Also
 

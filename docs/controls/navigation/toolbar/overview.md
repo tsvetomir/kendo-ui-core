@@ -1,13 +1,13 @@
 ---
 title: Overview
-page_title: jQuery ToolBar Documentation | ToolBar Overview
+page_title: jQuery ToolBar Documentation - ToolBar Overview
 description: "Get started with the jQuery ToolBar by Kendo UI and learn how to initialize the widget and use its events."
 slug: overview_kendoui_toolbar_widget
 relatedDocs: api-web-toolbar
 position: 1
 ---
 
-# ToolBar Overview
+# {{ site.product }} ToolBar Overview
 
 The ToolBar is designed to hold different types of controls such as buttons, button groups, toggle buttons, split buttons, and other customized elements.
 
@@ -17,7 +17,7 @@ The ToolBar consists of the ToolBar wrapper, overflow anchor, and command overfl
 
 The following image demonstrates a Kendo UI ToolBar.
 
-![ToolBar areas](toolbar-areas.png)
+![Kendo UI for jQuery ToolBar areas](toolbar-areas.png)
 
 ## Initializing the ToolBar
 
@@ -32,7 +32,7 @@ The following example demonstrates how to initialize the ToolBar and apply its b
                 {
                     type: "button",
                     text: "Button",
-                    icon: "note",
+                    icon: "info-circle",
                     showIcon: "toolbar"
                 },
 
@@ -41,7 +41,7 @@ The following example demonstrates how to initialize the ToolBar and apply its b
                     type: "button",
                     togglable: true,
                     text: "Toggle Button",
-                    icon: "tick",
+                    icon: "check",
                     selected: true
                 },
 

@@ -1,8 +1,8 @@
 ---
 title: Add Model-Bound and Batch-Editable Checkbox Columns to the Grid
-description: An example on how to add a checkbox that is bound to the model in the batch edit mode to the Kendo UI Grid.
+description: Learn how to add a checkbox that is bound to the model in the batch edit mode to the Kendo UI Grid.
 type: how-to
-page_title: Implement Checkboxes in Batch Edit Mode Bound to the Model | Kendo UI Grid for jQuery
+page_title: Implement Checkboxes in Batch Edit Mode Bound to the Model - Kendo UI for jQuery Data Grid
 slug: grid-bound-checkbox-editable-column
 tags: checkbox, template, column, grid, boolean, bound, dirty flag, edit mode, batch, editable
 ticketid: 1132606
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
 </table>

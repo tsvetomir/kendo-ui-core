@@ -1,13 +1,14 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.popup", "./kendo.fx" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.popup.js";
+import "./kendo.fx.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "tooltip",
     name: "Tooltip",
     category: "web",
     description: "The Tooltip widget displays a popup hint for a given html element.",
-    depends: [ "core", "popup" ],
+    depends: [ "core", "popup", "icons" ],
     features: [ {
         id: "tooltip-fx",
         name: "Animation",
@@ -33,13 +34,14 @@ var __meta__ = { // jshint ignore:line
         CONTENTLOAD = "contentLoad",
         REQUESTSTART = "requestStart",
         KCONTENTFRAME = "k-content-frame",
-        TEMPLATE = '<div role="tooltip" class="k-widget k-tooltip#if (!autoHide) {# k-tooltip-closable#}#">' +
-            '<div class="k-tooltip-content"></div>' +
-            '#if (!autoHide) {# <div class="k-tooltip-button"><a href="\\#" class="k-icon k-i-close" title="Close"></a></div> #}#' +
-            '#if (callout){ #<div class="k-callout k-callout-#=dir#"></div>#}#' +
-        '</div>',
-        IFRAMETEMPLATE = kendo.template(
-            "<iframe frameborder='0' class='" + KCONTENTFRAME + "' src='#= content.url #'>" +
+        TEMPLATE = ({ autoHide, callout, dir }) =>
+            `<div role="tooltip" class="k-widget k-tooltip${!autoHide ? ' k-tooltip-closable' : ''}">` +
+                '<div class="k-tooltip-content"></div>' +
+                (!autoHide ? `<div class="k-tooltip-button">${kendo.ui.icon($('<a href="#" title="Close"></a>'), { icon: "x" })}</div>` : '') +
+                (callout ? `<div class="k-callout k-callout-${dir}"></div>` : '') +
+            '</div>',
+        IFRAMETEMPLATE = kendo.template(({ content }) =>
+            `<iframe frameborder='0' class='${KCONTENTFRAME}' src='${content.url}'>` +
                 "This page requires frames in order to show content" +
             "</iframe>"
         ),
@@ -142,6 +144,10 @@ var __meta__ = { // jshint ignore:line
             }
 
             that.element.on(that.options.showOn + NS, that.options.filter, that._showOn.bind(that));
+
+            if (that.options.showOn === "click") {
+                that.element.on("keydown" + NS, that.options.filter, that._keydown.bind(that));
+            }
         },
 
         options: {
@@ -196,6 +202,14 @@ var __meta__ = { // jshint ignore:line
                 return this.popup.options.anchor;
             }
             return null;
+        },
+
+        _keydown: function(e) {
+            var currentTarget = $(e.currentTarget);
+
+            if (e.keyCode == kendo.keys.ENTER) {
+                this._show(currentTarget);
+            }
         },
 
         _showOn: function(e) {
@@ -593,6 +607,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(Tooltip);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

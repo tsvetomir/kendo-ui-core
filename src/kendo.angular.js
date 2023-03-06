@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "angular",
     name: "AngularJS Directives",
     category: "framework",
@@ -19,7 +17,6 @@ var __meta__ = { // jshint ignore:line
         return;
     }
 
-    /*jshint eqnull:true,loopfunc:true,-W052,-W028  */
 
     var module = angular.module('kendo.directives', []),
         $injector = angular.injector(['ng']),
@@ -93,7 +90,7 @@ var __meta__ = { // jshint ignore:line
     };
 
     function createWidget(scope, element, attrs, widget, origAttr, controllers) {
-        /* jshint latedef: false */
+
         if (!(element instanceof jQuery)) {
             throw new Error("The Kendo UI directives require jQuery to be available before AngularJS. Please include jquery before angular in the document.");
         }
@@ -711,7 +708,7 @@ var __meta__ = { // jshint ignore:line
     }
 
     function setTemplate(key, value) {
-        this[key] = kendo.stringify(value); // jshint ignore:line
+        this[key] = kendo.stringify(value);
     }
 
     module.factory('directiveFactory', [ '$compile', function(compile) {
@@ -1483,6 +1480,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery, window.angular);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

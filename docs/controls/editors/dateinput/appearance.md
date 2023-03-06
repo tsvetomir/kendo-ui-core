@@ -1,9 +1,9 @@
 ---
 title: Appearance
-page_title: jQuery DateInput Documentation | DateInput Appearance
+page_title: jQuery DateInput Documentation - DateInput Appearance
 description: "Learn how to apply different styling options to the DateInput widget."
 slug: appearance_kendoui_dateinput_widget
-position: 2
+position: 3
 ---
 
 # DateInput Appearance
@@ -12,7 +12,7 @@ position: 2
 
 In this article, you will find information about the new rendering of the Kendo UI DateInput.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the DateInput](https://demos.telerik.com/kendo-ui/dateinput/appearance).
 
@@ -131,8 +131,33 @@ With the new rendering, you must target the dateinput element by using the `k-in
 $(".k-input-inner") // Returns a reference to the DateInput element in the new rendering.
 ```
 
+The following example showcases how to apply a background color to the **DateInput** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="parent">
+      <input id="dateinput" />
+    </div>
+
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      #parent .k-textbox {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+
+      /* Doesn't work BEFORE R1 2022 */
+      #parent .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+    </style>
+
+    <script>
+      $("#dateinput").kendoDateInput();
+    </script>
+```
+
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the DateInput](https://demos.telerik.com/kendo-ui/dateinput/appearance)
 * [JavaScript API Reference of the DateInput](/api/javascript/ui/dateinput)

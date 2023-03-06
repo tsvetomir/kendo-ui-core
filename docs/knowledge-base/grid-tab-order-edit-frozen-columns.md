@@ -1,8 +1,8 @@
 ---
 title: Keep Tab Order on Edited Grid Row with Frozen Columns
-description: An example on how to keep the focus on edited inputs when the frozen columns functionality of the Kendo UI Grid is enabled.
+description: Learn how to keep the focus on edited inputs when the frozen columns functionality of the Kendo UI Grid is enabled.
 type: how-to
-page_title: Tab through Editors When Columns Are Frozen | Kendo UI Grid for jQuery
+page_title: Tab through Editors When Columns Are Frozen - Kendo UI for jQuery Data Grid
 slug: grid-tab-order-edit-frozen-columns
 tags: grid, frozen, columns, tab, order, focus, input, buttons, tabbing, tabindex
 ticketid: 1142004
@@ -15,10 +15,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Made with version</td>
+  <td>Product Version</td>
   <td>2020.3.1021</td>
  </tr>
 </table>
@@ -96,11 +96,11 @@ To keep the tab order:
             filterable: true,
             columnMenu: true,
             dataBound: function (e) {
-                $(".k-grid-edit, .k-grid-delete").attr("tabindex", "1");
+                $(".k-grid-edit-command, .k-grid-remove-command").attr("tabindex", "1");
             },
             cancel: function (e) {
                 setTimeout(function () {
-                    $(".k-grid-edit, .k-grid-delete").attr("tabindex", "1");
+                    $(".k-grid-edit-command, .k-grid-remove-command").attr("tabindex", "1");
                 });
             },
             columns: [

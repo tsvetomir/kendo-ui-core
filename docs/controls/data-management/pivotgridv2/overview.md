@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery PivotGridV2 Documentation | PivotGridV2 Overview
+page_title: jQuery PivotGridV2 Documentation - PivotGridV2 Overview
 description: "Get started with the jQuery PivotGridV2 by Kendo UI and learn how to create and configure the widget."
 slug: overview_kendoui_pivotgridv2_widget
 position: 1
 ---
 
-# PivotGridV2 Overview
+# {{ site.product }} PivotGridV2 Overview
 
 The Kendo UI PivotGridV2 represents multidimensional data in a cross-tabular format.
 
@@ -47,7 +47,7 @@ Compared to the legacy PivotGrid, the new PivotGridV2 offers a brand new design,
 
 The following image demonstrates the output from the previous example.
 
-![Kendo UI PivotGridV2](../../../images/pivotgridv2.png)
+![Kendo UI for jQuery PivotGridV2 Overview](../../../images/pivotgridv2-overview.png)
 
 ## Functionality and Features
 
@@ -55,6 +55,7 @@ The following image demonstrates the output from the previous example.
 * [Comparison with the PivotGrid]({% slug comparison_kendoui_pivotgridv2 %})
 * [Templates]({% slug templates_kendoui_pivotgridv2 %})
 * [PDF export]({% slug pdfexport_kendoui_pivotgridv2 %})
+* [Filtering]({% slug filtering_kendoui_pivotgridv2 %})
 
 ## Referencing Existing Instances
 

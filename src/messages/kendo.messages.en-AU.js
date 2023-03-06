@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* ColorGradient messages */
 
 if (kendo.ui.ColorGradient) {
@@ -246,7 +247,7 @@ if (kendo.ui.FileManager) {
             },
             deleteConfirm: {
                 title: "Confirm",
-                content: "<p style='text-align: center;'>Are you sure you want to delete the selected file(s)?</br>You cannot undo this action.</p>",
+                content: "<p style='text-align: center;'>Are you sure you want to delete the selected file(s)?<br/>You cannot undo this action.</p>",
                 okText: "Delete",
                 cancel: "Cancel",
                 close: "close"
@@ -427,7 +428,20 @@ $.extend(true, kendo.ui.Gantt.prototype.options.messages,{
     "resourcesHeader": "Resources",
     "start": "Start",
     "title": "Title",
-    "unitsHeader": "Units"
+    "unitsHeader": "Units",
+    "parent": "Parent",
+    "addNew": "Add",
+    "name": "Name",
+    "percentCompleteHint": "value from 0 to 1",
+    "remove": "Remove",
+    "actualStart": "Actual Start",
+    "actualEnd": "Actual End",
+    "parentOptionLabel": "-None-",
+    "general": "General",
+    "predecessors": "Predecessors",
+    "successors": "Successors",
+    "other": "Other",
+    "dependencyType": "Type"
   },
   "plannedTasks": {
     "switchText": "Planned Tasks",
@@ -473,7 +487,10 @@ $.extend(true, kendo.ui.Grid.prototype.options.messages,{
     "confirmation": "Are you sure you want to delete this record?",
     "confirmDelete": "Delete"
   },
-  "noRecords": "No records available."
+  "noRecords": "No records available.",
+  "toolbarLabel": "grid toolbar",
+  "groupingHeaderLabel": "grid grouping header",
+  "filterCellTitle": "filter cell"
 });
 }
 
@@ -829,7 +846,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Alignment",
     "buttons": {
-     "justtifyLeft": "Align left",
+     "justifyLeft": "Align left",
      "justifyCenter": "Center",
      "justifyRight": "Align right",
      "justifyFull": "Justify",
@@ -993,7 +1010,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Add row below",
   "alignment": "Alignment",
   "alignmentButtons": {
-    "justtifyLeft": "Align left",
+    "justifyLeft": "Align left",
     "justifyCenter": "Center",
     "justifyRight": "Align right",
     "justifyFull": "Justify",
@@ -1352,7 +1369,8 @@ if (kendo.ui.PDFViewer) {
                 next: "Next Match",
                 previous: "Previous Match",
                 close: "Close",
-                of: "of"
+                of: "of",
+                dragHandle: "Drag search"
             }
         }
     });

@@ -1,6 +1,6 @@
 ---
 title: Icon ButtonGroup
-page_title: jQuery ButtonGroup Documentation | Icon ButtonGroup
+page_title: jQuery ButtonGroup Documentation - Icon ButtonGroup
 description: "Get started with the jQuery ButtonGroup by Kendo UI and accommodate an icon and enhance the meaning of its text content."
 slug: icon_kendoui_buttongroup
 position: 3
@@ -18,7 +18,7 @@ You can configure the icons by using the `icon` and `imageUrl` properties of the
   <script>
       $("#buttongroup").kendoButtonGroup({
           items: [
-              { icon: "edit" },
+              { icon: "pencil" },
               { imageUrl: "/images/myEditIcon.gif" }
           ]
       });

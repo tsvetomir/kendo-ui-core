@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TabStrip for jQuery</td>
+  <td>Progress® Kendo UI® TabStrip for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -53,7 +53,7 @@ The example below demonstrates how to disable content scrolling for a specific T
 ```dojo
     <div id="tabstrip1">
       <ul>
-        <li class="k-state-active">
+        <li class="k-active">
           First tab
         </li>
         <li>
@@ -81,7 +81,7 @@ The example below demonstrates how to disable content scrolling for a specific T
 
     <div id="tabstrip2">
       <ul>
-        <li class="k-state-active">
+        <li class="k-active">
           First tab
         </li>
         <li>
@@ -129,7 +129,7 @@ The example below demonstrates how to disable content scrolling for a specific T
 ## See Also
 
 * [TabStrip JavaScript API Reference](/api/javascript/ui/tabstrip)
-* [How to Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
-* [How to Save Content Scroll Position]({% slug howto_savecontentscrollposition_tabstrip %})
+* [Initialize the Grid in Kendo UI TabStrip]({% slug initialize_thegrid_tabstrip_widget %})
+* [Save Content Scroll Position]({% slug howto_savecontentscrollposition_tabstrip %})
 
 

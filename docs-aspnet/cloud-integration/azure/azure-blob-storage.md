@@ -6,7 +6,7 @@ slug: azure_blob_storage_aspnetcore
 position: 3
 ---
 
-# Azure Blob Storage
+# Using {{ site.product }} with Azure Blob Storage
 
 The **Azure Blob Storage** is Microsoft's object storage solution for the cloud. The Blob storage is optimized for storing massive amounts of unstructured data (data that doesn't adhere to a particular data model or definition, such as text or binary data).
 
@@ -28,7 +28,7 @@ After you create the Storage Container, set the permission level. This allows yo
 1. Navigate to your storage account and select the container under **Data Storage** > **Containers**.
 1. Click on **Change access level** and select the desired access level:
 
-![Access Level](../images/azure-blob-storage-container-access.png)
+![{{ site.product_short }} Azure Access Level](../images/azure-blob-storage-container-access.png)
 
 ## Configuring the Web Application
 
@@ -60,7 +60,7 @@ Add the Azure account and the Azure Storage Container details to the `appsetting
 
 You can find the account key and connection string by navigating to your storage account&mdash;under **Security + networking** > **Access Keys**
 
-![Access Keys](../images/azure-blob-storage-access-keys.png)
+![{{ site.product_short }} Azure Access Keys](../images/azure-blob-storage-access-keys.png)
 
 ## Adding the Upload and ListView on the Client
 

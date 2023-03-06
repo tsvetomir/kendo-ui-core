@@ -1,13 +1,12 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "bottomnavigation",
     name: "BottomNavigation",
     category: "web",
     description: "The BottomNavigation widget is a navigation element that allows movement between primary destinations in an app.",
-    depends: [ "core" ]
+    depends: [ "core", "icons" ]
 };
 
 (function($, undefined) {
@@ -41,18 +40,18 @@ var __meta__ = { // jshint ignore:line
             vertical: "k-bottom-nav-item-flow-vertical",
             horizontal: "k-bottom-nav-item-flow-horizontal"
         },
-        selected: "k-state-selected",
-        disabled: "k-state-disabled",
+        selected: "k-selected",
+        disabled: "k-disabled",
         border: "k-bottom-nav-border",
         shadow: "k-bottom-nav-shadow",
-        focus: "k-state-focused"
+        focus: "k-focus"
     };
 
     var templates = {
-        item: template("<span class='" + bottomNavigationStyles.item + "'></span>"),
-        anchor: template("<a class='" + bottomNavigationStyles.item + "' href='#:url#'></a>"),
-        text: template("<span class='" + bottomNavigationStyles.text + "'>#=text#</span>"),
-        icon: template("<span class='" + bottomNavigationStyles.navIcon + "#if(icon){# k-icon k-i-#:icon# #}#'></span>")
+        item: template(() => `<span class="${bottomNavigationStyles.item}"></span>`),
+        anchor: template(({ url }) => `<a class="${bottomNavigationStyles.item}"  href="${kendo.htmlEncode(url)}"></a>`),
+        text: template(({ text }) => `<span class="${bottomNavigationStyles.text}" >${text}</span>`),
+        icon: template(({ icon }) => kendo.ui.icon($(`<span class="${bottomNavigationStyles.navIcon}"></span>`), { icon: icon }))
     };
 
     var BottomNavigation = Widget.extend({
@@ -356,6 +355,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(BottomNavigation);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

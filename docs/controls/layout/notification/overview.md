@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Notification Documentation | Notification Overview
+page_title: jQuery Notification Documentation - Notification Overview
 description: "Get started with the jQuery Notification by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_notification_widget
 position: 1
 ---
 
-# Notification Overview
+# {{ site.product }} Notification Overview
 
 The Notification provides a styled UI widget with arbitrary content which can provide information to the user on various occasions.
 

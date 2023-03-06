@@ -6,7 +6,7 @@ slug: overview_avatarhelper_aspnetcore
 position: 1
 ---
 
-# Avatar Overview
+# {{ site.framework }} Avatar Overview
 
 The Telerik UI Avatar for {{ site.framework }} is typically used to display images, icons or initials representing people or other entities.
 
@@ -18,7 +18,7 @@ It also gives you the flexibility to customize its border radius, size, color, e
 
 The following example demonstrates how to initialize an Avatar component.
 
-```HhmlHelper
+```HtmlHelper
     @(Html.Kendo().Avatar()
         .Name("avatar-text")
         .Type(AvatarType.Text)
@@ -49,7 +49,6 @@ You can access an existing Avatar instance by using the `.data()` jQuery method 
 ```TagHelper
     <kendo-avatar name="avatar"
         type="AvatarType.Text"
-        rounded="Rounded.Full"
         text="MJ">
     </kendo-avatar>
 ```

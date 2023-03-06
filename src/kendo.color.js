@@ -4,11 +4,10 @@
  * `kendo-drawing` repository, you should make your changes there and
  * run `src-modules/sync.sh` in this repository.
  */
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+ import "./kendo.core.js";
+/* eslint-disable space-before-blocks, space-before-function-paren, no-multi-spaces */
 
-    var __meta__ = { // jshint ignore:line
+    var __meta__ = {
         id: "color",
         name: "Color utils",
         category: "framework",
@@ -16,8 +15,6 @@
         description: "Color utilities used across components",
         depends: [ "core" ]
     };
-
-/*jshint eqnull:true  */
 
 window.kendo = window.kendo || {};
 
@@ -78,18 +75,18 @@ var namedColors = {
 
 var browser = support.browser;
 
-var matchNamedColor = function(color) {
+var matchNamedColor = function (color) {
     var colorNames = Object.keys(namedColors);
     colorNames.push("transparent");
 
     var regexp = new RegExp("^(" + colorNames.join("|") + ")(\\W|$)", "i");
-    matchNamedColor = function(color) { return regexp.exec(color); };
+    matchNamedColor = function (color) { return regexp.exec(color); };
 
     return regexp.exec(color);
 };
 
 var BaseColor = Class.extend({
-    init: function() { },
+    init: function() {  },
 
     toHSV: function() { return this; },
 
@@ -114,7 +111,7 @@ var BaseColor = Class.extend({
     },
 
     equals: function(c) {
-        return c === this || c !== null && this.toCssRgba() === parseColor(c).toCssRgba();
+        return c === this || ((c !== null && c !== undefined) && this.toCssRgba() === parseColor(c).toCssRgba());
     },
 
     diff: function(other) {
@@ -202,10 +199,10 @@ var RGB = BaseColor.extend({
             var d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
             switch (max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / d + 2; break;
-                case b: h = (r - g) / d + 4; break;
-                default: break;
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+            default: break;
             }
         }
 
@@ -289,12 +286,12 @@ var HSV = BaseColor.extend({
             var t = v * (1 - s * (1 - f));
 
             switch (i) {
-                case 0: r = v; g = t; b = p; break;
-                case 1: r = q; g = v; b = p; break;
-                case 2: r = p; g = v; b = t; break;
-                case 3: r = p; g = q; b = v; break;
-                case 4: r = t; g = p; b = v; break;
-                default: r = v; g = p; b = q; break;
+            case 0: r = v; g = t; b = p; break;
+            case 1: r = q; g = v; b = p; break;
+            case 2: r = p; g = v; b = t; break;
+            case 3: r = p; g = q; b = v; break;
+            case 4: r = t; g = p; b = v; break;
+            default: r = v; g = p; b = q; break;
             }
         }
 
@@ -401,38 +398,38 @@ function parseColor(value, safe) {
     }
     if ((m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})\b/i.exec(color))) {
         ret = new Bytes(parseInt(m[1], 16),
-                        parseInt(m[2], 16),
-                        parseInt(m[3], 16), 1);
+            parseInt(m[2], 16),
+            parseInt(m[3], 16), 1);
     } else if ((m = /^#?([0-9a-f])([0-9a-f])([0-9a-f])\b/i.exec(color))) {
         ret = new Bytes(parseInt(m[1] + m[1], 16),
-                        parseInt(m[2] + m[2], 16),
-                        parseInt(m[3] + m[3], 16), 1);
+            parseInt(m[2] + m[2], 16),
+            parseInt(m[3] + m[3], 16), 1);
     } else if ((m = /^#?([0-9a-f])([0-9a-f])([0-9a-f])([0-9a-f])\b/i.exec(color))) { // Parse 4 digit hex color
         ret = new Bytes(parseInt(m[1] + m[1], 16),
-                        parseInt(m[2] + m[2], 16),
-                        parseInt(m[3] + m[3], 16),
-                        alphaFromHex(m[4] + m[4]));
+            parseInt(m[2] + m[2], 16),
+            parseInt(m[3] + m[3], 16),
+            alphaFromHex(m[4] + m[4]));
     } else if ((m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})\b/i.exec(color))) { // Parse 8 digit hex color
         ret = new Bytes(parseInt(m[1], 16),
-                        parseInt(m[2], 16),
-                        parseInt(m[3], 16),
-                        alphaFromHex(m[4]));
+            parseInt(m[2], 16),
+            parseInt(m[3], 16),
+            alphaFromHex(m[4]));
     } else if ((m = /^rgb\(\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*\)/.exec(color))) {
         ret = new Bytes(parseInt(m[1], 10),
-                        parseInt(m[2], 10),
-                        parseInt(m[3], 10), 1);
+            parseInt(m[2], 10),
+            parseInt(m[3], 10), 1);
     } else if ((m = /^rgba\(\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9]+)\s*,\s*([0-9.]+)\s*\)/.exec(color))) {
         ret = new Bytes(parseInt(m[1], 10),
-                        parseInt(m[2], 10),
-                        parseInt(m[3], 10), parseFloat(m[4]));
+            parseInt(m[2], 10),
+            parseInt(m[3], 10), parseFloat(m[4]));
     } else if ((m = /^rgb\(\s*([0-9]*\.?[0-9]+)%\s*,\s*([0-9]*\.?[0-9]+)%\s*,\s*([0-9]*\.?[0-9]+)%\s*\)/.exec(color))) {
         ret = new RGB(parseFloat(m[1]) / 100,
-                      parseFloat(m[2]) / 100,
-                      parseFloat(m[3]) / 100, 1);
+            parseFloat(m[2]) / 100,
+            parseFloat(m[3]) / 100, 1);
     } else if ((m = /^rgba\(\s*([0-9]*\.?[0-9]+)%\s*,\s*([0-9]*\.?[0-9]+)%\s*,\s*([0-9]*\.?[0-9]+)%\s*,\s*([0-9.]+)\s*\)/.exec(color))) {
         ret = new RGB(parseFloat(m[1]) / 100,
-                      parseFloat(m[2]) / 100,
-                      parseFloat(m[3]) / 100, parseFloat(m[4]));
+            parseFloat(m[2]) / 100,
+            parseFloat(m[3]) / 100, parseFloat(m[4]));
     }
 
     if (ret) {
@@ -580,4 +577,3 @@ kendo.deepExtend(kendo, {
     Color: Color
 });
 
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

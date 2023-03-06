@@ -228,6 +228,40 @@ Defines the parent field to be used to retain value from. This value will be use
     });
     </script>
 
+### cascadeOnCustomValue `Boolean` *(default: false)*
+
+Applicable to a parent ComboBox in а cascading scenario. If set to `true` cascading will be triggered upon custom input in the parent widget. When set to `false` (default) the child will not cascade and it will be disabled upon setting custom input in the parent ComboBox. Cascade on custom values works only when `cascadeFromParentField` is not set for the child combo, or it points to the `dataValueField` of the parent.
+
+#### Example
+
+    <p><em>Hint: type `p3` in the parent ComboBox input</em></p>
+    <input id="parent" />
+    <input id="child" />
+    <script>
+    $("#parent").kendoComboBox({
+        dataTextField: "name",
+        dataValueField: "id",
+        cascadeOnCustomValue: true,
+        dataSource: [
+            { name: "Parent1", id: "p1" },
+            { name: "Parent2", id: "p2" }
+        ]
+    });
+
+    $("#child").kendoComboBox({
+        cascadeFrom: "parent",
+        cascadeFromField: "parentId",
+        dataTextField: "name",
+        dataValueField: "id",
+        dataSource: [
+            { name: "Child1", id: 1, parentId: "p1" },
+            { name: "Child2", id: 2, parentId: "p2" },
+            { name: "Child3", id: 3, parentId: "p3" },
+            { name: "Child4", id: 4, parentId: "p3" }
+        ]
+    });
+    </script>
+
 ### clearButton `Boolean` *(default: true)*
 
 Unless this options is set to `false`, a button will appear when hovering the widget. Clicking that button will reset the widget's value and will trigger the change event.
@@ -467,6 +501,105 @@ The widget instance.
       dataTextField: "name",
       dataValueField: "id",
       footerTemplate: 'Total <strong>#: instance.dataSource.total() #</strong> items found'
+    });
+    </script>
+
+### label `String|Function|Object` *(default: null)*
+
+Adds a label before the input. If the input has no `id` attribute, a generated `id` will be assigned. The `string` and the `function` parameters are setting the inner HTML of the label.
+
+#### Example - create a label from a string
+
+    <input id="combobox" />
+    <script>
+    $("#combobox").kendoComboBox({
+      dataSource: [
+        { id: 1, name: "Apples" },
+        { id: 2, name: "Oranges" }
+      ],
+      dataTextField: "name",
+      label: "Fruits"
+    });
+    </script>
+
+The function context (available through the keyword `this`) will be set to the widget instance.
+
+#### Example - create a label from a function
+
+    <input id="combobox" />
+    <script>
+    $("#combobox").kendoComboBox({
+      dataSource: [
+        { id: 1, name: "Apples" },
+        { id: 2, name: "Oranges" }
+      ],
+      dataTextField: "name",
+      label: function() {
+          return "Fruits";
+      }
+    });
+    </script>
+
+### label.content `String|Function` *(default: "")*
+
+Sets the inner HTML of the label.
+
+#### Example - create a label from a string
+
+    <input id="combobox" />
+    <script>
+    $("#combobox").kendoComboBox({
+      dataSource: [
+        { id: 1, name: "Apples" },
+        { id: 2, name: "Oranges" }
+      ],
+      dataTextField: "name",
+      label: { content: "Fruits" }
+    });
+    </script>
+
+The function context (available through the keyword `this`) will be set to the widget instance.
+
+#### Example - create a label from a function
+
+    <input id="combobox" />
+    <script>
+    $("#combobox").kendoComboBox({
+      dataSource: [
+        { id: 1, name: "Apples" },
+        { id: 2, name: "Oranges" }
+      ],
+      dataTextField: "name",
+      label: {
+        content: function() {
+            return "Fruits";
+        }
+      }
+    });
+    </script>
+
+### label.floating `Boolean` *(default: false)*
+
+If set to `true`, the widget will be wrapped in a container that will allow the floating label functionality.
+
+> **Important:** The [value](/api/javascript/ui/combobox/methods/value) method **does not trigger** the `focusout` event of the input.
+This can affect the floating label functionality.
+To overcome this behavior, manually invoke the `refresh` method of the Floating Label: `$("#combobox").data("kendoComboBox").label.floatingLabel.refresh();`
+
+#### Example
+
+    <input id="combobox" />
+    <script>
+    $("#combobox").kendoComboBox({
+      dataSource: [
+        { id: 1, name: "Apples" },
+        { id: 2, name: "Oranges" }
+      ],
+      dataTextField: "name",
+      label: { 
+        content: "Fruits",
+        floating: true 
+      }
     });
     </script>
 

@@ -1,7 +1,7 @@
 ---
 title: Set the Event Color in the Scheduler Template
 page_title: Set the Event Color in the Scheduler Template 
-description: "Learn how to set the event color in the template of the Kendo UI for jQuery Scheduler widget."
+description: "Learn how to set the event color in the template of the Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/set-event-color-in-the-template, /controls/scheduling/scheduler/how-to/appearance/set-event-color-in-the-template
 slug: howto_seteventcolorinthetemplate_scheduler
 tags: telerik, kendo, jquery, scheduler, set, event, color, in, the, template 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -166,7 +166,7 @@ The following example demonstrates how to achieve the desired scenario.
         font-weight: bold;
         text-decoration: none;
       }
-      .k-state-hover .movie-template a,
+      .k-hover .movie-template a,
       .movie-template a:hover {
         color: #000000;
       }

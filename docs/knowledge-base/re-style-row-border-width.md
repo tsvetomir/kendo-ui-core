@@ -1,7 +1,7 @@
 ---
 title: Restyle the Width of the Scheduler Row Borders
 page_title: Restyle the Width of the Scheduler Row Borders
-description: "Learn how to restyle the row border width in a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to restyle the row border width in a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/re-style-row-border-width, /controls/scheduling/scheduler/how-to/appearance/re-style-row-border-width
 slug: howto_restyle_row_border_width_scheduler
 tags: telerik, kendo, jquery, scheduler, restyle, width, of, row, borders 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -53,8 +53,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             "day",

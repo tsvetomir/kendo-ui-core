@@ -1,13 +1,13 @@
-(function(f, define) {
-    define(["./kendo.core", "./kendo.floatinglabel"], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.floatinglabel.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "textbox",
     name: "TextBox",
     category: "web",
     description: "The TextBox widget enables you to style and provide a floating label functionality to input elements",
-    depends: ["core", "floatinglabel"]
+    depends: ["core", "floatinglabel", "icons"]
 };
 
 (function($, undefined) {
@@ -20,6 +20,7 @@ var __meta__ = { // jshint ignore:line
         DISABLED = "disabled",
         READONLY = "readonly",
         INPUT = "k-input-inner",
+        INPUT_EV = "input",
         FOCUSED = "k-focus",
         LABELCLASSES = "k-label k-input-label",
         STATEDISABLED = "k-disabled",
@@ -51,12 +52,17 @@ var __meta__ = { // jshint ignore:line
                 .attr("placeholder", that.options.placeholder)
                 .attr("autocomplete", "off");
 
+            if (options.icon) {
+                that._icon();
+            }
+
             kendo.notify(that);
             that._applyCssClasses();
         },
 
         events: [
-            CHANGE
+            CHANGE,
+            INPUT_EV
         ],
 
         options: {
@@ -68,7 +74,8 @@ var __meta__ = { // jshint ignore:line
             label: null,
             rounded: "medium",
             size: "medium",
-            fillMode: "solid"
+            fillMode: "solid",
+            icon: null
         },
 
         value: function(value) {
@@ -80,6 +87,10 @@ var __meta__ = { // jshint ignore:line
 
             that._value = value;
             that.element.val(value);
+
+            if (that.floatingLabel) {
+                that.floatingLabel.refresh();
+            }
         },
 
         readonly: function(readonly) {
@@ -130,12 +141,19 @@ var __meta__ = { // jshint ignore:line
         setOptions: function(options) {
             this.destroy();
 
-            this.element.unwrap();
-            if (this._floatingLabelContainer) {
+            if (this._inputLabel) {
                 this._inputLabel.remove();
                 this._inputLabel = null;
+            }
+
+            if (this._floatingLabelContainer) {
+                this.floatingLabel.destroy();
+                this.floatingLabel = null;
+                this.element.unwrap();
                 this.element.unwrap();
                 this._floatingLabelContainer = null;
+            } else {
+                this.element.unwrap();
             }
 
             kendo.deepExtend(this.options, options);
@@ -162,6 +180,7 @@ var __meta__ = { // jshint ignore:line
                 element.on("focusin" + NS, that._focusin.bind(that));
                 element.on("focusout" + NS, that._focusout.bind(that));
                 element.on("change" + NS, that._change.bind(that));
+                element.on(INPUT_EV + NS, that._input.bind(that));
             } else {
                 element.attr(DISABLED, disable)
                        .attr(READONLY, readonly)
@@ -170,6 +189,17 @@ var __meta__ = { // jshint ignore:line
                 wrapper.toggleClass(STATEDISABLED, disable)
                         .toggleClass(NOCLICKCLASS, readonly);
             }
+        },
+
+        _icon: function() {
+            this.wrapper.prepend(kendo.ui.icon({ icon: this.options.icon, iconClass: "k-input-icon" }));
+        },
+
+        _input: function(e) {
+            var that = this;
+            var newValue = that.element.val();
+
+            that.trigger(INPUT_EV, { value: newValue, originalEvent: e });
         },
 
         _label: function() {
@@ -250,6 +280,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(TextBox);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

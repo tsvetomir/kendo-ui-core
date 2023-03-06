@@ -2,7 +2,7 @@
 title: Change Header and Pager Appearance
 description: How to Change Header and Footer BackGround Color
 type: how-to
-page_title: How to Change Header and Footer BackGround Color | Kendo UI Grid for jQuery
+page_title: How to Change Header and Footer BackGround Color - Kendo UI for jQuery Data Grid
 slug: grid-change-header-and-pager-appearance
 position: 
 tags: 
@@ -15,7 +15,7 @@ res_type: kb
 	<tbody>
 		<tr>
 			<td>Product</td>
-			<td>Grid for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® Grid for jQuery</td>
 		</tr>
 	</tbody>
 </table>
@@ -47,11 +47,11 @@ https://themebuilder.telerik.com/kendo-ui
       .k-grid .k-grid-header .k-header a{
         color: white;
       }
-      .k-pager-wrap{
+      .k-pager{
         background-color: gray;
         color: white;
       }
-      .k-pager-wrap .k-link.k-state-selected
+      .k-pager .k-link.k-selected
       {
         background-color: lime;
       }

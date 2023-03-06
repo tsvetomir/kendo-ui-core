@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Progress Telerik UI for JSP
+page_title: Overview - Progress Telerik UI for JSP
 description: "Download and install Progress Telerik UI for JSP, and run a sample application."
 slug: overview_uiforjsp
 position: 1
@@ -38,7 +38,7 @@ Start by [downloading the controls](https://www.telerik.com/download-trial-file/
 
 **Figure 1: Eclipse with Tomcat7 configured**
 
-![Eclipse with Tomcat7 configured](images/eclipse.png)
+![Kendo UI for jQuery Eclipse with Tomcat7 configured](images/eclipse.png)
 
 Find a sample a JSP Spring MVC application in the `\wrappers\jsp\spring-demos` folder.
 
@@ -54,13 +54,13 @@ Find a sample a JSP Spring MVC application in the `\wrappers\jsp\spring-demos` f
 
 **Figure 2: Eclipse with Tomcat7 configured**
 
-![Import Maven projects](images/existing_maven_project.png)
+![Kendo UI for jQuery Import Maven projects](images/existing_maven_project.png)
 
 **Step 5** Browse to the location where you extracted Progress Telerik UI for JSP. Then pick "wrappers\jsp\spring-demos" for "Root Directory". Click "Finish".
 
 **Figure 3: Import of the Kendo UI JSP demos**
 
-![Import Kendo UI JSP demos](images/import_maven_project.png)
+![Kendo UI for jQuery Import Kendo UI JSP demos](images/import_maven_project.png)
 
 **Step 6** Right-click **spring-demos** in the Eclipse Project Explorer. Pick **Properties**.
 
@@ -70,13 +70,13 @@ Find a sample a JSP Spring MVC application in the `\wrappers\jsp\spring-demos` f
 
 **Figure 4: Project facets**
 
-![Project facets](images/project_facets.png)
+![Kendo UI for jQuery Project facets](images/project_facets.png)
 
 **Step 9** Click the **Runtimes** tab. Pick a runtime&mdash;Tomcat7, for example.
 
 **Figure 5: Project facets&mdash;Tomcat 7**
 
-![Project facets - Tomcat 7](images/project_facets_tomcat.png)
+![Kendo UI for jQuery Project facets - Tomcat 7](images/project_facets_tomcat.png)
 
 **Step 10** Click **OK** to close the **Properties** window.
 
@@ -143,11 +143,12 @@ You are also able to include the JavaScript and CSS files from CDN. Do not forge
 
 
 
-       <link href="https://kendo.cdn.telerik.com/<VERSION>/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
-       <link href="https://kendo.cdn.telerik.com/<VERSION>/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+       <link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/{{ site.themesCdnVersion }}/default/default-main.css" />
 
        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
        <script src="https://kendo.cdn.telerik.com/<VERSION>/js/kendo.all.min.js"></script>
+
+> Note that sinse R3 2022 the CDN distribution needs to be activated using a license file. For more info check [Using Script License File]({% slug using-license-code %}).
 
 ## Trial Version and Commercial License
 

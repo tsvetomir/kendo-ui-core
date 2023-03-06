@@ -4,7 +4,7 @@
 
     function createListView(options) {
         dom.kendoListView($.extend({
-            template: "<div class='k-listview-item'></div>",
+            template: () => "<div class='k-listview-item'></div>",
             navigatable: true,
             dataSource: { data: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }] }
         }, options));
@@ -87,7 +87,7 @@
             assert.equal(instance.items().first().attr("aria-posinset"), 1);
             assert.equal(instance.items().last().attr("aria-posinset"), 2);
 
-            instance.wrapper.find(".k-pager-wrap li:last > a").click();
+            instance.wrapper.find(".k-pager-numbers-wrap button:last").click();
 
             assert.equal(instance.items().first().attr("aria-posinset"), 5);
         });

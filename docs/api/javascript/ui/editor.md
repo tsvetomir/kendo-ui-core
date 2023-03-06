@@ -1706,6 +1706,20 @@ The title of the Wrap Text option in Table Wizard.
     });
     </script>
 
+### navigateOnTab `Boolean` *(default: false)*
+
+If set to `true` this configuration option would enable Tab-based navigation among Editor ToolBar items. By default navigation is arrow-based.
+
+#### Example
+
+    <textarea id="editor"></textarea>
+    <script>
+      $("#editor").kendoEditor({
+          navigateOnTab: true
+      });
+    </script>
+
+
 ### pasteCleanup `Object`
 
 Options for controlling how the pasting content is modified before it is added in the editor.
@@ -2210,7 +2224,7 @@ The maximum height that the editor can be resized to.
 
 If `resizable` is set to `true` the widget will detect changes in the viewport width and will hide the overflowing controls in the tool overflow popup.
 
-> Tools are shown/hidden on tool group level. Tools with popup such as `fontName`, `fontSize`, `fontColor`, `backColor` and `formatting` will be hidden but **not** moved to the tool overflow popup.
+> Tools are shown/hidden on tool group level. Tools with popup such as `fontName`, `fontSize`, `fontColor`, `backColor`, `formatting` and `createTable` will **not** be moved to the tool overflow popup and will be always visible.
 
 #### Example
 
@@ -2424,7 +2438,7 @@ The JavaScript function which will be executed when the end-user clicks the tool
         {
           name: "custom",
           exec: function(e) {
-            var editor = $(this).data("kendoEditor");
+            var editor = this;
             // ...
           }
         }
@@ -2519,7 +2533,7 @@ Only applicable for the formatting tool. Specifies the context in which the opti
 
 ### tools.palette `String|Array` *(default: null)*
 
-Specifies the [color palette](/api/javascript/ui/colorpicker/configuration/palette) for "foreColor" and "backColor" tools.
+Specifies the [color palette](/api/javascript/ui/colorpicker/configuration/palette) for "foreColor" and "backColor" tools. If you need to use the [color gradient](api/javascript/ui/colorgradient) view in the picker instead of the palette, set this value to null.
 
 #### Example - "websafe" palette
 
@@ -2541,6 +2555,18 @@ Specifies the [color palette](/api/javascript/ui/colorpicker/configuration/palet
         tools: [{
             name: "backColor",
             palette: ["#f0d0c9", "#e2a293", "#d4735e", "#65281a"]
+        }]
+    });
+    </script>
+
+#### Example - use gradient
+
+    <textarea id="editor"></textarea>
+    <script>
+    $("#editor").kendoEditor({
+        tools: [{
+            name: "backColor",
+            palette: null
         }]
     });
     </script>

@@ -1,8 +1,8 @@
-(function(f, define) {
-    define([ "./kendo.fx", "./kendo.data", "./kendo.draganddrop" ], f);
-})(function() {
+import "./kendo.fx.js";
+import "./kendo.data.js";
+import "./kendo.draganddrop.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.scrollview",
     name: "ScrollView",
     category: "mobile",
@@ -385,14 +385,14 @@ var __meta__ = { // jshint ignore:line
 
             if (typeof template === FUNCTION) {
                 templateProxy.template = template;
-                template = "#=this.template(data)#";
+                template = (data) => this.template(data);
             }
 
             this.template = kendo.template(template).bind(templateProxy);
 
             if (typeof emptyTemplate === FUNCTION) {
                 emptyTemplateProxy.emptyTemplate = emptyTemplate;
-                emptyTemplate = "#=this.emptyTemplate(data)#";
+                emptyTemplate = (data) => this.emptyTemplate(data);
             }
 
             this.emptyTemplate = kendo.template(emptyTemplate).bind(emptyTemplateProxy);
@@ -751,8 +751,8 @@ var __meta__ = { // jshint ignore:line
             enablePager: true,
             pagerOverlay: false,
             autoBind: true,
-            template: "",
-            emptyTemplate: ""
+            template: () => "",
+            emptyTemplate: () => ""
         },
 
         events: [
@@ -903,6 +903,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

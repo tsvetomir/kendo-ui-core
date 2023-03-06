@@ -7,7 +7,7 @@ slug: overview_colorpickerhelper_aspnetcore
 position: 1
 ---
 
-# ColorPicker Overview
+# {{ site.framework }} ColorPicker Overview
 
 {% if site.core %}
 The Telerik UI ColorPicker TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI ColorPicker widget.
@@ -34,7 +34,7 @@ The following example demonstrates how to define the ColorPicker.
 ```
 {% if site.core %}
 ```TagHelper
-        <kendo-colorpicker name="picker">
+        <kendo-colorpicker name="colorpicker" value="#ff0000">
 			<messages apply="Change" cancel="Close" />
 		</kendo-colorpicker>
 ```
@@ -121,6 +121,31 @@ The following example demonstrates how to subscribe to events by a handler name.
         }
     </script>
 ```
+{% if site.core %}
+```TagHelper
+        <kendo-colorpicker name="colorpicker" on-select="colorpicker_select" on-change="colorpicker_change" on-open="colorpicker_open" on-close="colorpicker_close">
+		</kendo-colorpicker>
+
+            <script>
+        // The ColorPicker instance is available as an e.sender or this.
+        function colorpicker_open(e) {
+            // Handle the open event.
+        }
+
+        function colorpicker_close(e) {
+            // Handle the close event.
+        }
+
+        function colorpicker_select(e) {
+            // Handle the select event.
+        }
+
+        function colorpicker_change(e) {
+            // Handle the change event.
+        }
+    </script>
+```
+{% endif %}
 
 ### Handling by Template Delegate
 

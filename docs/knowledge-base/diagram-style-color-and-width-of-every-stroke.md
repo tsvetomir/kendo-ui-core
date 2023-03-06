@@ -1,8 +1,8 @@
 ---
 title: Style the strokes in Diagram
-description: An example on how to change the color and the width for every stroke in Diagram.
+description: Learn how to change the color and the width for every stroke in Diagram.
 type: how-to
-page_title: Style the strokes in Diagram | Kendo UI Diagram for jQuery
+page_title: Style the strokes in Diagram - Kendo UI Diagram for jQuery
 slug: diagram-custom-style-strokes
 tags: diagram, editing, stroke, style
 ticketid: 1498173
@@ -15,7 +15,7 @@ component: diagram
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Diagram</td>
+  <td>Progress® Kendo UI® Diagram for jQuery</td>
  </tr>
 </table>
 

@@ -1,6 +1,6 @@
 ---
 title: Component Types
-page_title: Telerik UI DateTimePicker Documentation | DateTimePicker Component Types | Telerik UI
+page_title: Telerik UI DateTimePicker Documentation - DateTimePicker Component Types
 description: "Get started with the Telerik UI DateTimePicker and learn how to enable the modern component type."
 slug: htmlhelpers_componenttype_datetimepicker_aspnetcore
 position: 5
@@ -20,15 +20,13 @@ By default, the DateTimePicker is initialized with the `classic` render mode. In
 ```
 {% if site.core %}
 ```TagHelper
-<kendo-datetimepicker name="datetimepicker" 
-                      value="DateTime.Now"
-                      component-type="modern"/>
+    <kendo-datetimepicker name="datetimepicker" component-type="modern"/>
 ```
 {% endif %}
 
 As a result, the appearance of the widget is alternated. 
 
-![Comparison between the component types](../../../images/modern-classic-datetimepicker.png)
+![{{ site.product_short }} DateTimePicker comparison between the component types](../../../images/modern-classic-datetimepicker.png)
 
 > The rendered selectors in the time picker of the Telerik UI DateTimePicker for {{ site.framework }} depend on the currently applied format. If the format is omitted, the default format from the application's culture is used. 
 

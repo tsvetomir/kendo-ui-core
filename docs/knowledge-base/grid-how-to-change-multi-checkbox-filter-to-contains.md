@@ -1,8 +1,8 @@
 ---
 title: Set Multi-Checkbox Filtering to Use contains instead of equalTo
-description: An example on how to change the multi-checkbox filtering of the Kendo UI Grid to use contains instead of equalTo.
+description: Learn how to change the multi-checkbox filtering of the Kendo UI Grid to use contains instead of equalTo.
 type: how-to
-page_title: Set a Different dataSource for the Multi-Checkbox and contains Filter | Kendo UI Grid for jQuery
+page_title: Set a Different dataSource for the Multi-Checkbox and contains Filter - Kendo UI for jQuery Data Grid
 slug: grid-how-to-change-multi-checkbox-filter-to-contains
 tags: grid, filter, multi-checkbox, contains
 ticketid: 1132412
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 
@@ -86,12 +86,12 @@ I would like to keep the filter state active and show the applied initial filter
 
 ## Suggested solution
 
-It is easiest to add the `k-state-active` class initially and let the grid with the custom filter handler manage the rest of the state changes.A timeout is needed to accomplish this initial load:
+It is easiest to add the `k-active` class initially and let the grid with the custom filter handler manage the rest of the state changes.A timeout is needed to accomplish this initial load:
 
 ```
   grid.one("dataBound", function(e){
     setTimeout(function(){
-        grid.thead.find("[data-field='FirstName']").find(".k-grid-filter").addClass ("k-state-active");
+        grid.thead.find("[data-field='FirstName']").find(".k-grid-filter-menu").addClass ("k-active");
     });            
   });
 ```
@@ -293,7 +293,7 @@ It is easiest to add the `k-state-active` class initially and let the grid with 
           
           grid.one("dataBound", function(e){
             setTimeout(function(){
-            	grid.thead.find("[data-field='FirstName']").find(".k-grid-filter").addClass("k-state-active");
+            	grid.thead.find("[data-field='FirstName']").find(".k-grid-filter-menu").addClass("k-active");
             });          	
           });
         });

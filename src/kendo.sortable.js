@@ -1,9 +1,7 @@
-/* jshint eqnull: true */
-(function(f, define) {
-    define([ "./kendo.draganddrop" ], f);
-})(function() {
 
-var __meta__ = { // jshint ignore:line
+import "./kendo.draganddrop.js";
+
+var __meta__ = {
     id: "sortable",
     name: "Sortable",
     category: "framework",
@@ -519,6 +517,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(Sortable);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

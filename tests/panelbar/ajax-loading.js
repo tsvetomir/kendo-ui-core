@@ -98,7 +98,7 @@
             var item = getRootItem(1);
 
             panelbar.bind("contentLoad", function() {
-                assert.isOk($(arguments[0].item).find(".k-icon").hasClass("k-i-arrow-chevron-up"));
+                assert.isOk($(arguments[0].item).find(".k-icon,.k-svg-icon").is(".k-i-chevron-up,.k-svg-i-chevron-up"));
                 panelbar.unbind("contentLoad");
                 done();
             });
@@ -111,14 +111,14 @@
 
             item.trigger("click");
 
-            assert.isOk(item.find(".k-icon").hasClass("k-i-arrow-chevron-down"));
+            assert.isOk(item.find(".k-icon,.k-svg-icon").is(".k-i-chevron-down,.k-svg-i-chevron-down"));
         });
 
         it("clicking should make item active", function(done) {
             var item = getRootItem(2);
 
             panelbar.bind("contentLoad", function() {
-                assert.isOk(item.parent().hasClass("k-state-active"));
+                assert.isOk(item.parent().hasClass("k-active"));
                 panelbar.unbind("contentLoad");
                 done();
             });
@@ -135,7 +135,7 @@
                     '    <li><a>Pure ASP.NET MVC components</a>' +
                     '       <div></div>' +
                     '   </li>' +
-                    '   <li class="k-state-active"><a>Completely Open Source</a>' +
+                    '   <li class="k-active"><a>Completely Open Source</a>' +
                     '       <div></div>' +
                     '   </li>' +
                     '</ul>'

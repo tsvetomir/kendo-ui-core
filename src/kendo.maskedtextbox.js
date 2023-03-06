@@ -1,13 +1,13 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.floatinglabel" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.floatinglabel.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "maskedtextbox",
     name: "MaskedTextBox",
     category: "web",
     description: "The MaskedTextBox widget allows to specify a mask type on an input field.",
-    depends: ["core", "floatinglabel"]
+    depends: ["core", "floatinglabel", "icons"]
 };
 
 (function($, undefined) {
@@ -100,6 +100,10 @@ var __meta__ = { // jshint ignore:line
                     that._togglePrompt();
                 });
 
+            if (that.options.mask && that.options.mask.length > 0) {
+                that.element.attr("aria-placeholder", that.options.mask);
+            }
+
             var disabled = element.is("[disabled]") || $(that.element).parents("fieldset").is(':disabled');
 
             if (disabled) {
@@ -108,9 +112,9 @@ var __meta__ = { // jshint ignore:line
                 that.readonly(element.is("[readonly]"));
             }
 
-            that.value(that.options.value || element.val());
+            that._validationIcon = $(kendo.ui.icon({ icon: "exclamation-circle", iconClass: "k-input-validation-icon k-hidden" })).insertAfter(element);
 
-            that._validationIcon = $("<span class='k-input-validation-icon k-icon k-i-warning k-hidden'></span>").insertAfter(element);
+            that.value(that.options.value || element.val());
 
             that._label();
             that._applyCssClasses();
@@ -219,6 +223,10 @@ var __meta__ = { // jshint ignore:line
                 } else {
                     this._togglePrompt();
                 }
+            }
+
+            if (this.floatingLabel) {
+                this.floatingLabel.refresh();
             }
         },
 
@@ -721,6 +729,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

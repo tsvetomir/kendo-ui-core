@@ -3,21 +3,60 @@ title: 2022 Releases
 page_title: 2022 Releases
 description: "Learn about the breaking changes and backwards compatibility released by {{ site.product }} in 2022."
 slug: breakingchanges_2022
-position: 1
+position: 2
 ---
 
 # 2022 Releases
 
 This article lists the breaking or important changes in the 2022 releases of {{ site.product }}.
 
+## {{ site.product }} R3 2022
+
+**Selectable**
+
+As of the 2022 R3 release, the `Selectable` events mechanism is altered for a variety of the components. The `Change` event will now be fired only when Selection/Deselection is performed. Invoking the client-side API methods would not fire the event as well. 
+
+Below you can find a list of the impacted components:
+
+* `Grid`
+* `Calendar`
+* `MultiViewCalendar`
+* `ListBox`
+* `ListView`
+* `TreeList`
+* `FileManager`
+* `Gantt`
+
+**Badge**
+
+`Shape` property is replaced with `Rounded` and `Fill` property is now called `FillMode`.
+
+## {{ site.product }} R2 2022 SP2
+
+The Size, FillMode and Rounded properties now provide the None option instead of Null.
+
+`.Size(ComponentSize.None)`
+
 {% if site.core %}
 ## {{ site.product }} R2 2022 SP1
 
 **DatePicker TagHelper**
+
 As of the 2022 R2 SP1 release the DatePicker `month-template` and `month-template-id` attributes are depricated. Exposed is a `month-template` child tag to support full customization as the [month](https://docs.telerik.com/kendo-ui/api/javascript/ui/datepicker/configuration/month) configuration option.
 
+
 **DateTimePicker TagHelper**
+
 As of the 2022 R2 SP1 release the DatePicker `month-template` and `month-template-id` attributes are depricated. Exposed is a `month-template` child tag to support full customization as the [month](https://docs.telerik.com/kendo-ui/api/javascript/ui/datetimepicker/configuration/month) configuration option.
+
+{% endif %}
+
+{% if site.core %}
+## {{ site.product }} R2 2022
+
+**.NET Framework**
+
+As of the 2022 R2 release, [.NET Framework](https://dotnet.microsoft.com/en-us/download/dotnet-framework) is out of support. You can switch to [.NET Core](https://dotnet.microsoft.com/en-us/download).
 
 {% endif %}
 

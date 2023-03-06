@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery TreeList Documentation | TreeList Overview
+page_title: jQuery TreeList Documentation - TreeList Overview
 description: "Get started with the jQuery TreeList by Kendo UI and learn how to initialize and configure the widget."
 slug: overview_kendoui_treelist_widget
 position: 1
 ---
 
-# TreeList Overview
+# {{ site.product }} TreeList Overview
 
 The TreeList enables the display of self-referencing tabular data and allows sorting, filtering, and data editing.
 

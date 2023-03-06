@@ -2,7 +2,7 @@
 title: Hide Grid Columns When the Browser Width Is Too Small
 description: "An example demonstrating how to hide the Grid columns in the detail template when the width of the browser is too small."
 type: how-to
-page_title: Collapse Other Rows on Row Expand | Kendo UI Grid for jQuery
+page_title: Collapse Other Rows on Row Expand - Kendo UI for jQuery Data Grid
 slug: grid-browser-resize-hides-columns-in-detail-template
 tags: grid, hierarchy, collapse, expand, hide, columns, column, detail, template
 ticketid: 1358601
@@ -14,10 +14,10 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with the 2021.3.914 version</td>
  </tr>
 </table>

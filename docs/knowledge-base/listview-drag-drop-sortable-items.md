@@ -1,8 +1,8 @@
 ---
 title: Drag and Drop Sortable ListView Items
-description: An example on how to configure the drag-and-drop functionality in the ListView to perform a copy instead of a move operation while sorting is enabled.
+description: Learn how to configure the drag-and-drop functionality in the ListView to perform a copy instead of a move operation while sorting is enabled.
 type: how-to
-page_title: Copy with Drag-and-Drop and Sorting Enabled | Kendo UI ListView for jQuery
+page_title: Copy with Drag-and-Drop and Sorting Enabled - Kendo UI ListView for jQuery
 slug: listview-drag-drop-sortable-items
 tags: kendo, kendo-ui, listview, sortable, drag, drop, drag-drop, droptarget, draggable
 ticketid: 1163175
@@ -14,7 +14,7 @@ res_type: kb
 <table>
     <tr>
         <td>Product</td>
-        <td>Drag and Drop for Progress® Kendo UI®</td>
+        <td>Progress® Kendo UI® Drag and Drop for jQuery</td>
     </tr>
     <tr>
     <td>Product</td>

@@ -7,7 +7,7 @@ slug: htmlhelpers_spreadsheet_aspnetcore
 position: 1
 ---
 
-# Spreadsheet Overview
+# {{ site.framework }} Spreadsheet Overview
 
 {% if site.core %}
 The Telerik UI Spreadsheet TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI Spreadsheet widget. To add the component to your ASP.NET Core app, you can use either.
@@ -1026,6 +1026,38 @@ The following example demonstrates how to subscribe to the `changing` and `chang
         }
     </script>
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-spreadsheet name="spreadsheet" on-changing="onChanging" on-change="onChange">
+        <sheets>
+            <sheet name="Sheet1">
+                <columns>
+                    <sheet-column width="115">
+                    </sheet-column>
+                </columns>
+                <rows>
+                    <sheet-row height="25">
+                        <cells>
+                            <cell value="ID" text-align="SpreadsheetTextAlign.Center">
+                            </cell>
+                        </cells>
+                    </sheet-row>
+                </rows>
+            </sheet>
+        </sheets>
+    </kendo-spreadsheet>
+
+    <script>
+        function onChanging(e) {
+            // Handle the changing event.
+        }
+
+        function onChange(e) {
+            // Handle the change event.
+        }
+    </script>
+```
+{% endif %}
 
 ## Referencing Existing Instances
 

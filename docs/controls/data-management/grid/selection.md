@@ -1,9 +1,9 @@
 ---
 title: Selection
-page_title: jQuery Grid Documentation | Selection
+page_title: jQuery Grid Documentation - Selection
 description: "Get started with the jQuery Grid by Kendo UI packed with features such as sorting, grouping, paging, editing and more."
 slug: selection_kendoui_grid_widget
-position: 8
+position: 10
 ---
 
 # Selection
@@ -25,7 +25,7 @@ To enable the selection functionality of the Grid, set the [`selectable`](/api/j
 
 **Figure 1: A Grid with enabled row selection**
 
-![Grid with enabled row selection](grid4_1.png)
+![Kendo UI for jQuery Grid with enabled row selection](grid-row-selection.png)
 
 ## Select Modes
 

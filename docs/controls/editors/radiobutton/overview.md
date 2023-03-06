@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery RadioButton Documentation | RadioButton Overview
+page_title: jQuery RadioButton Documentation - RadioButton Overview
 description: "Get started with the jQuery RadioButton by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_radiobutton_widget
 position: 1
 ---
 
-# RadioButton Overview
+# {{ site.product }} RadioButton Overview
 
 The RadioButton allows you to provide radiobutton functionality to `<input />` elements, style them, disable the RadioButton, and set an encoded or decoded label.
 

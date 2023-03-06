@@ -1,7 +1,7 @@
 ---
 title: Bind Selection to Model Field with Checkbox Column
-page_title: Bind Selection to Model Field | Kendo UI Grid for jQuery
-description: "An example on how to select a row with a checkbox column that is bound to a model field in the Kendo UI Grid for jQuery."
+page_title: Bind Selection to Model Field - Kendo UI for jQuery Data Grid
+description: "Learn how to select a row with a checkbox column that is bound to a model field in the Kendo UI Grid for jQuery."
 previous_url: /controls/data-management/grid/how-to/Selection/grid-selection-to-model-field
 slug: howto_bind_selection_to_model_field
 tags: grid, bind, selection, model, field, checkbox, column
@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -114,7 +114,7 @@ The following example demonstrates how `SelectAll` that is located in the header
                 var dataItem = e.sender.dataItem(this);
                 kendo.bind(this, dataItem);
                 if(dataItem.Discontinued){
-                  $(this).addClass("k-state-selected");
+                  $(this).addClass("k-selected");
                 }
               })
 
@@ -211,7 +211,7 @@ The following example demonstrates how `SelectAll` that is located in the header
                 var dataItem = e.sender.dataItem(this);
                 kendo.bind(this, dataItem);
                 if(dataItem.Discontinued){
-                  $(this).addClass("k-state-selected");
+                  $(this).addClass("k-selected");
                 }
               })
 
@@ -237,4 +237,4 @@ The following example demonstrates how `SelectAll` that is located in the header
 
 ## See Also
 
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

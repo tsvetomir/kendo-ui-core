@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Switch Documentation | Switch Overview
+page_title: jQuery Switch Documentation - Switch Overview
 description: "Get started with the jQuery Switch by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_switch_widget
 position: 1
 ---
 
-# Switch Overview
+# {{ site.product }} Switch Overview
 
 The Switch displays two exclusive choices.
 

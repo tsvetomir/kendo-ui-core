@@ -1,12 +1,14 @@
 ---
 title: Overview
-page_title: Overview | Kendo UI Accessibility Support
+page_title: Overview - Kendo UI Accessibility Support
 description: "Learn about the general requirements web applications have to meet to be accessible and the Accessibility support Kendo UI controls provide."
 slug: overview_accessibility_support_kendoui
 position: 1
 ---
 
-# Accessibility Overview
+# {{ site.product }} Accessibility Overview
+
+Refer to our [accessibility demos](https://demos.telerik.com/kendo-ui/accessibility), where accessibility level and compliance of the Kendo UI components can be tested.
 
 In terms of web components, accessibility means that the websites and applications provide full control over their features by enabling users with disabilities to access them through assistive technologies such as screen readers.
 

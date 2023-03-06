@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery CircularGauge Documentation | CircularGauge Overview
+page_title: jQuery CircularGauge Documentation - CircularGauge Overview
 description: "Get started with the jQuery CircularGauge by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_circulargaugewidget
 position: 1
 ---
 
-# CircularGauge Overview
+# {{ site.product }} CircularGauge Overview
 
 The CircularGauge represents a value on a circular scale. It allows you to visualize numeric values in an attractive manner that matches the other widgets on the page.
 

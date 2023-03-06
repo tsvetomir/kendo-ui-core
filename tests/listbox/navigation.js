@@ -47,18 +47,19 @@
 
         it("enabled tool should be focusable", function() {
             listA.select(listA.items().first());
+            listA._onSelect();
 
             var tool = getToolElement(listA, MOVE_DOWN);
 
             assert.equal(tool.attr(TABINDEX), undefined);
         });
 
-        it("disabled tool should not be focusable", function() {
+        it("disabled tool should be focusable", function() {
             listA.select(listA.items().last());
 
             var tool = getToolElement(listA, MOVE_DOWN);
 
-            assert.isOk(tool.attr(TABINDEX) === "-1");
+            assert.equal(tool.attr(TABINDEX), undefined);
         });
 
         it("First item gets focused on keydown if focused item is not present", function() {

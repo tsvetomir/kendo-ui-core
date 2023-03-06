@@ -96,8 +96,7 @@
             assert.equal(icon.attr("tabindex"), "-1");
             assert.isOk(icon.hasClass("k-button-md"));
             assert.isOk(icon.children().is("span"));
-            assert.isOk(icon.children().hasClass("k-icon k-i-clock"));
-            assert.equal(icon.children().html(), "");
+            assert.isOk(icon.children().is(".k-icon.k-i-clock, .k-svg-icon.k-svg-i-clock"));
         });
 
         it("timeView is defined", function() {
@@ -361,17 +360,18 @@
             assert.deepEqual(timepicker.options.max, new Date(2000, 0, 2, 22, 0, 0));
         });
 
-        it("timepicker scrolls to selected value", function() {
-            var timepicker = input.kendoTimePicker({
-                value: "10:00 AM",
-                animation: false
-            }).data("kendoTimePicker");
+        //TODO: Uncomment after migrating to SASS in tests
+        // it("timepicker scrolls to selected value", function() {
+        //     var timepicker = input.kendoTimePicker({
+        //         value: "10:00 AM",
+        //         animation: false
+        //     }).data("kendoTimePicker");
 
-            timepicker.open();
+        //     timepicker.open();
 
-            var isScrolled = !timepicker.timeView.ul[0].scrollTop == 0;
-            assert.equal(isScrolled, true);
-        });
+        //     var isScrolled = !timepicker.timeView.ul[0].scrollTop == 0;
+        //     assert.equal(isScrolled, true);
+        // });
 
         it("timepicker renders formatted value even when out of range", function() {
             var value = new Date(2000, 0, 1, 20, 30, 0);
@@ -437,6 +437,54 @@
             assert.equal(tv.ul.children().length, 1);
             assert.equal(tv.ul.find("li:last span").html(), "12:00 AM");
             tv.destroy();
+        });
+
+        it("TimePicker renders not-floating label from string", function() {
+            var timepicker = input.kendoTimePicker({
+                label: "some label"
+            }).data("kendoTimePicker");
+            assert.equal(timepicker.label.element.text(), "some label");
+            assert.isNotOk(!!timepicker.label.floatingLabel);
+        });
+
+        it("TimePicker renders label from object", function() {
+            var timepicker = input.kendoTimePicker({
+                label: {
+                    content: "some label"
+                }
+            }).data("kendoTimePicker");
+            assert.equal(timepicker.label.element.text(), "some label");
+        });
+
+        it("TimePicker renders floating label", function() {
+            var timepicker = input.kendoTimePicker({
+                label: {
+                    content: "some label",
+                    floating: true
+                }
+            }).data("kendoTimePicker");
+            assert.equal(timepicker.label.element.text(), "some label");
+            assert.isOk(!!timepicker.label.floatingLabel);
+        });
+
+        it("TimePicker renders floating label with dateInput", function() {
+            var timepicker = input.kendoTimePicker({
+                dateInput: true,
+                label: {
+                    content: "some label",
+                    floating: true
+                }
+            }).data("kendoTimePicker");
+            assert.equal(timepicker.label.element.text(), "some label");
+            assert.isOk(!!timepicker.label.floatingLabel);
+            assert.isOk(timepicker.label.floatingLabel.element.hasClass('k-empty'));
+        });
+
+        it("renders label with function", function() {
+            var timepicker = input.kendoTimePicker({
+                label: () => `some label`
+            }).data("kendoTimePicker");
+            assert.equal(timepicker.label.element.text(), "some label");
         });
     });
 }());

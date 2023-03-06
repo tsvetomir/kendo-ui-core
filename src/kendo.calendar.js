@@ -1,8 +1,8 @@
-(function(f, define) {
-    define([ "./kendo.core", "./kendo.selectable" ], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.selectable.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "calendar",
     name: "Calendar",
     category: "web",
@@ -25,10 +25,10 @@ var __meta__ = { // jshint ignore:line
         getCulture = kendo.getCulture,
         transitions = kendo.support.transitions,
         transitionOrigin = transitions ? transitions.css + "transform-origin" : "",
-        cellTemplate = template('<td class="#=data.cssClass#" role="gridcell"><a tabindex="-1" class="k-link" href="\\#" data-#=data.ns#value="#=data.dateString#">#=data.value#</a></td>', { useWithBlock: false }),
-        emptyCellTemplate = template('<td role="gridcell" class="k-calendar-td k-out-of-range"><a class="k-link"></a></td>', { useWithBlock: false }),
-        otherMonthCellTemplate = template('<td role="gridcell" class="k-calendar-td k-out-of-range">&nbsp;</td>', { useWithBlock: false }),
-        weekNumberTemplate = template('<td class="k-calendar-td k-alt">#= data.weekNumber #</td>', { useWithBlock: false }),
+        cellTemplate = template((data) => `<td class="${data.cssClass}" role="gridcell"><a tabindex="-1" class="k-link" href="#" data-${data.ns}value="${data.dateString}">${data.value}</a></td>`),
+        emptyCellTemplate = template(() => '<td role="gridcell" class="k-calendar-td k-out-of-range"><a class="k-link"></a></td>'),
+        otherMonthCellTemplate = template(() => '<td role="gridcell" class="k-calendar-td k-out-of-range">&nbsp;</td>'),
+        weekNumberTemplate = template((data) => `<td class="k-calendar-td k-alt">${data.weekNumber}</td>`),
         outerWidth = kendo._outerWidth,
         ns = ".kendoCalendar",
         CLICK = "click" + ns,
@@ -42,16 +42,16 @@ var __meta__ = { // jshint ignore:line
         CHANGE = "change",
         NAVIGATE = "navigate",
         VALUE = "value",
-        HOVER = "k-state-hover",
-        DISABLED = "k-state-disabled",
-        FOCUSED = "k-state-focused",
+        HOVER = "k-hover",
+        DISABLED = "k-disabled",
+        FOCUSED = "k-focus",
         OTHERMONTH = "k-other-month",
         OUTOFRANGE = "k-out-of-range",
-        TODAY = "k-nav-today",
+        TODAY = "k-calendar-nav-today",
         CELLSELECTOR = "td:has(.k-link)",
         CELLSELECTORVALID = "td:has(.k-link):not(." + DISABLED + "):not(." + OUTOFRANGE + ")",
         WEEKCOLUMNSELECTOR = "td:not(:has(.k-link))",
-        SELECTED = "k-state-selected",
+        SELECTED = "k-selected",
         BLUR = "blur" + ns,
         FOCUS = "focus",
         FOCUS_WITH_NS = FOCUS + ns,
@@ -74,24 +74,28 @@ var __meta__ = { // jshint ignore:line
             century: 3
         },
         HEADERSELECTOR = '.k-header, .k-calendar-header',
-        CLASSIC_HEADER_TEMPLATE = '<div class="k-header k-hstack">' +
-            '<a href="\\#" #=actionAttr#="prev" role="button" class="k-nav-prev k-button #=size# k-rounded-md k-button-flat k-button-flat-base k-icon-button" ' + ARIA_LABEL + '="Previous"><span class="k-button-icon k-icon k-i-arrow-60-left"></span></a>' +
-            '<a href="\\#" #=actionAttr#="nav-up" role="button" id="nav-up" class="k-nav-fast k-button #=size# k-rounded-md k-button-flat k-button-flat-base  k-flex"></a>' +
-            '<a href="\\#" #=actionAttr#="next" role="button" class="k-nav-next k-button #=size# k-rounded-md k-button-flat k-button-flat-base  k-icon-button" ' + ARIA_LABEL + '="Next"><span class="k-icon k-i-arrow-60-right"></span></a>' +
-        '</div>',
-        MODERN_HEADER_TEMPLATE = '<div class="k-calendar-header k-hstack">' +
-            '<a href="\\#" #=actionAttr#="nav-up" id="nav-up" role="button" class="k-calendar-title k-title k-button #=size# k-rounded-md k-button-flat k-button-flat-base "></a>' +
-            '<span class="k-spacer"></span>' +
-            '<span class="k-calendar-nav k-hstack">' +
-                '<a #=actionAttr#="prev" class="k-button #=size# k-rounded-md k-button-flat k-button-flat-base  k-icon-button k-prev-view">' +
-                    '<span class="k-button-icon k-icon k-i-arrow-60-left"></span>' +
-                '</a>' +
-                '<a #=actionAttr#="today" class="k-nav-today">#=messages.today#</a>' +
-                '<a #=actionAttr#="next" class="k-button #=size# k-rounded-md k-button-flat k-button-flat-base  k-icon-button k-next-view">' +
-                    '<span class="k-button-icon k-icon k-i-arrow-60-right"></span>' +
-                '</a>' +
-            '</span>' +
-        '</div>';
+        CLASSIC_HEADER_TEMPLATE = ({ actionAttr, size }) => `<div class="k-header k-hstack">
+            <a tabindex="-1" href="#" ${actionAttr}="prev" role="button" class="k-calendar-nav-prev k-button ${size} k-rounded-md k-button-flat k-button-flat-base k-icon-button" ${ARIA_LABEL}="Previous">${kendo.ui.icon({ icon: "caret-alt-left", iconClass: "k-button-icon" })}</span></a>
+            <a tabindex="-1" href="#" ${actionAttr}="nav-up" id="` + kendo.guid() + `" role="button" class="k-calendar-nav-fast k-button ${size} k-rounded-md k-button-flat k-button-flat-base  k-flex"></a>
+            <a tabindex="-1" href="#" ${actionAttr}="next" role="button" class="k-calendar-nav-next k-button ${size} k-rounded-md k-button-flat k-button-flat-base  k-icon-button" ${ARIA_LABEL}="Next">${kendo.ui.icon({ icon: "caret-alt-right", iconClass: "k-button-icon" })}</a>
+        </div>`,
+        MODERN_HEADER_TEMPLATE = ({ actionAttr, size, messages }) => `<div class="k-calendar-header k-hstack">
+            <button ${actionAttr}="nav-up" id="` + kendo.guid() + `" class="k-calendar-title k-button ${size} k-button-flat k-button-flat-base k-rounded-md">
+                <span class="k-button-text"></span>
+            </button>
+            <span class="k-spacer"></span>
+            <span class="k-calendar-nav">
+                <button tabindex="-1" ${actionAttr}="prev" class="k-calendar-nav-prev k-button ${size} k-button-flat k-button-flat-base k-rounded-md k-icon-button">
+                    ${kendo.ui.icon({ icon: "chevron-left", iconClass: "k-button-icon" })}
+                </button>
+                <button tabindex="-1" ${actionAttr}="today" class="k-calendar-nav-today k-button ${size} k-button-flat k-button-flat-primary k-rounded-md">
+                    <span class="k-button-text">${messages.today}</span>
+                </button>
+                <button tabindex="-1" ${actionAttr}="next" class="k-calendar-nav-next k-button ${size} k-button-flat k-button-flat-base k-rounded-md k-icon-button">
+                    ${kendo.ui.icon({ icon: "chevron-right", iconClass: "k-button-icon" })}
+                </button>
+            </span>
+        </div>`;
 
     var Calendar = Widget.extend({
         init: function(element, options) {
@@ -118,7 +122,7 @@ var __meta__ = { // jshint ignore:line
             if (that.options.hasFooter) {
                 that._footer(that.footer);
             } else {
-                that._today = that.element.find('a.k-nav-today');
+                that._today = that.element.find('.k-calendar-nav-today');
                 that._toggle();
             }
 
@@ -150,7 +154,8 @@ var __meta__ = { // jshint ignore:line
                 element.on(CLICK, WEEKCOLUMNSELECTOR, function(e) {
                         var first = $(e.currentTarget).closest("tr").find(CELLSELECTORVALID).first(),
                             last = that.selectable._lastActive = $(e.currentTarget).closest("tr").find(CELLSELECTORVALID).last();
-                        that.selectable.selectRange(first, last, { event: e });
+                        that.selectable.selectRange(first, last);
+                        that.selectable.trigger(CHANGE, { event: e });
                         that._current = that._value = toDateObject(last.find("a"));
                         that._setCurrent(that._current);
                 });
@@ -421,7 +426,7 @@ var __meta__ = { // jshint ignore:line
             that._oldTable = from;
 
             if (!from || that._changeView) {
-                title.html(currentView.title(value, min, max, culture));
+                title.html('<span class="k-button-text">' + currentView.title(value, min, max, culture) + '</span>');
 
                 if (that.options.messages.parentViews && that._view.name !== CENTURY) {
                     title.attr("title", that.options.messages.navigateTo + that.options.messages.parentViews[that._view.name]);
@@ -605,7 +610,7 @@ var __meta__ = { // jshint ignore:line
             that.selectable = new Selectable(that.wrapper, {
                 aria: true,
                 //excludes the anchor element
-                inputSelectors: "input,textarea,.k-multiselect-wrap,select,button,.k-button>span,.k-button>img,span.k-icon.k-i-arrow-60-down,span.k-icon.k-i-arrow-60-up",
+                inputSelectors: "input,textarea,.k-multiselect-wrap,select,button,.k-button>span,.k-button>img,span.k-icon.k-i-caret-alt-down,span.k-icon.k-i-caret-alt-up,span.k-svg-icon.k-svg-i-caret-alt-down,span.k-svg-icon.k-svg-i-caret-alt-up",
                 multiple: selectableOptions.multiple,
                 filter: "table.k-month:eq(0) " + CELLSELECTORVALID,
                 change: that._onSelect.bind(that),
@@ -629,8 +634,8 @@ var __meta__ = { // jshint ignore:line
                 selectableOptions = Selectable.parseOptions(that.options.selectable);
 
             if (!selectableOptions.multiple) {
-                if ($(eventArgs.event.currentTarget).is("td") && !$(eventArgs.event.currentTarget).hasClass("k-state-selected")) {
-                    $(eventArgs.event.currentTarget).addClass("k-state-selected");
+                if ($(eventArgs.event.currentTarget).is("td") && !$(eventArgs.event.currentTarget).hasClass("k-selected")) {
+                    $(eventArgs.event.currentTarget).addClass("k-selected");
                 }
                 else {
                     that._click($(eventArgs.event.currentTarget).find("a"));
@@ -676,7 +681,7 @@ var __meta__ = { // jshint ignore:line
         _toggleSelection: function(currentCell) {
             var that = this,
                 date = toDateObject(currentCell.find("a"));
-                if (currentCell.hasClass("k-state-selected")) {
+                if (currentCell.hasClass("k-selected")) {
                     that._selectDates.push(date);
                 }
                 else {
@@ -779,16 +784,17 @@ var __meta__ = { // jshint ignore:line
             } else if (key == keys.DOWN) {
                 value = index === 0 ? 7 : 4;
                 prevent = true;
-            }
-            else if (key == keys.SPACEBAR) {
+            } else if (key == keys.SPACEBAR) {
                 value = 0;
                 prevent = true;
-            }
-            else if (key == keys.HOME || key == keys.END) {
+            } else if (key == keys.HOME || key == keys.END) {
                 method = key == keys.HOME ? "first" : "last";
                 temp = view[method](currentValue);
                 currentValue = new DATE(temp.getFullYear(), temp.getMonth(), temp.getDate(), currentValue.getHours(), currentValue.getMinutes(), currentValue.getSeconds(), currentValue.getMilliseconds());
                 currentValue.setFullYear(temp.getFullYear());
+                prevent = true;
+            } else if (key === 84) {
+                that._todayClick(e);
                 prevent = true;
             }
 
@@ -929,11 +935,11 @@ var __meta__ = { // jshint ignore:line
 
             if ($(that._cell[0]).hasClass(SELECTED)) {
                 that.selectable._unselect($(that._cell[0]));
-                that.selectable.trigger(CHANGE, { event: event });
             }
             else {
-                that.selectable.value($(that._cell[0]), { event: event });
+                that.selectable.value($(that._cell[0]));
             }
+            that.selectable.trigger(CHANGE, { event: event });
         },
 
         _nextNavigatable: function(currentValue, value) {
@@ -991,7 +997,8 @@ var __meta__ = { // jshint ignore:line
                 active = that._active,
                 horizontal = that.options.animation.horizontal,
                 effects = horizontal.effects,
-                viewWidth = outerWidth(from);
+                viewWidth = outerWidth(from),
+                margin = (outerWidth(from, true) - viewWidth);
 
             if (effects && effects.indexOf(SLIDE) != -1) {
                 from.add(to).css({ width: viewWidth });
@@ -1003,9 +1010,9 @@ var __meta__ = { // jshint ignore:line
                 from.parent()
                 .css({
                     position: "relative",
-                    width: viewWidth * 2,
-                    "float": LEFT,
-                    "margin-left": future ? 0 : -viewWidth
+                    width: (viewWidth * 2) + (2 * margin),
+                    display: "flex",
+                    "margin-left": future ? 0 : (-viewWidth - margin)
                 });
 
                 to[future ? "insertAfter" : "insertBefore"](from);
@@ -1177,13 +1184,19 @@ var __meta__ = { // jshint ignore:line
             }
 
             if (!footer[0]) {
-                footer = $('<div class="k-footer"><a href="#" class="k-link k-nav-today"></a></div>').appendTo(element);
+                footer = $(`<div class="k-footer">
+                    <button tabindex="-1" class="k-calendar-nav-today k-flex k-button k-button-md k-button-flat k-button-flat-primary k-rounded-md">
+                        <span class="k-button-text"></span>
+                    </button>
+                </div>`).appendTo(element);
             }
 
             that._today = footer.show()
-                .find(".k-link")
-                .html(template(today))
+                .find(".k-button-flat-primary")
                 .attr("title", kendo.toString(today, "D", that.options.culture));
+
+            footer.find(".k-button-text")
+                .html(template(today));
 
             that._toggle();
         },
@@ -1348,16 +1361,16 @@ var __meta__ = { // jshint ignore:line
                 content = month.content,
                 weekNumber = month.weekNumber,
                 empty = month.empty,
-                footerTemplate = '#= kendo.toString(data,"D","' + options.culture + '") #';
+                footerTemplate = (data) => `${kendo.toString(data,"D",options.culture)}`;
 
             that.month = {
-                content: template('<td class="#=data.cssClass#" role="gridcell"><a tabindex="-1" class="k-link#=data.linkClass#" href="#=data.url#" ' + kendo.attr(VALUE) + '="#=data.dateString#" title="#=data.title#">' + (content || "#=data.value#") + '</a></td>', { useWithBlock: !!content }),
-                empty: template('<td role="gridcell">' + (empty || "&nbsp;") + "</td>", { useWithBlock: !!empty }),
-                weekNumber: template('<td class="k-alt">' + (weekNumber || "#= data.weekNumber #") + "</td>", { useWithBlock: !!weekNumber })
+                content: (data) => `<td class="${data.cssClass}" role="gridcell"><a tabindex="-1" class="k-link ${data.linkClass}" href="${data.url}" ${kendo.attr(VALUE)}="${data.dateString}" title="${data.title}">${executeTemplate(content, data) || data.value}</a></td>`,
+                empty: (data) => `<td role="gridcell">${executeTemplate(empty, data) || "&nbsp;"}</td>`,
+                weekNumber: (data) => `<td class="k-alt">${executeTemplate(weekNumber, data) || data.weekNumber}</td>`
             };
 
             that.year = {
-                content: template('<td class="#=data.cssClass#" role="gridcell"><a tabindex="-1" class="k-link" href="\\#" data-#=data.ns#value="#=data.dateString#" aria-label="#=data.label#">#=data.value#</a></td>', { useWithBlock: false })
+                content: template((data) => `<td class="${data.cssClass}" role="gridcell"><a tabindex="-1" class="k-link" href="#" data-${data.ns}value="${data.dateString}" aria-label="${data.label}">${data.value}</a></td>`)
             };
 
             if (footer && footer !== true) {
@@ -1473,7 +1486,7 @@ var __meta__ = { // jshint ignore:line
                     cells: 42,
                     perRow: 7,
                     html: html += '</tr></thead><tbody class="k-calendar-tbody"><tr role="row" class="k-calendar-tr">',
-                    start: start,
+                    start: createDate(start.getFullYear(), start.getMonth(), start.getDate()),
                     isWeekColumnVisible: isWeekColumnVisible,
                     weekNumber: options.weekNumber,
                     min: createDate(min.getFullYear(), min.getMonth(), min.getDate()),
@@ -1956,7 +1969,7 @@ var __meta__ = { // jshint ignore:line
     }
 
     function mousetoggle(e) {
-        var disabled = $(this).hasClass("k-state-disabled");
+        var disabled = $(this).hasClass("k-disabled");
 
         if (!disabled) {
             $(this).toggleClass(HOVER, MOUSEENTER.indexOf(e.type) > -1 || e.type == FOCUS);
@@ -2052,30 +2065,24 @@ var __meta__ = { // jshint ignore:line
     }
 
     function createDisabledExpr(dates) {
-        var body, callback,
+        var callback,
             disabledDates = [],
-            days = ["su", "mo", "tu", "we", "th", "fr", "sa"],
-            searchExpression = "if (found) {" +
-                    " return true " +
-                "} else {" +
-                    "return false" +
-                "}";
+            days = ["su", "mo", "tu", "we", "th", "fr", "sa"];
 
         if (dates[0] instanceof DATE) {
             disabledDates = convertDatesArray(dates);
-            body = "var clonedDate = new Date(date); var found = date && window.kendo.jQuery.inArray(clonedDate.setHours(0, 0, 0, 0),[" + disabledDates + "]) > -1;" + searchExpression;
+            callback = (date) => !!(date && disabledDates.indexOf((new Date(date)).setHours(0, 0, 0, 0)) > -1);
         } else {
-            for (var i = 0; i < dates.length; i++) {
-                var day = dates[i].slice(0,2).toLowerCase();
-                var index = $.inArray(day, days);
+            disabledDates = dates.map(day => {
+                day = day.slice(0,2).toLowerCase();
+                let index = days.indexOf(day);
                 if (index > -1) {
-                    disabledDates.push(index);
+                    return index;
                 }
-            }
-            body = "var clonedDate = new Date(date); var found = date && window.kendo.jQuery.inArray(clonedDate.getDay(),[" + disabledDates + "]) > -1;" + searchExpression;
-        }
+            });
 
-        callback = new Function("date", body); //jshint ignore:line
+            callback = (date) => !!(date && disabledDates.indexOf((new Date(date)).getDay()) > -1);
+        }
 
         return callback;
     }
@@ -2097,6 +2104,17 @@ var __meta__ = { // jshint ignore:line
         return value;
     }
 
+    // Backwards compatibility after CSP changes.
+    function executeTemplate(tmpl, data) {
+        if (tmpl) {
+            if (kendo.isFunction(tmpl)) {
+                return tmpl(data);
+            }
+            return template(tmpl)(data);
+        }
+        return undefined;
+    }
+
     calendar.isEqualDatePart = isEqualDatePart;
     calendar.isEqualDate = isEqualDate;
     calendar.restrictValue = restrictValue;
@@ -2112,6 +2130,3 @@ var __meta__ = { // jshint ignore:line
     kendo.calendar = calendar;
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

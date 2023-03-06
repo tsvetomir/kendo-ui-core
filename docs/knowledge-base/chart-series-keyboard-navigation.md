@@ -1,6 +1,6 @@
 ---
 title: Add Keyboard Navigation to Chart Series
-page_title: Add Keyboard Navigation to Chart Series | Kendo UI Chart for jQuery
+page_title: Add Keyboard Navigation to Chart Series - Kendo UI Chart for jQuery
 description: "An example demonstrating how to implement custom keyboard navigation to the Kendo UI Chart series."
 type: how-to
 slug: chart-series-keyboard-navigation
@@ -18,7 +18,7 @@ res_type: kb
 	</tr>
 	<tr>
 		<td>Product</td>
-		<td>Chart for Progress® Kendo UI®</td>
+		<td>Progress® Kendo UI® Chart for jQuery</td>
 	</tr>
 </table>
 

@@ -27,6 +27,14 @@
             assert.equal(input.attr("disabled"), undefined);
         });
 
+        it("setOptions does not duplicate labels", function() {
+            var textbox = new TextBox(input, { label: "Set name" });
+
+            textbox.setOptions({});
+
+            assert.equal($(".k-input-label").length, 1);
+        });
+
         it("enable(false) removes readonly attribute and no-click class", function() {
             var textbox = input.kendoTextBox().data("kendoTextBox");
 
@@ -89,12 +97,20 @@
             assert.equal(textbox.value(), value);
         });
 
-        it("value should set value of the input", function() {
+        it("value method should set value of the input", function() {
             var textbox = new TextBox(input), value = "test";
 
             textbox.value(value);
 
             assert.equal(input.val(), value);
+        });
+
+        it("value method should refresh the floating label", function() {
+            var textbox = new TextBox(input, { label: { content: "Set name", floating: true } }), value = "test";
+
+            textbox.value(value);
+
+            assert.isOk(!textbox.floatingLabel.element.hasClass("k-empty"));
         });
 
         it("value() can set null", function() {

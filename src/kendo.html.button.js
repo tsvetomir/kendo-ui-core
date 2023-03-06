@@ -1,15 +1,12 @@
-(function(f, define) {
-    define([
-        "./kendo.html.base"
-    ], f);
-})(function() {
+import "./kendo.html.base.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "html.button",
     name: "Html.Button",
     category: "web",
     description: "HTML rendering utility for Kendo UI for jQuery.",
-    depends: [ "html.base" ],
+    depends: [ "html.base", "icons" ],
     features: []
 };
 
@@ -71,7 +68,7 @@ var __meta__ = { // jshint ignore:line
                 isEmpty = true;
 
                 element.contents().filter(function() {
-                    return (!$(this).hasClass("k-sprite") && !$(this).hasClass("k-icon") && !$(this).hasClass("k-image"));
+                    return (!$(this).hasClass("k-sprite") && !$(this).hasClass("k-icon") && !$(this).hasClass("k-svg-icon") && !$(this).hasClass("k-image"));
                 }).each(function(idx, el) {
                     if (el.nodeType == 1 || el.nodeType == 3 && kendo.trim(el.nodeValue).length > 0) {
                         isEmpty = false;
@@ -91,11 +88,13 @@ var __meta__ = { // jshint ignore:line
                 img.attr("src", imageUrl);
                 img.addClass(KBUTTONICON);
             } else if (icon || iconClass) {
-                span = element.children("span.k-icon").first();
+                span = element.children("span.k-icon, span.k-svg-icon").first();
                 if (!span[0]) {
-                    span = $('<span></span>').prependTo(element);
+                    span = $(kendo.ui.icon({ icon, iconClass })).prependTo(element);
+                } else {
+                    kendo.ui.icon(span, { icon, iconClass });
                 }
-                span.attr("class", icon ? "k-icon k-i-" + icon : iconClass);
+
                 span.addClass(KBUTTONICON);
             } else if (spriteCssClass) {
                 span = element.children("span.k-sprite").first();
@@ -113,12 +112,10 @@ var __meta__ = { // jshint ignore:line
             }).each(function(idx, el) {
                 if (el.nodeType == 1 || el.nodeType == 3 && kendo.trim(el.nodeValue).length > 0) {
                     if (el.nodeType === 3) {
-                        var parent = el.parentNode;
                         var newSpan = document.createElement('span');
 
-                        newSpan.appendChild(document.createTextNode(el.nodeValue));
-                        parent.replaceChild(newSpan, el);
-
+                        el.parentNode.insertBefore(newSpan, el);
+                        newSpan.appendChild(el);
                         el = newSpan;
                     }
 
@@ -145,6 +142,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

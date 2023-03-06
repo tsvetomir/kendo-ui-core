@@ -2,7 +2,7 @@
 title: Show Checkbox in Root Nodes of the TreeList
 description: Display the checkbox only in the root nodes of the Kendo UI TreeList
 type: how-to
-page_title: Checkbox in Parent Nodes | Kendo UI TreeList
+page_title: Checkbox in Parent Nodes - Kendo UI TreeList
 slug: treelist-show-checkbox-parent-nodes
 position: 
 tags: checkbox, treelist, rootnode, root, parent, parentnode
@@ -19,7 +19,7 @@ res_type: kb
 		</tr>
 		<tr>
 			<td>Product</td>
-			<td>TreeList for Progress® Kendo UI®</td>
+			<td>Progress® Kendo UI® TreeList for jQuery</td>
 		</tr>
 	</tbody>
 </table>

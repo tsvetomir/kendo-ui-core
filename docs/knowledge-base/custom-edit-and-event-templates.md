@@ -1,7 +1,7 @@
 ---
 title: Customize the Edit and Events Scheduler Templates
 page_title: Customize the Edit and Events Scheduler Templates
-description: "Learn how to create and use custom templates for the events and the Edit window of the Kendo UI for jQuery Scheduler widget."
+description: "Learn how to create and use custom templates for the events and the Edit window of the Kendo UI for jQuery Scheduler component."
 previous_url: /asp.net/mvc/controls/scheduling/scheduler/how-to/custom-edit-and-event-templates, /kendo-mvc/controls/scheduling/scheduler/how-to/custom-edit-and-event-templates, /controls/scheduling/scheduler/how-to/custom-edit-and-event-templates, /controls/scheduling/scheduler/how-to/editing/custom-edit-and-event-templates
 slug: howto_customize_editand_event_templates_scheduler
 tags: telerik, kendo, jquery, scheduler, customize, edit, and, events, templates 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -111,8 +111,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             "day",

@@ -1,14 +1,14 @@
 ---
 title: Search Panel
-page_title: jQuery Grid Documentation | Search Panel | Kendo UI 
+page_title: jQuery Grid Documentation - Search Panel | Kendo UI 
 description: "Get started with the jQuery Grid by Kendo UI and learn how to enable search panel to search through its data."
 slug: searchpanel_kendoui_grid_widget
-position: 5
+position: 7
 ---
 
 # Search Panel
 
-The Grid widget has a built-in feature that enables the users to search through the data. The Search Panel uses filtering under the hood to show only the relevant records in the Grid.
+The Grid component has a built-in feature that enables the users to search through the data. The Search Panel uses filtering under the hood to show only the relevant records in the Grid.
 
 > Search Panel functionality is available as of [`Kendo UI R3 2019`](https://www.telerik.com/support/whats-new/kendo-ui/release-history/kendo-ui-r3-2019) release.
 

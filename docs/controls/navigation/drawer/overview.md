@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Drawer Documentation | Drawer Overview
+page_title: jQuery Drawer Documentation - Drawer Overview
 description: "Get started with the jQuery Drawer by Kendo UI, initialize single or multiple buttons, and reference existing Button instances."
 slug: overview_kendoui_drawer_widget
 position: 1
 ---
 
-# Drawer Overview
+# {{ site.product }} Drawer Overview
 
 The Drawer is a dismissible panel used for navigation in responsive web applications or for changing a content of a section in the page.
 
@@ -58,7 +58,7 @@ The following example demonstrates how to initialize a Drawer with MVVM.
       <div data-role="drawer"
            data-width="150"
            data-mode="push"
-           data-template="<ul><li data-role='drawer-item'><span>First Item</span></li><li data-role='drawer-separator'></li><li data-role='drawer-item'><span>Second Item</span></li><li data-role='drawer-item' class='k-state-selected'><span>Third Item</span></li></ul>">
+           data-template="<ul><li data-role='drawer-item'><span>First Item</span></li><li data-role='drawer-separator'></li><li data-role='drawer-item'><span>Second Item</span></li><li data-role='drawer-item' class='k-selected'><span>Third Item</span></li></ul>">
         <h1 class="my-content">Swipe or drag me to the right <span class="k-icon k-i-arrow-chevron-right"></span></h1>
       </div>
     </div>

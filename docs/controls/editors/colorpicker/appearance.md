@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery ColorPicker Documentation | Appearance
+page_title: jQuery ColorPicker Documentation - Appearance
 description: "Learn how to apply different styling options to the ColorPicker widget."
 slug: appearance_kendoui_colorpicker_widget
 position: 5
@@ -12,7 +12,7 @@ position: 5
 
 In this article, you will find information about the rendering of the Kendo UI ColorPicker.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the ColorPicker](https://demos.telerik.com/kendo-ui/colorpicker/appearance).
 
@@ -272,9 +272,9 @@ The following example demonstrates the new rendering:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references. 
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 Previously, a reference to the button element was obtainable through the `k-select` class.
 
@@ -282,7 +282,7 @@ Previously, a reference to the button element was obtainable through the `k-sele
 $(".k-select") // Returns a reference to the ColorPicker dropdown button element in the old rendering.
 ```
 
-With the new rendering, a reference to the button element can be obtained also through the `k-button` and `k-input-button` classes.
+With the new rendering, you can also obtain a reference to the button element through the `k-button` and `k-input-button` classes.
 
 ```javascript
 $(".k-button") // Returns a reference to the ColorPicker dropdown button element in the new rendering.
@@ -297,21 +297,66 @@ $(".k-selected-color") // In the old rendering returns a reference to the ColorP
 $(".k-tool-icon") // In the old rendering returns a reference to the ColorPicker color preview element when a toolIcon is configured.
 ```
 
-With the new rendering, a reference to the `span` element containing the color preview can be obtained through the `k-input-inner` class.
+With the new rendering, you can obtain a reference to the `span` element containing the color preview through the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the ColorPicker color preview element in the new rendering.
 ```
 
-With the new rendering, a reference to the `span` element containing the selected color can be obtained through the `k-color-preview-mask` class.
+With the new rendering, you can obtain a reference to the `span` element containing the selected color through the `k-color-preview-mask` class.
 
 ```javascript
 $(".k-color-preview-mask") // Returns a reference to span element containing the selected color in the new rendering.```
 ```
 
+The following example showcases how to customize the styles of the **ColorPicker** in both the new, and the old rendering:
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <input id="colorpicker" />
+    <script>
+      $("#colorpicker").kendoColorPicker({
+        value: 'white'
+      })
+    </script>
+
+    <style>
+      /*  NEW RENDERING */
+      /*  The style below will works with versions R1 2022 and later */ 
+      .k-colorpicker .k-input-inner, .k-input .k-input-inner{ 
+        background-color: #50C878; /* Applies green background to the color input element in the popup */
+      }    
+
+
+      .k-colorpicker .k-input-button{ 
+        background-color: lime !important; /* Applies lime background ColorPicker dropdown button element */
+      }
+
+      .k-colorpicker .k-color-preview-mask{ /* Applies green border to the color preview element */
+        border: 2px solid green !important;
+      }
+
+
+      /*  OLD RENDERING */      
+      /*  The style below will works with versions prior to R1 2022 */ 
+      
+      .k-colorpicker .k-select{ 
+        background-color: lightblue; /* Applies light blue background to the ColorPicker dropdown button element */
+      }
+
+      .k-colorpicker .k-selected-color{ /* applies blue border to the ColorPicker preview element in the old rendering */
+        border: 2px solid #1589FF !important;
+      }      
+ 
+      .k-colorpicker-popup .k-textbox>.k-input{ /* Applies blue border to ColorPicker input element in the popup in the old rendering*/
+        border: 2px solid blue !important;
+      }
+
+    </style>
+```
+
 
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the ColorPicker](https://demos.telerik.com/kendo-ui/colorpicker/appearance)
 * [JavaScript API Reference of the ColorPicker](/api/javascript/ui/colorpicker)

@@ -1,15 +1,12 @@
-(function(f, define) {
-    define([
-        "./kendo.html.base"
-    ], f);
-})(function() {
+import "./kendo.html.base.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "html.chip",
     name: "Html.Chip",
     category: "web",
     description: "HTML rendering utility for Kendo UI for jQuery.",
-    depends: [ "html.base" ],
+    depends: [ "html.base", "icons" ],
     features: []
 };
 
@@ -40,10 +37,12 @@ var __meta__ = { // jshint ignore:line
             themeColor: "base",
             attr: {},
             icon: "",
+            iconClass: "",
             iconAttr: {},
             removable: false,
             removableAttr: {},
             removeIcon: "x-circle",
+            removeIconClass: "",
             content: "",
             text: "",
             stylingOptions: [ "size", "rounded", "fillMode", "themeColor" ]
@@ -52,11 +51,16 @@ var __meta__ = { // jshint ignore:line
             var that = this,
                 options = that.options;
 
-            that.wrapper = that.element.wrap("<span class='k-chip'></span>").parent().attr(options.attr);
+            options.text = options.text || options.label;
+            that.wrapper = that.element.wrap("<div class='k-chip'></div>").parent().attr(options.attr);
             that._addClasses();
 
             if (options.icon) {
-                that.wrapper.prepend($("<span class='k-chip-icon k-icon k-i-" + options.icon + "'></span>").attr(options.iconAttr));
+                that.wrapper.prepend($(kendo.ui.icon({ icon: options.icon, iconClass: `k-chip-icon${options.iconClass ? ` ${options.iconClass}` : '' }` })).attr(options.iconAttr));
+            } else if (options.iconClass) {
+                that.wrapper.prepend($("<span class='" + options.iconClass + "'></span>").attr(options.iconAttr));
+            } else if (options.avatarClass) {
+                that.wrapper.prepend($("<span class='k-chip-avatar k-avatar " + options.avatarClass + "'></span>").attr(options.iconAttr));
             }
 
             that.element.addClass("k-chip-content");
@@ -64,8 +68,20 @@ var __meta__ = { // jshint ignore:line
                 that.element.html('<span class="k-chip-label">' + options.text + '</span>');
             }
 
+            if (options.visible === false) {
+                that.wrapper.addClass("k-hidden");
+            }
+
+            if (options.selected === true) {
+                that.wrapper.addClass("k-selected");
+            }
+
+            if (options.enabled === false) {
+                that.wrapper.addClass("k-disabled");
+            }
+
             if (options.removable) {
-                that.wrapper.append($("<span class='k-chip-action k-chip-remove-action'><span class='k-icon k-i-" + options.removeIcon + "'></span></span>").attr(options.removableAttr));
+                that.wrapper.append($(`<span class='k-chip-action k-chip-remove-action'>${kendo.ui.icon({ icon: options.removeIcon, iconClass: "k-chip-icon" })}</span>`).attr(options.removableAttr));
             }
         }
     });
@@ -77,8 +93,10 @@ var __meta__ = { // jshint ignore:line
 
     kendo.cssProperties.registerPrefix("HTMLChip", "k-chip-");
 
+    kendo.cssProperties.registerValues("HTMLChip", [{
+        prop: "rounded",
+        values: kendo.cssProperties.roundedValues.concat([['full', 'full']])
+    }]);
+
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

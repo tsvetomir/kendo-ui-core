@@ -1,7 +1,7 @@
 ---
 title: Show More Scheduler Events in View Cells
 page_title: Show More Scheduler Events in View Cells
-description: "Learn how to show more events in view cells in a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to show more events in view cells in a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/show-more-events-in-cells, /controls/scheduling/scheduler/how-to/appearance/show-more-events-in-cells
 slug: howto_showmoreevents_inviewcells_scheduler
 tags: telerik, kendo, jquery, scheduler, show, more, events, in, view, cells 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -60,8 +60,8 @@ The following example demonstrates how to show more events in the Scheduler by i
     <div id="scheduler"></div>
     <script>
         $("#scheduler").kendoScheduler({
-            date: new Date("2013/6/13"),
-            startTime: new Date("2013/6/13 07:00 AM"),
+            date: new Date("2022/6/13"),
+            startTime: new Date("2022/6/13 07:00 AM"),
             height: 600,
             views: [
                 "day",

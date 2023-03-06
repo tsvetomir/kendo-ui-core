@@ -1,7 +1,7 @@
 ---
 title: Disable Months And Years
-page_title: Disable Months And Years | Kendo UI DatePicker for jQuery
-description: "An example demonstrating how to disable months and years in the DatePicker widget."
+page_title: Disable Months And Years - Kendo UI DatePicker for jQuery
+description: "An example demonstrating how to disable months and years in the DatePicker component."
 type: how-to
 slug: datepicker-disable-months-and-years
 tags: datepicker, disable, years, months, view, datetimepicker
@@ -17,7 +17,7 @@ res_type: kb
 	</tr>
 	<tr>
 		<td>Product</td>
-		<td>DatePicker for Progress® Kendo UI®</td>
+		<td>Progress® Kendo UI® DatePicker for jQuery</td>
 	</tr>
 </table>
 

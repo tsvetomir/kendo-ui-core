@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.popup" ], f);
-})(function() {
+import "./kendo.popup.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.shim",
     name: "Shim",
     category: "mobile",
@@ -127,6 +125,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(Shim);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

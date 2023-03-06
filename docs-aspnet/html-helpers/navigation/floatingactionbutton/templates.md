@@ -22,7 +22,7 @@ The `Template` and `TemplateId` configuration options allow you to manage the wa
         .Icon("plus")
         .Items(items=>{
             items.Add().Icon("star").Label("Add Rating").TemplateId("fabTemplate");
-            items.Add().Icon("edit").Label("Add comment").TemplateId("fabTemplate");
+            items.Add().Icon("pencil").Label("Add comment").TemplateId("fabTemplate");
         })
     )
 
@@ -34,15 +34,16 @@ The `Template` and `TemplateId` configuration options allow you to manage the wa
 {% if site.core %}
 ```TagHelper
     <kendo-floatingactionbutton name="fab"
-                                align="FloatingActionButtonAlign.BottomCenter"
-                                align-offset-vertical="50"
-                                position-mode="FloatingActionButtonPositionMode.Absolute"
-                                theme-color="FloatingActionButtonThemeColor.Success"
                                 icon="plus">
         <floatingactionbutton-items>
-            <floatingactionbutton-item label="Add Rating" icon="star" templateId="fabTemplate"></floatingactionbutton-item>
-            <floatingactionbutton-item label="Add Comment" icon="edit" templateId="fabTemplate"></floatingactionbutton-item>
-            <floatingactionbutton-item label="Add To Cart" icon="cart" templateId="fabTemplate"></floatingactionbutton-item>
+            <floatingactionbutton-item label="Add Rating" 
+                                       icon="star" 
+                                       templateId="fabTemplate">
+            </floatingactionbutton-item>
+            <floatingactionbutton-item label="Add Comment" 
+                                       icon="edit" 
+                                       templateId="fabTemplate">
+            </floatingactionbutton-item>
         </floatingactionbutton-items>
     </kendo-floatingactionbutton>
 

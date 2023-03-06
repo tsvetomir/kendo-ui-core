@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Spreadsheet Documentation | Spreadsheet Overview
+page_title: jQuery Spreadsheet Documentation - Spreadsheet Overview
 description: "Get started with the jQuery Spreadsheet by Kendo UI and learn how to initialize and configure the widget."
 slug: overview_spreadsheet_widget
 position: 1
 ---
 
-# Spreadsheet Overview
+# {{ site.product }} Spreadsheet Overview
 
 The Spreadsheet allows you to edit and visualize tabular data by using cell formatting options, styles, and themes.
 

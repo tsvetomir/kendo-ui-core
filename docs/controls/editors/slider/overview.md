@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Slider Documentation | Slider Overview
+page_title: jQuery Slider Documentation - Slider Overview
 description: "Get started with the jQuery Slider by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_slider_widget
 position: 1
 ---
 
-# Slider Overview
+# {{ site.product }} Slider Overview
 
 The Slider provides a rich input for selecting numeric values.
 

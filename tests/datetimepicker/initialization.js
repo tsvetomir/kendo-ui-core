@@ -19,6 +19,14 @@
             assert.isOk(datetimepicker.wrapper.hasClass("k-datetimepicker k-input k-input-solid k-input-md k-rounded-md"));
         });
 
+        it("initial width of input is preserved in DateInput scenario", function() {
+            input.css("width", "200");
+
+            var datetimepicker = input.kendoDateTimePicker({ dateInput: true }).data("kendoDateTimePicker");
+
+            assert.equal(datetimepicker.wrapper.attr("style"), "width: 200px;");
+        });
+
         it("DateTimePicker adds k-input class to the element", function() {
             var datetimepicker = input.kendoDateTimePicker().data("kendoDateTimePicker");
 
@@ -40,15 +48,15 @@
             assert.isOk(date.attr("aria-label"), datetimepicker.options.dateButtonText);
             assert.isOk(time.attr("aria-label"), datetimepicker.options.timeButtonText);
 
-            assert.isOk(date.children().eq(0).hasClass("k-icon k-i-clock k-button-icon"));
-            assert.isOk(time.children().eq(0).hasClass("k-icon k-i-calendar k-button-icon"));
+            assert.isOk(date.children().eq(0).is(".k-icon.k-i-clock.k-button-icon, .k-svg-icon.k-svg-i-clock.k-button-icon"));
+            assert.isOk(time.children().eq(0).is("k-icon.k-i-calendar.k-button-icon, .k-svg-icon.k-svg-i-calendar.k-button-icon"));
         });
 
         it("DateTimePicker renders last date when navigating", function() {
             var datetimepicker = input.kendoDateTimePicker().data("kendoDateTimePicker");
             datetimepicker.value(new Date(2099, 11, 10, 10, 10, 10));
             datetimepicker.open();
-            assert.equal($(".k-link").not(".k-nav-today").last().text(), 31);
+            assert.equal($(".k-link").not(".k-calendar-nav-today").last().text(), 31);
         });
 
         it("DateTimePicker creates DateView", function() {
@@ -327,7 +335,7 @@
             input.focus().val(kendo.toString(date, "MM/dd/yyyy hh:mm tt"));
             datetimepicker.open();
 
-            var link = datetimepicker.dateView.calendar.element.find(".k-state-focused > .k-link");
+            var link = datetimepicker.dateView.calendar.element.find(".k-focus > .k-link");
 
             assert.equal(+datetimepicker.dateView.calendar.value(), +datetimepicker.value());
             assert.equal(link.html(), date.getDate());
@@ -491,6 +499,54 @@
             tv.refresh();
             assert.equal(tv.ul.children().length, 1);
             assert.equal(tv.ul.find("li:last").find("span").html(), "12:00 AM");
+        });
+
+        it("renders not-floating label from string", function() {
+            var dateinput = input.kendoDateTimePicker({
+                label: "some label"
+            }).data("kendoDateTimePicker");
+            assert.equal(dateinput.label.element.text(), "some label");
+            assert.isNotOk(!!dateinput.label.floatingLabel);
+        });
+
+        it("renders label from object", function() {
+            var dateinput = input.kendoDateTimePicker({
+                label: {
+                    content: "some label"
+                }
+            }).data("kendoDateTimePicker");
+            assert.equal(dateinput.label.element.text(), "some label");
+        });
+
+        it("renders floating label", function() {
+            var dateinput = input.kendoDateTimePicker({
+                label: {
+                    content: "some label",
+                    floating: true
+                }
+            }).data("kendoDateTimePicker");
+            assert.equal(dateinput.label.element.text(), "some label");
+            assert.isOk(!!dateinput.label.floatingLabel);
+        });
+
+        it("renders floating label with dateInput", function() {
+            var dateinput = input.kendoDateTimePicker({
+                dateInput: true,
+                label: {
+                    content: "some label",
+                    floating: true
+                }
+            }).data("kendoDateTimePicker");
+            assert.equal(dateinput.label.element.text(), "some label");
+            assert.isOk(!!dateinput.label.floatingLabel);
+            assert.isOk(dateinput.label.floatingLabel.element.hasClass('k-empty'));
+        });
+
+        it("renders label with funciton", function() {
+            var dateinput = input.kendoDateTimePicker({
+                label: () => `some label`
+            }).data("kendoDateTimePicker");
+            assert.equal(dateinput.label.element.text(), "some label");
         });
     });
 }());

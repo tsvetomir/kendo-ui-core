@@ -277,7 +277,7 @@ If the URL contains a protocol, set `iframe` to `false`. Otherwise, the JSON res
         url: "/userDetails",
         dataType: "json",
         iframe: false,
-        template: "User name: #= data.username #"
+        template: ({ username }) => `User name: ${username}`
       }
     });
     </script>
@@ -575,6 +575,27 @@ Enables (`true`) or disables (`false`) the scrolling of the Window contents.
         width: 300,
 		    scrollable: false
 	    });
+    </script>
+
+### themeColor `String` *default: ""*
+
+The `themeColor` option controls the color that will be applied.
+
+The following values are available for the themeColor:
+
+- `primary`
+- `dark`
+- `light`
+- `none`
+
+#### Example
+
+    <div id="dialog"></div>
+    <script>
+    $("#dialog").kendoWindow({
+      actions: ["Maximize"],
+      title: "Customer details"
+    });
     </script>
 
 ### title `Object|String|Boolean` *default: ""*

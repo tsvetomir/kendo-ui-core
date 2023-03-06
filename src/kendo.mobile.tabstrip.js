@@ -1,8 +1,6 @@
-(function(f, define) {
-    define([ "./kendo.core" ], f);
-})(function() {
+import "./kendo.core.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.tabstrip",
     name: "TabStrip",
     category: "mobile",
@@ -174,6 +172,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(TabStrip);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

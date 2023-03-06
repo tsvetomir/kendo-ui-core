@@ -1,6 +1,6 @@
 ---
 title: Calculate and Set Major Unit for Value Chart Axis
-page_title: Calculate and Set Major Unit for Value Chart Axis
+page_title: Calculate and Set a Major Unit for the Value Axis of the Chart
 description: "Learn how to dynamically calculate and set the major unit for the value axis in a Kendo UI Chart."
 previous_url: /controls/charts/how-to/configure-major-lines-in-value-axis, /controls/charts/how-to/various/configure-major-lines-in-value-axis
 slug: howto_calculatemajorunit_charts
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Chart for jQuery</td>
+  <td>Progress® Kendo UI® Chart for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -143,6 +143,6 @@ The API reference for the relevant methods and events that are used in the follo
 
 * [Chart JavaScript API Reference](/api/javascript/dataviz/ui/chart)
 * [Drawing API]({% slug overview_kendoui_drawingapi %})
-* [How to Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
-* [How to Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
-* [How to Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})
+* [Aggregate Data in Pie Charts]({% slug howto_aggregatedata_piecharts %})
+* [Draw on Scatter Plots Surface]({% slug howto_drawonscatterplotssurface_charts %})
+* [Expand Clickable Area of Points]({% slug howto_extendclickableareaofpoints_charts %})

@@ -1,6 +1,6 @@
 ---
 title: Overview
-page_title: Overview | Progress Telerik UI for PHP
+page_title: Overview - Progress Telerik UI for PHP
 description: "Download and install Progress Telerik UI for PHP, and run a sample application."
 previous_url: /tutorials/PHP/build-apps-with-kendo-ui-and-php, /tutorials/PHP/build-apps-with-kendo-ui-and-php-2, /php/widgets/map/overview, /using-kendo-with/php/widgets/map/overview, /php/widgets/responsivepanel/overview, /using-kendo-with/php/widgets/responsivepanel/overview, /php/widgets/spreadsheet/overview, /using-kendo-with/php/widgets/spreadsheet/overview, /php/widgets/treemap/overview
 slug: overview_uiforphp
@@ -47,6 +47,8 @@ To use Progress Telerik UI for PHP in your PHP website, follow the steps below:
 **Step 1** Copy `/wrappers/php/lib/Kendo` to your website root, e.g. to your `lib` directory.
 
 **Step 2** Copy the Kendo UI JavaScript and CSS files from `/js` and `/styles` to your website root. If you prefer to use [Kendo UI CDN Service]({% slug kendoui_cdn_services_installation %}), skip this step and the following ones, and check the [article on the jQuery dependency]({% slug jquerysupport_kendoui %}) as well as the [article on the export libraries dependencies]({% slug export_support_kendoui %}).
+
+> Note that sinse R3 2022 the CDN distribution needs to be activated using a license file. For more info check [Using Script License File]({% slug using-license-code %}).
 
 **Step 3** Include the Kendo UI JavaScript and CSS files in your PHP page.
 

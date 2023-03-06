@@ -1,8 +1,8 @@
-(function(f, define) {
-    define(["./kendo.core", "./kendo.badge", "./kendo.html.button"], f);
-})(function() {
+import "./kendo.core.js";
+import "./kendo.badge.js";
+import "./kendo.html.button.js";
 
-    var __meta__ = { // jshint ignore:line
+    var __meta__ = {
         id: "button",
         name: "Button",
         category: "web",
@@ -107,7 +107,11 @@
 
             _click: function(e) {
                 if (this.options.enable) {
-                    if (this.trigger(CLICK, { event: e })) {
+                    if (this.trigger(CLICK, {
+                        event: e,
+                        id: this.element.attr("id"),
+                        target: this.element
+                    })) {
                         e.preventDefault();
                     }
                 }
@@ -175,9 +179,9 @@
                 } catch (err) {}
             },
 
-            _badge: function() {
+            _badge: function(options) {
                 var that = this;
-                var badgeOptions = that.options.badge;
+                var badgeOptions = options || that.options.badge;
                 var badgeEelement;
 
                 if (badgeOptions === null || badgeOptions === undefined) {
@@ -227,6 +231,3 @@
 
     })(window.kendo.jQuery);
 
-    return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

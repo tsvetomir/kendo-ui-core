@@ -15,15 +15,15 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TabStrip for jQuery</td>
-  <td>Progress Kendo UI Grid for jQuery</td>
+  <td>Progress® Kendo UI® TabStrip for jQuery</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -92,7 +92,7 @@ The example below demonstrates how to use the `activate` event when initializing
 
 * [Initialize the Grid inside a Hidden Container](/web/grid/appearance#initialize-the-grid-inside-a-hidden-container)
 * [JavaScript API Reference: Configure TabStrip Animations](/api/javascript/ui/tabstrip/configuration/animation)
-* [How to Save Content Scroll Position]({% slug howto_savecontentscrollposition_tabstrip %})
-* [How to Scroll TabStrip with Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})
+* [Save Content Scroll Position]({% slug howto_savecontentscrollposition_tabstrip %})
+* [Scroll TabStrip with Keyboard]({% slug howto_scrolltabstripwithkeyboard_tabstrip %})
 
 

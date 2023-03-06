@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: Kendo UI for jQuery TileLayout Documentation | TileLayout Overview
+page_title: Kendo UI for jQuery TileLayout Documentation - TileLayout Overview
 description: "Get started with the Kendo UI for jQuery TileLayout and learn about its features and how to initialize the widget."
 slug: overview_kendoui_tilelayout_widget
 position: 1
 ---
 
-# TileLayout Overview
+# {{ site.product }} TileLayout Overview
 
 > The TileLayout widget is available as of Kendo UI R2 2020(v2020.2.513).
 

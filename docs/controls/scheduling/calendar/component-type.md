@@ -1,6 +1,6 @@
 ---
 title: Calendar Component Types
-page_title: jQuery DatePicker Documentation | Calendar Component Types
+page_title: jQuery DatePicker Documentation - Calendar Component Types
 description: "Get started with the jQuery DatePicker by Kendo UI and learn how to enable the modern component type."
 slug: componenttypes_calendar
 position: 8
@@ -20,7 +20,7 @@ By default, the Calendar is initialized with the `classic` render mode. In order
 
 As a result, the appearance of the widget is changed. 
 
-![Comparison between the content types](classic-modern-calendar-rendering.png)
+![Kendo UI for jQuery Calendar Comparison between the content types](classic-modern-calendar-rendering.png)
 
 ## See Also
 

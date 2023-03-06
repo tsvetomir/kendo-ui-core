@@ -1,8 +1,8 @@
 ---
 title: Use AngularJS ng-click in ListBox Template 
-description: An example on how to use use AngularJS directive in the jQuery template of the Kendo UI ListBox items.
+description: Learn how to use use AngularJS directive in the jQuery template of the Kendo UI ListBox items.
 type: how-to
-page_title: Use ng-click in jQuery template | Kendo UI ListBox for jQuery
+page_title: Use ng-click in jQuery template - Kendo UI ListBox for jQuery
 slug: listbox-use-angular-ng-click
 tags: listbox, angularjs, ng-click, angular, template, directive, jQuery, compile
 ticketid: 1146854
@@ -14,7 +14,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI ListBox</td>
+  <td>Progress® Kendo UI® ListBox for jQuery</td>
  </tr>
  <tr>
   <td>Created with version</td>
@@ -161,9 +161,9 @@ Here are the important steps:
       /* Material Theme padding adjustment*/
 
       .k-material #example .k-item,
-      .k-material #example .k-item.k-state-hover,
+      .k-material #example .k-item.k-hover,
       .k-materialblack #example .k-item,
-      .k-materialblack #examplel .k-item.k-state-hover {
+      .k-materialblack #examplel .k-item.k-hover {
         padding-left: 5px;
         border-left: 0;
       }

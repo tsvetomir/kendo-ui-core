@@ -1,6 +1,6 @@
 ---
 title: Printing
-page_title: jQuery Grid Documentation | Printing
+page_title: jQuery Grid Documentation - Printing
 description: "Get started with the jQuery Grid by Kendo UI allowing you to select only the Grid content on a page for printing."
 previous_url: /print-export
 slug: printing_kendoui_grid
@@ -43,7 +43,7 @@ It also addresses the following important issues:
                 '<head>' +
                 '<meta charset="utf-8" />' +
                 '<title>Kendo UI Grid</title>' +
-                '<link href="https://kendo.cdn.telerik.com/' + kendo.version + '/styles/kendo.common.min.css" rel="stylesheet" /> ' +
+                '<link href="https://kendo.cdn.telerik.com/themes/' + kendo.themesCdnVersion + '/default/default-main.css" rel="stylesheet" /> ' +
                 '<style>' +
                 'html { font: 11pt sans-serif; }' +
                 '.k-grid { border-top-width: 0; }' +

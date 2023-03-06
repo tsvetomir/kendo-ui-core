@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Loader Documentation | Loader Overview
+page_title: jQuery Loader Documentation - Loader Overview
 description: "Get started with the jQuery Loader by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_loader_widget
 position: 1
 ---
 
-# Loader Overview
+# {{ site.product }} Loader Overview
 
 The Loader component is a visual indicator that expresses an indeterminate wait time. It informs users about the status of ongoing processes, such as loading an application, submitting a form, saving updates or fetching data.
 

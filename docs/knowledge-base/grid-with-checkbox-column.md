@@ -1,7 +1,7 @@
 ---
 title: Use Checkbox Column Templates and Edit
-page_title:  Checkbox Column Templates | Kendo UI Grid for jQuery
-description: "An example on how to use checkbox column templates and perform editing."
+page_title:  Checkbox Column Templates - Kendo UI for jQuery Data Grid
+description: "Learn how to use checkbox column templates and perform editing."
 previous_url: /kendo-uimvc/web/grid/how-to/Templates/grid-with-checkbox-column, /controls/data-management/grid/how-to/Templates/grid-with-checkbox-column
 slug: howto_use_checkbox_column_templateand_edit_grid
 tags: grid, use, checkbox, column, templates, perform, edit
@@ -15,7 +15,7 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
   <td>Operating System</td>
@@ -125,4 +125,4 @@ For more information on how to apply batch editing with a bound Boolean column, 
 
 ## See Also
 
-* [JavaScript API Reference of the Grid](/api/javascript/ui/grid)
+* [JavaScript API Reference of the Data Grid](/api/javascript/ui/grid)

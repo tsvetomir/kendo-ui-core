@@ -1,6 +1,6 @@
 ---
 title: Toolbar and Tools
-page_title: jQuery PDFViewer Documentation | Toolbar and Tools
+page_title: jQuery PDFViewer Documentation - Toolbar and Tools
 description: "Get started with the jQuery PDFViewer by Kendo UI and use and define the tools in its toolbar."
 slug: toolbar_pdfviewer_widget
 position: 4
@@ -17,6 +17,7 @@ You can control the number and type of the rendered tools by initializing the it
 The toolbar collection includes the following built-in tools:
 
 * `pager`
+* `zoomInOut`
 * `zoom`
 * `toggleSelection`
 * `search`
@@ -39,7 +40,7 @@ The following example demonstrates basic configuration options for the PDFViewer
             $("#pdfViewer").kendoPDFViewer({            
               toolbar: {
               items: [
-                "pager","spacer","zoom","toggleSelection","spacer","search","open","download","print"               
+                "pager","spacer", "zoomInOut", "zoom","toggleSelection","spacer","search","open","download","print"               
               ]
             },
             })

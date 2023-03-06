@@ -1,8 +1,8 @@
 ---
 title: Copy and Paste Multiple Rows from Excel to the Grid
-description: An example on how to copy and paste rows from Excel to Kendo UI Grid.
+description: Learn how to copy and paste rows from Excel to Kendo UI Grid.
 type: how-to
-page_title: Copy-Paste Multiple Rows with CRUD Operations | Kendo UI Grid for jQuery
+page_title: Copy-Paste Multiple Rows with CRUD Operations - Kendo UI for jQuery Data Grid
 slug: grid-paste-data-from-excel-batch-edit
 tags: grid, excel, copy, paste, multiple, rows, batch, edit, crud
 ticketid: 1133411
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
 </table>
 

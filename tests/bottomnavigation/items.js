@@ -111,7 +111,7 @@
                 ]
             });
 
-            assert.isOk(bottomNav.items().eq(0).find(".k-bottom-nav-item-icon").is(".k-icon.k-i-home"));
+            assert.isOk(bottomNav.items().eq(0).find(".k-bottom-nav-item-icon").is(".k-svg-i-home, .k-i-home"));
         });
 
         it("item with no icon omits k-icon class", function() {
@@ -121,7 +121,7 @@
                 ]
             });
 
-            assert.isFalse(bottomNav.items().eq(0).find(".k-bottom-nav-item-icon").is(".k-icon"));
+            assert.isFalse(bottomNav.items().eq(0).find(".k-bottom-nav-item-icon").is(".k-svg-i-home, .k-i-home"));
         });
 
         it("item can be disabled", function() {
@@ -131,7 +131,7 @@
                 ]
             });
 
-            assert.isOk(bottomNav.items().eq(0).is(".k-state-disabled"));
+            assert.isOk(bottomNav.items().eq(0).is(".k-disabled"));
         });
 
         it("item can be selected", function() {
@@ -141,12 +141,12 @@
                 ]
             });
 
-            assert.isOk(bottomNav.items().eq(0).is(".k-state-selected"));
+            assert.isOk(bottomNav.items().eq(0).is(".k-selected"));
         });
 
         it("item can be rendered from template", function() {
             var bottomNav = setup({
-                template: '<span class="template">custom template</span>',
+                template: () => '<span class="template">custom template</span>',
                 items: [
                     { text: "home", icon: "home" }
                 ]
@@ -158,7 +158,7 @@
         it("item can be rendered from template in item's options", function() {
             var bottomNav = setup({
                 items: [
-                    { text: "home", icon: "home",template: '<span class="template">custom template</span>' }
+                    { text: "home", icon: "home",template: () => '<span class="template">custom template</span>' }
                 ]
             });
 
@@ -167,10 +167,10 @@
 
         it("item's template overrides the widget's option", function() {
             var bottomNav = setup({
-                template: '<span class="template">custom template</span>',
+                template: () => '<span class="template">custom template</span>',
                 items: [
                     { text: "home", icon: "home" },
-                    { text: "home", icon: "home", template: '<span class="item-template">custom template</span>' }
+                    { text: "home", icon: "home", template: () => '<span class="item-template">custom template</span>' }
                 ]
             });
 

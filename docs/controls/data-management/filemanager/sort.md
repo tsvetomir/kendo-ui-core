@@ -1,6 +1,6 @@
 ---
 title: Sort
-page_title: jQuery FileManager Documentation | Sorting in FileManager
+page_title: jQuery FileManager Documentation - Sorting in FileManager
 description: "Get familiar with the Sort functionality in the FileManager and how you can use it."
 slug: sort_kendoui_filemanager_widget
 position: 8
@@ -19,7 +19,8 @@ The tool from the toolbar exposes several options to sort by:
 * Date Modified
 
 **Inbuilt Sort  functionality in FileManager:** 
-<img src="sort.png">
+
+![Kendo UI for jQuery FileManager Sort Popup](sort-dropdown.png)
 
 
 ## See Also

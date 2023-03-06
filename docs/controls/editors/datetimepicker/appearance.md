@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: jQuery DateTimePicker Documentation | DateTimePicker Appearance
+page_title: jQuery DateTimePicker Documentation - DateTimePicker Appearance
 description: "Learn how to apply different styling options to the DateTimePicker widget."
 slug: appearance_kendoui_datetimepicker_widget
 position: 3
@@ -12,7 +12,7 @@ position: 3
 
 In this article, you will find information about the new rendering of the Kendo UI DateTimePicker.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the DateTimePicker](https://demos.telerik.com/kendo-ui/datetimepicker/appearance).
 
@@ -246,9 +246,9 @@ The following example demonstrates the full version of the new rendering:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 Previously, a reference to the DateTimePicker input element was obtainable through the `k-input` class.
 
@@ -256,7 +256,7 @@ Previously, a reference to the DateTimePicker input element was obtainable throu
 $(".k-input") // Returns a reference to the input element in the old rendering.
 ```
 
-With the new rendering, the DateTimePicker input element must be targeted by using the `k-input-inner` class.
+With the new rendering, you must target the DateTimePicker input element by using the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the input element in the new rendering.
@@ -269,15 +269,67 @@ $(".k-link-date") // Returns a reference to the date button element in the old r
 $(".k-link-time") // Returns a reference to the time button element in the old rendering.
 ```
 
-With the new rendering, a reference to the date and time button elements is obtainable through the `k-button` class. 
+With the new rendering, you can obtain a reference to the date and time button elements through the `k-button` class. 
 
 ```javascript
 $(".k-button:eq(0)") // Returns a reference to the date button element in the new rendering.
 $(".k-button:eq(1)") // Returns a reference to the time button element in the new rendering.
 ```
 
+The following example showcases how to change the background colors of the input and button elements of the **DateTimePicker** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="parent">
+      <input id="datetimepicker" />
+    </div>
+
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      #parent .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      #parent .k-link-date {
+        background-color: red; /* Applies red color to the date button element BEFORE R1 2022 */
+      }
+      #parent .k-link-time {
+        background-color: cyan; /* Applies cyan color to the time button element BEFORE R1 2022 */
+      }
+
+      /* Doesn't work BEFORE R1 2022 */
+      #parent .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+      #parent .k-input-button:nth-of-type(1) {
+        background-color: yellow; /* Applies yellow color to the date button element AFTER R1 2022 */
+      }
+      #parent .k-input-button:nth-of-type(2) {
+        background-color: orange; /* Applies yellow color to the time button element AFTER R1 2022 */
+      }
+    </style>
+
+    <script>
+      $("#datetimepicker").kendoDateTimePicker();
+    </script>
+```
+
+### Change the Order of the Time and Calendar Buttons
+
+With the new rendering, the time button appears before the calendar button. To reverse this change, use the [jQuery.insertAfter](https://api.jquery.com/insertafter/) method: 
+
+```dojo
+    <input id="datetimepicker" />           
+    <script>
+      $(document).ready(function () {
+        $("#datetimepicker").kendoDateTimePicker();
+        
+        $(".k-datetimepicker .k-button:first").insertAfter($(".k-datetimepicker .k-button:last"));
+      });
+    </script>
+```
+
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the DateTimePicker](https://demos.telerik.com/kendo-ui/datetimepicker/appearance)
 * [JavaScript API Reference of the DateTimePicker](/api/javascript/ui/datetimepicker)

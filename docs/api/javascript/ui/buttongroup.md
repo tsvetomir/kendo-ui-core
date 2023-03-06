@@ -49,7 +49,11 @@ Defines the initially selected Button (zero based index).
 
 ### selection `String` *(default "single")*
 
-Defines the selection type.
+Defines the selection type. Allows the following values:
+
+* `single` (default): allows only a single button to be the currently selected in the group.
+* `multiple`: allows multiple buttons to be selected in the group at the same time.
+* `none`: does not allow selection. ButtonGroups acts as a group f clickable Buttons.
 
 #### Example
 
@@ -131,7 +135,7 @@ If set to true a default overlay badge will be displayed. If set to a string, an
                 {
                     text: "bar",
                     badge: {
-                        icon: "add",
+                        icon: "plus",
                         themeColor: "success",
                         cutoutBorder: true
                     }
@@ -320,6 +324,78 @@ Specifies if text field of the ButtonGroup item should be encoded.
 
     <script>
         $("#buttonGroup").kendoButtonGroup({
+            items: [
+                { text: "<b>foo</b>", encoded: false },
+                { text: "<b>bar</b>", encoded: true }
+            ]
+        });
+    </script>
+
+### fillMode `String` *(default: 'solid')*
+
+Controls how the color is applied to the buttons in the Group. Valid values are: `"solid"`, `"outline"`, `"flat"`, `"link"`, and `"none"`. Default value is `"solid"`.
+
+#### Example
+
+    <div id="buttonGroup"></div>
+
+    <script>
+        $("#buttonGroup").kendoButtonGroup({
+            fillMode: "outline",
+            items: [
+                { text: "<b>foo</b>", encoded: false },
+                { text: "<b>bar</b>", encoded: true }
+            ]
+        });
+    </script>
+
+### rounded `String` *(default: 'medium')*
+
+Controls what border radius is applied to first and last button. Valid values are: `"small"`, `"medium"`, `"large"`, `"full"`, and `"none"`. Default value is `"medium"`.
+
+#### Example
+
+    <div id="buttonGroup"></div>
+
+    <script>
+        $("#buttonGroup").kendoButtonGroup({
+            rounded: "full",
+            items: [
+                { text: "<b>foo</b>", encoded: false },
+                { text: "<b>bar</b>", encoded: true }
+            ]
+        });
+    </script>
+
+### size `String` *(default: 'medium')*
+
+Controls the overall physical size of all buttons in the Group. Valid values are:  `"small"`, `"medium"`, `"large"`, and `"none"`. Default value is `"medium"`.
+
+#### Example
+
+    <div id="buttonGroup"></div>
+
+    <script>
+        $("#buttonGroup").kendoButtonGroup({
+            size: "large",
+            items: [
+                { text: "<b>foo</b>", encoded: false },
+                { text: "<b>bar</b>", encoded: true }
+            ]
+        });
+    </script>
+
+### themeColor `String` *(default: 'base')*
+
+Controls the main color applied to the buttons in the Group. Valid values are:  `"base"`, `"primary"`, `"secondary"`, `"tertiary"`, `"info"`, `"success"`, `"warning"`, `"error"`, `"dark"`, `"light"`, `"inverse"`, and `"none"`. Default value is `"base"`.
+
+#### Example
+
+    <div id="buttonGroup"></div>
+
+    <script>
+        $("#buttonGroup").kendoButtonGroup({
+            themeColor: "dark",
             items: [
                 { text: "<b>foo</b>", encoded: false },
                 { text: "<b>bar</b>", encoded: true }

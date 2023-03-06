@@ -1,7 +1,7 @@
 ---
 title: Introduction
-page_title: Introduction | Progress Kendo UI
-description: "Learn about the Kendo UI controls, their distributions, frameworks, tools, and utilities."
+page_title: Introduction to Kendo UI by Progress
+description: "Learn more about the Kendo UI for jQuery components by Progress, their distributions, frameworks, tools, and utilities, the available license and support options, and learning resources."
 previous_url: /index, /intro/supporting/list-of-widgets
 slug: welcometo_kendoui
 position: 2
@@ -11,27 +11,27 @@ position: 2
 
 Thank you for choosing Progress<sup>®</sup> Kendo UI for jQuery!  
 
-Kendo UI is a comprehensive HTML5 user interface framework for building interactive and high-performance websites and applications. It comes with a library of 110+ UI widgets, an abundance of data-visualization gadgets, client-side data source, and a built-in MVVM (Model-View-ViewModel) library.
+Kendo UI is a comprehensive HTML5 user interface framework for building interactive and high-performance websites and applications. It comes with a library of 110+ UI components, an abundance of data-visualization gadgets, client-side data source, and a built-in MVVM (Model-View-ViewModel) library.
 
-Kendo UI for jQuery provides AngularJS and Bootstrap integration and is also distributed as part of several product units that you can choose from depending on your project requirements. The suite includes widgets for enterprise-grade line-of-business applications and is suitable for creating professional websites that require expert and timely technical support.
+Kendo UI for jQuery provides AngularJS and Bootstrap integration and is also distributed as part of several product units that you can choose from depending on your project requirements. The suite includes components for enterprise-grade line-of-business applications and is suitable for creating professional websites that require expert and timely technical support.
 
-To read more about the benefits of using Kendo UI for jQuery, please visit the [product overview page](http://www.telerik.com/kendo-jquery-ui).
+To read more about the benefits of using Kendo UI for jQuery, visit the [product overview page](http://www.telerik.com/kendo-jquery-ui).
 
 ## Getting Started
 
 If you are newcomer, follow the [First Steps guide on getting started with Kendo UI for jQuery]({% slug getting_started_installation_kendoui %}).
 
-## List of Widgets
+## List of Components
 
-The following table lists all Kendo UI widgets (controls) that are available in the commercial Kendo UI Professional bundle and in the open-source Kendo UI Core distribution. For more information on all Kendo UI suites, refer to the section on [Kendo UI flavors](#flavors).   
+The following table lists all Kendo UI components (widgets) that are available in the commercial Kendo UI bundle and in the open-source Kendo UI distribution. For more information on all Kendo UI suites, refer to the section on [Kendo UI flavors](#flavors).   
 
 {% include intro-page-table.html %}
 
 ## List of Framework Components
 
-The following table lists the Kendo UI tools and framework utilities that are available in the commercial Kendo UI Professional bundle and in the open-source Kendo UI Core distribution.
+The following table lists the Kendo UI tools and framework utilities that are available in the commercial Kendo UI bundle and in the open-source Kendo UI distribution.
 
-| Tools, Frameworks, and Utilities      | Kendo UI Core Availability  | Kendo UI Professional Availability
+| Tools, Frameworks, and Utilities      | Open-Source Distribution  | Commercial Distribution
 |:---                                   |:---                         |:---
 | [Data Source Overview]({% slug overview_kendoui_datasourcecomponent %}) & [Demos](https://demos.telerik.com/kendo-ui/datasource/index)      | <span class="tag-success">Yes</span>   | <span class="tag-success">Yes</span> |
 | [Drawing API Overview]({% slug overview_kendoui_drawingapi %}) & [Demos](https://demos.telerik.com/kendo-ui/drawing/index)        | <span class="tag-neutral">No</span> | <span class="tag-success">Yes</span> |
@@ -49,7 +49,7 @@ The following table lists the Kendo UI tools and framework utilities that are av
 
 ## Flavors
 
-The Kendo UI for jQuery widgets are integrated with the Vue JavaScript framework, provide server-side solutions for the ASP.NET MVC and Core frameworks, deliver wrappers for the JSP and PHP technologies, and also utilize the RadSpreadProcessing .NET library to enhance the capabilities of the Spreadsheet widget. Part of Kendo UI for jQuery also comes in an open-source bundle called Kendo UI Core.   
+The Kendo UI for jQuery components are integrated with the Vue JavaScript framework, provide server-side solutions for the ASP.NET MVC and Core frameworks, deliver wrappers for the JSP and PHP technologies, and also utilize the RadSpreadProcessing .NET library to enhance the capabilities of the Spreadsheet component. Part of Kendo UI for jQuery also comes in an open-source Kendo UI bundle.   
 
 ### Progress<sup>®</sup> KendoReact
 
@@ -69,7 +69,7 @@ The Kendo UI for jQuery widgets are integrated with the Vue JavaScript framework
 
 ### Progress<sup>®</sup> Kendo UI for Vue
 
-Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https://www.telerik.com/kendo-vue-ui/components/introduction/) components and [Kendo UI Wrappers for Vue](https://docs.telerik.com/kendo-ui-wrappers-vue/introduction). These flavors provide an easy way to use and configure Kendo UI components or Kendo UI widgets in your Vue.js application.
+Kendo UI for Vue comes in two flavors: [native Kendo UI for Vue](https://www.telerik.com/kendo-vue-ui/components/introduction/) components and [Kendo UI Wrappers for Vue](https://docs.telerik.com/kendo-ui-wrappers-vue/introduction). These flavors provide an easy way to use and configure Kendo UI components or Kendo UI components in your Vue.js application.
 
 * [Docs & Demos](https://www.telerik.com/kendo-vue-ui/components/)
 * [Get a License](https://www.telerik.com/purchase/kendo-ui)
@@ -77,7 +77,7 @@ Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https:
 
 ### Progress<sup>®</sup> Telerik<sup>®</sup> UI for ASP.NET Core
 
-[Telerik UI for ASP.NET Core](https://docs.telerik.com/aspnet-core/introduction) supports the .NET Core runtime and includes all Kendo UI widgets as well as server-side wrappers (Telerik UI Tag Helpers and Telerik UI HTML Helpers). With the server-side wrappers, you can configure Kendo UI widgets in ASP.NET Core.
+[Telerik UI for ASP.NET Core](https://docs.telerik.com/aspnet-core/introduction) supports the .NET Core runtime and includes all Kendo UI components as well as server-side wrappers (Telerik UI Tag Helpers and Telerik UI HTML Helpers). With the server-side wrappers, you can configure Kendo UI components in ASP.NET Core.
 
 * [Demos](https://demos.telerik.com/aspnet-core/)
 * [Docs](https://docs.telerik.com/aspnet-core/introduction)
@@ -86,7 +86,7 @@ Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https:
 
 ### Progress<sup>®</sup> Telerik<sup>®</sup> UI for ASP.NET MVC
 
-[Telerik UI for ASP.NET MVC](https://docs.telerik.com/aspnet-mvc/introduction) is a Kendo UI product flavor which targets ASP.NET MVC developers. It includes all Kendo UI widgets as well as HtmlHelper extension methods (server-side wrappers) which allow you to configure the Kendo UI widgets by using C# code.
+[Telerik UI for ASP.NET MVC](https://docs.telerik.com/aspnet-mvc/introduction) is a Kendo UI product flavor which targets ASP.NET MVC developers. It includes all Kendo UI components as well as HtmlHelper extension methods (server-side wrappers) which allow you to configure the Kendo UI components by using C# code.
 
 * [Demos](https://demos.telerik.com/aspnet-mvc/)
 * [Docs](https://docs.telerik.com/aspnet-mvc/introduction)
@@ -95,7 +95,7 @@ Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https:
 
 ### Progress<sup>®</sup> Telerik<sup>®</sup> UI for JSP
 
-[Telerik UI for JSP](/jsp/introduction) is a Kendo UI product flavor which targets the Java web application developers. It includes Java Server Pages (JSP) tags for all Kendo UI Professional widgets.
+[Telerik UI for JSP](/jsp/introduction) is a Kendo UI product flavor which targets the Java web application developers. It includes Java Server Pages (JSP) tags for all commercially available Kendo UI components.
 
 * [Demos](https://demos.telerik.com/jsp-ui/)
 * [Docs](/jsp/introduction)
@@ -104,7 +104,7 @@ Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https:
 
 ### Progress<sup>®</sup> Telerik<sup>®</sup> UI for PHP
 
-[Telerik UI for PHP](/php/introduction) is a Kendo UI product flavor which targets the PHP web application developers. It includes PHP classes for configuring all Kendo UI widgets.
+[Telerik UI for PHP](/php/introduction) is a Kendo UI product flavor which targets the PHP web application developers. It includes PHP classes for configuring all Kendo UI components.
 
 * [Demos](https://demos.telerik.com/php-ui/)
 * [Docs](/php/introduction)
@@ -119,11 +119,11 @@ Kendo UI for Vue comes in two flavors: we offer [native Kendo UI for Vue](https:
 * [Server-Side Processing with the Kendo UI Spreadsheet]({% slug serverside_processing_spreadsheet_widget %})
 * [RadSpreadProcessing Overview](https://docs.telerik.com/devtools/wpf/controls/radspreadprocessing/overview)
 
-### Kendo UI Core
+### Open-Source Kendo UI Distribution
 
-Kendo UI Core is the free and open-source Kendo UI distribution, released under Apache v2.0 License. It provides access to a limited number of widgets and framework features, and to 1,000+ tests running across browsers for each commit to the [Kendo UI Core GitHub repository](https://github.com/telerik/kendo-ui-core). Kendo UI Core is suitable for open-source or commercial projects that do not require complex UI, such as the Grid, Chart, and other, nor dedicated technical support. Kendo UI Core does not offer dedicated technical support.
+The open-source Kendo UI flavor (Kendo UI Core) is the free Kendo UI for jQuery distribution released under Apache v2.0 License. It provides access to a limited number of components and framework features, and to 1,000+ tests running across browsers for each commit to the [GitHub repository](https://github.com/telerik/kendo-ui-core). Kendo UI Core is suitable for open-source or commercial projects that do not require complex UI, such as the Grid, Chart, and other, nor dedicated technical support. 
 
-> The Kendo UI Core distribution does not provide official support for the widgets and framework components it delivers.  
+> The open-source Kendo UI distribution does not offer official technical support for the components and framework components it delivers.  
 
 ### Incorporation in Other Progress Software Products
 
@@ -143,7 +143,7 @@ This Kendo UI for jQuery library is a commercial UI library. You are welcome to 
 
 For any issues you might encounter while working with Kendo UI for jQuery, use any of the available support channels:
 
-* Kendo UI Professional license holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [Kendo UI for jQuery dedicated support](https://www.telerik.com/account/support-tickets/) system.
+* Commercial Kendo UI distribution license holders and active trialists can take advantage of our outstanding customer support delivered by the developers building the library. To submit a support ticket, use the [Kendo UI for jQuery dedicated support](https://www.telerik.com/account/support-tickets/) system.
 * [Kendo UI for jQuery forums](https://www.telerik.com/forums/kendo-ui) are part of the free support you can get from the community and from the Kendo UI for jQuery team on all kinds of general issues.
 * [Kendo UI for jQuery feedback portal](https://feedback.telerik.com/kendo-jquery-ui) and [Kendo UI for jQuery roadmap](https://www.telerik.com/support/whats-new/kendo-ui/roadmap) provide information on the features in discussion and also the planned ones for release.
 * Kendo UI for jQuery uses [GitHub Issues](https://github.com/telerik/kendo-ui-core/issues/) as its bug tracker and you can submit any related reports there. Also, check out the [closed list](https://github.com/telerik/kendo-ui-core/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aclosed).
@@ -165,4 +165,5 @@ For any issues you might encounter while working with Kendo UI for jQuery, use a
 * [Installing Kendo UI by using the CDN Services]({% slug kendoui_cdn_services_installation %})
 * [Installing Kendo UI with NPM]({% slug kendoui_npm_packages_kendoui_installation %})
 * [Installing Kendo UI with NuGet]({% slug kendoui_nuget_packages %})
+* [Using Kendo UI for jQuery ECMAScript Modules]({% slug kendoui_ecmascript_overview %})
 * [Creating your own custom bundles]({% slug include_only_what_you_need_kendoui_scripts %})

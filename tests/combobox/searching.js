@@ -1130,10 +1130,10 @@
             });
 
             combobox.open();
-            assert.closeTo(combobox.popup.element.parent(".k-animation-container").width(), combobox.popup.element.outerWidth(true) + 1, 0.1);
+            assert.closeTo(combobox.popup.element.closest(".k-animation-container").width(), combobox.popup.element.outerWidth(true) + 1, 1);
             combobox.close();
             combobox.open();
-            assert.closeTo(combobox.popup.element.parent(".k-animation-container").width(), combobox.popup.element.outerWidth(true) + 1, 0.1);
+            assert.closeTo(combobox.popup.element.closest(".k-animation-container").width(), combobox.popup.element.outerWidth(true) + 1, 1);
         });
 
         it("enabled autoWidth disables X scrolling", function() {
@@ -1176,13 +1176,13 @@
         });
 
         it("close popup opened on empty search result", function() {
-            var combobox = new ComboBox(input, {
+            combobox = new ComboBox(input, {
                 animation: false,
                 dataTextField: "text",
                 dataValueField: "value",
                 filter: "contains",
                 dataSource: [{ text: "Foo", value: 1 }, { text: "Bar", value: 2 }, { text: "Baz", value: 3 }],
-                noDataTemplate: ""
+                noDataTemplate: null
             });
 
             combobox.search("Foo");

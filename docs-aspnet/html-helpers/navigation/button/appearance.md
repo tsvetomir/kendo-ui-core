@@ -1,6 +1,6 @@
 ---
 title: Appearance
-page_title: "{{ site.framework }} Button Documentation | Button Appearance"
+page_title: "{{ site.framework }} Button Documentation - Button Appearance"
 description: "Learn how to customize the appearance of the Telerik UI Button HtmlHelper for {{ site.framework }}."
 slug: button_appearance
 position: 2
@@ -32,6 +32,7 @@ To control the size of the Button, configure the `Size` option with any of the f
 - `Small`
 - `Medium` - the default size
 - `Large`
+- `None`
 
 ```HtmlHelper
 @(Html.Kendo().Button()
@@ -77,6 +78,7 @@ The following options are available for the `FillMode` configuration:
 - `Outline`
 - `Flat`
 - `Link`
+- `None`
 
 ### ThemeColor
 
@@ -140,6 +142,7 @@ The following values are available for the `Rounded` option:
 - `Medium`
 - `Large`
 - `Full`
+- `None`
 
 
 ## Old vs New Rendering
@@ -229,6 +232,19 @@ A reference to the button element still can be obtained through the `k-button` c
 
 ```javascript
 $(".k-button") // Returns a reference to the button element in the old and the new rendering.
+```
+
+The following example showcases how to customize the styles of the **Button** with configured icon in both the new, and the old rendering:
+
+```
+      <style>  
+        .k-button .k-button-icon{ /* applies pink background to the icon elements with version 2022 R1 and later; applies pink background to the entire icon button in version prior to 2022 R1; */
+          background-color: pink
+        }
+        .k-button.k-icon-button{ /* applies ornage border to the entire icon button in 2022 R1 and later; */
+          border: 3px solid orange;
+        }        
+      </style>
 ```
 
 ## See Also

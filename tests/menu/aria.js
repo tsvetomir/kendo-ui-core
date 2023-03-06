@@ -227,6 +227,17 @@
             assert.isOk(menu.find("li#" + menu.data("kendoMenu")._ariaId).length);
         });
 
+        it("aria-activedescendant is added to the wrapper when it has no id", function() {
+            menu = $("<ul/>")
+                .appendTo(Mocha.fixture)
+                .kendoMenu({ dataSource: [ { text: "foo", items: [{ text: "bar" }] } ] });
+
+            menu[0].focus();
+
+            assert.isOk(menu.filter("[aria-activedescendant]").length);
+            assert.isOk(menu.find("li#" + menu.data("kendoMenu")._ariaId).length);
+        });
+
         it("aria-activedescendant is added to the wrapper when item is focused", function() {
             menu = $("<ul id=\"foo\"><li id=\"bar\">foo</li></ul>")
                 .appendTo(Mocha.fixture)
@@ -236,6 +247,24 @@
 
             assert.isOk(menu.filter("[aria-activedescendant=bar]").length);
             assert.isOk(menu.find("li#bar").length);
+        });
+
+        it("k-menu-expand-arrow has aria-hidden set to true", function() {
+            menu = $("<ul>" +
+                        "<li id='firstItem'>item" +
+                            "<ul>" +
+                                "<li id='item1'>item 1" +
+                                    "<ul>" +
+                                        "<li id='subitem1'>item 1</li>" +
+                                    "</ul>" +
+                                "</li>" +
+                            "</ul>" +
+                        "</li>" +
+                    "</ul>")
+                .appendTo(Mocha.fixture)
+                .kendoMenu();
+
+            assert.equal(menu.find(".k-menu-expand-arrow").attr("aria-hidden"), "true");
         });
     });
 }());

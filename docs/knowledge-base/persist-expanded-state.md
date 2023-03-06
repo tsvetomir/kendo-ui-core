@@ -1,7 +1,7 @@
 ---
 title: Persist the Expanded State of the TreeView
 page_title: Persist the Expanded State of the TreeView
-description: "Learn how to persist the expanded nodes in a cookie and restore them upon page refresh in a Kendo UI for jQuery TreeView widget."
+description: "Learn how to persist the expanded nodes in a cookie and restore them upon page refresh in a Kendo UI for jQuery TreeView component."
 slug: howto_persistexpandedstate_treeview
 previous_url: /controls/navigation/treeview/how-to/integration/persist-expanded-state
 tags: telerik, kendo, jquery, treeview, persist, the, expanded, state
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI TreeView for jQuery</td>
+  <td>Progress® Kendo UI® TreeView for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

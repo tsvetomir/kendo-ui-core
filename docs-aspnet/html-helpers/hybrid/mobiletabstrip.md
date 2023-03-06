@@ -16,7 +16,7 @@ The TabStrip is used inside a mobile view or layout footer element to display an
 
 ## Basic Configuration
 
-1. Create a new ASP.NET MVC 4 application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetmvc %}), create a Telerik UI for ASP.NET MVC application. If you decide not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug overview_aspnetmvc6_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
+1. Create a new ASP.NET MVC 5 application. If you have installed the [Telerik UI for ASP.NET MVC Visual Studio Extensions]({% slug overview_visualstudio_aspnetcore %}), create a Telerik UI for ASP.NET MVC application. If you decide not to use the Telerik UI for ASP.NET MVC Visual Studio Extensions, follow the steps from the [introductory article]({% slug overview_aspnetmvc6_aspnetmvc %}) to add Telerik UI for ASP.NET MVC to the application.
 1. Open `HomeController.cs` and modify the `Index` action method.
 
         public ActionResult Index()
@@ -40,7 +40,7 @@ The TabStrip is used inside a mobile view or layout footer element to display an
                         items.Add().Icon("contacts").Text("Profile");
                         items.Add().Icon("history").Text("Sales");
                         items.Add().Icon("favorites").Text("Rating");
-                        items.Add().Icon("settings").Text("Settings");
+                        items.Add().Icon("wrench").Text("Settings");
                     })
                 )
 
@@ -68,7 +68,7 @@ The following example demonstrates how to subscribe to events by a handler name.
             items.Add().Icon("contacts").Text("Profile");
             items.Add().Icon("history").Text("Sales");
             items.Add().Icon("favorites").Text("Rating");
-            items.Add().Icon("settings").Text("Settings");
+            items.Add().Icon("wrench").Text("Settings");
         })
         .Events(events => events
             .Select("onSelect")
@@ -92,7 +92,7 @@ You can reference a hybrid TabStrip instance by using the [`jQuery.data()`](http
             items.Add().Icon("contacts").Text("Profile");
             items.Add().Icon("history").Text("Sales");
             items.Add().Icon("favorites").Text("Rating");
-            items.Add().Icon("settings").Text("Settings");
+            items.Add().Icon("wrench").Text("Settings");
         })
     )
     <script>

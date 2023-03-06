@@ -1,7 +1,7 @@
 ---
 title: Set the Slot Background Color by Using Slot Templates in the Scheduler
 page_title: Set the Slot Background Color by Using Slot Templates in the Scheduler
-description: "Learn how to set the cell background color by using slotTemplate and allDaySlotTemplate, based on the slot date, in a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to set the cell background color by using slotTemplate and allDaySlotTemplate, based on the slot date, in a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/set-slot-background-color-using-slot-templates, /controls/scheduling/scheduler/how-to/appearance/set-slot-background-color-using-slot-templates
 slug: howto_setslotbackgroundcolor_usingslottemplates_scheduler
 tags: telerik, kendo, jquery, scheduler, set, the, slot, color, using, templates
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -64,8 +64,8 @@ The following example demonstrates how to achieve the desired behavior by using 
 
       $(function() {
         $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           allDaySlotTemplate: "<div style='background:\\#A2A2AA; height: 100%;width: 100%;'></div>",
           slotTemplate: "<div style='background:#=getColorBasedOnHour(date)#; height: 100%;width: 100%;'></div>",

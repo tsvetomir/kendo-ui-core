@@ -1,13 +1,12 @@
-(function(f, define) {
-    define([ "./kendo.draganddrop" ], f);
-})(function() {
+import "./kendo.draganddrop.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "slider",
     name: "Slider",
     category: "web",
     description: "The Slider widget provides a rich input for selecting values or ranges of values.",
-    depends: [ "draganddrop" ]
+    depends: [ "draganddrop", "icons" ]
 };
 
 (function($, undefined) {
@@ -40,9 +39,9 @@ var __meta__ = { // jshint ignore:line
         DRAG_HANDLE = ".k-draghandle",
         TRACK_SELECTOR = ".k-slider-track",
         TICK_SELECTOR = ".k-tick",
-        STATE_SELECTED = "k-state-selected",
-        STATE_FOCUSED = "k-state-focused",
-        STATE_DISABLED = "k-state-disabled",
+        STATE_SELECTED = "k-selected",
+        STATE_FOCUSED = "k-focus",
+        STATE_DISABLED = "k-disabled",
         DISABLED = "disabled",
         UNDEFINED = "undefined",
         TABINDEX = "tabindex",
@@ -94,6 +93,8 @@ var __meta__ = { // jshint ignore:line
                 33: step(+options.largeStep), // page up
                 34: step(-options.largeStep) // page down
             };
+
+            that._ariaLabel(that.wrapper.find(DRAG_HANDLE));
 
             kendo.notify(that);
         },
@@ -544,26 +545,27 @@ var __meta__ = { // jshint ignore:line
     }
 
     function createButton(options, type, isHorizontal) {
-        var buttonCssClass = "";
+        var buttonIconName = "";
 
         if (isHorizontal) {
             if (type === "increase") {
-                buttonCssClass = "k-i-arrow-e";
+                buttonIconName = "caret-alt-right";
             } else {
-                buttonCssClass = "k-i-arrow-w";
+                buttonIconName = "caret-alt-left";
             }
         } else {
             if (type == "increase") {
-                buttonCssClass = "k-i-arrow-n";
+                buttonIconName = "caret-alt-up";
             } else {
-                buttonCssClass = "k-i-arrow-s";
+                buttonIconName = "caret-alt-down";
             }
         }
 
         return "<a role='button' class='k-button k-button-md k-rounded-full k-button-solid k-button-solid-base k-icon-button k-button-" + type + "' " +
                 "title='" + options[type + "ButtonTitle"] + "' " +
                 "aria-label='" + options[type + "ButtonTitle"] + "'>" +
-                "<span class='k-button-icon k-icon " + buttonCssClass + "'></span></a>";
+                    kendo.ui.icon({ icon: buttonIconName, iconClass: "k-button-icon" }) +
+                "</a>";
     }
 
     function createSliderItems(options, distance) {
@@ -816,10 +818,10 @@ var __meta__ = { // jshint ignore:line
                         that._focusWithMouse(e.target);
                     }).bind(that))
                     .on(MOUSE_OVER, function(e) {
-                        $(e.currentTarget).addClass("k-state-hover");
+                        $(e.currentTarget).addClass("k-hover");
                     })
                     .on("mouseout" + NS, (function(e) {
-                        $(e.currentTarget).removeClass("k-state-hover");
+                        $(e.currentTarget).removeClass("k-hover");
                         this._clearTimer();
                     }).bind(that))
                     .on(MOUSE_DOWN, (function(e) {
@@ -850,12 +852,12 @@ var __meta__ = { // jshint ignore:line
                 .off(MOUSE_DOWN)
                 .on(MOUSE_DOWN, function(e) {
                     e.preventDefault();
-                    $(this).addClass("k-state-active");
+                    $(this).addClass("k-active");
                 })
                 .off(MOUSE_UP)
                 .on(MOUSE_UP, function(e) {
                     e.preventDefault();
-                    $(this).removeClass("k-state-active");
+                    $(this).removeClass("k-active");
                 })
                 .off("mouseleave" + NS)
                 .on("mouseleave" + NS, kendo.preventDefault)
@@ -1096,7 +1098,7 @@ var __meta__ = { // jshint ignore:line
             }
 
             $(".k-slider-tooltip").remove(); // if user changes window while tooltip is visible, a second one will be created
-            that.tooltipDiv = $("<div class='k-tooltip k-slider-tooltip'><!-- --></div>").appendTo(document.body);
+            that.tooltipDiv = $("<div role='tooltip' class='k-tooltip k-slider-tooltip'><!-- --></div>").appendTo(document.body);
 
             html = owner._getFormattedValue(that.val || owner.value(), that);
 
@@ -1763,6 +1765,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

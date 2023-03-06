@@ -17,7 +17,7 @@ The MultiColumnComboBox provides support for remote data binding by using a `Dat
         {
             return View();
         }
-
+        {% if site.core %}
         public JsonResult GetProductsAjax()
         {
             var products = Enumerable.Range(0, 500).Select(i => new ProductViewModel
@@ -28,6 +28,18 @@ The MultiColumnComboBox provides support for remote data binding by using a `Dat
 
             return Json(products);
         }
+        {% else %}
+        public JsonResult GetProductsAjax()
+        {
+            var products = Enumerable.Range(0, 500).Select(i => new ProductViewModel
+            {
+                ProductID = i,
+                ProductName = "ProductName" + i
+            });
+
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
+        {% endif %}
 
 1. Add the MultiColumnComboBox to the view and configure its DataSource to use remote data.
 
@@ -55,6 +67,27 @@ The MultiColumnComboBox provides support for remote data binding by using a `Dat
             })
         )
     ```
+    {% if site.core %}
+    ```TagHelper
+        <kendo-multicolumncombobox name="products" filter="FilterType.Contains"
+                            placeholder="Select product"
+                            datatextfield="ProductName"
+                            datavaluefield="ProductID" >
+            <multicolumncombobox-columns>
+                <column field="ProductName" title="Name" width="200px">
+                </column>
+                <column field="ProductID" title="ID" width="200px">
+                </column>
+            </multicolumncombobox-columns>
+            <datasource type="DataSourceTagHelperType.Ajax" server-operation="false">
+                <transport>
+                    <read url="@Url.Action("GetProductsAjax", "Home")" />
+                </transport>
+            </datasource>
+        </kendo-multicolumncombobox>
+    ```
+    {% endif %}
+
 ## See Also
 
 * [Local Data Binding]({% slug htmlhelpers_multicolumncombobox_serverbinding_aspnetcore %})

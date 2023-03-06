@@ -59,7 +59,7 @@ it("DateView persist focused value when calendar navigate", function() {
     dateview._calendar();
     dateview.calendar.navigate(date, "month");
 
-    assert.equal(dateview.calendar._table.find(".k-state-focused").children().attr("data-kendo-value"), "2000/10/10");
+    assert.equal(dateview.calendar._table.find(".k-focus").children().attr("data-kendo-value"), "2000/10/10");
     assert.equal(+dateview._current, +dateview.calendar._current);
 });
 });
@@ -121,8 +121,7 @@ it("_input create calendar button", function() {
     assert.equal(icon.attr("tabindex"), "-1");
     assert.isOk(icon.hasClass("k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base"));
     assert.isOk(icon.children().is("span"));
-    assert.isOk(icon.children().hasClass("k-icon k-i-calendar k-button-icon"));
-    assert.equal(icon.children().html(), "");
+    assert.isOk(icon.children().is(".k-icon.k-i-calendar.k-button-icon, .k-svg-icon.k-svg-i-calendar.k-button-icon"));
 });
 
 it("create dateview", function() {
@@ -318,7 +317,7 @@ it("DatePicker updates calendar's focused date", function() {
     input.focus().val(kendo.toString(date, "MM/dd/yyyy"));
     datepicker.open();
 
-    var link = datepicker.dateView.calendar.element.find(".k-state-focused > .k-link");
+    var link = datepicker.dateView.calendar.element.find(".k-focus > .k-link");
 
     assert.equal(+datepicker.dateView.calendar.value(), +datepicker.value());
     assert.equal(link.html(), date.getDate());
@@ -426,6 +425,54 @@ it("DatePicker renders formatted value even when out of range", function() {
 
     assert.equal(datepicker.value(), null);
     assert.equal(datepicker.element.val(), kendo.toString(value, datepicker.options.format));
+});
+
+it("DatePicker renders not-floating label from string", function() {
+    var dateinput = input.kendoDatePicker({
+        label: "some label"
+    }).data("kendoDatePicker");
+    assert.equal(dateinput.label.element.text(), "some label");
+    assert.isNotOk(!!dateinput.label.floatingLabel);
+});
+
+it("DatePicker renders label from object", function() {
+    var dateinput = input.kendoDatePicker({
+        label: {
+            content: "some label"
+        }
+    }).data("kendoDatePicker");
+    assert.equal(dateinput.label.element.text(), "some label");
+});
+
+it("DatePicker renders floating label", function() {
+    var dateinput = input.kendoDatePicker({
+        label: {
+            content: "some label",
+            floating: true
+        }
+    }).data("kendoDatePicker");
+    assert.equal(dateinput.label.element.text(), "some label");
+    assert.isOk(!!dateinput.label.floatingLabel);
+});
+
+it("DatePicker renders floating label with dateInput", function() {
+    var dateinput = input.kendoDatePicker({
+        dateInput: true,
+        label: {
+            content: "some label",
+            floating: true
+        }
+    }).data("kendoDatePicker");
+    assert.equal(dateinput.label.element.text(), "some label");
+    assert.isOk(!!dateinput.label.floatingLabel);
+    assert.isOk(dateinput.label.floatingLabel.element.hasClass('k-empty'));
+});
+
+it("renders label with function", function() {
+    var dateinput = input.kendoDatePicker({
+        label: () => `some label`
+    }).data("kendoDatePicker");
+    assert.equal(dateinput.label.element.text(), "some label");
 });
 
     });

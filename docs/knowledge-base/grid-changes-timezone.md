@@ -2,7 +2,7 @@
 title: Displayed Date in Grid for ASP.NET MVC Is Different from Database Date
 description: The date which is displayed in the Kendo UI Grid for ASP.NET MVC is not the same as the date in my database.
 type: troubleshooting
-page_title: ASP.NET MVC Grid Changes Dates and Timezone on Its Own | Kendo UI Grid for ASP.NET MVC
+page_title: ASP.NET MVC Grid Changes Dates and Timezone on Its Own - Kendo UI Grid for ASP.NET MVC
 slug: grid-changes-timezone
 tags: dates, date, timezone, change, grid, mvc, ui for asp.net mvc
 ticketid: 1133504
@@ -15,7 +15,7 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid for ASP.NET MVC</td>
+  <td>Progress® Telerik® UI Grid for ASP.NET MVC</td>
  </tr>
  <tr>
   <td>Operating System</td>
@@ -26,7 +26,7 @@ component: grid
   <td>All</td>
  </tr>
  <tr>
-  <td>.Net framework</td>
+  <td>.NET Framework</td>
   <td>All</td>
  </tr>
 </table>

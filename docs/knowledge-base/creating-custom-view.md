@@ -1,7 +1,7 @@
 ---
 title: Create Custom Views in the Gantt
 page_title: Create Custom Views in the Gantt
-description: "Learn how to create custom views in the Kendo UI for jQuery Gantt widget."
+description: "Learn how to create custom views in the Kendo UI for jQuery Gantt component."
 slug: howto_create_custom_views_gantt
 previous_url: /controls/scheduling/gantt/how-to/creating-custom-view
 tags: telerik, kendo, jquery, gantt, create, custom, views
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Gantt for jQuery</td>
+  <td>Progress® Kendo UI® Gantt for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>

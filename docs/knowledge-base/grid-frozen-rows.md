@@ -1,8 +1,8 @@
 ---
 title: Display Frozen Rows in Grids
-description: An example on how to display frozen rows in a Kendo UI Grid based on a value from the model.
+description: Learn how to display frozen rows in a Kendo UI Grid based on a value from the model.
 type: how-to
-page_title: Freeze Rows | Kendo UI Grid for jQuery
+page_title: Freeze Rows - Kendo UI for jQuery Data Grid
 slug: grid-frozen-rows
 tags: grid, frozen rows, frozen, row, data item, model, freeze, unfreeze, pin, unpin, dynamically
 res_type: kb
@@ -14,10 +14,10 @@ component: grid
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Grid</td>
+  <td>Progress® Kendo UI® Grid for jQuery</td> 
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>2017.3.913</td>
  </tr>
 </table>

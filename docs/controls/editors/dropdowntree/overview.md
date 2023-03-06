@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery DropDownTree Documentation | DropDownTree Overview
+page_title: jQuery DropDownTree Documentation - DropDownTree Overview
 description: "Get started with the jQuery DropDownTree by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_dropdowntree_widget
 position: 1
 ---
 
-# DropDownTree Overview
+# {{ site.product }} DropDownTree Overview
 
 The DropDownTree represents an editor of hierarchical data, rendered in a tree-like structure, which provides multiple selection option and custom nodes.
 

@@ -1,7 +1,7 @@
 ---
 title: Implement Custom Editing in the Scheduler Agenda Views
 page_title: Implement Custom Editing in the Scheduler Agenda Views
-description: "Learn how to implement custom editing in the `agenda` view of a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to implement custom editing in the `agenda` view of a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/custom-editing-in-agenda-view, /controls/scheduling/scheduler/how-to/editing/custom-editing-in-agenda-view
 slug: howto_implement_custom_editing_inagenda_view_scheduler
 tags: telerik, kendo, jquery, scheduler, implement, custom, editing, in, the, agenda, view 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -54,8 +54,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
       $(function() {
         var scheduler = $("#scheduler").kendoScheduler({
-          date: new Date("2013/6/13"),
-          startTime: new Date("2013/6/13 07:00 AM"),
+          date: new Date("2022/6/13"),
+          startTime: new Date("2022/6/13 07:00 AM"),
           height: 600,
           views: [
             {

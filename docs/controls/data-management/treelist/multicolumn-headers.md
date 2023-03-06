@@ -1,6 +1,6 @@
 ---
 title: Multi-Column Headers
-page_title: jQuery TreeList Documentation | Multi-Column Headers
+page_title: jQuery TreeList Documentation - Multi-Column Headers
 description: "Get started with the jQuery TreeList by Kendo UI and implement multi-column headers in the widget."
 slug: multicolumnheaders_kendoui_treelist
 position: 6
@@ -33,7 +33,7 @@ That common header in turn can be a child of another upper `MultiColumn` header 
 
 The previous example will present the following output.
 
-<img src="multicolumn-headers.png">
+![Kendo UI for jQuery TreeList MultiColumn Headers](multicolumn-headers.png)
 
 ## See Also
 

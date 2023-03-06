@@ -67,8 +67,8 @@
             var autocomplete = new AutoComplete(input, {
                 dataSource: ["Item"],
                 suggest: false,
-                footerTemplate: 'Total items found',
-                headerTemplate: 'Total items found'
+                footerTemplate: () => 'Total items found',
+                headerTemplate: () => 'Total items found'
             });
 
             autocomplete.search("I");
@@ -92,14 +92,6 @@
             });
 
             assert.equal(autocomplete.element.attr("role"), "combobox");
-        });
-
-        it("AutoComplete adds aria-owns", function() {
-            var autocomplete = new AutoComplete(input.attr("id", "test"), {
-                placeholder: "Select..."
-            });
-
-            assert.equal(autocomplete.element.attr("aria-owns"), autocomplete.ul.attr("id"));
         });
 
         it("Autocomplete has aria-controls", function() {

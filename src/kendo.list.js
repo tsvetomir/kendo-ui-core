@@ -1,16 +1,17 @@
-(function(f, define) {
-    define([ "./kendo.data", "./kendo.popup" ], f);
-})(function() {
+import "./kendo.data.js";
+import "./kendo.popup.js";
+import "./kendo.label.js";
+import "./kendo.icons.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "list",
     name: "List",
     category: "framework",
-    depends: [ "data", "popup" ],
+    depends: [ "data", "popup", "label", "icons" ],
     hidden: true
 };
 
-/*jshint evil: true*/
+
 (function($, undefined) {
     var kendo = window.kendo,
         ui = kendo.ui,
@@ -182,6 +183,16 @@ var __meta__ = { // jshint ignore:line
 
             this._renderFooter();
             this._renderNoData();
+
+            if (options.label && this._inputLabel) {
+                this.label.setOptions(options.label);
+            } else if (options.label === false) {
+                this.label._unwrapFloating();
+                this._inputLabel.remove();
+                delete this._inputLabel;
+            } else if (options.label) {
+                this._label();
+            }
         },
 
         focus: function() {
@@ -193,6 +204,10 @@ var __meta__ = { // jshint ignore:line
                 readonly: readonly === undefined ? true : readonly,
                 disable: false
             });
+
+            if (this.label && this.label.floatingLabel) {
+                this.label.floatingLabel.readonly(readonly === undefined ? true : readonly);
+            }
         },
 
         enable: function(enable) {
@@ -200,6 +215,42 @@ var __meta__ = { // jshint ignore:line
                 readonly: false,
                 disable: !(enable = enable === undefined ? true : enable)
             });
+
+            if (this.label && this.label.floatingLabel) {
+                this.label.floatingLabel.enable(enable = enable === undefined ? true : enable);
+            }
+        },
+
+        _label: function() {
+            var that = this;
+            var options = that.options;
+            var labelOptions = $.isPlainObject(options.label) ? options.label : {
+                content: options.label
+            };
+
+            that.label = new kendo.ui.Label(null, $.extend({}, labelOptions, {
+                widget: that,
+                floatCheck: that._floatCheck.bind(that)
+            }));
+
+            that._inputLabel = that.label.element;
+        },
+
+        _floatCheck: function() {
+            if (this.listView) {
+                var hasValue = this.value() || (this.text ? this.text() : false);
+                return !hasValue && !this.popup.visible();
+            }
+
+            return true;
+        },
+
+        _refreshFloatingLabel: function() {
+            var that = this;
+
+            if (that.label && that.label.floatingLabel) {
+                that.label.floatingLabel.refresh();
+            }
         },
 
         _header: function() {
@@ -243,7 +294,8 @@ var __meta__ = { // jshint ignore:line
             for (var idx = 0; idx < this.options.columns.length; idx++) {
                 var currentColumn = this.options.columns[idx];
                 var title = currentColumn.title || currentColumn.field || "";
-                var template = currentColumn.headerTemplate || title;
+                var titleFunc = () => title;
+                var template = currentColumn.headerTemplate || titleFunc;
                 var columnsHeaderTemplate = typeof template !== "function" ? kendo.template(template) : template;
                 var currentWidth = currentColumn.width;
                 var currentWidthInt = parseInt(currentWidth, 10);
@@ -278,7 +330,7 @@ var __meta__ = { // jshint ignore:line
         _noData: function() {
             var list = this;
             var noData = $(list.noData);
-            var template = list.options.noDataTemplate === true ? list.options.messages.noData : list.options.noDataTemplate;
+            var template = list.options.noDataTemplate === true ? () => list.options.messages.noData : list.options.noDataTemplate;
 
             list.angular("cleanup", function() { return { elements: noData }; });
             kendo.destroy(noData);
@@ -353,7 +405,7 @@ var __meta__ = { // jshint ignore:line
             }, options, virtual, changeEventOption);
 
             if (!options.template) {
-                options.template = "#:" + kendo.expr(options.dataTextField, "data") + "#";
+                options.template = (data) => htmlEncode(kendo.getter(options.dataTextField)(data));
             }
 
             if (currentOptions.$angular) {
@@ -647,7 +699,7 @@ var __meta__ = { // jshint ignore:line
             var clearTitle = list.options.messages.clear;
 
             if (!list._clear) {
-                list._clear = $('<span unselectable="on" class="k-clear-value" title="' + clearTitle + '"><span class="k-icon k-i-x"></span></span>').attr({
+                list._clear = $(`<span unselectable="on" class="k-clear-value" title="${clearTitle}">${kendo.ui.icon("x")}</span>`).attr({
                     "role": "button",
                     "tabIndex": -1
                 });
@@ -703,6 +755,10 @@ var __meta__ = { // jshint ignore:line
 
             if (that._form) {
                 that._form.off("reset", that._resetHandler);
+            }
+
+            if (that.label) {
+                that.label.destroy();
             }
         },
 
@@ -782,7 +838,6 @@ var __meta__ = { // jshint ignore:line
             id = id ? id + " " + that.ul[0].id : that.ul[0].id;
 
             element.attr({
-                "aria-owns": id,
                 "aria-controls": id
             });
 
@@ -1072,8 +1127,10 @@ var __meta__ = { // jshint ignore:line
 
             if (!this.popup.element.is(":visible")) {
                 this.popup.one("open", (function(force) {
-                    return (function() {
-                        this._calculatePopupHeight(force);
+                    return (function(e) {
+                        if (!e.isDefaultPrevented()) {
+                            this._calculatePopupHeight(force);
+                        }
                     }).bind(this);
                 }).call(this, force));
 
@@ -1094,7 +1151,13 @@ var __meta__ = { // jshint ignore:line
                 close: list._closeHandler.bind(list),
                 animation: list.options.animation,
                 isRtl: support.isRtl(list.wrapper),
-                autosize: list.options.autoWidth
+                autosize: list.options.autoWidth,
+                activate: () => {
+                    this._refreshFloatingLabel();
+                },
+                deactivate: () => {
+                    this._refreshFloatingLabel();
+                }
             }));
 
             list.popup.element.prepend(list.header)
@@ -1235,6 +1298,8 @@ var __meta__ = { // jshint ignore:line
                 return that._select(candidate).done(function() {
                     that._cascadeValue = that._old = that._accessor();
                     that._oldIndex = that.selectedIndex;
+
+                    that._refreshFloatingLabel();
                 });
             }
         },
@@ -1791,6 +1856,13 @@ var __meta__ = { // jshint ignore:line
             var valueField = that.options.cascadeFromField || parent.options.dataValueField;
             var expressions;
 
+            // Applicable only when parent is ComboBox or MultiColumnComboBox
+            if (parent.options.cascadeOnCustomValue &&
+                filterValue === null &&
+                (!that.options.cascadeFromParentField || that.options.cascadeFromParentField === parent.options.dataValueField)) {
+                    filterValue = parent.value();
+            }
+
             that._valueBeforeCascade = valueBeforeCascade !== undefined ? valueBeforeCascade : that.value();
 
             if (filterValue || filterValue === 0) {
@@ -1831,6 +1903,8 @@ var __meta__ = { // jshint ignore:line
                 that._triggerChange();
                 that._userTriggered = false;
             }
+
+            that._refreshFloatingLabel();
         }
     });
 
@@ -1987,6 +2061,14 @@ var __meta__ = { // jshint ignore:line
             this._getter();
             this._templates();
             this._render();
+
+            if (options.label) {
+                this.label.setOptions(options.label);
+            } else if (options.label === false) {
+                this.label._unwrapFloating();
+                this._inputLabel.remove();
+                delete this._inputLabel;
+            }
         },
 
         destroy: function() {
@@ -2287,8 +2369,6 @@ var __meta__ = { // jshint ignore:line
         _valueExpr: function(type, values) {
             var that = this;
             var idx = 0;
-
-            var body;
             var comparer;
             var normalized = [];
 
@@ -2299,14 +2379,14 @@ var __meta__ = { // jshint ignore:line
                     normalized.push(unifyType(values[idx], type));
                 }
 
-                body = "for (var idx = 0; idx < " + normalized.length + "; idx++) {" +
-                        " if (current === values[idx]) {" +
-                        "   return idx;" +
-                        " }" +
-                        "} " +
-                        "return -1;";
-
-                comparer = new Function("current", "values", body);
+                comparer = (current, values) => {
+                    for (var idx = 0; idx < normalized.length; idx++) {
+                        if (current === values[idx]) {
+                            return idx;
+                        }
+                    }
+                    return -1;
+                };
 
                 that._valueComparer = function(current) {
                     return comparer(current, normalized);
@@ -2479,23 +2559,6 @@ var __meta__ = { // jshint ignore:line
             return candidate;
         },
 
-        _template: function() {
-            var that = this;
-            var options = that.options;
-            var template = options.template;
-
-            if (!template) {
-                template = kendo.template('<li tabindex="-1" role="option" unselectable="on" class="k-list-item"><span class="k-list-item-text">${' + kendo.expr(options.dataTextField, "data") + "}</span></li>", { useWithBlock: false });
-            } else {
-                template = kendo.template(template);
-                template = function(data) {
-                    return '<li tabindex="-1" role="option" unselectable="on" class="k-list-item">' + template(data) + "</li>";
-                };
-            }
-
-            return template;
-        },
-
         _templates: function() {
             var template;
             var options = this.options;
@@ -2506,12 +2569,12 @@ var __meta__ = { // jshint ignore:line
             };
 
             if (options.columns) {
-                for (var i = 0; i < options.columns.length; i++) {
-                    var currentColumn = options.columns[i];
-                    var templateText = currentColumn.field ? currentColumn.field.toString() : TEXT;
+                options.columns.forEach((column, i) => {
+                    var templateText = column.field ? column.field.toString() : TEXT;
+                    var templateFunc = data => htmlEncode(kendo.getter(templateText)(data));
 
-                    templates["column" + i] = currentColumn.template || "#: " + templateText + "#";
-                }
+                    templates["column" + i] = column.template || templateFunc;
+                });
             }
 
             for (var key in templates) {
@@ -2906,6 +2969,3 @@ var __meta__ = { // jshint ignore:line
 
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

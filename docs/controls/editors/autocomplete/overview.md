@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery AutoComplete Documentation | AutoComplete Overview
+page_title: jQuery AutoComplete Documentation - AutoComplete Overview
 description: "Get started with the jQuery AutoComplete by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_autocomplete_widget
 position: 1
 ---
 
-# AutoComplete Overview
+# {{ site.product }} AutoComplete Overview
 
 The AutoComplete provides suggestions depending on the typed text and allows multiple value entries.
 

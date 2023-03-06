@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery ColorPicker Documentation | ColorPicker Overview
+page_title: jQuery ColorPicker Documentation - ColorPicker Overview
 description: "Get started with the jQuery ColorPicker by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_colorpicker_widget
 position: 1
 ---
 
-# ColorPicker Overview
+# {{ site.product }} ColorPicker Overview
 
 The ColorPicker is a drop-down list for selecting colors.
 
@@ -30,7 +30,7 @@ To initialize the ColorPicker, use a jQuery `ID` selector. The original `input` 
 
 The default popup contains a gradient with HEX input.
 
-![An HEX ColorPicker](colorpicker.png)
+![Kendo UI for jQuery HEX ColorPicker](colorpicker-hex.png)
 
 The following example demonstrates how to create a simple ColorPicker and render 20 colors.
 
@@ -48,7 +48,7 @@ The following example demonstrates how to create a simple ColorPicker and render
     </script>
 ```
 
-![A simple ColorPicker with a basic palette](simple-basic.png)
+![Kendo UI for jQuery ColorPicker with a basic palette](colorpicker-basic-palette.png)
 
 The following example demonstrates how to create a web-safe color palette with 216 colors.
 
@@ -66,7 +66,7 @@ The following example demonstrates how to create a web-safe color palette with 2
     </script>
 ```
 
-![A simple ColorPicker with a web-safe palette](simple-web.png)
+![Kendo UI for jQuery ColorPicker with a web-safe palette](colorpicker-websafe-palette.png)
 
 To display a custom list of colors in the ColorPicker, pass them in the `palette` argument. The following example demonstrates how to display the white, black, and red colors. You can render any other color by using its short (3 digits) or long (6 digits) hex notation and by omitting the `#` sign.
 

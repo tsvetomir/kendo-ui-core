@@ -1,8 +1,8 @@
 ---
-title: Add Menu to AppBar
-description: An example on how to add menu to Appbar.
+title: Add a Menu to the AppBar Component
+page_title: Show a Menu and Set the Overflow - jQuery AppBar
+description: Learn how to add a Kendo UI for jQuery Menu to the Kendo UI for jQuery Appbar component.
 type: how-to
-page_title: Add Menu to AppBar | Kendo UI AppBar for jQuery
 slug: appbar-menu-overflow
 tags: appbar, menu, overflow
 ticketid: 1498194
@@ -14,10 +14,11 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI AppBar</td>
+  <td>Progress® Kendo UI® AppBar for jQuery</td>
+  <td>Progress® Kendo UI® Menu for jQuery</td>
  </tr>
  <tr>
-  <td>Progress Kendo UI version</td>
+  <td>Product Version</td>
   <td>Created with the 2020.3.1118 version</td>
  </tr>
 </table>
@@ -28,8 +29,10 @@ How can I add a Menu to AppBar and set the overflow?
 
 ## Solution
 
-1. Implement [`Kendo UI Menu`](https://demos.telerik.com/kendo-ui/menu/index) into [`Kendo UI AppBar`](https://demos.telerik.com/kendo-ui/appbar/index).
-1. Set the overflow style of the AppBar to "visible".
+To achieve the desired scenario:
+
+1. Implement the [Menu](https://demos.telerik.com/kendo-ui/menu/index) in the [AppBar](https://demos.telerik.com/kendo-ui/appbar/index).
+1. Set the overflow style of the AppBar to `visible`.
 
 ```dojo
  <div id="appbar"></div>
@@ -156,10 +159,19 @@ How can I add a Menu to AppBar and set the overflow?
 
         $(kendo.roleSelector('appbar')).find(kendo.roleSelector('menu')).kendoMenu();
     </script>
-  
+
   <style>
     .k-appbar{
           overflow: visible;
     }
   </style>
 ```
+
+## See Also
+
+* [JavaScript API Reference of the Menu](/api/javascript/ui/menu)
+* [JavaScript API Reference of the AppBar](/api/javascript/ui/appbar)
+* [jQuery Menu Overview (Demo)](https://demos.telerik.com/kendo-ui/menu/index)
+* [jQuery AppBar Overview (Demo)](https://demos.telerik.com/kendo-ui/appbar/index)
+* [Product Page of the jQuery Menu](https://www.telerik.com/kendo-jquery-ui/menu)
+* [Product Page of the jQuery AppBar](https://www.telerik.com/kendo-jquery-ui/appbar)

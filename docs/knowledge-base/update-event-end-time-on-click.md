@@ -1,7 +1,7 @@
 ---
 title: Update the End Time of the Scheduler Events on Click
 page_title: Update the End Time of the Scheduler Events on Click
-description: "Learn how to update the end time of an event on click in a Kendo UI for jQuery Scheduler widget."
+description: "Learn how to update the end time of an event on click in a Kendo UI for jQuery Scheduler component."
 previous_url: /controls/scheduling/scheduler/how-to/update-event-end-time-on-click, /controls/scheduling/scheduler/how-to/editing/update-event-end-time-on-click
 slug: howto_update_event_end_time_on_click_scheduler
 tags: telerik, kendo, jquery, scheduler, update, the, end, time, of, events, on, click 
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Scheduler for jQuery</td>
+  <td>Progress® Kendo UI® Scheduler for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -46,8 +46,8 @@ The following example demonstrates how to achieve the desired scenario.
     <script>
         $(function () {
             $("#scheduler").kendoScheduler({
-                date: new Date("2013/6/13"),
-                startTime: new Date("2013/6/13 07:00 AM"),
+                date: new Date("2022/6/13"),
+                startTime: new Date("2022/6/13 07:00 AM"),
                 height: 600,
                 selectable: true,
                 views: [

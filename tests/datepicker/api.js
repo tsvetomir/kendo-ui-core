@@ -91,7 +91,7 @@ it("disabled dates are reflected to calendar", function() {
         value: new Date(2015,9,19)
     };
     dateview.setOptions(options);
-    var isDisabled = dateview.calendar.element.find("td").eq(1).hasClass("k-state-disabled");
+    var isDisabled = dateview.calendar.element.find("td").eq(1).hasClass("k-disabled");
     assert.equal(isDisabled, true);
 });
 });
@@ -574,6 +574,50 @@ it("setOptions updates the button size correctly", function() {
 
     assert.isOk(datepicker._dateIcon.hasClass("k-button-sm"));
     assert.isNotOk(datepicker._dateIcon.hasClass("k-button-md"));
+});
+
+it("setOptions persists the disabled state when initialized from a disabled element", function() {
+    input.attr("disabled", "disabled");
+    var datepicker = new DatePicker(input);
+
+    datepicker.setOptions({
+        weekNumber: true
+    });
+
+    assert.isOk(datepicker.wrapper.hasClass("k-disabled"));
+});
+
+it("setOptions persists the readonly state when initialized from a readonly element", function() {
+    input.attr("readonly", "readonly");
+    var datepicker = new DatePicker(input);
+
+    datepicker.setOptions({
+        weekNumber: true
+    });
+
+    assert.isOk(datepicker.element.is("[readonly]"));
+});
+
+it("setOptions does not persist disabled state after calling .enable(false)", function() {
+    var datepicker = new DatePicker(input);
+
+    datepicker.enable(false);
+    datepicker.setOptions({
+        weekNumber: true
+    });
+
+    assert.isOk(!(datepicker.element.is("[disabled]")));
+});
+
+it("setOptions does not persist readonly state after calling .readonly(true)", function() {
+    var datepicker = new DatePicker(input);
+
+    datepicker.readonly(true);
+    datepicker.setOptions({
+        weekNumber: true
+    });
+
+    assert.isOk(!(datepicker.element.is("[readonly]")));
 });
 
 it("disabled date is not set as widgets value", function() {

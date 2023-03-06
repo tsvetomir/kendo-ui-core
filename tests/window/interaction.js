@@ -61,7 +61,7 @@
                 actions: ["refresh"]
             });
 
-            dialog.wrapper.find(".k-i-reload").trigger("dblclick");
+            dialog.wrapper.find(".k-i-arrow-rotate-cw").trigger("dblclick");
 
             assert.isOk(!dialog.options.isMaximized);
         });
@@ -126,7 +126,7 @@
             dialog.open();
             dialog.close();
 
-            assert.isOk(!dialogWrapper.hasClass("k-state-focused"));
+            assert.isOk(!dialogWrapper.hasClass("k-focus"));
             assert.isOk(document.activeElement !== dialogWrapper);
         });
     });

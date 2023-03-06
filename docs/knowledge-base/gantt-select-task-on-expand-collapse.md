@@ -1,8 +1,8 @@
 ---
 title: Select Task On Click of Expand or Collapse Icon
-description: An example on how to implement a functionality to select the task when clicking on the expand or collapse icon.
+description: Learn how to implement a functionality to select the task when clicking on the expand or collapse icon.
 type: how-to
-page_title: Implement Task Selection on Click of Expand or Collapse icon | Kendo UI Gantt for jQuery
+page_title: Implement Task Selection on Click of Expand or Collapse icon - Kendo UI Gantt for jQuery
 slug: select-gantt-task-on-expand-collapse
 tags: kendo, kendoui, gantt, select, expand, collapse, task, icon, click
 ticketid: 1483656
@@ -14,7 +14,7 @@ res_type: kb
 <table>
     <tr>
         <td>Product</td>
-        <td>Progress Kendo UI Gantt</td>
+        <td>Progress® Kendo UI® Gantt for jQuery</td>
     </tr>
     <tr>
         <td>Product Version</td>
@@ -82,7 +82,7 @@ I want to be able to click on the expand/collapse icon of the parent task and se
                 fields: {
                     id: { from: "ID", type: "number" },
                     orderId: { from: "OrderID", type: "number", validation: { required: true } },
-                    parentId: { from: "ParentID", type: "number", defaultValue: null, validation: { required: true } },
+                    parentId: { from: "ParentID", type: "number", defaultValue: null },
                     start: { from: "Start", type: "date" },
                     end: { from: "End", type: "date" },
                     title: { from: "Title", defaultValue: "", type: "string" },

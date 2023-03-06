@@ -1,8 +1,7 @@
-(function(f, define) {
-    define([ "./kendo.mobile.pane", "./kendo.router" ], f);
-})(function() {
+import "./kendo.mobile.pane.js";
+import "./kendo.router.js";
 
-var __meta__ = { // jshint ignore:line
+var __meta__ = {
     id: "mobile.application",
     name: "Application",
     category: "mobile",
@@ -15,6 +14,7 @@ var __meta__ = { // jshint ignore:line
         mobile = kendo.mobile,
         support = kendo.support,
         Widget = mobile.ui.Widget,
+        encode = kendo.htmlEncode,
         Pane = mobile.ui.Pane,
 
         DEFAULT_OS = "ios7",
@@ -36,14 +36,14 @@ var __meta__ = { // jshint ignore:line
             wp: { wp: true, browser: "default", device: "wp", flatVersion: "800", majorVersion: "8", minorVersion: "0.0", name: "wp", tablet: false }
         },
 
-        viewportTemplate = kendo.template('<meta content="initial-scale=#: data.scale #, maximum-scale=#: data.scale #, user-scalable=no#=data.height#" name="viewport" />', { usedWithBlock: false }),
-        systemMeta = kendo.template('<meta name="apple-mobile-web-app-capable" content="#= data.webAppCapable === false ? \'no\' : \'yes\' #" /> ' +
-                     '<meta name="apple-mobile-web-app-status-bar-style" content="#=data.statusBarStyle#" /> ' +
+        viewportTemplate = kendo.template((data) => `<meta content="initial-scale=${encode(data.scale)}, maximum-scale=${encode(data.scale)}, user-scalable=no${data.height}" name="viewport" />`, { usedWithBlock: false }),
+        systemMeta = kendo.template((data) => `<meta name="apple-mobile-web-app-capable" content="${data.webAppCapable === false ? 'no' : 'yes' }" /> ` +
+                     `<meta name="apple-mobile-web-app-status-bar-style" content="${data.statusBarStyle}" /> ` +
                      '<meta name="msapplication-tap-highlight" content="no" /> ', { usedWithBlock: false }),
-        clipTemplate = kendo.template('<style>.km-view { clip: rect(0 #= data.width #px #= data.height #px 0); }</style>', { usedWithBlock: false }),
+        clipTemplate = kendo.template((data) => `<style>.km-view { clip: rect(0 ${data.width}px ${data.height}px 0); }</style>`, { usedWithBlock: false }),
         ENABLE_CLIP = OS.android && OS.browser != "chrome" || OS.blackberry,
 
-        iconMeta = kendo.template('<link rel="apple-touch-icon' + (OS.android ? '-precomposed' : '') + '" # if(data.size) { # sizes="#=data.size#" #}# href="#=data.icon#" />', { usedWithBlock: false }),
+        iconMeta = kendo.template((data) => `<link rel="apple-touch-icon${OS.android ? '-precomposed' : ''}" ${data.size ? `sizes="${data.size}"` : '' } href="${data.icon}" />`, { usedWithBlock: false }),
 
         HIDEBAR = (OS.device == "iphone" || OS.device == "ipod") && OS.majorVersion < 7,
         SUPPORT_SWIPE_TO_GO_BACK = (OS.device == "iphone" || OS.device == "ipod") && OS.majorVersion >= 7,
@@ -499,6 +499,3 @@ var __meta__ = { // jshint ignore:line
     kendo.ui.plugin(Application, kendo.mobile, 'Mobile');
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

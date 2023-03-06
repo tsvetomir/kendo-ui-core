@@ -29,9 +29,11 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element).
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element).
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the ColorPicker:
 
+```HtmlHelper
         @(Html.Kendo().ColorPicker()
             .Name("picker")
             .Size(ComponentSize.Medium)
@@ -39,6 +41,18 @@ The following example demonstrates how to set `Size` in the declaration of the C
             .Format(ColorPickerFormat.Rgb)
             .Formats(new string[] { "rgb", "hex" })
         )
+```
+{% if site.core %}
+```TagHelper
+@{
+    string[] formats = new string[] { "rgb", "hex" };
+}
+
+        <kendo-colorpicker name="picker" value="#ff0000" size="ComponentSize.Medium"
+         format="ColorPickerFormat.Rgb"         formats="formats">
+        </kendo-colorpicker>
+```
+{% endif %}
 
 The default `Size` value is `Medium` and it is applied to the wrapping span element through the `k-input-md` class.
 
@@ -57,9 +71,11 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element).
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element).
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the ColorPicker:
 
+```HtmlHelper
         @(Html.Kendo().ColorPicker()
             .Name("picker")
             .Rounded(Rounded.Medium)
@@ -67,6 +83,18 @@ The following example demonstrates how to set `Rounded` in the declaration of th
             .Format(ColorPickerFormat.Rgb)
             .Formats(new string[] { "rgb", "hex" })
         )
+```
+{% if site.core %}
+```TagHelper
+@{
+    string[] formats = new string[] { "rgb", "hex" };
+}
+
+        <kendo-colorpicker name="picker" value="#ff0000" rounded="Rounded.Medium"
+         format="ColorPickerFormat.Rgb"         formats="formats">
+        </kendo-colorpicker>
+```
+{% endif %}
 
 The default `Rounded` value is `Medium` and it is applied to the wrapping span element through the `k-rounded-md` class.
 
@@ -84,9 +112,11 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element.
 - `Flat`—applies the `k-input-flat` class to the wrapping span element.
 - `Outline`—applies the `k-input-outline` class to the wrapping span element.
+- `None`—unset.
 
 The following example demonstrates how to set `FillMode` in the declaration of the ColorPicker:
 
+  ```HtmlHelper
         @(Html.Kendo().ColorPicker()
             .Name("picker")
             .FillMode(FillMode.Solid)
@@ -94,6 +124,18 @@ The following example demonstrates how to set `FillMode` in the declaration of t
             .Format(ColorPickerFormat.Rgb)
             .Formats(new string[] { "rgb", "hex" })
         )
+```
+{% if site.core %}
+```TagHelper
+@{
+    string[] formats = new string[] { "rgb", "hex" };
+}
+
+        <kendo-colorpicker name="picker" value="#ff0000" fillmode="FillMode.Solid"
+         format="ColorPickerFormat.Rgb"         formats="formats">
+        </kendo-colorpicker>
+```
+{% endif %}      
 
 The default `FillMode` value is `Solid` and it is applied to the wrapping span element through the `k-input-solid` class.
 
@@ -202,7 +244,59 @@ The following example demonstrates how to configure the appearance of the compon
 
 In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> The new styling and rendering support only the [default options](#options) when you use a LESS theme.
+
+If you use custom CSS, to override default ColorPicker styles, you will need to update the classes used in the selectors of your custom CSS rules. The following example shows how to achieve the same customization in the ColorPicker, depending on whether you are using an old product version or a new one. 
+
+The first set of CSS rules relies on the classes available in the old rendering.
+
+```
+<style>
+/*  Old rendering (versions prior to R1 2022)*/      
+
+/* Apply lightblue background color to the ColorPicker's dropdown button */
+.k-colorpicker .k-select{ 
+  background-color: lightblue;
+}
+
+/* Apply green background color to the ColorPicker's Apply button */
+.k-flatcolorpicker .apply {
+  background-color: green;
+  border-color: green;
+}
+
+/* Apply red background color and border to the ColorPicker's Cancel button */
+.k-flatcolorpicker .cancel {
+  background-color: red;
+  border-color: red;
+}
+</style>
+```
+
+The second set of CSS rules relies on the classes available in the new rendering.
+
+```
+<style>
+/*  New Rendering (versions after R1 2022) */
+
+/* Apply lightblue background color to the ColorPicker's dropdown button */
+.k-colorpicker .k-input-button { 
+  background-color: lightblue;
+}
+
+/* Apply green background color to the ColorPicker's Apply button */
+.k-flatcolorpicker .k-coloreditor-apply {
+  background-color: green;
+  border-color: green;
+}
+
+/* Apply red background color and border to the ColorPicker's Cancel button */
+.k-flatcolorpicker .k-coloreditor-cancel {
+  background-color: red;
+  border-color: red;
+}
+</style>
+```
 
 ## See Also
 

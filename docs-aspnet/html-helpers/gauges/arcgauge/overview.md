@@ -7,7 +7,7 @@ slug: overview_arcgaugehelper_aspnetcore
 position: 1
 ---
 
-# ArcGauge Overview
+# {{ site.framework }} ArcGauge Overview
 
 {% if site.core %}
 The Telerik UI ArcGauge TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI ArcGauge widget.
@@ -45,7 +45,7 @@ The ArcGauge represents a value on a circular arc.
     ```
     {% if site.core %}
     ```TagHelper
-        <kendo-arcgauge name="gauge" center-template="#:value#%" value="65">
+        <kendo-arcgauge name="arcGauge" center-template="#:value#%" value="65">
             <scale min="0" max="100">
             </scale>
         </kendo-arcgauge>

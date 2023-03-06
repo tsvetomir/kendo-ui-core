@@ -1,9 +1,9 @@
 ---
 title: Component Types
-page_title: jQuery DatePicker Documentation | DatePicker Component Types
+page_title: jQuery DatePicker Documentation - DatePicker Component Types
 description: "Get started with the jQuery DatePicker by Kendo UI and learn how to enable the modern component type."
 slug: componenttypes_datepicker
-position: 8
+position: 10
 ---
 
 # Component Types
@@ -20,7 +20,7 @@ By default, the DatePicker is initialized with the `classic` render mode. In ord
 
 As a result, the appearance of the widget is alternated. 
 
-![Comparison between the content types](../../../images/modern-classic-datepicker.png)
+![Kendo UI for jQuery DatePicker Comparison between the content types](../../../images/modern-classic-datepicker.png)
 
 ## See Also
 

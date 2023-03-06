@@ -6,7 +6,7 @@ slug: overview_sparklineshelper_aspnetcore
 position: 1
 ---
 
-# Sparkline Overview
+# {{ site.framework }} Sparkline Overview
 
 The Telerik UI Sparkline TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI Sparkline widget.
 
@@ -45,6 +45,15 @@ To create the Sparklines, add the component tags to the view and provide it with
             .Data(ViewBag.TemperatureData)
     )
 ```
+{% if site.core %}
+```TagHelper
+    <kendo-sparkline name="temp-log"
+                     data="@ViewBag.TemperatureData"
+                     type="SparklineType.Column">
+        <tooltip format="{0} &deg;C"></tooltip>
+    </kendo-sparkline>
+```
+{% endif %}
 
 ## Functionality and Features
 

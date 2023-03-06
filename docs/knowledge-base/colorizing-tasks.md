@@ -1,7 +1,7 @@
 ---
 title: Colorize Gantt Tasks
-page_title: Colorize Gantt Tasks
-description: "Learn how to colorize tasks in the Kendo UI for jQuery Gantt widget."
+page_title: Add Color to the Gantt Tasks
+description: "Learn how to colorize tasks in the Kendo UI for jQuery Gantt component."
 slug: howto_colorize_tasks_gantt
 previous_url: /controls/scheduling/gantt/how-to/colorizing-tasks
 tags: telerik, kendo, jquery, gantt, colorize, tasks
@@ -15,14 +15,14 @@ res_type: kb
 <table>
  <tr>
   <td>Product</td>
-  <td>Progress Kendo UI Gantt for jQuery</td>
+  <td>Progress® Kendo UI® Gantt for jQuery</td>
  </tr>
  <tr>
   <td>Operating System</td>
   <td>Windows 10 64bit</td>
  </tr>
  <tr>
-  <td>Visual Studio version</td>
+  <td>Visual Studio Version</td>
   <td>Visual Studio 2017</td>
  </tr>
  <tr>
@@ -91,7 +91,7 @@ The following example demonstrates how to achieve the desired behavior.
               fields: {
                 id: { from: "ID", type: "number" },
                 orderId: { from: "OrderID", type: "number", validation: { required: true } },
-                parentId: { from: "ParentID", type: "number", defaultValue: null, validation: { required: true } },
+                parentId: { from: "ParentID", type: "number", defaultValue: null },
                 start: { from: "Start", type: "date" },
                 end: { from: "End", type: "date" },
                 title: { from: "Title", defaultValue: "", type: "string" },

@@ -1,9 +1,8 @@
-/* jshint multistr: true */
-(function(f, define) {
-    define([ "./kendo.fx", "./kendo.userevents" ], f);
-})(function() {
 
-var __meta__ = { // jshint ignore:line
+import "./kendo.fx.js";
+import "./kendo.userevents.js";
+
+var __meta__ = {
     id: "mobile.switch",
     name: "Switch",
     category: "mobile",
@@ -259,6 +258,3 @@ var __meta__ = { // jshint ignore:line
     ui.plugin(Switch);
 })(window.kendo.jQuery);
 
-return window.kendo;
-
-}, typeof define == 'function' && define.amd ? define : function(a1, a2, a3) { (a3 || a2)(); });

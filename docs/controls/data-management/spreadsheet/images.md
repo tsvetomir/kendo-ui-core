@@ -1,6 +1,6 @@
 ---
 title: Images
-page_title: jQuery Spreadsheet Documentation | Images
+page_title: jQuery Spreadsheet Documentation - Images
 description: "Get started with the jQuery Spreadsheet by Kendo UI and place an image in the widget."
 slug: images_spreadsheet_widget
 position: 2
@@ -20,11 +20,11 @@ To load an image to a sheet, use any of the following approaches:
 
 You can upload and insert a custom image in the Spreadsheet with the `Insert Image` tool.
 
-![Spreadsheet Insert Image tool](images/spreadsheet-insert-image-tool.png)
+![Kendo UI for jQuery Spreadsheet Insert Image tool](images/spreadsheet-insert-image-tool.png)
 
 Then, in the popup window, you can select or drag in a file from the file system.
 
-![Spreadsheet Insert Image pop-up](images/spreadsheet-insert-image-pop-up.png)
+![Kendo UI for jQuery Spreadsheet Insert Image pop-up](images/spreadsheet-insert-image-pop-up.png)
 
 ## Configuring the Spreadsheet to Initially Display an Image
 

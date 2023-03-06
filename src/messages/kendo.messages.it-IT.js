@@ -1,4 +1,5 @@
 (function($, undefined) {
+
 /* Filter cell operator messages */
 
 if (kendo.ui.FilterCell) {
@@ -295,6 +296,26 @@ $.extend(true, kendo.ui.Pager.prototype.options.messages,{
 });
 }
 
+if (kendo.ui.TreeList) {
+kendo.ui.TreeList.prototype.options.messages =
+$.extend(true, kendo.ui.TreeList.prototype.options.messages,{
+    "noRows": "No records to display",
+    "loading": "Loading...",
+    "requestFailed": "Request failed.",
+    "retry": "Riprova",
+    "commands": {
+        "edit": "Edit",
+        "update": "Aggiorna",
+        "canceledit": "Cancel",
+        "create": "Aggiungi nuovo elemento",
+        "createchild": "Add child record",
+        "destroy": "Rimuovi",
+        "excel": "Export to Excel",
+        "pdf": "Export to PDF"
+    }
+});
+}
+
 /* TreeListPager messages */
 
 if (kendo.ui.TreeListPager) {
@@ -333,6 +354,16 @@ $.extend(true, kendo.ui.Upload.prototype.options.localization,{
 });
 }
 
+/* FileBrowser messages */
+
+if (kendo.ui.FileBrowser) {
+kendo.ui.FileBrowser.prototype.options.messages =
+$.extend(true, kendo.ui.FileBrowser.prototype.options.messages,{
+  "dropFilesHere": "rilascia qui i files per l'upload",
+  "search": "Cerca"
+});
+}
+
 /* Editor messages */
 
 if (kendo.ui.Editor) {
@@ -357,7 +388,7 @@ $.extend(true, kendo.ui.Editor.prototype.options.messages,{
   "justifyRight": "Allinea il testo a destra",
   "outdent": "Riduci rientro",
   "strikethrough": "Barrato",
-  "styles": "Stili",
+  "style": "Stili",
   "subscript": "A pedice",
   "superscript": "In apice",
   "underline": "Sottolineato",
@@ -522,7 +553,7 @@ $.extend(true, kendo.spreadsheet.messages.dialogs,{
   "alignmentDialog": {
     "title": "Allineamento",
     "buttons": {
-     "justtifyLeft": "Allinea testo a sinistra",
+     "justifyLeft": "Allinea testo a sinistra",
      "justifyCenter": "Allinea al centro",
      "justifyRight": "Allinea testo a destra",
      "justifyFull": "Giustifica",
@@ -674,7 +705,7 @@ $.extend(true, kendo.spreadsheet.messages.toolbar,{
   "addRowBelow": "Aggiungi riga sotto",
   "alignment": "Allineamento",
   "alignmentButtons": {
-  "justtifyLeft": "Allinea testo a sinistra",
+  "justifyLeft": "Allinea testo a sinistra",
   "justifyCenter": "Allinea al centro",
   "justifyRight": "Allinea testo a destra",
   "justifyFull": "Giustifica",

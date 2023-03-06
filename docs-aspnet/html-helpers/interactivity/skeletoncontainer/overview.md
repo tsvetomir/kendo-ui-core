@@ -6,7 +6,7 @@ slug: htmlhelpers_skeletoncontainer_aspnetcore_overview
 position: 1
 ---
 
-# SkeletonContainer Overview
+# {{ site.framework }} SkeletonContainer Overview
 
 {% if site.core %}
 The Telerik UI SkeletonContainer TagHelper and HtmlHelper for {{ site.framework }} are server-side wrappers for the Kendo UI SkeletonContainer widget.
@@ -32,13 +32,16 @@ The following example demonstrates how to initialize the SkeletonContainer from 
 ```HtmlHelper
     @(Html.Kendo().SkeletonContainer()
         .Name("skeleton")
+        .Animation(SkeletonContainerAnimation.Pulse)
+        .TemplateId("tmpl")
     )
 ```
 {% if site.core %}
 ```TagHelper
 
-        <kendo-skeletoncontainer name="skeleton" animation="SkeletonContainerAnimation.Pulse"
-                             template-id="tmpl">
+        <kendo-skeletoncontainer name="skeleton" 
+                                 animation="SkeletonContainerAnimation.Pulse"
+                                 template-id="tmpl">
         </kendo-skeletoncontainer>
 ```
 ```JavaScript

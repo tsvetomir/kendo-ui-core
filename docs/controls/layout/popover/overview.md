@@ -1,12 +1,12 @@
 ---
 title: Overview
-page_title: jQuery Popover Documentation | Popover Overview
+page_title: jQuery Popover Documentation - Popover Overview
 description: "Get started with the jQuery Popover by Kendo UI and learn how to create, initialize, and enable the widget."
 slug: overview_kendoui_popover_widget
 position: 1
 ---
 
-# Popover Overview
+# {{ site.product }} Popover Overview
 
 The Kendo UI Popover widget for jQuery provides a simple way to display additional content next to a specific anchor element that appears when users perform actions on that anchor element such as click or hover.
 

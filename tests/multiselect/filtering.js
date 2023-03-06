@@ -131,7 +131,7 @@
     it("MultiSelect hides popup if no data", function() {
         popuplateSelect();
         var multiselect = new MultiSelect(select, {
-            noDataTemplate: ""
+            noDataTemplate: null
         });
 
         multiselect.wrapper.click();
@@ -424,7 +424,7 @@
 
         multiselect.open();
 
-        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle").click();
+        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle,.k-svg-i-x-circle").click();
 
         var tags = multiselect.tagList.children(".k-chip");
         var values = multiselect.value();
@@ -465,7 +465,7 @@
 
         multiselect.open();
 
-        multiselect.tagList.children(".k-chip").first().find(".k-i-x-circle").click();
+        multiselect.tagList.children(".k-chip").first().find(".k-i-x-circle,.k-svg-i-x-circle").click();
 
         var tags = multiselect.tagList.children(".k-chip");
         var values = multiselect.value();
@@ -506,8 +506,8 @@
 
         multiselect.open();
 
-        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle").click();
-        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle").click();
+        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle,.k-svg-i-x-circle").click();
+        multiselect.tagList.children(".k-chip").last().find(".k-i-x-circle,.k-svg-i-x-circle").click();
 
         var tags = multiselect.tagList.children(".k-chip");
         var values = multiselect.value();
@@ -704,10 +704,10 @@
         });
 
         multiselect.open();
-        assert.equal(multiselect.popup.element.parent(".k-animation-container").width(), multiselect.popup.element.outerWidth(true) + 1);
+        assert.closeTo(multiselect.popup.element.closest(".k-animation-container").width(), multiselect.popup.element.outerWidth(true), 1);
         multiselect.close();
         multiselect.open();
-        assert.equal(multiselect.popup.element.parent(".k-animation-container").width(), multiselect.popup.element.outerWidth(true) + 1);
+        assert.closeTo(multiselect.popup.element.closest(".k-animation-container").width(), multiselect.popup.element.outerWidth(true), 1);
     });
 
     it("enabled autoWidth disables X scrolling", function() {

@@ -1,9 +1,9 @@
 ---
 title: Appearance
-page_title: jQuery DatePicker Documentation | DatePicker Appearance
+page_title: jQuery DatePicker Documentation - DatePicker Appearance
 description: "Learn how to apply different styling options to the DatePicker widget."
 slug: appearance_kendoui_datepicker_widget
-position: 3
+position: 4
 ---
 
 # DatePicker Appearance
@@ -12,7 +12,7 @@ position: 3
 
 In this article, you will find information about the new rendering of the Kendo UI DatePicker.
 
-For additional information regarding the decision behind these changes, visit the [Rendering Components]({% slug components_rendering_overview %}) article.
+For additional information regarding the decision behind these changes, visit the [Styling Overview]({% slug components_rendering_overview %}) article.
 
 For a live example, visit the [Appearance Demo of the DatePicker](https://demos.telerik.com/kendo-ui/datepicker/appearance).
 
@@ -218,9 +218,9 @@ The following example demonstrates the full version of the new rendering:
 
 ## Visual Backwards Compatibility
 
-In order to achieve the same look and feel as the old rendering, the element references must be updated. Visit the [CSS Classes Migration]({% slug components_rendering_overview %}#css-classes-migration) and [JQuery Selectors Migration]({% slug components_rendering_overview %}#jquery-selectors-migration) sections of the [Styling Overview]({% slug components_rendering_overview %}) article for additional information.
+To achieve the same look and feel as the old rendering, you must update the element references.
 
-> The new styling and rendering supports only the [default options](#options) when you use a LESS theme.
+> When you use a LESS theme, the new styling and rendering supports only the [default options](#options).
 
 Previously, a reference to the DatePicker input element was obtainable through the `k-input` class.
 
@@ -228,7 +228,7 @@ Previously, a reference to the DatePicker input element was obtainable through t
 $(".k-input") // Returns a reference to the input element in the old rendering.
 ```
 
-With the new rendering, the DatePicker input element must be targeted by using the `k-input-inner` class.
+With the new rendering, you must target the DatePicker input element by using the `k-input-inner` class.
 
 ```javascript
 $(".k-input-inner") // Returns a reference to the input element in the new rendering.
@@ -240,15 +240,46 @@ Previously, a reference to the button element was obtainable through the `k-sele
 $(".k-select") // Returns a reference to the calendar button element in the old rendering.
 ```
 
-With the new rendering, a reference to the button element is obtainable through the `k-button` and `k-input-button` classes. 
+With the new rendering, you can obtain a reference to the button element through the `k-button` and `k-input-button` classes. 
 
 ```javascript
 $(".k-button") // Returns a reference to the calendar button element in the new rendering.
 $(".k-input-button") // Returns a reference to the calendar button element in the new rendering.
 ```
 
+The following example showcases how to change the background colors of the input and button elements of the **DatePicker** in both the new, and the old rendering:
+
+```dojo
+    <!-- Open the example in Dojo and select version prior to 2022 R1 to see the difference in the appearance -->
+    <div id="parent">
+      <input id="datepicker" />
+    </div>
+
+    <style>
+      /* Doesn't work AFTER R1 2022 */
+      #parent .k-input {
+        background-color: #0071bc !important; /* Blue color in versions BEFORE R1 2022 */
+      }
+      #parent .k-select {
+        background-color: red !important; /* Applies red color to the button element BEFORE R1 2022 */
+      }
+
+      /* Doesn't work BEFORE R1 2022 */
+      #parent .k-input-inner {
+        background-color: #2e8540 !important; /* Green color in versions AFTER R1 2022 */
+      }
+      #parent .k-input-button {
+        background-color: yellow !important; /* Applies yellow color to the button element AFTER R1 2022 */
+      }
+    </style>
+
+    <script>
+      $("#datepicker").kendoDatePicker();
+    </script>
+```
+
 ## See Also
 
-* [Rendering Overview Article]({% slug components_rendering_overview %})
+* [Styling Overview Article]({% slug components_rendering_overview %})
 * [Appearance Demo of the DatePicker](https://demos.telerik.com/kendo-ui/datepicker/appearance)
 * [JavaScript API Reference of the DatePicker](/api/javascript/ui/datepicker)

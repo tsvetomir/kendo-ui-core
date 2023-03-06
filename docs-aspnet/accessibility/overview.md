@@ -6,11 +6,13 @@ slug: overview_accessibility
 position: 0
 ---
 
-# Accessibility Overview
+# {{ site.product }} Accessibility Overview
 
 Websites and applications are accessible when they provide full control over their features by enabling users with disabilities to access their content by using assistive technologies or keyboard navigation.
 
 For the full list of components which support accessibility and keyboard navigation, refer to the article on [accessibility support by {{ site.product }}]({% slug compliance_accessibility %}).
+
+Refer to our [accessibility demos](https://demos.telerik.com/{{ site.platform }}/accessibility), where accessibility level and compliance of the {{ site.product }} components can be tested.
 
 ## Standards and Requirements
 

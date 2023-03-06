@@ -2,6 +2,7 @@
 (function($, undefined) {
 
     /* FlatColorPicker messages */
+
     if (kendo.ui.FlatColorPicker) {
         kendo.ui.FlatColorPicker.prototype.options.messages =
             $.extend(true, kendo.ui.FlatColorPicker.prototype.options.messages, {
@@ -972,7 +973,7 @@
                 "alignmentDialog": {
                     "title": "對齊",
                     "buttons": {
-                        "justtifyLeft": "左對齊",
+                        "justifyLeft": "左對齊",
                         "justifyCenter": "水準居中",
                         "justifyRight": "右對齊",
                         "justifyFull": "兩端對齊",
@@ -1226,7 +1227,7 @@
                 "addRowBelow": "在下麵插入行",
                 "alignment": "對齊",
                 "alignmentButtons": {
-                    "justtifyLeft": "左對齊",
+                    "justifyLeft": "左對齊",
                     "justifyCenter": "水準居中",
                     "justifyRight": "右對齊",
                     "justifyFull": "兩端對齊",

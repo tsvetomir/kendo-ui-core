@@ -1,6 +1,6 @@
 ---
 title: Pie Charts
-page_title: jQuery Chart Documentation | Pie Charts
+page_title: jQuery Chart Documentation - Pie Charts
 description: "Learn how to create a Kendo UI Pie Chart and specify its point value, category label, and other properties."
 slug: pietypecharts_widget
 ---
@@ -56,7 +56,7 @@ The following example demonstrates how to define a single series of type `"pie"`
     });
 
 
-![A sample Pie Chart](chart-pie.png)
+![Kendo UI for jQuery Pie Chart Overview](chart-pie-overview.png)
 
 ## Auto-Fit Labels
 
@@ -117,15 +117,15 @@ The Pie Chart supports the following gradient options:
 
 * (Default) `roundedBevel`
 
-    ![A Pie Chart with roundedBevel overlay](chart-pie-overlay-roundbevel.png)
+    ![Kendo UI for jQuery Pie Chart with roundedBevel overlay](chart-pie-overlay-roundbevel.png)
 
 * `sharpBevel`
 
-    ![A Pie Chart with sharpBevel overlay](chart-pie-overlay-sharpbevel.png)
+    ![Kendo UI for jQuery Pie Chart with sharpBevel overlay](chart-pie-overlay-sharpbevel.png)
 
 * `none`
 
-    ![A Pie Chart with no overlay](chart-pie-overlay-none.png)
+    ![Kendo UI for jQuery Pie Chart with no overlay](chart-pie-overlay-none.png)
 
 ## See Also
 

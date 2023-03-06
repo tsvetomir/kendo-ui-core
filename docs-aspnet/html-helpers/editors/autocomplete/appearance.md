@@ -29,6 +29,7 @@ The following values are available for the `Size` option:
 - `Small`—small size (applies the `k-input-sm` class to the wrapping span element).
 - `Medium`—medium size (applies the `k-input-md` class to the wrapping span element).
 - `Large`—large size (applies the `k-input-lg` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Size` in the declaration of the AutoComplete:
 
@@ -99,6 +100,7 @@ The following values are available for the `Rounded` option:
 - `Medium`—medium border radius (applies the `k-rounded-md` class to the wrapping span element).
 - `Large`—large border radius (applies the `k-rounded-lg` class to the wrapping span element).
 - `Full`—largest border radius (applies the `k-rounded-full` class to the wrapping span element).
+- `None`—unset.
 
 The following example demonstrates how to set `Rounded` in the declaration of the AutoComplete:
 
@@ -169,6 +171,7 @@ The following values are available for the `FillMode` option:
 - `Solid`—applies the `k-input-solid` class to the wrapping span element.
 - `Flat`—applies the `k-input-flat` class to the wrapping span element.
 - `Outline`—applies the `k-input-outline` class to the wrapping span element.
+- `None`—unset.
 
 The following example demonstrates how to set `FillMode` in the declaration of the AutoComplete:
 
@@ -392,6 +395,28 @@ $(".k-input") // Returns a reference to the input element in the old rendering.
 With the new rendering, the AutoComplete input element must be targeted by using the k-input-inner class.
 
 $(".k-input-inner") // Returns a reference to the input element in the new rendering.
+
+The following example showcases how to change the background colors of the input and button elements of the **AutoComplete** in both the new, and the old rendering:
+
+```
+    <style>
+      /* Doesn't work BEFORE R1 2022 */
+        .k-input-inner{ /* change the input field style */
+            background-color:red;
+        }
+        .k-list-item{ /* change the style of the items */
+            background-color:red;
+        }
+
+      /* Doesn't work AFTER R1 2022 */
+        .k-input{ /* change the input field style */
+            background-color:red;
+        }
+        .k-item{ /* change the style of the items */
+            background-color:red;
+        }
+    </style>
+```
 
 ## See Also
 

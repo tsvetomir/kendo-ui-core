@@ -32,7 +32,11 @@
                 responseText: "foo bar baz"
             });
 
-            Mocha.fixture.html(__html__["tests/window/templates-fixture.html"]);
+            $(`<div id="div-with-template">
+                    <div id="kendo-template">
+                        kendo-template
+                    </div>
+                </div>`).appendTo(Mocha.fixture);
         });
         afterEach(function() {
             Mocha.fixture
@@ -301,7 +305,7 @@
         it("content.template", function() {
             var dialog = createWindow({
                 content: {
-                    template: "foo #= 1 + 1 #"
+                    template: () => `foo ${1 + 1}`
                 }
             });
 
@@ -317,7 +321,7 @@
                         foo: "bar"
                     },
 
-                    template: "templated #= foo #",
+                    template: ({ foo }) => `templated ${foo}`,
 
                     complete: function() {
                         assert.equal(dialog.element.text(), "templated bar");
@@ -523,7 +527,7 @@
 
         it("creating pinned window with a Pin command adds an Unpin button", function() {
             var dialog = createWindow({ pinned: true, actions: ["Pin"] });
-            assert.equal(dialog.wrapper.find(".k-i-unpin").length, 1);
+            assert.equal(dialog.wrapper.find(".k-i-unpin,.k-svg-i-unpin").length, 1);
         });
 
         it("creating pinned window pins the window if initially visible", function() {

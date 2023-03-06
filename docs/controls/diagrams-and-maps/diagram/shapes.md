@@ -1,6 +1,6 @@
 ---
 title: Shapes
-page_title: jQuery Diagram Documentation | Shapes
+page_title: jQuery Diagram Documentation - Shapes
 description: "Get started with the jQuery Diagram by Kendo UI and use its shape configuration options."
 slug: shapes_kendoui_diagram
 position: 5
@@ -39,7 +39,7 @@ To connect the shapes, use the `connect()` method.
 
 The previous example results in the following output.
 
-![Two connected Diagram shapes](diagram-connection.png)
+![Kendo UI for jQuery Two connected Diagram shapes](diagram-connection.png)
 
 ## Changing the Initial Options of the Shape
 
